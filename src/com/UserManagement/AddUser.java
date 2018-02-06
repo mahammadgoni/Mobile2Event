@@ -1,7 +1,11 @@
 package com.UserManagement;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 import com.BaseSetup.BaseSetUp;
 
 public class AddUser extends BaseSetUp{
@@ -14,16 +18,18 @@ public class AddUser extends BaseSetUp{
 	By pass = By.xpath("//*[@id='txtPass']");
 	
 	By signInBtn = By.xpath("//*[@id='btnLogin']");
+		
+	By logoutBtn = By.xpath("//*[@id and @onclick and @data-rel]");
 	
-	By logoutBtn = By.xpath("//*[@id='Layer_1']");
+	By menu = By.xpath("//*[@class='toggle-menu']");
 	
-//	By menu = By.xpath("//*[@class='toggle-menu']");
-	
-	By menu = By.xpath("//*[@class='toggle-menu' and @href='javascript:{}']");
+//	By menu = By.xpath("//*[@class='toggle-menu' and @href='javascript:{}']");
 
 	By userMgnt = By.xpath("//*[@id='UM']");
 	
 	By user = By.xpath("//*[@id='UMUser']");
+	
+	By noOfExistingUsers = By.xpath("//*[@class='chkboxcls']");
 	
 	By noOfUserW = By.xpath("//*[@class='BgColorWhite']");
 	
@@ -77,6 +83,15 @@ public class AddUser extends BaseSetUp{
 	
 	By deleteUserFromList = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_imgDelFromList_1']");
 	
+	By bulkUserBtn = By.xpath("//*[@id='ContentPlaceHolder1_fileupload']");
+	
+	By bulkUserImageBtn = By.xpath("//*[@id='ContentPlaceHolder1_fileupload1']");
+	
+	By bulkUserSaveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnAdd']");
+	
+	By bulkUploadHistory = By.xpath("//*[@id='ContentPlaceHolder1_Button1']");
+	
+	By refreshBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnRefresh']");
 	
 	
 
@@ -84,13 +99,14 @@ public class AddUser extends BaseSetUp{
 		super(driver);
 		
 	}
-	
-	
+		
 	public AddUser addVerifiedUser(String EmailId,String Password,String FirstName,String LastName,String AddUserEmail){
 		
 		System.out.println("Entering Email id  is : "+EmailId);
 		
 		waitForClickabilityOf(emailId);
+		
+		driver.findElement(emailId).clear();
 		
 		driver.findElement(emailId).sendKeys(EmailId);
 		
@@ -103,6 +119,8 @@ public class AddUser extends BaseSetUp{
 		System.out.println("Entering Password  is : "+Password);
 		
 		waitForClickabilityOf(pass);
+		
+		driver.findElement(pass).clear();
 		
 		driver.findElement(pass).sendKeys(Password);
 		
@@ -130,18 +148,16 @@ public class AddUser extends BaseSetUp{
 		
 		driver.findElement(user).click();
 		
-//		Need to Add Verification Code Here
+//		This is User count code
 		
-//		List<WebElement> WUser = driver.findElements(noOfUserW);
-//		
+		List<WebElement> WUser = driver.findElements(noOfExistingUsers);
+		
 //		List<WebElement>  GUser = driver.findElements(noOfUserG);
-//			
-//		System.out.println("Current Existing User Count is :");
 		
-//		waitForClickabilityOf(user);
-//		
-//		driver.findElement(user).click();
-		
+		int NoExUsr = WUser.size()+1;
+					
+		System.out.println("Current Existing User Count is : "+NoExUsr);
+				
 		System.out.println("Clicking on Add User Button");
 		
 		waitForClickabilityOf(addUser);
@@ -260,6 +276,34 @@ public class AddUser extends BaseSetUp{
 		
 		driver.findElement(saveBtn).click();
 		
+		try {
+			popUpHandeling();
+			
+			waitForClickabilityOf(noOfExistingUsers);
+			
+			List<WebElement> GUser = driver.findElements(noOfExistingUsers);
+					
+			int NoExUsr1 = GUser.size()+1;
+						
+			System.out.println("Current Existing User Count is : "+NoExUsr1);
+			
+			if (NoExUsr1==NoExUsr+1) {
+				
+				System.out.println("Successfully Added one Verified User");
+				
+			}else {
+				
+				System.out.println("Failed to Add Any User");
+			}
+			
+		} catch (Exception e) {
+			
+		}
+		
+		waitForClickabilityOf(logoutBtn);
+		
+		driver.findElement(logoutBtn).click();
+		
 		return new AddUser(driver);
 		
 	}
@@ -269,6 +313,8 @@ public class AddUser extends BaseSetUp{
 		System.out.println("Entering Email id  is : "+EmailId);
 		
 		waitForClickabilityOf(emailId);
+		
+		driver.findElement(emailId).clear();
 		
 		driver.findElement(emailId).sendKeys(EmailId);
 		
@@ -281,6 +327,8 @@ public class AddUser extends BaseSetUp{
 		System.out.println("Entering Password  is : "+Password);
 		
 		waitForClickabilityOf(pass);
+		
+		driver.findElement(pass).clear();
 		
 		driver.findElement(pass).sendKeys(Password);
 		
@@ -302,17 +350,15 @@ public class AddUser extends BaseSetUp{
 		
 		driver.findElement(user).click();
 		
-//		Need to Add Verification Code Here
+//		This is User count code
 		
-//		List<WebElement> WUser = driver.findElements(noOfUserW);
-//		
+		List<WebElement> WUser = driver.findElements(noOfExistingUsers);
+		
 //		List<WebElement>  GUser = driver.findElements(noOfUserG);
-//			
-//		System.out.println("Current Existing User Count is :");
 		
-		waitForClickabilityOf(user);
-		
-		driver.findElement(user).click();
+		int NoExUsr = WUser.size()+1;
+					
+		System.out.println("Current Existing User Count is : "+NoExUsr);
 		
 		System.out.println("Clicking on Add User Button");
 		
@@ -402,11 +448,11 @@ public class AddUser extends BaseSetUp{
 		
 		driver.findElement(country).click();
 		
-		System.out.println("Entering Mobile No as : 9876543210");
+		System.out.println("Entering Mobile No as : 9986543210");
 		
 		waitForClickabilityOf(mobileNo);
 		
-		driver.findElement(mobileNo).sendKeys("9876543210");
+		driver.findElement(mobileNo).sendKeys("9986543210");
 		
 		System.out.println("Entering Facebook url : https://facebook.com");
 		
@@ -432,12 +478,160 @@ public class AddUser extends BaseSetUp{
 		
 		driver.findElement(saveBtn).click();
 		
+		try {
+			popUpHandeling();
+			
+			waitForClickabilityOf(noOfExistingUsers);
+			
+			List<WebElement> GUser = driver.findElements(noOfExistingUsers);
+			
+			int NoExUsr1 = GUser.size()+1;
+						
+			System.out.println("Current Existing User Count is : "+NoExUsr1);
+			
+			if (NoExUsr1==NoExUsr+1) {
+				
+				System.out.println("Successfully Added one Unverified User");
+				
+			}else {
+				
+				System.out.println("Failed to Add Any User");
+			}
+			
+		} catch (Exception e) {
+			
+		}
+		
+		waitForClickabilityOf(logoutBtn);
+		
+		driver.findElement(logoutBtn).click();
+		
 		return new AddUser(driver);
 		
 	}
 	
-	public AddUser userBulkUpload(){
+	public AddUser userBulkUpload(String EmailId,String Password,String PathOfXlsx){
 		
+		System.out.println("Entering Email id  is : "+EmailId);
+		
+		waitForClickabilityOf(emailId);
+		
+		driver.findElement(emailId).clear();
+		
+		driver.findElement(emailId).sendKeys(EmailId);
+		
+		System.out.println("Clicking on Proceed Button");
+		
+		waitForClickabilityOf(proceedBtn);
+		
+		driver.findElement(proceedBtn).click();
+				
+		System.out.println("Entering Password  is : "+Password);
+		
+		waitForClickabilityOf(pass);
+		
+		driver.findElement(pass).clear();
+		
+		driver.findElement(pass).sendKeys(Password);
+		
+		System.out.println("Clicking on Sign in Button");
+		
+		waitForClickabilityOf(signInBtn);
+		
+		driver.findElement(signInBtn).click();
+		
+		System.out.println("Clicking on Menu");
+		
+		waitForClickabilityOf(menu);
+		
+		driver.findElement(menu).click();
+		
+		System.out.println("Clicking on User Management");
+		
+		waitForClickabilityOf(userMgnt);
+		
+		driver.findElement(userMgnt).click();
+		
+		System.out.println("Clicking on Users from User Management");
+		
+		waitForClickabilityOf(user);
+		
+		driver.findElement(user).click();
+		
+//		This is User count code
+		
+		List<WebElement> WUser = driver.findElements(noOfExistingUsers);
+				
+		int NoExUsr = WUser.size()+1;
+					
+		System.out.println("Current Existing User Count is : "+NoExUsr);
+				
+		System.out.println("Clicking on Import User Button");
+		
+		waitForClickabilityOf(importUser);
+		
+		driver.findElement(importUser).click();
+		
+		System.out.println("Clicking on Browse Button for xlsx path");
+		
+		waitForClickabilityOf(bulkUserBtn);
+		
+		driver.findElement(bulkUserBtn).sendKeys(PathOfXlsx);
+		
+		System.out.println("Clicking on Save Button Upload Users");
+		
+		waitForClickabilityOf(bulkUserSaveBtn);
+		
+		driver.findElement(bulkUserSaveBtn).click();
+		
+		System.out.println("Clicking on Bulk Upload History Button");
+		
+		waitForClickabilityOf(bulkUploadHistory);
+		
+		driver.findElement(bulkUploadHistory).click();
+		
+		System.out.println("Clicking on Refresh Button");
+		
+		waitForClickabilityOf(refreshBtn);
+		
+		driver.findElement(refreshBtn).click();
+		
+		System.out.println("Going Back to User Management List");
+		
+		waitForClickabilityOf(menu);
+		
+		driver.findElement(menu).click();
+		
+		System.out.println("Clicking on User Management");
+		
+		waitForClickabilityOf(userMgnt);
+		
+		driver.findElement(userMgnt).click();
+		
+		System.out.println("Clicking on Users from User Management");
+		
+		waitForClickabilityOf(user);
+		
+		driver.findElement(user).click();
+		
+		List<WebElement> GUser = driver.findElements(noOfExistingUsers);
+		
+		int NoExUsr1 = GUser.size()+1;
+					
+		System.out.println("Current Existing User Count is : "+NoExUsr1);
+		
+		if (NoExUsr1==NoExUsr) {
+			
+			System.out.println("Failed to Upload Bulk User ");
+			
+		}else {
+			
+			System.out.println("Successfully Uploaded Bulk Users");
+		}
+		
+		waitForClickabilityOf(logoutBtn);
+		
+		driver.findElement(logoutBtn).click();
 		
 		return new AddUser(driver);
 	}

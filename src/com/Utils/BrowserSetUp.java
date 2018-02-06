@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserSetUp {
@@ -14,8 +15,8 @@ public class BrowserSetUp {
 	
 	String chromeDrPath = "/Users/goni/Documents/workspace/WebSpiders/Event2Mobile/Browser_Driver/chromedriver";
 	
-	String logPath = "/Users/goni/Documents/workspace/WebSpiders/Event2Mobile/Browser_Driver/firefoxLogs";
-	
+	String firefoxLogPath = "/Users/goni/Documents/workspace/WebSpiders/Event2Mobile/Browser_Driver/firefoxLogs";
+		
 	String e2mURL = "https://cmsuat2.event2mobile.com/";
 	
 	
@@ -30,7 +31,25 @@ public class BrowserSetUp {
 			
 			System.setProperty("webdriver.chrome.driver", chromeDrPath);
 			
-			driver = new ChromeDriver();
+			ChromeOptions options = new ChromeOptions();
+			
+//			Code for disable the Logs
+			
+			System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
+			
+			System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http", "warn");
+			
+			options.addArguments("--log-level=3");
+			
+			options.addArguments("--silent");
+						
+			options.addArguments("disable-infobars");
+			
+			options.addArguments("--start-maximized");
+			
+			options.addArguments("--disable-logging");
+			
+			driver = new ChromeDriver(options);
 			
 		    driver.manage().window().fullscreen();
 			
@@ -54,7 +73,7 @@ public class BrowserSetUp {
 			
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
 			
-			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, logPath);
+			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, firefoxLogPath);
 			
 			driver  = new FirefoxDriver();
 			
@@ -88,18 +107,30 @@ public class BrowserSetUp {
 		
 	}
 	
-	protected void closeBrowser(){
+	protected void closeBrowser() throws InterruptedException{
 		
-		System.out.println("Closing the current Browser Tab");
-		
+		System.out.println("Closing the Current Browser ");
+				
 		driver.close();
 	}
 	
 	protected void quitAllBrowser(){
 		
-		System.out.println("Closing Browser");
+		System.out.println("    ");
+		
+		System.out.println("===============================================");
+		
+		System.out.println("Closing All the Browsers");
 		
 		driver.quit();
+		
+	}
+	
+	protected void methodSeparation(){
+		
+		System.out.println("    ");
+		
+		System.out.println("===============================================");
 		
 	}
 

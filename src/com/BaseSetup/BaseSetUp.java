@@ -1,5 +1,6 @@
 package com.BaseSetup;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,6 +22,16 @@ public class BaseSetUp {
     protected void waitForClickabilityOf(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+    
+    protected void popUpHandeling(){    	
+    	Alert alert  = driver.switchTo().alert();    	
+    	String alertMessage = driver.switchTo().alert().getText();    	
+    	System.out.println(alertMessage);    	
+    	alert.accept();
+    	
+    	
+    	
     }
 	
 	

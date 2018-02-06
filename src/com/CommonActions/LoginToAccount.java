@@ -15,7 +15,7 @@ public class LoginToAccount extends BaseSetUp{
 	
 	By signInBtn = By.xpath("//*[@id='btnLogin']");
 	
-	By logoutBtn = By.xpath("//*[@id='Layer_1']");
+	By logoutBtn = By.xpath("//*[@id='top1_Logout'][@class='tm-logout']");
 	
 
 	public LoginToAccount(WebDriver driver) {
@@ -29,6 +29,8 @@ public class LoginToAccount extends BaseSetUp{
 		
 		waitForClickabilityOf(emailId);
 		
+		driver.findElement(emailId).clear();
+		
 		driver.findElement(emailId).sendKeys(EmailId);
 		
 		System.out.println("Clicking on Proceed Button");
@@ -41,6 +43,8 @@ public class LoginToAccount extends BaseSetUp{
 		
 		waitForClickabilityOf(pass);
 		
+		driver.findElement(pass).clear();
+		
 		driver.findElement(pass).sendKeys(Password);
 		
 		System.out.println("Clicking on Sign in Button");
@@ -48,12 +52,14 @@ public class LoginToAccount extends BaseSetUp{
 		waitForClickabilityOf(signInBtn);
 		
 		driver.findElement(signInBtn).click();
+		
+		waitForClickabilityOf(logoutBtn);
 			
-		boolean lBtn = driver.findElement(logoutBtn).isDisplayed();
+//		boolean lBtn = ;
 		
-		System.out.println(lBtn);
+//		System.out.println(lBtn);
 		
-		if (lBtn=true) {
+		if (driver.findElement(logoutBtn).isDisplayed()==true) {
 			
 			System.out.println("Successfully Logged in to your Account");
 			
@@ -62,6 +68,8 @@ public class LoginToAccount extends BaseSetUp{
 			System.out.println("Failed to Login to your Account");
 
 		}
+		
+		driver.findElement(logoutBtn).click();
 				
 		return new LoginToAccount(driver);
 		

@@ -54,7 +54,7 @@ public class GetScreenShot implements ITestListener{
 
 	 // Function to capture screenshot.
 	 public void captureScreenShot(ITestResult result, String status) {
-	  // AndroidDriver driver=ScreenshotOnPassFail.getDriver();
+	
 	  String destDir = "";
 	  String passfailMethod = result.getMethod().getRealClass().getSimpleName() + "." + result.getMethod().getMethodName();
 	  // To capture screenshot.
