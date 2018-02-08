@@ -98,8 +98,7 @@ public class AddUser extends BaseSetUp {
 
 	}
 
-	public AddUser addVerifiedUser(String EmailId, String Password, String FirstName, String LastName,
-			String AddUserEmail) {
+	public AddUser addVerifiedUser(String EmailId, String Password, String FirstName, String LastName,String AddUserEmail) {
 
 		System.out.println("Entering Email id  is : " + EmailId);
 
