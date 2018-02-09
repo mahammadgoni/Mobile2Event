@@ -6,6 +6,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.CommonActions.LoginToAccount;
+import com.EventManagement.CloneEvent;
 import com.EventManagement.NewEvent;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
@@ -158,14 +159,29 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 	
-	@Test(priority = 9)
-	public void newEventCreationTest() {
+//	@Test(priority = 9)
+//	public void newEventCreationTest() {
+//
+//		System.out.println("Executing : New Event Creation Test");
+//
+//		// openBrowser(BrowserName);
+//
+//		new NewEvent(driver).newEventCreation(EmailId, Password, EventFullName, EventShortName);
+//		
+//		logOut();
+//
+//		methodSeparation();
+//
+//	}
+	
+	@Test(priority = 10)
+	public void cloneToNewEventTest() {
 
-		System.out.println("Executing : New Event Creation Test");
+		System.out.println("Executing : Clone To New Event Test");
 
 		// openBrowser(BrowserName);
 
-		new NewEvent(driver).newEventCreation(EmailId, Password, EventFullName, EventShortName);
+		new CloneEvent(driver).cloneToNewEvent(EmailId, Password, EventFullName, EventShortName);
 		
 		logOut();
 
