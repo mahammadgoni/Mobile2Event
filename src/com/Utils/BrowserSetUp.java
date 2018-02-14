@@ -3,10 +3,13 @@ package com.Utils;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserSetUp {
 
@@ -21,6 +24,10 @@ public class BrowserSetUp {
 	String e2mURL = "https://cmsuat2.event2mobile.com/";
 
 	protected void openBrowser(String BrowserName) {
+		
+//		DesiredCapabilities caps = new DesiredCapabilities();
+//		
+//		caps.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
 
 		if (BrowserName == "Chrome") {
 
@@ -29,6 +36,8 @@ public class BrowserSetUp {
 			System.out.println("Opening the Chrome Browser");
 
 			System.setProperty("webdriver.chrome.driver", chromeDrPath);
+			
+//			String dir = "/Library/Application Support/Google/Chrome";
 
 			ChromeOptions options = new ChromeOptions();
 
@@ -37,6 +46,8 @@ public class BrowserSetUp {
 			System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
 
 			System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http", "warn");
+			
+//			options.addArguments(dir);
 
 			options.addArguments("--log-level=3");
 
@@ -54,7 +65,7 @@ public class BrowserSetUp {
 
 			// driver.manage().window().maximize();
 
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 
 			System.out.println("Opening the Url : " + e2mURL);
 
@@ -133,7 +144,7 @@ public class BrowserSetUp {
 	
 	protected void logOut(){
 		
-		driver.navigate().refresh();
+		driver.navigate().to(e2mURL);
 		
 		By logoutBtn = By.xpath("//*[@id and @onclick and @data-rel]");
 		

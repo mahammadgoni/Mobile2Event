@@ -246,7 +246,15 @@ public class DeleteUser extends BaseSetUp {
 
 		driver.findElement(deleteConfromPopUp).click();
 		
-		popUpHandeling();
+		try {
+			
+			popUpHandeling();
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+		
+		}
 		
 		waitForClickabilityOf(userMain);
 
@@ -333,8 +341,16 @@ public class DeleteUser extends BaseSetUp {
 
 		driver.findElement(undoLastUser).click();
 		
-		popUpHandeling();
+		try {
+			
+			popUpHandeling();
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
 		
+		}
+	
 		List<WebElement> GUser = driver.findElements(selectDeletedUser);
 
 		int NoExUsr1 = GUser.size();
@@ -413,9 +429,15 @@ public class DeleteUser extends BaseSetUp {
 
 		driver.findElement(purgeBtn).click();
 		
-		popUpHandeling();
+		try {
+			
+			popUpHandeling();
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
 		
-//		popUpHandeling();
+		}
 		
 		System.out.println("Successfully Purge All Deleted Users");
 		

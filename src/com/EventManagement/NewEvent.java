@@ -205,9 +205,9 @@ public class NewEvent extends BaseSetUp{
 		
 		System.out.println("Selecting Date Format as : MM/dd/yyyy");
 		
-		waitForClickabilityOf(selectDateFormat);
+		waitForClickabilityOf(selectFormat);
 
-		driver.findElement(selectDateFormat).click();
+		driver.findElement(selectFormat).click();
 		
 		System.out.println("Clicking On Show Banner Check Box");
 		

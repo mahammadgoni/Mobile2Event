@@ -1,10 +1,10 @@
 package com.e2m.TestCases;
 
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import com.CommonActions.LoginToAccount;
 import com.EventManagement.CloneEvent;
 import com.EventManagement.MapUserToEvent;
@@ -18,11 +18,11 @@ import com.Utils.GetScreenShot;
 
 public class E2MTestCaes extends BrowserSetUp {
 
-	// Please select the Browser before run all the Test Cases
+//	 Please select the Browser before run all the Test Cases
 
 //	String BrowserName = "Firefox";
 
-	 String BrowserName = "Chrome";
+	String BrowserName = "Chrome";
 
 	String EmailId = "ethan.taylor@yopmail.com";
 
@@ -41,178 +41,133 @@ public class E2MTestCaes extends BrowserSetUp {
 
 	}
 
-	@AfterTest
+	@AfterClass
 	public void tearDown() {
 
 		quitAllBrowser();
 
 	}
+	
+	@AfterMethod
+	public void afterMethod(){
+		
+		logOut();
+		
+		methodSeparation();
+		
+	}
 
-//	@Test(priority = 1)
-//	public void loginToAccount() throws InterruptedException {
-//
-//		System.out.println("Executing : Login To Account Test");
-//
-//		// openBrowser(BrowserName);
-//
-//		new LoginToAccount(driver).loginToAccount(EmailId, Password);
-//		
-//		logOut();
-//
-//		methodSeparation();
-//
-//	}
-//
-	@Test(priority = 2)
+	@Test(priority = 1,alwaysRun=true)
+	public void loginToAccount() throws InterruptedException {
+
+		System.out.println("Executing : Login To Account Test");
+
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+		
+
+	}
+	
+	@Test(priority = 2,alwaysRun=true)
+	public void deleteSelectedUserTest() {
+
+		System.out.println("Executing : Delete Selected User Test");
+
+
+		new DeleteUser(driver).deleteSelectedUser(EmailId, Password);
+		
+
+	}
+	
+	@Test(priority = 3,alwaysRun=true)
+	public void deleteAllSelectedUserTest() {
+
+		System.out.println("Executing : Delete All Selected User Test");
+
+		new DeleteUser(driver).deleteAllUser(EmailId, Password);
+		
+		
+	}
+	
+	@Test(priority = 4,alwaysRun=true)
+	public void undoUserDeletionTest() {
+
+		System.out.println("Executing : Undo User Deletion Test");
+
+		new DeleteUser(driver).undoUserDeletion(EmailId, Password);
+
+
+	}
+	
+	@Test(priority = 5,alwaysRun=true)
+	public void purgeAllUserTest() {
+
+		System.out.println("Executing : Purge All User Test");
+
+		new DeleteUser(driver).purgeAllUser(EmailId, Password);
+
+		
+	}
+	
+	@Test(priority = 6,alwaysRun=true)
+	public void newEventCreationTest() {
+
+		System.out.println("Executing : New Event Creation Test");
+
+		new NewEvent(driver).newEventCreation(EmailId, Password, EventFullName, EventShortName);
+
+
+	}
+	
+	@Test(priority = 7,alwaysRun=true)
+	public void cloneToNewEventTest() {
+
+		System.out.println("Executing : Clone To New Event Test");
+
+		new CloneEvent(driver).cloneToNewEvent(EmailId, Password, EventFullName, EventShortName);
+
+	}
+
+	@Test(priority = 8,alwaysRun=true)
 	public void addVerifiedUserTest() throws InterruptedException {
 
 		System.out.println("Executing : Add Verified User Test");
 
-		// openBrowser(BrowserName);
-
 		new AddUser(driver).addVerifiedUser(EmailId, Password, "Kevin", "Ms", "kevinms@yopmail.com");
 		
-		logOut();
-
-		methodSeparation();
 
 	}
-//
-//	@Test(priority = 3)
-//	public void addUnverifiedUserTest() throws InterruptedException {
-//
-//		System.out.println("Executing : Add Unverified User Test");
-//
-//		// openBrowser(BrowserName);
-//
-//		new AddUser(driver).addUnverifiedUser(EmailId, Password, "Liam", "Neson", "liamneson@yopmail.com");
-//		
-//		logOut();
-//
-//		methodSeparation();
-//
-//	}
-//
-//	@Test(priority = 4)
-//	public void bulkUserUploadTest() throws InterruptedException {
-//
-//		System.out.println("Executing : Bulk User Upload Test");
-//
-//		// openBrowser(BrowserName);
-//
-//		new AddUser(driver).userBulkUpload(EmailId, Password, BulkUserPath);
-//		
-//		logOut();
-//
-//		methodSeparation();
-//
-//	}
+
+	@Test(priority = 9,alwaysRun=true)
+	public void addUnverifiedUserTest() throws InterruptedException {
+
+		System.out.println("Executing : Add Unverified User Test");
+
+		new AddUser(driver).addUnverifiedUser(EmailId, Password, "Liam", "Neson", "liamneson@yopmail.com");
+		
+
+	}
+
+	@Test(priority = 10,alwaysRun=true)
+	public void bulkUserUploadTest() throws InterruptedException {
+
+		System.out.println("Executing : Bulk User Upload Test");
+
+		new AddUser(driver).userBulkUpload(EmailId, Password, BulkUserPath);
+		
+
+	}
 	
-	@Test(priority = 5)
+	@Test(priority = 11,alwaysRun=true)
 	public void mapUserToAnEventTest() throws InterruptedException {
 
 		System.out.println("Executing : Map User To An Event Test");
-
-		// openBrowser(BrowserName);
 		
 		new MapUserToEvent(driver).mapUserToEvent(EmailId, Password, "CTech Symposium", "kevinms@yopmail.com");
-
-		logOut();
-
-		methodSeparation();
 
 	}
 	
 	
 
-//	@Test(priority = 5)
-//	public void deleteSelectedUserTest() {
-//
-//		System.out.println("Executing : Delete Selected User Test");
-//
-//		// openBrowser(BrowserName);
-//
-//		new DeleteUser(driver).deleteSelectedUser(EmailId, Password);
-//		
-//		logOut();
-//
-//		methodSeparation();
-//
-//	}
-//	
-//	@Test(priority = 6)
-//	public void deleteAllSelectedUserTest() {
-//
-//		System.out.println("Executing : Delete All Selected User Test");
-//
-//		// openBrowser(BrowserName);
-//
-//		new DeleteUser(driver).deleteAllUser(EmailId, Password);
-//		
-//		logOut();
-//
-//		methodSeparation();
-//
-//	}
-//	
-//	@Test(priority = 7)
-//	public void undoUserDeletionTest() {
-//
-//		System.out.println("Executing : Undo User Deletion Test");
-//
-//		// openBrowser(BrowserName);
-//
-//		new DeleteUser(driver).undoUserDeletion(EmailId, Password);
-//		
-//		logOut();
-//
-//		methodSeparation();
-//
-//	}
-//	
-//	@Test(priority = 8)
-//	public void purgeAllUserTest() {
-//
-//		System.out.println("Executing : Purge All User Test");
-//
-//		// openBrowser(BrowserName);
-//
-//		new DeleteUser(driver).purgeAllUser(EmailId, Password);
-//		
-//		logOut();
-//
-//		methodSeparation();
-//
-//	}
-//	
-//	@Test(priority = 9)
-//	public void newEventCreationTest() {
-//
-//		System.out.println("Executing : New Event Creation Test");
-//
-//		// openBrowser(BrowserName);
-//
-//		new NewEvent(driver).newEventCreation(EmailId, Password, EventFullName, EventShortName);
-//		
-//		logOut();
-//
-//		methodSeparation();
-//
-//	}
-	
-//	@Test(priority = 10)
-//	public void cloneToNewEventTest() {
-//
-//		System.out.println("Executing : Clone To New Event Test");
-//
-//		// openBrowser(BrowserName);
-//
-//		new CloneEvent(driver).cloneToNewEvent(EmailId, Password, EventFullName, EventShortName);
-//		
-//		logOut();
-//
-//		methodSeparation();
-//
-//	}
+
 
 }

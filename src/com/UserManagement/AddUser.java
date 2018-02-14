@@ -277,25 +277,26 @@ public class AddUser extends BaseSetUp {
 		try {
 			popUpHandeling();
 
-			waitForClickabilityOf(noOfExistingUsers);
-
-			List<WebElement> GUser = driver.findElements(noOfExistingUsers);
-
-			int NoExUsr1 = GUser.size() + 1;
-
-			System.out.println("Current Existing User Count is : " + NoExUsr1);
-
-			if (NoExUsr1 == NoExUsr + 1) {
-
-				System.out.println("Successfully Added one Verified User");
-
-			} else {
-
-				System.out.println("Failed to Add Any User");
-			}
 
 		} catch (Exception e) {
 
+		}
+		
+		waitForClickabilityOf(noOfExistingUsers);
+
+		List<WebElement> GUser = driver.findElements(noOfExistingUsers);
+
+		int NoExUsr1 = GUser.size() + 1;
+
+		System.out.println("Current Existing User Count is : " + NoExUsr1);
+
+		if (NoExUsr1 == NoExUsr + 1) {
+
+			System.out.println("Successfully Added one Verified User");
+
+		} else {
+
+			System.out.println("Failed to Add Any User");
 		}
 
 //		waitForClickabilityOf(logoutBtn);
@@ -481,27 +482,28 @@ public class AddUser extends BaseSetUp {
 
 			popUpHandeling();
 
-			waitForClickabilityOf(noOfExistingUsers);
-
-			List<WebElement> GUser = driver.findElements(noOfExistingUsers);
-
-			int NoExUsr1 = GUser.size() + 1;
-
-			System.out.println("Current Existing User Count is : " + NoExUsr1);
-
-			if (NoExUsr1 == NoExUsr + 1) {
-
-				System.out.println("Successfully Added one Unverified User");
-
-			} else {
-
-				System.out.println("Failed to Add Any User");
-			}
 
 		} catch (Exception e) {
 
 //			System.out.println(e.getMessage());
 
+		}
+		
+		waitForClickabilityOf(noOfExistingUsers);
+
+		List<WebElement> GUser = driver.findElements(noOfExistingUsers);
+
+		int NoExUsr1 = GUser.size() + 1;
+
+		System.out.println("Current Existing User Count is : " + NoExUsr1);
+
+		if (NoExUsr1 == NoExUsr + 1) {
+
+			System.out.println("Successfully Added one Unverified User");
+
+		} else {
+
+			System.out.println("Failed to Add Any User");
 		}
 
 //		waitForClickabilityOf(logoutBtn);
