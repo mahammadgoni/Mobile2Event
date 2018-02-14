@@ -154,6 +154,12 @@ public class NewEvent extends BaseSetUp{
 		waitForClickabilityOf(startTime);
 
 		driver.findElement(startTime).sendKeys("09:00 AM");
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 				
 		System.out.println("Clicking On Event End Date");
 		
@@ -168,7 +174,7 @@ public class NewEvent extends BaseSetUp{
 		driver.findElement(goToNextMonth).click();
 		
 		System.out.println("Selecting Event End Date as : 2nd");
-		
+				
 		waitForClickabilityOf(selectEndDate);
 
 		driver.findElement(selectEndDate).click();

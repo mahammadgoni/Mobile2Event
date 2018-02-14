@@ -27,8 +27,19 @@ public class BaseSetUp {
     protected void popUpHandeling(){    	
     	Alert alert  = driver.switchTo().alert();    	
     	String alertMessage = driver.switchTo().alert().getText();    
-    	System.out.println(alertMessage);    	
-    	alert.accept();
+    	System.out.println(alertMessage); 
+    	try {
+        	alert.accept();
+        	alert.dismiss();
+        	
+	
+		} catch (Exception e) {
+			
+//			System.out.println(e.getMessage());
+			
+		}
+    	
+
 //		return alertMessage;
     	
     	

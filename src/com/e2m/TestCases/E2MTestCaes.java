@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 
 import com.CommonActions.LoginToAccount;
 import com.EventManagement.CloneEvent;
+import com.EventManagement.MapUserToEvent;
 import com.EventManagement.NewEvent;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
@@ -19,9 +20,9 @@ public class E2MTestCaes extends BrowserSetUp {
 
 	// Please select the Browser before run all the Test Cases
 
-	String BrowserName = "Firefox";
+//	String BrowserName = "Firefox";
 
-	// String BrowserName = "Chrome";
+	 String BrowserName = "Chrome";
 
 	String EmailId = "ethan.taylor@yopmail.com";
 
@@ -29,7 +30,7 @@ public class E2MTestCaes extends BrowserSetUp {
 
 	String BulkUserPath = "/Users/goni/Documents/ImportUser_Template.xlsx";
 	
-	String EventFullName = "New E2M Test Event";
+	String EventFullName = "E2M Automation Testing Event";
 	
 	String EventShortName = "E2M Event";
 
@@ -55,23 +56,27 @@ public class E2MTestCaes extends BrowserSetUp {
 //		// openBrowser(BrowserName);
 //
 //		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+//		
+//		logOut();
 //
 //		methodSeparation();
 //
 //	}
 //
-//	@Test(priority = 2)
-//	public void addVerifiedUserTest() throws InterruptedException {
-//
-//		System.out.println("Executing : Add Verified User Test");
-//
-//		// openBrowser(BrowserName);
-//
-//		new AddUser(driver).addVerifiedUser(EmailId, Password, "Kevin", "Ms", "kevinms@yopmail.com");
-//
-//		methodSeparation();
-//
-//	}
+	@Test(priority = 2)
+	public void addVerifiedUserTest() throws InterruptedException {
+
+		System.out.println("Executing : Add Verified User Test");
+
+		// openBrowser(BrowserName);
+
+		new AddUser(driver).addVerifiedUser(EmailId, Password, "Kevin", "Ms", "kevinms@yopmail.com");
+		
+		logOut();
+
+		methodSeparation();
+
+	}
 //
 //	@Test(priority = 3)
 //	public void addUnverifiedUserTest() throws InterruptedException {
@@ -81,6 +86,8 @@ public class E2MTestCaes extends BrowserSetUp {
 //		// openBrowser(BrowserName);
 //
 //		new AddUser(driver).addUnverifiedUser(EmailId, Password, "Liam", "Neson", "liamneson@yopmail.com");
+//		
+//		logOut();
 //
 //		methodSeparation();
 //
@@ -94,11 +101,30 @@ public class E2MTestCaes extends BrowserSetUp {
 //		// openBrowser(BrowserName);
 //
 //		new AddUser(driver).userBulkUpload(EmailId, Password, BulkUserPath);
+//		
+//		logOut();
 //
 //		methodSeparation();
 //
 //	}
-//
+	
+	@Test(priority = 5)
+	public void mapUserToAnEventTest() throws InterruptedException {
+
+		System.out.println("Executing : Map User To An Event Test");
+
+		// openBrowser(BrowserName);
+		
+		new MapUserToEvent(driver).mapUserToEvent(EmailId, Password, "CTech Symposium", "kevinms@yopmail.com");
+
+		logOut();
+
+		methodSeparation();
+
+	}
+	
+	
+
 //	@Test(priority = 5)
 //	public void deleteSelectedUserTest() {
 //
@@ -158,7 +184,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		methodSeparation();
 //
 //	}
-	
+//	
 //	@Test(priority = 9)
 //	public void newEventCreationTest() {
 //
@@ -174,19 +200,19 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 	
-	@Test(priority = 10)
-	public void cloneToNewEventTest() {
-
-		System.out.println("Executing : Clone To New Event Test");
-
-		// openBrowser(BrowserName);
-
-		new CloneEvent(driver).cloneToNewEvent(EmailId, Password, EventFullName, EventShortName);
-		
-		logOut();
-
-		methodSeparation();
-
-	}
+//	@Test(priority = 10)
+//	public void cloneToNewEventTest() {
+//
+//		System.out.println("Executing : Clone To New Event Test");
+//
+//		// openBrowser(BrowserName);
+//
+//		new CloneEvent(driver).cloneToNewEvent(EmailId, Password, EventFullName, EventShortName);
+//		
+//		logOut();
+//
+//		methodSeparation();
+//
+//	}
 
 }

@@ -139,25 +139,31 @@ public class DeleteUser extends BaseSetUp {
 
 		driver.findElement(deleteConfromPopUp).click();
 		
-		popUpHandeling();
+		try {
+			
+			popUpHandeling();
 
-		waitForClickabilityOf(noOfExistingUsers);
+			waitForClickabilityOf(noOfExistingUsers);
 
-		List<WebElement> GUser = driver.findElements(noOfExistingUsers);
+			List<WebElement> GUser = driver.findElements(noOfExistingUsers);
 
-		int NoExUsr1 = GUser.size() + 1;
+			int NoExUsr1 = GUser.size() + 1;
 
-		System.out.println("Current Existing User Count is : " + NoExUsr1);
+			System.out.println("Current Existing User Count is : " + NoExUsr1);
 
-		if (NoExUsr1 == NoExUsr - 1) {
+			if (NoExUsr1 == NoExUsr - 1) {
 
-			System.out.println("Successfully Deleted the User");
+				System.out.println("Successfully Deleted the User");
 
-		} else {
+			} else {
 
-			System.out.println("Failed to Delete the User");
+				System.out.println("Failed to Delete the User");
+			}
+			
+		} catch (Exception e) {
+			
 		}
-
+		
 		return new DeleteUser(driver);
 
 	}

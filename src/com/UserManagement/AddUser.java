@@ -214,7 +214,7 @@ public class AddUser extends BaseSetUp {
 
 		waitForClickabilityOf(setPassword);
 
-		driver.findElement(setPassword).sendKeys("e2m321");
+		driver.findElement(setPassword).sendKeys("#e2m321");
 
 		System.out.println("Setting The Possion as : Software Engineer");
 
@@ -298,9 +298,9 @@ public class AddUser extends BaseSetUp {
 
 		}
 
-		waitForClickabilityOf(logoutBtn);
-
-		driver.findElement(logoutBtn).click();
+//		waitForClickabilityOf(logoutBtn);
+//
+//		driver.findElement(logoutBtn).click();
 
 		return new AddUser(driver);
 
@@ -417,7 +417,7 @@ public class AddUser extends BaseSetUp {
 
 		waitForClickabilityOf(setPassword);
 
-		driver.findElement(setPassword).sendKeys("e2m321");
+		driver.findElement(setPassword).sendKeys("#e2m321");
 
 		System.out.println("Setting The Possion as : Software Engineer");
 
@@ -504,9 +504,9 @@ public class AddUser extends BaseSetUp {
 
 		}
 
-		waitForClickabilityOf(logoutBtn);
-
-		driver.findElement(logoutBtn).click();
+//		waitForClickabilityOf(logoutBtn);
+//
+//		driver.findElement(logoutBtn).click();
 
 		return new AddUser(driver);
 
@@ -631,9 +631,9 @@ public class AddUser extends BaseSetUp {
 			System.out.println("Successfully Uploaded Bulk Users");
 		}
 
-		waitForClickabilityOf(logoutBtn);
-
-		driver.findElement(logoutBtn).click();
+//		waitForClickabilityOf(logoutBtn);
+//
+//		driver.findElement(logoutBtn).click();
 
 		return new AddUser(driver);
 	}

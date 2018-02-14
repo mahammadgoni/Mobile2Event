@@ -69,7 +69,7 @@ public class LoginToAccount extends BaseSetUp{
 
 		}
 		
-		driver.findElement(logoutBtn).click();
+//		driver.findElement(logoutBtn).click();
 				
 		return new LoginToAccount(driver);
 		

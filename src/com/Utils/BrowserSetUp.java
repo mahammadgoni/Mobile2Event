@@ -133,6 +133,8 @@ public class BrowserSetUp {
 	
 	protected void logOut(){
 		
+		driver.navigate().refresh();
+		
 		By logoutBtn = By.xpath("//*[@id and @onclick and @data-rel]");
 		
 //		waitForClickabilityOf(logoutBtn);
