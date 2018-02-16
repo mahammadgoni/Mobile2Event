@@ -15,11 +15,11 @@ public class BrowserSetUp {
 
 	protected static WebDriver driver;
 
-	String geckoPath = "/Users/goni/Documents/workspace/WebSpiders/Event2Mobile/Browser_Driver/geckodriver";
+	String geckoPath = "D:\\koushikpal\\Selenium Webdriver\\geckodriver-v0.19.1-win64";
 
-	String chromeDrPath = "/Users/goni/Documents/workspace/WebSpiders/Event2Mobile/Browser_Driver/chromedriver";
+	String chromeDrPath = "D:\\koushikpal\\Selenium Webdriver\\Chrome\\New folder";
 
-	String firefoxLogPath = "/Users/goni/Documents/workspace/WebSpiders/Event2Mobile/Browser_Driver/firefoxLogs";
+	String firefoxLogPath = "D:\\koushikpal\\Browserlogs";
 
 	String e2mURL = "https://cmsuat2.event2mobile.com/";
 
