@@ -20,9 +20,9 @@ public class E2MTestCaes extends BrowserSetUp {
 
 //	 Please select the Browser before run all the Test Cases
 
-//	String BrowserName = "Firefox";
+	String BrowserName = "Firefox";
 
-	String BrowserName = "Chrome";
+//	String BrowserName = "Chrome";
 
 	String EmailId = "ethan.taylor@yopmail.com";
 
