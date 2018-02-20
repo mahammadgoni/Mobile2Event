@@ -2,14 +2,13 @@ package com.Utils;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.UnexpectedAlertBehaviour;
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserSetUp {
 
@@ -144,13 +143,41 @@ public class BrowserSetUp {
 	
 	protected void logOut(){
 		
-		driver.navigate().to(e2mURL);
-		
-		By logoutBtn = By.xpath("//*[@id and @onclick and @data-rel]");
-		
-//		waitForClickabilityOf(logoutBtn);
+		try {
+						
+			driver.navigate().to(e2mURL);
+			
+			By logoutBtn = By.xpath("//*[@id and @onclick and @data-rel]");
+			
+			driver.findElement(logoutBtn).click();
+			
+		} catch (UnhandledAlertException e) {
+			
+	    	Alert alert  = driver.switchTo().alert();  
+	    	
+	    	String alertMessage = driver.switchTo().alert().getText();  
+	    	
+	    	System.out.println(alertMessage); 
+	    	
+        	alert.accept();
+        	
+	    	try {
 
-		driver.findElement(logoutBtn).click();
+	        	alert.dismiss();
+	        	
+				By logoutBtn = By.xpath("//*[@id and @onclick and @data-rel]");
+	        	
+				driver.findElement(logoutBtn).click();
+		
+			} catch (Exception a) {
+				
+				System.out.println(a.getMessage());
+				
+				
+			}
+			
+		}
+
 	}
 
 }

@@ -2,7 +2,6 @@ package com.BaseSetup;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,7 +33,6 @@ public class BaseSetUp {
         	alert.accept();
         	alert.accept();
         	alert.dismiss();
-        	
 	
 		} catch (UnhandledAlertException e) {
 			
