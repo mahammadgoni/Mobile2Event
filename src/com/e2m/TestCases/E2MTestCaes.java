@@ -1,6 +1,7 @@
 package com.e2m.TestCases;
 
 import java.awt.AWTException;
+import java.text.ParseException;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -10,6 +11,7 @@ import org.testng.annotations.Test;
 
 import com.CommonActions.ForgotPassword;
 import com.CommonActions.LoginToAccount;
+import com.EventAgendaSetup.AddSessions;
 import com.EventManagement.CloneEvent;
 import com.EventManagement.MapUserToEvent;
 import com.EventManagement.NewEvent;
@@ -18,7 +20,7 @@ import com.UserManagement.DeleteUser;
 import com.Utils.BrowserSetUp;
 import com.Utils.GetScreenShot;
 
-@Listeners({ GetScreenShot.class })
+//@Listeners({ GetScreenShot.class })
 
 public class E2MTestCaes extends BrowserSetUp {
 
@@ -36,9 +38,11 @@ public class E2MTestCaes extends BrowserSetUp {
 	
 //	Event Name Should be Unique in Every Run
 	
-	String EventFullName = "E2M Automation Testing Demo Event";
+	String EventFullName = "Red Bull Automation Testing Demo Event";
 	
-	String EventShortName = "Demo Event";
+	String EventShortName = "Red Bull";
+	
+	String SessionTitle = "Mobile App Demo";
 
 	@BeforeClass
 	public void setUp() throws InterruptedException {
@@ -72,18 +76,18 @@ public class E2MTestCaes extends BrowserSetUp {
 //		
 //
 //	}
-	
-	@Test(priority = 2,alwaysRun=true)
-	public void forgotPasswordTest() throws InterruptedException, AWTException {
-
-		System.out.println("Executing : Forgot Password Test");
-
-		new ForgotPassword(driver).forgotPassword("jakesoly@mailinator.com", "#e2m321");
-		
-
-	}
-	
+//	
 //	@Test(priority = 2,alwaysRun=true)
+//	public void forgotPasswordTest() throws InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Forgot Password Test");
+//
+//		new ForgotPassword(driver).forgotPassword("jakesoly@mailinator.com", "#e2m321");
+//		
+//
+//	}
+//	
+//	@Test(priority = 3,alwaysRun=true)
 //	public void deleteSelectedUserTest() {
 //
 //		System.out.println("Executing : Delete Selected User Test");
@@ -94,7 +98,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 3,alwaysRun=true)
+//	@Test(priority = 4,alwaysRun=true)
 //	public void deleteAllSelectedUserTest() {
 //
 //		System.out.println("Executing : Delete All Selected User Test");
@@ -104,7 +108,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		
 //	}
 //	
-//	@Test(priority = 4,alwaysRun=true)
+//	@Test(priority = 5,alwaysRun=true)
 //	public void undoUserDeletionTest() {
 //
 //		System.out.println("Executing : Undo User Deletion Test");
@@ -114,7 +118,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 5,alwaysRun=true)
+//	@Test(priority = 6,alwaysRun=true)
 //	public void purgeAllUserTest() {
 //
 //		System.out.println("Executing : Purge All User Test");
@@ -124,26 +128,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		
 //	}
 //	
-//	@Test(priority = 6,alwaysRun=true)
-//	public void newEventCreationTest() {
-//
-//		System.out.println("Executing : New Event Creation Test");
-//
-//		new NewEvent(driver).newEventCreation(EmailId, Password, EventFullName, EventShortName);
-//
-//
-//	}
-//	
 //	@Test(priority = 7,alwaysRun=true)
-//	public void cloneToNewEventTest() {
-//
-//		System.out.println("Executing : Clone To New Event Test");
-//
-//		new CloneEvent(driver).cloneToNewEvent(EmailId, Password, EventFullName, EventShortName);
-//
-//	}
-//
-//	@Test(priority = 8,alwaysRun=true)
 //	public void addVerifiedUserTest() throws InterruptedException {
 //
 //		System.out.println("Executing : Add Verified User Test");
@@ -153,7 +138,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //
-//	@Test(priority = 9,alwaysRun=true)
+//	@Test(priority = 8,alwaysRun=true)
 //	public void addUnverifiedUserTest() throws InterruptedException {
 //
 //		System.out.println("Executing : Add Unverified User Test");
@@ -163,7 +148,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //
-//	@Test(priority = 10,alwaysRun=true)
+//	@Test(priority = 9,alwaysRun=true)
 //	public void bulkUserUploadTest() throws InterruptedException {
 //
 //		System.out.println("Executing : Bulk User Upload Test");
@@ -172,6 +157,46 @@ public class E2MTestCaes extends BrowserSetUp {
 //		
 //
 //	}
+//	
+//	@Test(priority = 10,alwaysRun=true)
+//	public void newEventCreationTest() {
+//
+//		System.out.println("Executing : New Event Creation Test");
+//
+//		new NewEvent(driver).newEventCreation(EmailId, Password, EventFullName, EventShortName);
+//
+//
+//	}
+//	
+//	@Test(priority = 11,alwaysRun=true)
+//	public void addSessionToEventTest() throws ParseException {
+//
+//		System.out.println("Executing : Add Session to Event Test");
+//		
+//		new AddSessions(driver).addSessions(EmailId, Password, EventFullName,SessionTitle);
+//
+//
+//	}
+	
+	@Test(priority = 12,alwaysRun=true)
+	public void addSessionWithTrackAndLocationToEventTest() throws ParseException {
+
+		System.out.println("Executing : Add Session with Track and Loaction to Event Test");
+		
+		new AddSessions(driver).addSessionsWithTrackAndLocation(EmailId, Password, EventFullName,SessionTitle);
+
+
+	}
+	
+//	@Test(priority = 7,alwaysRun=true)
+//	public void cloneToNewEventTest() {
+//
+//		System.out.println("Executing : Clone To New Event Test");
+//
+//		new CloneEvent(driver).cloneToNewEvent(EmailId, Password, EventFullName, EventShortName);
+//
+//	}
+//	
 //	
 //	@Test(priority = 11,alwaysRun=true)
 //	public void mapUserToAnEventTest() throws InterruptedException {
