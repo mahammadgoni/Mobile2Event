@@ -2,14 +2,13 @@ package com.Utils;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.UnexpectedAlertBehaviour;
+import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserSetUp {
 
@@ -66,6 +65,8 @@ public class BrowserSetUp {
 			// driver.manage().window().maximize();
 
 			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			
+			driver.manage().timeouts().setScriptTimeout(500, TimeUnit.SECONDS);
 
 			System.out.println("Opening the Url : " + e2mURL);
 
@@ -104,8 +105,10 @@ public class BrowserSetUp {
 			// driver.manage().window().setPosition(new Point(-2000, 0));
 
 			// driver.manage().window().maximize();
-
+			
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			
+			driver.manage().timeouts().setScriptTimeout(100, TimeUnit.SECONDS);
 
 			System.out.println("Opening the Url : " + e2mURL);
 
@@ -144,13 +147,41 @@ public class BrowserSetUp {
 	
 	protected void logOut(){
 		
-		driver.navigate().to(e2mURL);
-		
-		By logoutBtn = By.xpath("//*[@id and @onclick and @data-rel]");
-		
-//		waitForClickabilityOf(logoutBtn);
+		try {
+						
+			driver.navigate().to(e2mURL);
+			
+			By logoutBtn = By.xpath("//*[@id and @onclick and @data-rel]");
+			
+			driver.findElement(logoutBtn).click();
+			
+		} catch (UnhandledAlertException e) {
+			
+	    	Alert alert  = driver.switchTo().alert();  
+	    	
+	    	String alertMessage = driver.switchTo().alert().getText();  
+	    	
+	    	System.out.println(alertMessage); 
+	    	
+        	alert.accept();
+        	
+	    	try {
 
-		driver.findElement(logoutBtn).click();
+	        	alert.dismiss();
+	        	
+				By logoutBtn = By.xpath("//*[@id and @onclick and @data-rel]");
+	        	
+				driver.findElement(logoutBtn).click();
+		
+			} catch (Exception a) {
+				
+				System.out.println(a.getMessage());
+				
+				
+			}
+			
+		}
+
 	}
 
 }

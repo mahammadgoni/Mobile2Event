@@ -1,11 +1,9 @@
 package com.UserManagement;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import com.BaseSetup.BaseSetUp;
 
 public class DeleteUser extends BaseSetUp {
@@ -50,7 +48,6 @@ public class DeleteUser extends BaseSetUp {
 	
 	By selectAllDeletedUser = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkHeader']");
 	
-//	By undoLastUser = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_ImageUndo_7']");
 
 	public DeleteUser(WebDriver driver) {
 		super(driver);
@@ -429,15 +426,18 @@ public class DeleteUser extends BaseSetUp {
 
 		driver.findElement(purgeBtn).click();
 		
-		try {
+//		try {
 			
 			popUpHandeling();
 			
 			popUpHandeling();
 			
-		} catch (Exception e) {
-		
-		}
+			
+//		} catch (Exception e) {
+//			
+//			
+//		
+//		}
 		
 		System.out.println("Successfully Purge All Deleted Users");
 		
