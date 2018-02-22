@@ -38,11 +38,15 @@ public class E2MTestCaes extends BrowserSetUp {
 	
 //	Event Name Should be Unique in Every Run
 	
-	String EventFullName = "Red Bull Automation Testing Demo Event";
+	String EventFullName = "Google IO";
 	
-	String EventShortName = "Red Bull";
+	String EventShortName = "Google";
 	
-	String SessionTitle = "Mobile App Demo";
+	String SessionTitle = "Grand Final";
+	
+	String TrackName = "Midway";
+	
+	String Location = "Hall Room";
 
 	@BeforeClass
 	public void setUp() throws InterruptedException {
@@ -173,18 +177,25 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //		System.out.println("Executing : Add Session to Event Test");
 //		
-//		new AddSessions(driver).addSessions(EmailId, Password, EventFullName,SessionTitle);
+//		new AddSessions(driver).addSessions(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
 //
+//	}
+//	
+//	@Test(priority = 12,alwaysRun=true)
+//	public void addSessionWithTrackAndLocationToEventTest() throws ParseException {
+//
+//		System.out.println("Executing : Add Session with Track and Loaction to Event Test");
+//		
+//		new AddSessions(driver).addSessionsWithTrackAndLocation(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
 //
 //	}
 	
-	@Test(priority = 12,alwaysRun=true)
-	public void addSessionWithTrackAndLocationToEventTest() throws ParseException {
+	@Test(priority = 13,alwaysRun=true)
+	public void addSessionWithOutTrackAndLocationToEventTest() throws ParseException {
 
-		System.out.println("Executing : Add Session with Track and Loaction to Event Test");
+		System.out.println("Executing : Add Session without Track and Loaction to Event Test");
 		
-		new AddSessions(driver).addSessionsWithTrackAndLocation(EmailId, Password, EventFullName,SessionTitle);
-
+		new AddSessions(driver).addSessionsWithOutTrackAndLocation(EmailId, Password, EventFullName, SessionTitle, Location);
 
 	}
 	

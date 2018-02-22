@@ -106,9 +106,9 @@ public class BrowserSetUp {
 
 			// driver.manage().window().maximize();
 			
-			driver.manage().timeouts().setScriptTimeout(100, TimeUnit.SECONDS);
-
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			
+			driver.manage().timeouts().setScriptTimeout(100, TimeUnit.SECONDS);
 
 			System.out.println("Opening the Url : " + e2mURL);
 
