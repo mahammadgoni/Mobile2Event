@@ -1046,7 +1046,7 @@ public class AddSessions extends BaseSetUp{
 	
 }
     
-    public AddSessions addCheckInRegistrationSession (String EmailId, String Password, String EventFullName,String SessionTitle,String TrackName,String Location) throws ParseException{
+    public AddSessions addCheckInRegistrationSession (String EmailId, String Password, String EventFullName,String TrackName,String Location,boolean track) throws ParseException{
 		
 //		Login to your Account 
 		
@@ -1175,6 +1175,14 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(clickOnSession).click();
 		
+//		Checking for existing Sessions no
+		
+		waitForClickabilityOf(noOfSessions);
+		
+		List<WebElement> element = driver.findElements(noOfSessions);
+		
+		int NoOfExSession = element.size();
+		
 //		Clicking on Add Session
 		
 		System.out.println("Clicking on Add Session");
@@ -1185,52 +1193,56 @@ public class AddSessions extends BaseSetUp{
 		
 //		Adding Search Track
 		
-		System.out.println("Entering Session Title  as :  "+SessionTitle);
-		
-		waitForClickabilityOf(sessionTitle);
-		
-		driver.findElement(sessionTitle).sendKeys(SessionTitle);
+		System.out.println("Entering Session Title  as :  Check-In-Registration");
 		
 //		Adding Search Track
 		
-		System.out.println("Adding Search Track");
-		
-		waitForClickabilityOf(searchTrack);
-		
-		driver.findElement(searchTrack).sendKeys(TrackName);
-		
-//		Clicking on Create Track
-		
-		System.out.println("Clicking on Create Track");
-		
-		waitForClickabilityOf(createTrack);
-		
-		driver.findElement(createTrack).click();
-		
-//		Adding Hex Color Code
-		
-		System.out.println("Adding Hex Color Code");
-		
-		waitForClickabilityOf(colorCode);
-		
-		driver.findElement(colorCode).sendKeys("#268dad");
-		
-//		Clicking on Save Button
-		
-		System.out.println("Clicking on Save Button");
-		
-		waitForClickabilityOf(trackName);
-		
-		driver.findElement(trackName).click();
-		
-		waitForClickabilityOf(saveBtn);
-		
-		driver.findElement(saveBtn).click();
-		
-		waitForClickabilityOf(cancelBtn);
-		
-		driver.findElement(cancelBtn).click();
-		
+		if (track==true) {
+			
+			System.out.println("Adding Search Track");
+			
+			waitForClickabilityOf(searchTrack);
+			
+			driver.findElement(searchTrack).sendKeys(TrackName+" CIR");
+			
+//			Clicking on Create Track
+			
+			System.out.println("Clicking on Create Track");
+			
+			waitForClickabilityOf(createTrack);
+			
+			driver.findElement(createTrack).click();
+			
+//			Adding Hex Color Code
+			
+			System.out.println("Adding Hex Color Code");
+			
+			waitForClickabilityOf(colorCode);
+			
+			driver.findElement(colorCode).sendKeys("#268dad");
+			
+//			Clicking on Save Button
+			
+			System.out.println("Clicking on Save Button");
+			
+			waitForClickabilityOf(trackName);
+			
+			driver.findElement(trackName).click();
+			
+			waitForClickabilityOf(saveBtn);
+			
+			driver.findElement(saveBtn).click();
+			
+			waitForClickabilityOf(cancelBtn);
+			
+			driver.findElement(cancelBtn).click();
+			
+		} else {
+			
+			System.out.println("No Track Added for this Session");
+
+		}
+				
 //		Clicking on Activity Drop Down
 		
 		System.out.println("Clicking on Activity Drop Down");
@@ -1241,15 +1253,15 @@ public class AddSessions extends BaseSetUp{
 		
 //		Selecting Activity As Session from Drop Down
 		
-		System.out.println("Selecting Activity As Session from Drop Down");
+		System.out.println("Selecting Activity As Check-In-Registration from Drop Down");
 		
-		waitForClickabilityOf(selectSession);
+		waitForClickabilityOf(checkInRegistration);
 		
-		driver.findElement(selectSession).click();
+		driver.findElement(checkInRegistration).click();
 		
 //		Selecting Session Start Date as Event Date
 		
-		System.out.println("Selecting Session Start Date as Event Date");
+		System.out.println("Selecting Check-In-Registration Session Start Date as Event Date");
 		
 		waitForClickabilityOf(sessionStartDate);
 		
@@ -1277,36 +1289,72 @@ public class AddSessions extends BaseSetUp{
 		
 //		Search the Location
 		
-		System.out.println("Search the Location");
-		
-		waitForClickabilityOf(searchLocation);
-		
-		driver.findElement(searchLocation).sendKeys(Location);
-		
-//		Click On Add Location
-		
-		System.out.println("Click On Add Location");
-		
-		waitForClickabilityOf(createLocation);
-		
-		driver.findElement(createLocation).click();
-		
-//		Click On Add Button
-		
-		System.out.println("Click On Add Button");
-		
-		waitForClickabilityOf(addBtn);
-		
-		driver.findElement(addBtn).click();
-		
-//		Click On Close Pop Up
-		
-		System.out.println("Click On Close Pop Up");
-		
-		waitForClickabilityOf(closePopUp);
-		
-		driver.findElement(closePopUp).click();
-		
+		if (track==true) {
+			
+			System.out.println("Search the Location");
+			
+			waitForClickabilityOf(searchLocation);
+			
+			driver.findElement(searchLocation).sendKeys(Location+" CIR");
+			
+//			Click On Add Location
+			
+			System.out.println("Click On Add Location");
+			
+			waitForClickabilityOf(createLocation);
+			
+			driver.findElement(createLocation).click();
+			
+//			Click On Add Button
+			
+			System.out.println("Click On Add Button");
+			
+			waitForClickabilityOf(addBtn);
+			
+			driver.findElement(addBtn).click();
+			
+//			Click On Close Pop Up
+			
+			System.out.println("Click On Close Pop Up");
+			
+			waitForClickabilityOf(closePopUp);
+			
+			driver.findElement(closePopUp).click();
+			
+		} else {
+			
+			System.out.println("Search the Location");
+			
+			waitForClickabilityOf(searchLocation);
+			
+			driver.findElement(searchLocation).sendKeys(Location+" CIRNL");
+			
+//			Click On Add Location
+			
+			System.out.println("Click On Add Location");
+			
+			waitForClickabilityOf(createLocation);
+			
+			driver.findElement(createLocation).click();
+			
+//			Click On Add Button
+			
+			System.out.println("Click On Add Button");
+			
+			waitForClickabilityOf(addBtn);
+			
+			driver.findElement(addBtn).click();
+			
+//			Click On Close Pop Up
+			
+			System.out.println("Click On Close Pop Up");
+			
+			waitForClickabilityOf(closePopUp);
+			
+			driver.findElement(closePopUp).click();
+
+		}
+				
 //		Adding Some Test Description
 			
 		try {
@@ -1315,7 +1363,7 @@ public class AddSessions extends BaseSetUp{
 			
 			waitForClickabilityOf(sessionDescription);
 			
-			driver.findElement(sessionDescription).sendKeys("This is Automation Testing Session Description");
+			driver.findElement(sessionDescription).sendKeys("This is Automation Testing Check-In-Registration Session Description");
 			
 		} catch (Exception e) {
 			
@@ -1335,13 +1383,13 @@ public class AddSessions extends BaseSetUp{
 		
 		waitForClickabilityOf(noOfSessions);
 		
-		List<WebElement> element = driver.findElements(noOfSessions);
+		List<WebElement> element1 = driver.findElements(noOfSessions);
 		
-		int NoOfSession = element.size();
+		int NoOfSession = element1.size();
 		
-		if (NoOfSession==1) {
+		if (NoOfExSession==NoOfSession-1) {
 			
-			System.out.println("Successfully Added One Session");
+			System.out.println("Successfully Added One Check-In-Registration Session");
 			
 		} else {
 			

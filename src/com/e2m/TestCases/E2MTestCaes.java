@@ -44,9 +44,9 @@ public class E2MTestCaes extends BrowserSetUp {
 	
 	String SessionTitle = "Grand Final";
 	
-	String TrackName = "Midway";
+	String TrackName = "Shopway";
 	
-	String Location = "Hall Room";
+	String Location = "Shop Room";
 
 	@BeforeClass
 	public void setUp() throws InterruptedException {
@@ -172,23 +172,23 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 11,alwaysRun=true)
-//	public void addSessionToEventTest() throws ParseException {
-//
-//		System.out.println("Executing : Add Session to Event Test");
-//		
-//		new AddSessions(driver).addSessions(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
-//
-//	}
-//	
-//	@Test(priority = 12,alwaysRun=true)
-//	public void addSessionWithTrackAndLocationToEventTest() throws ParseException {
-//
-//		System.out.println("Executing : Add Session with Track and Loaction to Event Test");
-//		
-//		new AddSessions(driver).addSessionsWithTrackAndLocation(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
-//
-//	}
+	@Test(priority = 11,alwaysRun=true)
+	public void addSessionToEventTest() throws ParseException {
+
+		System.out.println("Executing : Add Session to Event Test");
+		
+		new AddSessions(driver).addSessions(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
+
+	}
+	
+	@Test(priority = 12,alwaysRun=true)
+	public void addSessionWithTrackAndLocationToEventTest() throws ParseException {
+
+		System.out.println("Executing : Add Session with Track and Loaction to Event Test");
+		
+		new AddSessions(driver).addSessionsWithTrackAndLocation(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
+
+	}
 	
 	@Test(priority = 13,alwaysRun=true)
 	public void addSessionWithOutTrackAndLocationToEventTest() throws ParseException {
@@ -196,6 +196,24 @@ public class E2MTestCaes extends BrowserSetUp {
 		System.out.println("Executing : Add Session without Track and Loaction to Event Test");
 		
 		new AddSessions(driver).addSessionsWithOutTrackAndLocation(EmailId, Password, EventFullName, SessionTitle, Location);
+
+	}
+	
+	@Test(priority = 14,alwaysRun=true)
+	public void addCheckInRegistrationWithTrackSessionTest() throws ParseException {
+
+		System.out.println("Executing : Add Check In Registration With Track Session to Event Test");
+		
+		new AddSessions(driver).addCheckInRegistrationSession(EmailId, Password, EventFullName, TrackName, Location,true);
+
+	}
+	
+	@Test(priority = 15,alwaysRun=true)
+	public void addCheckInRegistrationWithOutTrackSessionTest() throws ParseException {
+
+		System.out.println("Executing : Add Check In Registration without Track Location Session to Event Test");
+		
+		new AddSessions(driver).addCheckInRegistrationSession(EmailId, Password, EventFullName, TrackName, Location,false);
 
 	}
 	
