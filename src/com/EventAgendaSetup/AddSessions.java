@@ -64,8 +64,14 @@ public class AddSessions extends BaseSetUp{
 	
 	By activityDropDown = By.xpath("//*[@id='ddlActivity']");
 	
+	By checkInRegistration = By.xpath("//*[@id='ddlActivity']//option[@value='1']");
+	
+	By mealBreak = By.xpath("//*[@id='ddlActivity']//option[@value='2']");
+		
 	By selectSession = By.xpath("//*[@id='ddlActivity']//option[@value='3']");
 	
+	By networking = By.xpath("//*[@id='ddlActivity']//option[@value='4']");
+		
 	By eventStartDate = By.xpath("//*[@id='ContentPlaceHolder1_trRecordsFound']//td[5]");
 			
 	By sessionStartDate = By.xpath("//*[@id='txtStartDate']");
@@ -1039,5 +1045,315 @@ public class AddSessions extends BaseSetUp{
 	return new AddSessions(driver);
 	
 }
+    
+    public AddSessions addCheckInRegistrationSession (String EmailId, String Password, String EventFullName,String SessionTitle,String TrackName,String Location) throws ParseException{
+		
+//		Login to your Account 
+		
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+		
+//		Searching for Event Name
+		
+		System.out.println("Searching for Event Name :"+EventFullName);
+		
+		waitForClickabilityOf(searchEvent);
+		
+		WebElement search = driver.findElement(searchEvent);
+		
+		search.sendKeys(EventFullName);
+		
+//		Pressing Enter Button 
+		
+		search.sendKeys(Keys.ENTER);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+		
+		System.out.println("Clicking On Event : "+ActEventName);
+		
+		if (EventFullName.equals(ActEventName)) {
+			
+			System.out.println("This is Correct Event");
+			
+		} else {
+			
+			System.out.println("Failed to Search the Event Name so, searching again ");
+			
+			search.clear();
+			
+			search.sendKeys(EventFullName);
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+//			Pressing Enter Button 
+			
+			search.sendKeys(Keys.ENTER);
+				
+		}
+		
+//		Saving the Event Date
+		
+		System.out.println("Saving the Event Date");
+		
+		waitForClickabilityOf(eventStartDate);
+		
+		String EventDate = driver.findElement(eventStartDate).getText();	
+		
+		System.out.println(EventDate);
+		
+//		Changing the String to Date
+		
+	    Date date = null;
+
+	    DateFormat df = new SimpleDateFormat("MMM dd,yyyy");
+	       
+	    try{
+	    	
+	        date = df.parse(EventDate);
+
+	    }
+	    catch ( Exception ex ){
+	        System.out.println(ex);
+	    }
+//	  Again changing the Date to String 
+	    
+	    String FEventDate = null;
+	    
+	    SimpleDateFormat sdfr = new SimpleDateFormat("dd/MM/yyyy");
+
+	    try{
+	    	
+	    	FEventDate = sdfr.format(date);
+	    	
+	    }catch (Exception ex ){
+	    	
+	 	System.out.println(ex);
+	 	
+	    }
+	    		
+		System.out.println(FEventDate);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+//		Clicking on The Event
+		
+		System.out.println("Clicking on The Event");
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		driver.findElement(clickOnEvent).click();
+
+		
+//		Clicking on Agenda Setup
+		
+		System.out.println("Clicking on Agenda Setup");
+		
+		waitForClickabilityOf(clickOnAgendaSetUp);
+		
+		driver.findElement(clickOnAgendaSetUp).click();
+		
+//		Clicking on Session
+		
+		System.out.println("Clicking on Session");
+		
+		waitForClickabilityOf(clickOnSession);
+		
+		driver.findElement(clickOnSession).click();
+		
+//		Clicking on Add Session
+		
+		System.out.println("Clicking on Add Session");
+		
+		waitForClickabilityOf(clickOnAddSession);
+		
+		driver.findElement(clickOnAddSession).click();
+		
+//		Adding Search Track
+		
+		System.out.println("Entering Session Title  as :  "+SessionTitle);
+		
+		waitForClickabilityOf(sessionTitle);
+		
+		driver.findElement(sessionTitle).sendKeys(SessionTitle);
+		
+//		Adding Search Track
+		
+		System.out.println("Adding Search Track");
+		
+		waitForClickabilityOf(searchTrack);
+		
+		driver.findElement(searchTrack).sendKeys(TrackName);
+		
+//		Clicking on Create Track
+		
+		System.out.println("Clicking on Create Track");
+		
+		waitForClickabilityOf(createTrack);
+		
+		driver.findElement(createTrack).click();
+		
+//		Adding Hex Color Code
+		
+		System.out.println("Adding Hex Color Code");
+		
+		waitForClickabilityOf(colorCode);
+		
+		driver.findElement(colorCode).sendKeys("#268dad");
+		
+//		Clicking on Save Button
+		
+		System.out.println("Clicking on Save Button");
+		
+		waitForClickabilityOf(trackName);
+		
+		driver.findElement(trackName).click();
+		
+		waitForClickabilityOf(saveBtn);
+		
+		driver.findElement(saveBtn).click();
+		
+		waitForClickabilityOf(cancelBtn);
+		
+		driver.findElement(cancelBtn).click();
+		
+//		Clicking on Activity Drop Down
+		
+		System.out.println("Clicking on Activity Drop Down");
+		
+		waitForClickabilityOf(activityDropDown);
+		
+		driver.findElement(activityDropDown).click();
+		
+//		Selecting Activity As Session from Drop Down
+		
+		System.out.println("Selecting Activity As Session from Drop Down");
+		
+		waitForClickabilityOf(selectSession);
+		
+		driver.findElement(selectSession).click();
+		
+//		Selecting Session Start Date as Event Date
+		
+		System.out.println("Selecting Session Start Date as Event Date");
+		
+		waitForClickabilityOf(sessionStartDate);
+		
+		WebElement selectDate = driver.findElement(sessionStartDate);
+		
+		selectDate.sendKeys(FEventDate);
+		
+		selectDate.sendKeys(Keys.ENTER);
+		
+//		Selecting Session Start Time
+		
+		System.out.println("Selecting Session Start Time");
+		
+		waitForClickabilityOf(startTime);
+		
+		driver.findElement(startTime).sendKeys("09:00 AM");
+		
+//		Selecting Session End Time
+		
+		System.out.println("Selecting Session End Time");
+		
+		waitForClickabilityOf(endTime);
+		
+		driver.findElement(endTime).sendKeys("09:00 PM");
+		
+//		Search the Location
+		
+		System.out.println("Search the Location");
+		
+		waitForClickabilityOf(searchLocation);
+		
+		driver.findElement(searchLocation).sendKeys(Location);
+		
+//		Click On Add Location
+		
+		System.out.println("Click On Add Location");
+		
+		waitForClickabilityOf(createLocation);
+		
+		driver.findElement(createLocation).click();
+		
+//		Click On Add Button
+		
+		System.out.println("Click On Add Button");
+		
+		waitForClickabilityOf(addBtn);
+		
+		driver.findElement(addBtn).click();
+		
+//		Click On Close Pop Up
+		
+		System.out.println("Click On Close Pop Up");
+		
+		waitForClickabilityOf(closePopUp);
+		
+		driver.findElement(closePopUp).click();
+		
+//		Adding Some Test Description
+			
+		try {
+			
+			System.out.println("Adding Some Test Description");
+			
+			waitForClickabilityOf(sessionDescription);
+			
+			driver.findElement(sessionDescription).sendKeys("This is Automation Testing Session Description");
+			
+		} catch (Exception e) {
+			
+			System.out.println("No Description Added");
+			
+		}
+		
+//		Click On Save and Publish Button
+		
+		System.out.println("Click On Save and Publish Button");
+		
+		waitForClickabilityOf(saveAndPublishBtn);
+		
+		driver.findElement(saveAndPublishBtn).click();
+		
+//		Verifying  whether the Session added or not 
+		
+		waitForClickabilityOf(noOfSessions);
+		
+		List<WebElement> element = driver.findElements(noOfSessions);
+		
+		int NoOfSession = element.size();
+		
+		if (NoOfSession==1) {
+			
+			System.out.println("Successfully Added One Session");
+			
+		} else {
+			
+			System.out.println("Failed to Add New Sessions");
+
+		}
+				
+		return new AddSessions(driver);
+		
+	}
+
+
+
 
 }
