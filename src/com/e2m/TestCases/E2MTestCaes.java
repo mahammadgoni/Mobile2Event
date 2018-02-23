@@ -172,50 +172,114 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-	@Test(priority = 11,alwaysRun=true)
-	public void addSessionToEventTest() throws ParseException {
+//	@Test(priority = 11,alwaysRun=true)
+//	public void addSessionToEventTest() throws ParseException {
+//
+//		System.out.println("Executing : Add Session to Event Test");
+//		
+//		new AddSessions(driver).addSessions(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
+//
+//	}
+//	
+//	@Test(priority = 12,alwaysRun=true)
+//	public void addSessionWithTrackAndLocationToEventTest() throws ParseException {
+//
+//		System.out.println("Executing : Add Session with Track and Loaction to Event Test");
+//		
+//		new AddSessions(driver).addSessionsWithTrackAndLocation(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
+//
+//	}
+//	
+//	@Test(priority = 13,alwaysRun=true)
+//	public void addSessionWithOutTrackAndLocationToEventTest() throws ParseException {
+//
+//		System.out.println("Executing : Add Session without Track and Loaction to Event Test");
+//		
+//		new AddSessions(driver).addSessionsWithOutTrackAndLocation(EmailId, Password, EventFullName, SessionTitle, Location);
+//
+//	}
+//	
+//	@Test(priority = 14,alwaysRun=true)
+//	public void addCheckInRegistrationWithTrackSessionTest() throws ParseException {
+//
+//		System.out.println("Executing : Add Check In Registration With Track Session to Event Test");
+//		
+//		new AddSessions(driver).addCheckInRegistrationSession(EmailId, Password, EventFullName, TrackName, Location,true);
+//
+//	}
+//	
+//	@Test(priority = 15,alwaysRun=true)
+//	public void addCheckInRegistrationWithOutTrackSessionTest() throws ParseException {
+//
+//		System.out.println("Executing : Add Check In Registration without Track Location Session to Event Test");
+//		
+//		new AddSessions(driver).addCheckInRegistrationSession(EmailId, Password, EventFullName, TrackName, Location,false);
+//
+//	}
+	
+	@Test(priority = 16,alwaysRun=true)
+	public void addBreakfastTypeSessionTest() throws ParseException {
 
-		System.out.println("Executing : Add Session to Event Test");
+		System.out.println("Executing : Add Breakfast Type Session to Event Test");
 		
-		new AddSessions(driver).addSessions(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
+//		Please Add Meal Type as : Breakfast 
+		
+		new AddSessions(driver).addMealBreakSessions(EmailId, Password, EventFullName, TrackName, Location, "Breakfast");
 
 	}
 	
-	@Test(priority = 12,alwaysRun=true)
-	public void addSessionWithTrackAndLocationToEventTest() throws ParseException {
+	@Test(priority = 17,alwaysRun=true)
+	public void addLunchTypeSessionTest() throws ParseException {
 
-		System.out.println("Executing : Add Session with Track and Loaction to Event Test");
+		System.out.println("Executing : Add Lunch Type Session to Event Test");
 		
-		new AddSessions(driver).addSessionsWithTrackAndLocation(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
+//		Please Add Meal Type as : Lunch 
+		
+		new AddSessions(driver).addMealBreakSessions(EmailId, Password, EventFullName, TrackName, Location, "Lunch");
 
 	}
 	
-	@Test(priority = 13,alwaysRun=true)
-	public void addSessionWithOutTrackAndLocationToEventTest() throws ParseException {
+	@Test(priority = 18,alwaysRun=true)
+	public void addTeaTypeSessionTest() throws ParseException {
 
-		System.out.println("Executing : Add Session without Track and Loaction to Event Test");
+		System.out.println("Executing : Add Tea Type Session to Event Test");
 		
-		new AddSessions(driver).addSessionsWithOutTrackAndLocation(EmailId, Password, EventFullName, SessionTitle, Location);
+//		Please Add Meal Type as : Tea 
+		
+		new AddSessions(driver).addMealBreakSessions(EmailId, Password, EventFullName, TrackName, Location, "Tea");
 
 	}
 	
-	@Test(priority = 14,alwaysRun=true)
-	public void addCheckInRegistrationWithTrackSessionTest() throws ParseException {
+	@Test(priority = 19,alwaysRun=true)
+	public void addDinnerTypeSessionTest() throws ParseException {
 
-		System.out.println("Executing : Add Check In Registration With Track Session to Event Test");
+		System.out.println("Executing : Add Dinner Type Session to Event Test");
 		
-		new AddSessions(driver).addCheckInRegistrationSession(EmailId, Password, EventFullName, TrackName, Location,true);
+//		Please Add Meal Type as : Dinner 
+		
+		new AddSessions(driver).addMealBreakSessions(EmailId, Password, EventFullName, TrackName, Location, "Dinner");
 
 	}
 	
-	@Test(priority = 15,alwaysRun=true)
-	public void addCheckInRegistrationWithOutTrackSessionTest() throws ParseException {
+	@Test(priority = 20,alwaysRun=true)
+	public void addNetworkingWithTrackSessionTest() throws ParseException {
 
-		System.out.println("Executing : Add Check In Registration without Track Location Session to Event Test");
+		System.out.println("Executing : Add Networking With Track Session to Event Test");
 		
-		new AddSessions(driver).addCheckInRegistrationSession(EmailId, Password, EventFullName, TrackName, Location,false);
+		new AddSessions(driver).addNetworkingSession(EmailId, Password, EventFullName, TrackName, Location,true);
 
 	}
+	
+	@Test(priority = 21,alwaysRun=true)
+	public void addnetworkingWithOutTrackSessionTest() throws ParseException {
+
+		System.out.println("Executing : Add Networking Without Track Location Session to Event Test");
+		
+		new AddSessions(driver).addNetworkingSession(EmailId, Password, EventFullName, TrackName, Location,false);
+
+	}
+	
+	
 	
 //	@Test(priority = 7,alwaysRun=true)
 //	public void cloneToNewEventTest() {
