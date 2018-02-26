@@ -118,7 +118,7 @@ public class AddSessions extends BaseSetUp{
 		
 	}
 	
-	public AddSessions addSessions(String EmailId, String Password, String EventFullName,String SessionTitle,String TrackName,String Location) throws ParseException{
+	public AddSessions addSessions(String EmailId, String Password, String EventFullName,String SessionTitle,String TrackName,String Location) throws ParseException, InterruptedException{
 		
 //		Login to your Account 
 		
@@ -137,6 +137,8 @@ public class AddSessions extends BaseSetUp{
 //		Pressing Enter Button 
 		
 		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
 		
 		try {
 			Thread.sleep(2000);
@@ -161,6 +163,8 @@ public class AddSessions extends BaseSetUp{
 			search.clear();
 			
 			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
 			
 			try {
 				Thread.sleep(2000);
@@ -246,7 +250,7 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(clickOnSession);
 		
 		driver.findElement(clickOnSession).click();
-		
+				
 //		Clicking on Add Session
 		
 		System.out.println("Clicking on Add Session");
@@ -409,9 +413,9 @@ public class AddSessions extends BaseSetUp{
 		
 		List<WebElement> element = driver.findElements(noOfSessions);
 		
-		int NoOfSession = element.size();
+		int NoOfExSession = element.size();
 		
-		if (NoOfSession==1) {
+		if (NoOfExSession==1) {
 			
 			System.out.println("Successfully Added One Session");
 			
@@ -425,7 +429,7 @@ public class AddSessions extends BaseSetUp{
 		
 	}
 
-    public AddSessions addSessionsWithTrackAndLocation(String EmailId, String Password, String EventFullName,String SessionTitle,String TrackName,String Location) throws ParseException{
+    public AddSessions addSessionsWithTrackAndLocation(String EmailId, String Password, String EventFullName,String SessionTitle,String TrackName,String Location) throws ParseException, InterruptedException{
 	
 //	Login to your Account 
 	
@@ -444,6 +448,8 @@ public class AddSessions extends BaseSetUp{
 //	Pressing Enter Button 
 	
 	search.sendKeys(Keys.ENTER);
+	
+	Thread.sleep(2000);
 	
 	try {
 		Thread.sleep(2000);
@@ -468,6 +474,8 @@ public class AddSessions extends BaseSetUp{
 		search.clear();
 		
 		search.sendKeys(EventFullName);
+		
+		Thread.sleep(2000);
 		
 		try {
 			Thread.sleep(2000);
@@ -545,7 +553,7 @@ public class AddSessions extends BaseSetUp{
 	waitForClickabilityOf(clickOnAgendaSetUp);
 	
 	driver.findElement(clickOnAgendaSetUp).click();
-	
+		
 //	Clicking on Session
 	
 	System.out.println("Clicking on Session");
@@ -553,6 +561,12 @@ public class AddSessions extends BaseSetUp{
 	waitForClickabilityOf(clickOnSession);
 	
 	driver.findElement(clickOnSession).click();
+	
+//	Getting No Of Elements Available
+	
+	List<WebElement> element = driver.findElements(noOfSessions);
+	
+	int NoOfExSession = element.size();
 	
 //	Clicking on Track
 	
@@ -768,11 +782,11 @@ public class AddSessions extends BaseSetUp{
 	
 	waitForClickabilityOf(noOfSessions);
 	
-	List<WebElement> element = driver.findElements(noOfSessions);
+	List<WebElement> element1 = driver.findElements(noOfSessions);
 	
-	int NoOfSession = element.size();
+	int NoOfExSession1 = element1.size();
 	
-	if (NoOfSession==2) {
+	if (NoOfExSession==NoOfExSession1-1) {
 		
 		System.out.println("Successfully Added One Session With Track And Location");
 		
@@ -786,7 +800,7 @@ public class AddSessions extends BaseSetUp{
 	
 }
         
-    public AddSessions addSessionsWithOutTrackAndLocation(String EmailId, String Password, String EventFullName,String SessionTitle,String Location) throws ParseException{
+    public AddSessions addSessionsWithOutTrackAndLocation(String EmailId, String Password, String EventFullName,String SessionTitle,String Location) throws ParseException, InterruptedException{
 	
 //		Login to your Account 
 		
@@ -805,6 +819,8 @@ public class AddSessions extends BaseSetUp{
 //		Pressing Enter Button 
 		
 		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
 		
 		try {
 			Thread.sleep(2000);
@@ -829,6 +845,8 @@ public class AddSessions extends BaseSetUp{
 			search.clear();
 			
 			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
 			
 			try {
 				Thread.sleep(2000);
@@ -906,7 +924,7 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(clickOnAgendaSetUp);
 		
 		driver.findElement(clickOnAgendaSetUp).click();
-		
+				
 //		Clicking on Session
 		
 		System.out.println("Clicking on Session");
@@ -914,6 +932,12 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(clickOnSession);
 		
 		driver.findElement(clickOnSession).click();
+		
+//		Getting No Of Elements Available
+		
+		List<WebElement> element = driver.findElements(noOfSessions);
+		
+		int NoOfExSession = element.size();
 		
 //		Clicking on Add Session
 		
@@ -1039,11 +1063,11 @@ public class AddSessions extends BaseSetUp{
 		
 		waitForClickabilityOf(noOfSessions);
 		
-		List<WebElement> element = driver.findElements(noOfSessions);
+		List<WebElement> element1 = driver.findElements(noOfSessions);
 		
-		int NoOfSession = element.size();
+		int NoOfExSession1 = element1.size();
 		
-		if (NoOfSession==3) {
+		if (NoOfExSession==NoOfExSession1-1) {
 			
 			System.out.println("Successfully Added One Session");
 			
@@ -1058,7 +1082,7 @@ public class AddSessions extends BaseSetUp{
 	
 }
     
-    public AddSessions addCheckInRegistrationSession(String EmailId, String Password, String EventFullName,String TrackName,String Location,boolean track) throws ParseException{
+    public AddSessions addCheckInRegistrationSession(String EmailId, String Password, String EventFullName,String TrackName,String Location,boolean track) throws ParseException, InterruptedException{
 		
 //		Login to your Account 
 		
@@ -1077,6 +1101,8 @@ public class AddSessions extends BaseSetUp{
 //		Pressing Enter Button 
 		
 		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
 		
 		try {
 			Thread.sleep(2000);
@@ -1101,6 +1127,8 @@ public class AddSessions extends BaseSetUp{
 			search.clear();
 			
 			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
 			
 			try {
 				Thread.sleep(2000);
@@ -1413,7 +1441,7 @@ public class AddSessions extends BaseSetUp{
 		
 	}
 
-	public AddSessions addMealBreakSessions(String EmailId, String Password, String EventFullName,String TrackName,String Location,String MealType) throws ParseException{
+	public AddSessions addMealBreakSessions(String EmailId, String Password, String EventFullName,String TrackName,String Location,String MealType) throws ParseException, InterruptedException{
 		
 //		Login to your Account 
 		
@@ -1428,6 +1456,8 @@ public class AddSessions extends BaseSetUp{
 		WebElement search = driver.findElement(searchEvent);
 		
 		search.sendKeys(EventFullName);
+		
+		Thread.sleep(2000);
 		
 		try {
 			Thread.sleep(2000);
@@ -1479,6 +1509,8 @@ public class AddSessions extends BaseSetUp{
 			search.clear();
 			
 			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
 			
 			try {
 				Thread.sleep(2000);
@@ -1880,7 +1912,7 @@ public class AddSessions extends BaseSetUp{
 		
 	}
 
-    public AddSessions addNetworkingSession(String EmailId, String Password, String EventFullName,String TrackName,String Location,boolean track) throws ParseException{
+    public AddSessions addNetworkingSession(String EmailId, String Password, String EventFullName,String TrackName,String Location,boolean track) throws ParseException, InterruptedException{
 		
 //		Login to your Account 
 		
@@ -1899,6 +1931,8 @@ public class AddSessions extends BaseSetUp{
 //		Pressing Enter Button 
 		
 		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
 		
 		try {
 			Thread.sleep(2000);
@@ -1923,6 +1957,8 @@ public class AddSessions extends BaseSetUp{
 			search.clear();
 			
 			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
 			
 			try {
 				Thread.sleep(2000);
