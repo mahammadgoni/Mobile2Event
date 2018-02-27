@@ -1,5 +1,8 @@
 package com.EventAgendaSetup;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,11 +29,41 @@ public class AddSpeakers extends BaseSetUp{
 	
 	By clickOnSpeakers = By.xpath("//*[@href='speakers.aspx'][contains(text(),'Speakers')]");
 	
+	By clickOnMapSessionWithSpeakers = By.xpath("//*[@id='form1']/section[2]/div/ul/li[3]/a");
+	
 	By speaker1 = By.xpath("//*[@id='ContentPlaceHolder1_gvSpeaker_chkSpeaker_0']");
+	
+	By session1 = By.xpath("//*[@id='sldsession']/ul/li[1]");
 	
 	By addSpeaker = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='SpeakerAddEdit.aspx']");
 	
-	By firstname = By.xpath("//*[@id='ContentPlaceHolder1_txtFirstName1']");
+	By newSpeaker = By.xpath("//*[@href='#'][contains(text(),'new speaker')]");
+	
+	By first_Name = By.xpath("//*[@id='txtFirstName']");
+	
+	By last_Name = By.xpath("//*[@id='txtLastName']");
+	
+	By save_Btn = By.xpath("//*[@id='btnEditSave']");
+	
+	By sessionSaveBtn = By.xpath("//*[@id='bntSave']");
+	
+	By newSession = By.xpath("//a[@href='#'][contains(text(),'new session')]");
+	
+	By clickOnTrack = By.xpath("//*[@id='ddlTrack']");
+	
+	By clickOnDate = By.xpath("//*[@id='ddlSessionDate']");
+	
+	By clickOnActivity = By.xpath("//*[@id='ddlActivity']");
+	
+	By sessionTitle = By.xpath("//*[@id='txtSessionName']");
+	
+	By startTime = By.xpath("//*[@id='txtFromTime']");
+	
+	By endTime = By.xpath("//*[@id='txtToTime']");
+	
+	By clickOnLocation = By.xpath("//*[@id='ddlLoc']");
+	
+	By firstName = By.xpath("//*[@id='ContentPlaceHolder1_txtFirstName1']");
 
 	By lastName = By.xpath("//*[@id='ContentPlaceHolder1_txtLastName1']");
 	
@@ -65,6 +98,25 @@ public class AddSpeakers extends BaseSetUp{
 	By blog = By.xpath("//*[@id='ContentPlaceHolder1_txtws1']");
 
 	By saveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnEditSave']");
+	
+	By speakerSearchBar = By.xpath("//*[@id='txtEntity']");
+	
+	By selectSpeakerCheckBox = By.xpath("//html//div[@class='wrapper pushmenu-toggle body-wrapper-new']//li[1]/input[1]");
+	
+	By speakerDoneBtn = By.xpath("//input[@value='Done' and @onclick='speaker_done()']");
+	
+	By sessionSearchBar = By.xpath("//*[@id='txtSession']");
+	
+	By selectSessionCheckBox = By.xpath("//html//div[@class='col-lg-6 same-height border-left arrowrel']//li[1]/input[1]");
+	
+	By sessionDoneBtn = By.xpath("//input[@value='Done' and @onclick='session_done()']");
+	
+	By mapBtn = By.xpath("//*[@id='btnMap']");
+	
+	By yesBtn = By.xpath("//div[@class='yes']");
+	
+	By showMappings = By.xpath("//a[@id='btnListView']");
+	
 
 	public AddSpeakers(WebDriver driver) {
 		super(driver);
@@ -169,9 +221,9 @@ public class AddSpeakers extends BaseSetUp{
 		
 		System.out.println("Entering First Name");
 		
-		waitForClickabilityOf(firstname);
+		waitForClickabilityOf(firstName);
 		
-		driver.findElement(firstname).sendKeys(FirstName);
+		driver.findElement(firstName).sendKeys(FirstName);
 		
 //		Entering Last Name
 		
@@ -315,10 +367,434 @@ public class AddSpeakers extends BaseSetUp{
 
 		}
 		
+				
+		return new AddSpeakers(driver);
+	}
+	
+	public AddSpeakers mapSessionWithRandomSpeaker(String EmailId, String Password, String EventFullName) throws InterruptedException{
+		
+//		Login to your Account 
+		
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+		
+//		Searching for Event Name
+		
+		System.out.println("Searching for Event Name :"+EventFullName);
+		
+		waitForClickabilityOf(searchEvent);
+		
+		WebElement search = driver.findElement(searchEvent);
+		
+		search.sendKeys(EventFullName);
+		
+//		Pressing Enter Button 
+		
+		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+		
+		System.out.println("Clicking On Event : "+ActEventName);
+		
+		if (EventFullName.equals(ActEventName)) {
+			
+			System.out.println("This is Correct Event");
+			
+		} else {
+			
+			System.out.println("Failed to Search the Event Name so, searching again ");
+			
+			search.clear();
+			
+			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+//			Pressing Enter Button 
+			
+			search.sendKeys(Keys.ENTER);
+				
+		}
 		
 		
+//		Clicking on The Event
 		
+		System.out.println("Clicking on The Event");
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		driver.findElement(clickOnEvent).click();
+
+		
+//		Clicking on Agenda Setup
+		
+		System.out.println("Clicking on Agenda Setup");
+		
+		waitForClickabilityOf(clickOnAgendaSetUp);
+		
+		driver.findElement(clickOnAgendaSetUp).click();
+		
+//		Clicking on Speakers
+		
+		System.out.println("Clicking on Speakers");
+		
+		waitForClickabilityOf(clickOnSpeakers);
+		
+		driver.findElement(clickOnSpeakers).click();
+				
+//		Clicking on Map Sessions with Speakers
+		
+		System.out.println("Clicking on Map Sessions with Speakers");
+		
+		waitForClickabilityOf(clickOnMapSessionWithSpeakers);
+		
+		driver.findElement(clickOnMapSessionWithSpeakers).click();
+		
+//		Search for Speaker
+		
+		System.out.println("Search for Speaker");
+		
+		waitForClickabilityOf(speakerSearchBar);
+		
+		driver.findElement(speakerSearchBar).click();
+		
+//		Saving the Speakers name
+		
+		String Speaker = driver.findElement(speaker1).getText();
+		
+//		Selecting the Speaker
+		
+		System.out.println("Selecting the Speaker");
+		
+		waitForClickabilityOf(selectSpeakerCheckBox);
+		
+		driver.findElement(selectSpeakerCheckBox).click();
+				
+//		Clicking on Done Button
+		
+		System.out.println("Clicking on Done Button");
+		
+		waitForClickabilityOf(speakerDoneBtn);
+		
+		driver.findElement(speakerDoneBtn).click();
+				
+//		Searching for Sessions
+		
+		System.out.println("Searching for Sessions");
+		
+		waitForClickabilityOf(sessionSearchBar);
+		
+		driver.findElement(sessionSearchBar).click();
+		
+//		Saving the Session name
+		
+		String Session = driver.findElement(session1).getText();
+		
+//		Selecting the Session
+		
+		System.out.println("Selecting the Session");
+		
+		waitForClickabilityOf(selectSessionCheckBox);
+		
+		driver.findElement(selectSessionCheckBox).click();
+		
+//		Clicking on Done Button
+		
+		System.out.println("Clicking on Done Button");
+		
+		waitForClickabilityOf(sessionDoneBtn);
+		
+		driver.findElement(sessionDoneBtn).click();
+		
+//		Clicking on Map Button
+		
+		System.out.println("Clicking on Map Button");
+		
+		waitForClickabilityOf(mapBtn);
+		
+		driver.findElement(mapBtn).click();
+		
+//		Clicking on Map Button
+		
+		System.out.println("Clicking on Show Mappings");
+		
+		waitForClickabilityOf(showMappings);
+		
+		driver.findElement(showMappings).click();
+		
+//		Getting No Of Speakers
+		
+//		waitForClickabilityOf(speaker1);
+//		
+//		List<WebElement> element = driver.findElements(speaker1);
+//		
+//		int NoOfExSession = element.size();
+//		
+//		if (NoOfExSession==1) {
+//			
+//			System.out.println("Successfully Added one Speaker");
+//			
+//		} else {
+//			
+//			System.out.println("Failed to Add Speaker");
+//
+//		}
+		
+				
 		return new AddSpeakers(driver);
 	}
 
+    public AddSpeakers mapCreateSpeakerWithCreateSession(String EmailId, String Password, String EventFullName,String FirstName,String LastName, String SessionTitle) throws InterruptedException, AWTException{
+ 		
+//		Login to your Account 
+		
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+		
+//		Searching for Event Name
+		
+		System.out.println("Searching for Event Name :"+EventFullName);
+		
+		waitForClickabilityOf(searchEvent);
+		
+		WebElement search = driver.findElement(searchEvent);
+		
+		search.sendKeys(EventFullName);
+		
+//		Pressing Enter Button 
+		
+		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+		
+		System.out.println("Clicking On Event : "+ActEventName);
+		
+		if (EventFullName.equals(ActEventName)) {
+			
+			System.out.println("This is Correct Event");
+			
+		} else {
+			
+			System.out.println("Failed to Search the Event Name so, searching again ");
+			
+			search.clear();
+			
+			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+//			Pressing Enter Button 
+			
+			search.sendKeys(Keys.ENTER);
+				
+		}
+		
+		
+//		Clicking on The Event
+		
+		System.out.println("Clicking on The Event");
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		driver.findElement(clickOnEvent).click();
+
+		
+//		Clicking on Agenda Setup
+		
+		System.out.println("Clicking on Agenda Setup");
+		
+		waitForClickabilityOf(clickOnAgendaSetUp);
+		
+		driver.findElement(clickOnAgendaSetUp).click();
+		
+//		Clicking on Speakers
+		
+		System.out.println("Clicking on Speakers");
+		
+		waitForClickabilityOf(clickOnSpeakers);
+		
+		driver.findElement(clickOnSpeakers).click();
+				
+//		Clicking on Map Sessions with Speakers
+		
+		System.out.println("Clicking on Map Sessions with Speakers");
+		
+		waitForClickabilityOf(clickOnMapSessionWithSpeakers);
+		
+		driver.findElement(clickOnMapSessionWithSpeakers).click();
+		
+//		Clicking on Clicking on new speaker
+		
+		System.out.println("Clicking on new speaker");
+		
+		waitForClickabilityOf(newSpeaker);
+		
+		driver.findElement(newSpeaker).click();
+		
+//		Entering First Name
+		
+		System.out.println("Entering First Name");
+		
+		waitForClickabilityOf(first_Name);
+		
+		driver.findElement(first_Name).sendKeys(FirstName);
+		
+//		Entering Last Name
+		
+		System.out.println("Entering Last Name");
+		
+		waitForClickabilityOf(last_Name);
+		
+		driver.findElement(last_Name).sendKeys(LastName);
+		
+//		Clicking on Save Button
+		
+		System.out.println("Clicking on Save Button");
+		
+		waitForClickabilityOf(save_Btn);
+		
+		driver.findElement(save_Btn).click();
+		
+//		Clicking on new Sessions
+		
+		System.out.println("Clicking on new Sessions");
+		
+		waitForClickabilityOf(newSession);
+		
+		driver.findElement(newSession).click();
+		
+//		Clicking on Track
+		
+		System.out.println("Clicking on Track");
+		
+		waitForClickabilityOf(clickOnTrack);
+		
+		driver.findElement(clickOnTrack).click();
+		
+//		Initiating Robot Class for Key Event Actions
+		
+		Robot robot = new Robot();
+		
+//		Pressing Down Key 
+		
+		robot.keyPress(KeyEvent.VK_DOWN);
+		
+//		Pressing Enter Key 
+		
+		robot.keyPress(KeyEvent.VK_ENTER);
+		
+//		Clicking on Select Date
+		
+		System.out.println("Clicking on Select Date");
+		
+		waitForClickabilityOf(clickOnDate);
+		
+		driver.findElement(clickOnDate).click();
+		
+//		Pressing Down Key 
+		
+		robot.keyPress(KeyEvent.VK_DOWN);
+		
+//		Pressing Enter Key 
+		
+		robot.keyPress(KeyEvent.VK_ENTER);
+		
+//		Clicking on Select Session
+		
+		System.out.println("Clicking on Select Session");
+		
+		waitForClickabilityOf(clickOnActivity);
+		
+		driver.findElement(clickOnActivity).click();
+		
+//		Pressing Down Key 
+		
+		robot.keyPress(KeyEvent.VK_DOWN);
+		
+//		Pressing Enter Key 
+		
+		robot.keyPress(KeyEvent.VK_ENTER);
+		
+//		Entering the Sessions Title 
+		
+		System.out.println("Entering the Sessions Title ");
+		
+		waitForClickabilityOf(sessionTitle);
+		
+		driver.findElement(sessionTitle).sendKeys(SessionTitle);
+		
+//		Entering the Start Time 
+		
+		System.out.println("Entering the Start Time ");
+		
+		waitForClickabilityOf(startTime);
+		
+		driver.findElement(startTime).sendKeys("09:00 AM");
+		
+//		Entering the End Time 
+		
+		System.out.println("Entering the End Time ");
+		
+		waitForClickabilityOf(endTime);
+		
+		driver.findElement(endTime).sendKeys("09:00 PM");
+		
+//		Selecting the Location
+		
+		System.out.println("Selecting the Location");
+		
+		waitForClickabilityOf(clickOnLocation);
+		
+		driver.findElement(clickOnLocation).click();
+		
+//		Pressing Down Key 
+		
+		robot.keyPress(KeyEvent.VK_DOWN);
+		
+//		Pressing Enter Key 
+		
+		robot.keyPress(KeyEvent.VK_ENTER);
+		
+//		Clicking On Save Button
+		
+		System.out.println("Clicking On Save Button");
+		
+		waitForClickabilityOf(sessionSaveBtn);
+		
+		driver.findElement(sessionSaveBtn).click();
+		
+		
+		return new AddSpeakers(driver);
+		
+}
 }
