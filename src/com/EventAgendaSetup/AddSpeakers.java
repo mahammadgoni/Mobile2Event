@@ -103,19 +103,19 @@ public class AddSpeakers extends BaseSetUp{
 	
 	By selectSpeakerCheckBox = By.xpath("//html//div[@class='wrapper pushmenu-toggle body-wrapper-new']//li[1]/input[1]");
 	
-	By speakerDoneBtn = By.xpath("//input[@value='Done' and @onclick='speaker_done()']");
+	By speakerDoneBtn = By.xpath("//*[@value='Done' and @onclick='speaker_done()']");
 	
 	By sessionSearchBar = By.xpath("//*[@id='txtSession']");
 	
 	By selectSessionCheckBox = By.xpath("//html//div[@class='col-lg-6 same-height border-left arrowrel']//li[1]/input[1]");
 	
-	By sessionDoneBtn = By.xpath("//input[@value='Done' and @onclick='session_done()']");
+	By sessionDoneBtn = By.xpath("//*[@value='Done' and @onclick='session_done()']");
 	
 	By mapBtn = By.xpath("//*[@id='btnMap']");
 	
-	By yesBtn = By.xpath("//div[@class='yes']");
+	By yesBtn = By.xpath("//*[@class='yes']");
 	
-	By showMappings = By.xpath("//a[@id='btnListView']");
+	By showMappings = By.xpath("//*[@id='btnListView']");
 	
 
 	public AddSpeakers(WebDriver driver) {
@@ -349,6 +349,13 @@ public class AddSpeakers extends BaseSetUp{
 		
 		driver.findElement(saveBtn).click();
 		
+		try {
+			popUpHandeling();
+
+		} catch (Exception e) {
+
+		}
+		
 //		Getting No Of Speakers
 		
 		waitForClickabilityOf(speaker1);
@@ -475,8 +482,14 @@ public class AddSpeakers extends BaseSetUp{
 		
 //		Saving the Speakers name
 		
-		String Speaker = driver.findElement(speaker1).getText();
-		
+		try {
+			
+			String Speaker = driver.findElement(speaker1).getText();
+			
+		} catch (Exception e) {
+			
+		}
+				
 //		Selecting the Speaker
 		
 		System.out.println("Selecting the Speaker");
@@ -503,8 +516,14 @@ public class AddSpeakers extends BaseSetUp{
 		
 //		Saving the Session name
 		
-		String Session = driver.findElement(session1).getText();
-		
+		try {
+			
+			String Session = driver.findElement(session1).getText();
+			
+		} catch (Exception e) {
+			
+		}
+				
 //		Selecting the Session
 		
 		System.out.println("Selecting the Session");
@@ -528,6 +547,15 @@ public class AddSpeakers extends BaseSetUp{
 		waitForClickabilityOf(mapBtn);
 		
 		driver.findElement(mapBtn).click();
+		
+//		Pop Up 
+
+		try {
+			popUpHandeling();
+
+		} catch (Exception e) {
+
+		}
 		
 //		Clicking on Map Button
 		
@@ -559,7 +587,7 @@ public class AddSpeakers extends BaseSetUp{
 		return new AddSpeakers(driver);
 	}
 
-    public AddSpeakers mapCreateSpeakerWithCreateSession(String EmailId, String Password, String EventFullName,String FirstName,String LastName, String SessionTitle) throws InterruptedException, AWTException{
+    public AddSpeakers createSpeakerAndMapWithCreateSession(String EmailId, String Password, String EventFullName,String FirstName,String LastName, String SessionTitle) throws InterruptedException, AWTException{
  		
 //		Login to your Account 
 		

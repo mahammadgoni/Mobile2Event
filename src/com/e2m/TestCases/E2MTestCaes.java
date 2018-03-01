@@ -279,13 +279,31 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new AddSessions(driver).addNetworkingSession(EmailId, Password, EventFullName, TrackName, Location,false);
 //
 //	}
+//	
+//	@Test(priority = 22,alwaysRun=true)
+//	public void addSpeakersTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Speakers to Event Test");
+//		
+//		new AddSpeakers(driver).addSpeakers(EmailId, Password, EventFullName, "Jam", "Jelly");
+//
+//	}
 	
-	@Test(priority = 22,alwaysRun=true)
-	public void addSpeakersTest() throws ParseException, InterruptedException {
+	@Test(priority = 23,alwaysRun=true)
+	public void mapSessionWithRandomUserTest() throws ParseException, InterruptedException {
 
-		System.out.println("Executing : Add Speakers to Event Test");
+		System.out.println("Executing : Map Session with Random User Test");
 		
-		new AddSpeakers(driver).addSpeakers(EmailId, Password, EventFullName, "Jack", "Solly");
+		new AddSpeakers(driver).mapSessionWithRandomSpeaker(EmailId, Password, EventFullName);
+
+	}
+	
+	@Test(priority = 24,alwaysRun=true)
+	public void createSpeakerAndMapWithCreateSessionTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Create Speaker and Map with Create Session Test");
+		
+		new AddSpeakers(driver).createSpeakerAndMapWithCreateSession(EmailId, Password, EventFullName, "Jimmy", "Deo", "Trytest");
 
 	}
 	
