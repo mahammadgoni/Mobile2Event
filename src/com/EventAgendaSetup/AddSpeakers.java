@@ -47,7 +47,7 @@ public class AddSpeakers extends BaseSetUp{
 	
 	By sessionSaveBtn = By.xpath("//*[@id='bntSave']");
 	
-	By newSession = By.xpath("//a[@href='#'][contains(text(),'new session')]");
+	By newSession = By.xpath("//*[@ class ='green-btn new-spkr-btn' and contains(text(),'new session')]");
 	
 	By clickOnTrack = By.xpath("//*[@id='ddlTrack']");
 	
@@ -552,18 +552,20 @@ public class AddSpeakers extends BaseSetUp{
 
 		try {
 			popUpHandeling();
+			
+//			Clicking on Map Button
+			
+			System.out.println("Clicking on Show Mappings");
+			
+			waitForClickabilityOf(showMappings);
+			
+			driver.findElement(showMappings).click();
 
 		} catch (Exception e) {
 
 		}
 		
-//		Clicking on Map Button
-		
-		System.out.println("Clicking on Show Mappings");
-		
-		waitForClickabilityOf(showMappings);
-		
-		driver.findElement(showMappings).click();
+
 		
 //		Getting No Of Speakers
 		
@@ -712,6 +714,14 @@ public class AddSpeakers extends BaseSetUp{
 		waitForClickabilityOf(save_Btn);
 		
 		driver.findElement(save_Btn).click();
+		
+		Thread.sleep(2000);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		
 //		Clicking on new Sessions
 		
