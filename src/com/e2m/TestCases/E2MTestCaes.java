@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import com.CommonActions.ForgotPassword;
 import com.CommonActions.LoginToAccount;
+import com.EventAgendaSetup.AddAttendees;
 import com.EventAgendaSetup.AddSessions;
 import com.EventAgendaSetup.AddSpeakers;
 import com.EventManagement.CloneEvent;
@@ -297,18 +298,34 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new AddSpeakers(driver).mapSessionWithRandomSpeaker(EmailId, Password, EventFullName);
 //
 //	}
+//	
+//	@Test(priority = 24,alwaysRun=true)
+//	public void createSpeakerAndMapWithCreateSessionTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Create Speaker and Map with Create Session Test");
+//		
+//		new AddSpeakers(driver).createSpeakerAndMapWithCreateSession(EmailId, Password, EventFullName, "Himmy", "Deo", "Pre Match");
+//
+//	}
+//	
+//	@Test(priority = 25,alwaysRun=true)
+//	public void downloadQRCodeTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Download QR Code Test");
+//		
+//        new AddAttendees(driver).downloadQRCode(EmailId, Password, EventFullName);
+//
+//	}
 	
-	@Test(priority = 24,alwaysRun=true)
-	public void createSpeakerAndMapWithCreateSessionTest() throws ParseException, InterruptedException, AWTException {
+	@Test(priority = 26,alwaysRun=true)
+	public void mapUserRolesTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Create Speaker and Map with Create Session Test");
+		System.out.println("Executing : Map User Roles Test");
 		
-		new AddSpeakers(driver).createSpeakerAndMapWithCreateSession(EmailId, Password, EventFullName, "Jimmy", "Deo", "Trytest");
+        new AddAttendees(driver).mapUserRoles(EmailId, Password, EventFullName);
 
 	}
-	
-	
-	
+		
 //	@Test(priority = 7,alwaysRun=true)
 //	public void cloneToNewEventTest() {
 //

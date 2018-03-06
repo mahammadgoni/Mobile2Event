@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.BaseSetup.BaseSetUp;
 import com.CommonActions.LoginToAccount;
@@ -51,7 +52,11 @@ public class AddSpeakers extends BaseSetUp{
 	
 	By clickOnTrack = By.xpath("//*[@id='ddlTrack']");
 	
+	By selectTrack = By.xpath("//select[@id='ddlTrack']//option[@value='0']");
+	
 	By clickOnDate = By.xpath("//*[@id='ddlSessionDate']");
+	
+	By selectDate = By.xpath("//*[@selected='selected'][contains(text(),'Select Date')]");
 	
 	By clickOnActivity = By.xpath("//*[@id='ddlActivity']");
 	
@@ -62,6 +67,12 @@ public class AddSpeakers extends BaseSetUp{
 	By endTime = By.xpath("//*[@id='txtToTime']");
 	
 	By clickOnLocation = By.xpath("//*[@id='ddlLoc']");
+	
+	By selectLocation = By.xpath("//*[@selected='selected'][contains(text(),'Select Location')]");
+	
+	By clickOnPoll = By.xpath("//*[@id='VTCheckbox']");
+	
+	By clickOnRate = By.xpath("//*[@id='RTCheckbox']");
 	
 	By firstName = By.xpath("//*[@id='ContentPlaceHolder1_txtFirstName1']");
 
@@ -564,7 +575,7 @@ public class AddSpeakers extends BaseSetUp{
 		} catch (Exception e) {
 
 		}
-		
+//	Need to Work bit to verify the Speaker1 with Session1	
 
 		
 //		Getting No Of Speakers
@@ -648,8 +659,7 @@ public class AddSpeakers extends BaseSetUp{
 			search.sendKeys(Keys.ENTER);
 				
 		}
-		
-		
+				
 //		Clicking on The Event
 		
 		System.out.println("Clicking on The Event");
@@ -737,36 +747,40 @@ public class AddSpeakers extends BaseSetUp{
 		
 		waitForClickabilityOf(clickOnTrack);
 		
-		driver.findElement(clickOnTrack).click();
+//		driver.findElement(clickOnTrack).click();
 		
-//		Initiating Robot Class for Key Event Actions
+//		Selecting The Track
 		
-		Robot robot = new Robot();
+		System.out.println("Selecting the Track");
+//		
+//		waitForClickabilityOf(selectTrack);
 		
-//		Pressing Down Key 
+		WebElement SelectTrack = driver.findElement(clickOnTrack);
 		
-		robot.keyPress(KeyEvent.VK_DOWN);
+		Select trackDropDown = new Select(SelectTrack);
 		
-//		Pressing Enter Key 
-		
-		robot.keyPress(KeyEvent.VK_ENTER);
-		
+		trackDropDown.selectByIndex(1);
+				
 //		Clicking on Select Date
 		
 		System.out.println("Clicking on Select Date");
 		
 		waitForClickabilityOf(clickOnDate);
 		
-		driver.findElement(clickOnDate).click();
+//		driver.findElement(clickOnDate).click();
 		
-//		Pressing Down Key 
+//      Selecting the Date
 		
-		robot.keyPress(KeyEvent.VK_DOWN);
+		System.out.println("Selecting the Date");
+//		
+//		waitForClickabilityOf(selectDate);
 		
-//		Pressing Enter Key 
+		WebElement SelectDate = driver.findElement(clickOnDate);
 		
-		robot.keyPress(KeyEvent.VK_ENTER);
+		Select dateDropDown = new Select(SelectDate);
 		
+		dateDropDown.selectByIndex(1);
+				
 //		Clicking on Select Session
 		
 		System.out.println("Clicking on Select Session");
@@ -774,15 +788,7 @@ public class AddSpeakers extends BaseSetUp{
 		waitForClickabilityOf(clickOnActivity);
 		
 		driver.findElement(clickOnActivity).click();
-		
-//		Pressing Down Key 
-		
-		robot.keyPress(KeyEvent.VK_DOWN);
-		
-//		Pressing Enter Key 
-		
-		robot.keyPress(KeyEvent.VK_ENTER);
-		
+				
 //		Entering the Sessions Title 
 		
 		System.out.println("Entering the Sessions Title ");
@@ -813,15 +819,35 @@ public class AddSpeakers extends BaseSetUp{
 		
 		waitForClickabilityOf(clickOnLocation);
 		
-		driver.findElement(clickOnLocation).click();
+//		driver.findElement(clickOnLocation).click();
 		
-//		Pressing Down Key 
+//		Selecting the Location
 		
-		robot.keyPress(KeyEvent.VK_DOWN);
+		System.out.println("Selecting the Location");
+//		
+//		waitForClickabilityOf(selectLocation);
 		
-//		Pressing Enter Key 
+		WebElement SelectLocation = driver.findElement(clickOnLocation);
 		
-		robot.keyPress(KeyEvent.VK_ENTER);
+		Select locationDropDown = new Select(SelectLocation);
+		
+		locationDropDown.selectByIndex(1);
+				
+//		Selecting Poll/Vote Checkbox
+		
+		System.out.println("Selecting Poll/Vote Checkbox");
+		
+		waitForClickabilityOf(clickOnPoll);
+		
+		driver.findElement(clickOnPoll).click();
+		
+//		Selecting Rate Checkbox
+		
+		System.out.println("Selecting Rate Checkbox");
+		
+		waitForClickabilityOf(clickOnRate);
+		
+		driver.findElement(clickOnRate).click();
 		
 //		Clicking On Save Button
 		
@@ -830,6 +856,35 @@ public class AddSpeakers extends BaseSetUp{
 		waitForClickabilityOf(sessionSaveBtn);
 		
 		driver.findElement(sessionSaveBtn).click();
+		
+		try {
+		
+//		Clicking on Map Button
+		
+		System.out.println("Clicking on Map Button");
+		
+		waitForClickabilityOf(mapBtn);
+		
+		driver.findElement(mapBtn).click();
+		
+//		Pop Up 
+
+
+			popUpHandeling();
+			
+//			Clicking on Map Button
+			
+			System.out.println("Clicking on Show Mappings");
+			
+			waitForClickabilityOf(showMappings);
+			
+			driver.findElement(showMappings).click();
+
+		} catch (Exception e) {
+
+		}
+		
+		System.out.println("Successfully Mapped New Session with New Speaker");
 		
 		
 		return new AddSpeakers(driver);
