@@ -23,6 +23,24 @@ public class AddAttendees extends BaseSetUp{
 	
 	By clickOnAttendees = By.xpath("//*[@href='MapUsersWithRP.aspx'][contains(text(),'Attendees')]");
 	
+	By clickOnMapGroups = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='GroupList.aspx']");
+	
+	By addGroup = By.xpath("//*[@id='ContentPlaceHolder1_btnAddNew']");
+	
+	By groupName = By.xpath("//*[@id='ContentPlaceHolder1_txtGroupName']");
+	
+	By showOnMobile = By.xpath("//*[@id='ContentPlaceHolder1_SOM']");
+	
+	By gUserCheckBox1st = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUser_0']");
+	
+	By gUserCheckBox2nd = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUser_1']");
+	
+	By moveUserRightBtn = By.xpath("//*[@id='ContentPlaceHolder1_imgRight']");
+	
+	By groupSaveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
+	
+	By groupCount = By.xpath("//*[@id='ContentPlaceHolder1_gvResources']");
+		
 	By downloadTemplate = By.xpath("//*[@id='ContentPlaceHolder1_btnDataTamplate']");
 	
 	By exportUnMapped = By.xpath("//*[@id='ContentPlaceHolder1_btnExportNotMapped']");
@@ -32,6 +50,14 @@ public class AddAttendees extends BaseSetUp{
 	By importAttendees = By.xpath("//*[@id='ContentPlaceHolder1_btnImport']");
 	
 	By attendeeVisibility = By.xpath("//*[@id='ContentPlaceHolder1_btnAttendeeMap']");
+	
+	By userCheckBox1st = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_Chkhideattendee_0']");
+	
+	By userCheckBox2nd = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_Chkhideattendee_1']");
+	
+	By visibilityOffSaveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
+	
+	By successMessage = By.xpath("//*[@id='ContentPlaceHolder1_lblError']");
 	
 	By downloadQR = By.xpath("//*[@id='ContentPlaceHolder1_btnDownloadQR']");
 	
@@ -63,10 +89,14 @@ public class AddAttendees extends BaseSetUp{
 	
 	By expertUser3rd = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUserRole_2_7_2']");
 
+	
+	
 	public AddAttendees(WebDriver driver) {
 		super(driver);
 		
 	}
+	
+//	Download QR and Click on all Links Methods
 	
 	public AddAttendees downloadQRCode(String EmailId, String Password,String EventFullName) throws InterruptedException{
 		
@@ -216,6 +246,8 @@ public class AddAttendees extends BaseSetUp{
 		return new AddAttendees(driver);
 		
 	}
+
+//	Map Attendees to User Roles Methods 
 	
 	public AddAttendees mapUserRoles(String EmailId, String Password,String EventFullName) throws InterruptedException{
 		
@@ -403,6 +435,348 @@ public class AddAttendees extends BaseSetUp{
 		Thread.sleep(2000);
 		
 				
+		return new AddAttendees(driver);
+	}
+	
+//	Manage Attendee in Group Method
+	
+	public AddAttendees manageGroup(String EmailId, String Password,String EventFullName,String GroupName) throws InterruptedException{
+		
+//		Login to your Account 
+		
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+		
+//		Searching for Event Name
+		
+		System.out.println("Searching for Event Name :"+EventFullName);
+		
+		waitForClickabilityOf(searchEvent);
+		
+		WebElement search = driver.findElement(searchEvent);
+		
+		search.sendKeys(EventFullName);
+		
+//		Pressing Enter Button 
+		
+		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+		
+		System.out.println("Clicking On Event : "+ActEventName);
+		
+		if (EventFullName.equals(ActEventName)) {
+			
+			System.out.println("This is Correct Event");
+			
+		} else {
+			
+			System.out.println("Failed to Search the Event Name so, searching again ");
+			
+			search.clear();
+			
+			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+//			Pressing Enter Button 
+			
+			search.sendKeys(Keys.ENTER);
+				
+		}
+		
+//		Clicking on The Event
+		
+		System.out.println("Clicking on The Event");
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		driver.findElement(clickOnEvent).click();
+
+		
+//		Clicking on Agenda Setup
+		
+		System.out.println("Clicking on Agenda Setup");
+		
+		waitForClickabilityOf(clickOnAgendaSetUp);
+		
+		driver.findElement(clickOnAgendaSetUp).click();
+		
+//		Clicking on Speakers
+		
+		System.out.println("Clicking on Attendees");
+		
+		waitForClickabilityOf(clickOnAttendees);
+		
+		driver.findElement(clickOnAttendees).click();
+		
+//		Clicking on Map Groups
+		
+		System.out.println("Clicking on Map Groups");
+		
+		waitForClickabilityOf(clickOnMapGroups);
+		
+		driver.findElement(clickOnMapGroups).click();
+						
+//		Clicking on Add Group
+		
+		System.out.println("Clicking on Add Group");
+		
+		waitForClickabilityOf(addGroup);
+		
+		driver.findElement(addGroup).click();
+		
+//		Entering Group Name
+		
+		System.out.println("Entering Group Name");
+		
+		waitForClickabilityOf(groupName);
+		
+		driver.findElement(groupName).sendKeys(GroupName);
+		
+//		Clicking on Show On Mobile
+		
+		System.out.println("Clicking on Show On Mobile");
+		
+		waitForClickabilityOf(showOnMobile);
+		
+		driver.findElement(showOnMobile).click();
+		
+//		Selecting First User
+		
+		System.out.println("Selecting First User");
+		
+		waitForClickabilityOf(gUserCheckBox1st);
+		
+		driver.findElement(gUserCheckBox1st).click();
+		
+//		Selecting Second User
+		
+		System.out.println("Selecting Second User");
+		
+		waitForClickabilityOf(gUserCheckBox2nd);
+		
+		driver.findElement(gUserCheckBox2nd).click();
+		
+//		Clicking On Move Button
+		
+		System.out.println("Clicking On Move Button");
+		
+		waitForClickabilityOf(moveUserRightBtn);
+		
+		driver.findElement(moveUserRightBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Save Button
+		
+		System.out.println("Clicking On Save Button");
+		
+		waitForClickabilityOf(groupSaveBtn);
+		
+		driver.findElement(groupSaveBtn).click();
+		
+		try {
+			
+			popUpHandeling();
+						
+		} catch (Exception e) {
+			
+		}
+		
+		Thread.sleep(2000);
+		
+//		Getting the Group Count
+		
+		waitForClickabilityOf(groupCount);
+		
+		List<WebElement> element = driver.findElements(groupCount);
+		
+		int NoOfExSession = element.size();
+		
+		System.out.println(NoOfExSession);
+		
+		if (NoOfExSession==1) {
+			
+			System.out.println("Successfully Added One Group");
+			
+		} else {
+			
+			System.out.println("Failed to Add New Group");
+
+		}
+		
+		
+		
+		return new AddAttendees(driver);
+	}
+	
+//	Attendee Visibility Off Method
+	
+	public AddAttendees attendeeVisibility(String EmailId, String Password,String EventFullName) throws InterruptedException{
+		
+//		Login to your Account 
+		
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+		
+//		Searching for Event Name
+		
+		System.out.println("Searching for Event Name :"+EventFullName);
+		
+		waitForClickabilityOf(searchEvent);
+		
+		WebElement search = driver.findElement(searchEvent);
+		
+		search.sendKeys(EventFullName);
+		
+//		Pressing Enter Button 
+		
+		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+		
+		System.out.println("Clicking On Event : "+ActEventName);
+		
+		if (EventFullName.equals(ActEventName)) {
+			
+			System.out.println("This is Correct Event");
+			
+		} else {
+			
+			System.out.println("Failed to Search the Event Name so, searching again ");
+			
+			search.clear();
+			
+			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+//			Pressing Enter Button 
+			
+			search.sendKeys(Keys.ENTER);
+				
+		}
+		
+		
+//		Clicking on The Event
+		
+		System.out.println("Clicking on The Event");
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		driver.findElement(clickOnEvent).click();
+
+		
+//		Clicking on Agenda Setup
+		
+		System.out.println("Clicking on Agenda Setup");
+		
+		waitForClickabilityOf(clickOnAgendaSetUp);
+		
+		driver.findElement(clickOnAgendaSetUp).click();
+		
+//		Clicking on Speakers
+		
+		System.out.println("Clicking on Attendees");
+		
+		waitForClickabilityOf(clickOnAttendees);
+		
+		driver.findElement(clickOnAttendees).click();
+		
+//		Clicking on Attendee Visibility
+		
+		System.out.println("Clicking on Attendee Visibility");
+		
+		waitForClickabilityOf(attendeeVisibility);
+		
+		driver.findElement(attendeeVisibility).click();
+		
+//		Unchecking user to Off the Visibility 
+		
+		System.out.println("Unchecking First user to Off the Visibility");
+		
+		waitForClickabilityOf(userCheckBox1st);
+		
+		boolean result = driver.findElement(userCheckBox1st).isSelected();
+		
+		System.out.println(result);
+		
+		if (result=true) {
+			
+			driver.findElement(userCheckBox1st).click();
+			
+			
+		}else {
+			
+			System.out.println("Unchecking 2nd user to Off the Visibility");
+			
+			waitForClickabilityOf(userCheckBox2nd);
+							
+			driver.findElement(userCheckBox2nd).click();
+						
+		}
+		
+		System.out.println("Clicking on Save Button ");
+		
+		waitForClickabilityOf(visibilityOffSaveBtn);
+						
+		driver.findElement(visibilityOffSaveBtn).click();
+		
+		
+		
+//		Getting the Success Message
+		
+		Thread.sleep(2000);
+		
+		String actMessage = driver.findElement(successMessage).getText();
+		
+		String expMessage = "Record saved successfully.";
+		
+		System.out.println(actMessage);
+		
+		if (actMessage.equals(expMessage)) {
+			
+			System.out.println("Succefully Disabled Attendee Visibility ");
+			
+		} else {
+			
+			System.out.println("Failed to Disable Attendee Visibility ");
+
+		}
+		
+	
+		
 		return new AddAttendees(driver);
 	}
 	

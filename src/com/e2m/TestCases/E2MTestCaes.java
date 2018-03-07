@@ -316,13 +316,31 @@ public class E2MTestCaes extends BrowserSetUp {
 //        new AddAttendees(driver).downloadQRCode(EmailId, Password, EventFullName);
 //
 //	}
+//	
+//	@Test(priority = 26,alwaysRun=true)
+//	public void mapUserRolesTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Map User Roles Test");
+//		
+//        new AddAttendees(driver).mapUserRoles(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 27,alwaysRun=true)
+//	public void attendeeVisibilityTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Disable Attendee Visibility Test");
+//		
+//        new AddAttendees(driver).attendeeVisibility(EmailId, Password, EventFullName);
+//
+//	}
 	
-	@Test(priority = 26,alwaysRun=true)
-	public void mapUserRolesTest() throws ParseException, InterruptedException, AWTException {
+	@Test(priority = 28,alwaysRun=true)
+	public void manageGroupTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Map User Roles Test");
+		System.out.println("Executing : Manage Group Test");
 		
-        new AddAttendees(driver).mapUserRoles(EmailId, Password, EventFullName);
+        new AddAttendees(driver).manageGroup(EmailId, Password, EventFullName, "Team Ford");
 
 	}
 		
