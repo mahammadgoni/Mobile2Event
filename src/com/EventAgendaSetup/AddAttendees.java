@@ -49,6 +49,16 @@ public class AddAttendees extends BaseSetUp{
 	
 	By importAttendees = By.xpath("//*[@id='ContentPlaceHolder1_btnImport']");
 	
+	By uploadAttendeeBtn = By.xpath("//*[@id='ContentPlaceHolder1_fileupload']");
+	
+	By uploadAttendeeSaveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnAdd']");
+	
+	By bulkUploadHistory = By.xpath("//*[@id='ContentPlaceHolder1_Button1']");
+	
+	By refreshButton = By.xpath("//*[@id='ContentPlaceHolder1_btnRefresh']");
+	
+	By uploadStatus = By.xpath("//*[@id='ContentPlaceHolder1_gvBulkUploadHistory_lblStatus_0']");	
+	
 	By attendeeVisibility = By.xpath("//*[@id='ContentPlaceHolder1_btnAttendeeMap']");
 	
 	By userCheckBox1st = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_Chkhideattendee_0']");
@@ -88,7 +98,30 @@ public class AddAttendees extends BaseSetUp{
 	By chatbot3rd = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUserRole_2_3_2']");
 	
 	By expertUser3rd = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUserRole_2_7_2']");
+	
+	By clickOnMatchMaking = By.xpath("//html//section[@class='container-fluid header-menu-bot-white pushmenu-toggle']//li[3]/a[1]");
+	
+	By manageCategory = By.xpath("//*[@id='btnAddSponsorType']");
+	
+	By addKeyword = By.xpath("//*[@id='ContentPlaceHolder1_btnAddNew']");
+	
+	By categoryName = By.xpath("//*[@id='ContentPlaceHolder1_txtCategoryname']");
+	
+	By addCategoryBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSaveType']	");
+	
+	By selectType = By.xpath("//*[@id='ContentPlaceHolder1_ddltype']");
 
+	By selectMultiple = By.xpath("//*[@id='ContentPlaceHolder1_ddltype']//option[@value='2']");
+	
+	By closeCategoryPopUp = By.xpath("//*[@id='inline1']/a[1]");
+	
+	By enterKeyword = By.xpath("//*[@id='ContentPlaceHolder1_txtKeyword']");
+	
+	By selectCategory = By.xpath("//*[@id='ContentPlaceHolder1_ddlCategory']");
+	
+	By keywordSaveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
+	
+	By addedKeyword = By.xpath("//tr[@class='BgColorWhite']");
 	
 	
 	public AddAttendees(WebDriver driver) {
@@ -780,7 +813,9 @@ public class AddAttendees extends BaseSetUp{
 		return new AddAttendees(driver);
 	}
 	
-	public AddAttendees addAttendees(String EmailId, String Password,String EventFullName) throws InterruptedException{
+//	Add Key Word in Match Making option
+	
+	public AddAttendees matchMaking(String EmailId, String Password,String EventFullName, String Keyword) throws InterruptedException{
 		
 //		Login to your Account 
 		
@@ -858,15 +893,280 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnAgendaSetUp).click();
 		
-//		Clicking on Speakers
+//		Clicking on Attendees
 		
-		System.out.println("Clicking on Speakers");
+		System.out.println("Clicking on Attendees");
 		
 		waitForClickabilityOf(clickOnAttendees);
 		
 		driver.findElement(clickOnAttendees).click();
 		
+//		Clicking on Match Making
+		
+		System.out.println("Clicking on Match Making");
+		
+		waitForClickabilityOf(clickOnMatchMaking);
+		
+		driver.findElement(clickOnMatchMaking).click();
+		
+//		Clicking on Manage Category
+		
+		System.out.println("Clicking on Manage Category");
+		
+		waitForClickabilityOf(manageCategory);
+		
+		driver.findElement(manageCategory).click();
+		
+//		Entering Category Name
+		
+		System.out.println("Entering Category Name as : "+Keyword);
+		
+		waitForClickabilityOf(categoryName);
+		
+		driver.findElement(categoryName).sendKeys(Keyword);
+		
+//		Selecting Category Type
+		
+		System.out.println("Selecting Category Type");
+		
+		waitForClickabilityOf(selectType);
+		
+		driver.findElement(selectType).click();
+		
+		waitForClickabilityOf(selectMultiple);
+		
+		driver.findElement(selectMultiple).click();
+		
+//		Clicking On Add Button
+		
+		System.out.println("Clicking On Add Button");
+		
+		waitForClickabilityOf(addCategoryBtn);
+		
+		driver.findElement(addCategoryBtn).click();
+		
+//		Clicking On Close Pop Up Button
+		
+		System.out.println("Clicking On Close Pop Up Button");
+		
+		waitForClickabilityOf(closeCategoryPopUp);
+		
+		driver.findElement(closeCategoryPopUp).click();
+		
+//		Clicking On Add Keyword Button
+		
+		System.out.println("Clicking On Add Keyword Button");
+		
+		waitForClickabilityOf(addKeyword);
+		
+		driver.findElement(addKeyword).click();
+		
+//		Entering Keyword Name
+		
+		System.out.println("Entering Keyword Name as : "+Keyword);
+		
+		waitForClickabilityOf(enterKeyword);
+		
+		driver.findElement(enterKeyword).sendKeys(Keyword);
+		
+//		Clicking On Select Category
+		
+		System.out.println("Clicking On Select Category");
+				
+		waitForClickabilityOf(selectCategory);
+		
+		Select categoryDropDown = new Select(driver.findElement(selectCategory));
+				
+		categoryDropDown.selectByIndex(1);
+		
+//		Clicking On Save Button
+		
+		System.out.println("Clicking On Save Button");
+		
+		waitForClickabilityOf(keywordSaveBtn);
+		
+		driver.findElement(keywordSaveBtn).click();
+		
+		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
+		
+		Thread.sleep(2000);
+		
+		waitForClickabilityOf(addedKeyword);
+				
+		if (driver.findElement(addedKeyword).isDisplayed()==true) {
+			
+			System.out.println("Successfully Added Keyword");
+			
+		} else {
+			
+			System.out.println("Faied to Add Keyword");
+
+		}
+			
 		return new AddAttendees(driver);
 	}
+	
+	
+	public AddAttendees importAttendees(String EmailId, String Password,String EventFullName, String UploadAttendee) throws InterruptedException{
+		
+//		Login to your Account 
+		
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+		
+//		Searching for Event Name
+		
+		System.out.println("Searching for Event Name :"+EventFullName);
+		
+		waitForClickabilityOf(searchEvent);
+		
+		WebElement search = driver.findElement(searchEvent);
+		
+		search.sendKeys(EventFullName);
+		
+//		Pressing Enter Button 
+		
+		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+		
+		System.out.println("Clicking On Event : "+ActEventName);
+		
+		if (EventFullName.equals(ActEventName)) {
+			
+			System.out.println("This is Correct Event");
+			
+		} else {
+			
+			System.out.println("Failed to Search the Event Name so, searching again ");
+			
+			search.clear();
+			
+			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+//			Pressing Enter Button 
+			
+			search.sendKeys(Keys.ENTER);
+				
+		}
+		
+		
+//		Clicking on The Event
+		
+		System.out.println("Clicking on The Event");
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		driver.findElement(clickOnEvent).click();
+
+		
+//		Clicking on Agenda Setup
+		
+		System.out.println("Clicking on Agenda Setup");
+		
+		waitForClickabilityOf(clickOnAgendaSetUp);
+		
+		driver.findElement(clickOnAgendaSetUp).click();
+		
+//		Clicking on Attendees
+		
+		System.out.println("Clicking on Attendees");
+		
+		waitForClickabilityOf(clickOnAttendees);
+		
+		driver.findElement(clickOnAttendees).click();
+		
+//		Clicking on Import Option
+		
+		System.out.println("Clicking on Import Option");
+		
+		waitForClickabilityOf(importAttendees);
+		
+		driver.findElement(importAttendees).click();
+		
+//		Uploading the excel File
+		
+		System.out.println("Uploading the excel File");
+		
+		waitForClickabilityOf(uploadAttendeeBtn);
+		
+		driver.findElement(uploadAttendeeBtn).sendKeys(UploadAttendee);
+				
+//		Clicking on Save Button
+		
+		System.out.println("Clicking on Save Button");
+		
+		waitForClickabilityOf(uploadAttendeeSaveBtn);
+		
+		driver.findElement(uploadAttendeeSaveBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Bulk Upload History
+		
+		System.out.println("Clicking on Bulk Upload History");
+		
+		waitForClickabilityOf(bulkUploadHistory);
+		
+		driver.findElement(bulkUploadHistory).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Refresh Button
+		
+		System.out.println("Clicking on Refresh Button");
+		
+		waitForClickabilityOf(refreshButton);
+		
+		driver.findElement(refreshButton).click();
+		
+		Thread.sleep(2000);
+		
+//		Getting the status message
+		
+		waitForClickabilityOf(uploadStatus);
+		
+		String ActMessage = driver.findElement(uploadStatus).getText();
+		
+		String ExpMessage = "Successful";
+		
+		if (ActMessage.equals(ExpMessage)) {
+			
+			System.out.println("Successfully Uploaded Attendees");
+			
+		} else {
+			
+			System.out.println("Failed to Upload Attendees");
+
+		}
+		
+		return new AddAttendees(driver);
+		
+	}
+	
 
 }

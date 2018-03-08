@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import com.CommonActions.ForgotPassword;
 import com.CommonActions.LoginToAccount;
 import com.EventAgendaSetup.AddAttendees;
+import com.EventAgendaSetup.AddExhibitors;
 import com.EventAgendaSetup.AddSessions;
 import com.EventAgendaSetup.AddSpeakers;
 import com.EventManagement.CloneEvent;
@@ -37,6 +38,8 @@ public class E2MTestCaes extends BrowserSetUp {
 	String Password = "#e2m321";
 
 	String BulkUserPath = "/Users/goni/Documents/ImportUser_Template.xlsx";
+	
+	String UploadAttendeePath = "/Users/goni/Documents/ImportMapuserdata_Template.xlsx";
 	
 //	Event Name Should be Unique in Every Run
 	
@@ -334,13 +337,41 @@ public class E2MTestCaes extends BrowserSetUp {
 //        new AddAttendees(driver).attendeeVisibility(EmailId, Password, EventFullName);
 //
 //	}
+//	
+//	@Test(priority = 28,alwaysRun=true)
+//	public void manageGroupTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Manage Group Test");
+//		
+//        new AddAttendees(driver).manageGroup(EmailId, Password, EventFullName, "Team Ford");
+//
+//	}
+//	
+//	@Test(priority = 29,alwaysRun=true)
+//	public void matchMakingTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Match Making Test");
+//		
+//        new AddAttendees(driver).matchMaking(EmailId, Password, EventFullName, "AutoGym");
+//
+//	}
+//	
+//	@Test(priority = 30,alwaysRun=true)
+//	public void importAttendeesTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Import Attendees Test");
+//		
+//        new AddAttendees(driver).importAttendees(EmailId, Password, EventFullName, UploadAttendeePath);
+//
+//	}
 	
-	@Test(priority = 28,alwaysRun=true)
-	public void manageGroupTest() throws ParseException, InterruptedException, AWTException {
+	
+	@Test(priority = 31,alwaysRun=true)
+	public void addExhibitorTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Manage Group Test");
+		System.out.println("Executing : Add Exhibitor Test");
 		
-        new AddAttendees(driver).manageGroup(EmailId, Password, EventFullName, "Team Ford");
+        new AddExhibitors(driver).addExhibitor(EmailId, Password, EventFullName, "Peter");
 
 	}
 		
