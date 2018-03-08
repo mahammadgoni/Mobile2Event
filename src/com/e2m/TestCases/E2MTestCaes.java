@@ -11,7 +11,10 @@ import org.testng.annotations.Test;
 
 import com.CommonActions.ForgotPassword;
 import com.CommonActions.LoginToAccount;
+import com.EventAgendaSetup.AddAttendees;
+import com.EventAgendaSetup.AddExhibitors;
 import com.EventAgendaSetup.AddSessions;
+import com.EventAgendaSetup.AddSpeakers;
 import com.EventManagement.CloneEvent;
 import com.EventManagement.MapUserToEvent;
 import com.EventManagement.NewEvent;
@@ -36,6 +39,8 @@ public class E2MTestCaes extends BrowserSetUp {
 
 	String BulkUserPath = "/Users/goni/Documents/ImportUser_Template.xlsx";
 	
+	String UploadAttendeePath = "/Users/goni/Documents/ImportMapuserdata_Template.xlsx";
+	
 //	Event Name Should be Unique in Every Run
 	
 	String EventFullName = "Google IO";
@@ -44,9 +49,9 @@ public class E2MTestCaes extends BrowserSetUp {
 	
 	String SessionTitle = "Grand Final";
 	
-	String TrackName = "Midway";
+	String TrackName = "Parking";
 	
-	String Location = "Hall Room";
+	String Location = "Ground Floor";
 
 	@BeforeClass
 	public void setUp() throws InterruptedException {
@@ -173,7 +178,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 11,alwaysRun=true)
-//	public void addSessionToEventTest() throws ParseException {
+//	public void addSessionToEventTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Session to Event Test");
 //		
@@ -182,23 +187,194 @@ public class E2MTestCaes extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 12,alwaysRun=true)
-//	public void addSessionWithTrackAndLocationToEventTest() throws ParseException {
+//	public void addSessionWithTrackAndLocationToEventTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Session with Track and Loaction to Event Test");
 //		
 //		new AddSessions(driver).addSessionsWithTrackAndLocation(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
 //
 //	}
+//	
+//	@Test(priority = 13,alwaysRun=true)
+//	public void addSessionWithOutTrackAndLocationToEventTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Session without Track and Loaction to Event Test");
+//		
+//		new AddSessions(driver).addSessionsWithOutTrackAndLocation(EmailId, Password, EventFullName, SessionTitle, Location);
+//
+//	}
+//	
+//	@Test(priority = 14,alwaysRun=true)
+//	public void addCheckInRegistrationWithTrackSessionTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Check In Registration With Track Session to Event Test");
+//		
+//		new AddSessions(driver).addCheckInRegistrationSession(EmailId, Password, EventFullName, TrackName, Location,true);
+//
+//	}
+//	
+//	@Test(priority = 15,alwaysRun=true)
+//	public void addCheckInRegistrationWithOutTrackSessionTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Check In Registration without Track Location Session to Event Test");
+//		
+//		new AddSessions(driver).addCheckInRegistrationSession(EmailId, Password, EventFullName, TrackName, Location,false);
+//
+//	}
+//	
+//	@Test(priority = 16,alwaysRun=true)
+//	public void addBreakfastTypeSessionTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Breakfast Type Session to Event Test");
+//		
+////		Please Add Meal Type as : Breakfast 
+//		
+//		new AddSessions(driver).addMealBreakSessions(EmailId, Password, EventFullName, TrackName, Location, "Breakfast");
+//
+//	}
+//	
+//	@Test(priority = 17,alwaysRun=true)
+//	public void addLunchTypeSessionTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Lunch Type Session to Event Test");
+//		
+////		Please Add Meal Type as : Lunch 
+//		
+//		new AddSessions(driver).addMealBreakSessions(EmailId, Password, EventFullName, TrackName, Location, "Lunch");
+//
+//	}
+//	
+//	@Test(priority = 18,alwaysRun=true)
+//	public void addTeaTypeSessionTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Tea Type Session to Event Test");
+//		
+////		Please Add Meal Type as : Tea 
+//		
+//		new AddSessions(driver).addMealBreakSessions(EmailId, Password, EventFullName, TrackName, Location, "Tea");
+//
+//	}
+//	
+//	@Test(priority = 19,alwaysRun=true)
+//	public void addDinnerTypeSessionTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Dinner Type Session to Event Test");
+//		
+////		Please Add Meal Type as : Dinner 
+//		
+//		new AddSessions(driver).addMealBreakSessions(EmailId, Password, EventFullName, TrackName, Location, "Dinner");
+//
+//	}
+//	
+//	@Test(priority = 20,alwaysRun=true)
+//	public void addNetworkingWithTrackSessionTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Networking With Track Session to Event Test");
+//		
+//		new AddSessions(driver).addNetworkingSession(EmailId, Password, EventFullName, TrackName, Location,true);
+//
+//	}
+//	
+//	@Test(priority = 21,alwaysRun=true)
+//	public void addnetworkingWithOutTrackSessionTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Networking Without Track Location Session to Event Test");
+//		
+//		new AddSessions(driver).addNetworkingSession(EmailId, Password, EventFullName, TrackName, Location,false);
+//
+//	}
+//	
+//	@Test(priority = 22,alwaysRun=true)
+//	public void addSpeakersTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Speakers to Event Test");
+//		
+//		new AddSpeakers(driver).addSpeakers(EmailId, Password, EventFullName, "Jam", "Jelly");
+//
+//	}
+//	
+//	@Test(priority = 23,alwaysRun=true)
+//	public void mapSessionWithRandomUserTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Map Session with Random User Test");
+//		
+//		new AddSpeakers(driver).mapSessionWithRandomSpeaker(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 24,alwaysRun=true)
+//	public void createSpeakerAndMapWithCreateSessionTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Create Speaker and Map with Create Session Test");
+//		
+//		new AddSpeakers(driver).createSpeakerAndMapWithCreateSession(EmailId, Password, EventFullName, "Himmy", "Deo", "Pre Match");
+//
+//	}
+//	
+//	@Test(priority = 25,alwaysRun=true)
+//	public void downloadQRCodeTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Download QR Code Test");
+//		
+//        new AddAttendees(driver).downloadQRCode(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 26,alwaysRun=true)
+//	public void mapUserRolesTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Map User Roles Test");
+//		
+//        new AddAttendees(driver).mapUserRoles(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 27,alwaysRun=true)
+//	public void attendeeVisibilityTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Disable Attendee Visibility Test");
+//		
+//        new AddAttendees(driver).attendeeVisibility(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 28,alwaysRun=true)
+//	public void manageGroupTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Manage Group Test");
+//		
+//        new AddAttendees(driver).manageGroup(EmailId, Password, EventFullName, "Team Ford");
+//
+//	}
+//	
+//	@Test(priority = 29,alwaysRun=true)
+//	public void matchMakingTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Match Making Test");
+//		
+//        new AddAttendees(driver).matchMaking(EmailId, Password, EventFullName, "AutoGym");
+//
+//	}
+//	
+//	@Test(priority = 30,alwaysRun=true)
+//	public void importAttendeesTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Import Attendees Test");
+//		
+//        new AddAttendees(driver).importAttendees(EmailId, Password, EventFullName, UploadAttendeePath);
+//
+//	}
 	
-	@Test(priority = 13,alwaysRun=true)
-	public void addSessionWithOutTrackAndLocationToEventTest() throws ParseException {
+	
+	@Test(priority = 31,alwaysRun=true)
+	public void addExhibitorTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Add Session without Track and Loaction to Event Test");
+		System.out.println("Executing : Add Exhibitor Test");
 		
-		new AddSessions(driver).addSessionsWithOutTrackAndLocation(EmailId, Password, EventFullName, SessionTitle, Location);
+        new AddExhibitors(driver).addExhibitor(EmailId, Password, EventFullName, "Peter");
 
 	}
-	
+		
 //	@Test(priority = 7,alwaysRun=true)
 //	public void cloneToNewEventTest() {
 //
