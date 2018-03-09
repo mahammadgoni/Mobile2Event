@@ -107,6 +107,8 @@ public class AddSpeakers extends BaseSetUp{
 	By linkedin = By.xpath("//*[@id='ContentPlaceHolder1_txtlnk1']");
 	
 	By blog = By.xpath("//*[@id='ContentPlaceHolder1_txtws1']");
+	
+	By imageUpload = By.xpath("//*[@id='ContentPlaceHolder1_FileUpload1']");
 
 	By saveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnEditSave']");
 	
@@ -127,6 +129,8 @@ public class AddSpeakers extends BaseSetUp{
 	By yesBtn = By.xpath("//*[@class='yes']");
 	
 	By showMappings = By.xpath("//*[@id='btnListView']");
+	
+	String ImagePath = "/Users/goni/Documents/SpeakerImage.png";
 	
 
 	public AddSpeakers(WebDriver driver) {
@@ -262,7 +266,7 @@ public class AddSpeakers extends BaseSetUp{
 				
 		waitForClickabilityOf(emailId);
 		
-		driver.findElement(emailId).sendKeys(FEmail+"@mailinator.com");
+		driver.findElement(emailId).sendKeys(FEmail+"@yopmail.com");
 		
 //		Clicking on Show Email Button
 		
@@ -351,6 +355,14 @@ public class AddSpeakers extends BaseSetUp{
 		waitForClickabilityOf(blog);
 		
 		driver.findElement(blog).sendKeys(FEmail+"@blog.com");
+		
+//		Adding Image to Speaker  
+		
+		System.out.println("Adding Image to Speaker");
+		
+		waitForClickabilityOf(imageUpload);
+		
+		driver.findElement(imageUpload).sendKeys(ImagePath);
 		
 //		Entering save Button 
 		

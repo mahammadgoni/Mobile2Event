@@ -364,14 +364,40 @@ public class E2MTestCaes extends BrowserSetUp {
 //        new AddAttendees(driver).importAttendees(EmailId, Password, EventFullName, UploadAttendeePath);
 //
 //	}
+//	
+//	@Test(priority = 31,alwaysRun=true)
+//	public void addExhibitorTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Exhibitor Test");
+//		
+//        new AddExhibitors(driver).addExhibitor(EmailId, Password, EventFullName, "Peter");
+//
+//	}
+//	
+//	@Test(priority = 32,alwaysRun=true)
+//	public void exhibitorListTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Exhibitor List Test");
+//		
+//        new AddExhibitors(driver).exhibitorList(EmailId, Password, EventFullName);
+//
+//	}
 	
-	
-	@Test(priority = 31,alwaysRun=true)
-	public void addExhibitorTest() throws ParseException, InterruptedException, AWTException {
+	@Test(priority = 32,alwaysRun=true)
+	public void mapExhibitorWithUserTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Add Exhibitor Test");
+		System.out.println("Executing : Map Exhibitor with User Test");
 		
-        new AddExhibitors(driver).addExhibitor(EmailId, Password, EventFullName, "Peter");
+        new AddExhibitors(driver).mapExhibitorWithUser(EmailId, Password, EventFullName);
+
+	}
+	
+	@Test(priority = 33,alwaysRun=true)
+	public void mapExhibitorWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Map Exhibitor with User Group Test");
+		
+        new AddExhibitors(driver).mapExhibitorWithUserGroup(EmailId, Password, EventFullName);
 
 	}
 		
