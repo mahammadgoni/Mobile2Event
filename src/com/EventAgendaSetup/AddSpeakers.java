@@ -1,11 +1,6 @@
 package com.EventAgendaSetup;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -401,6 +396,7 @@ public class AddSpeakers extends BaseSetUp{
 		return new AddSpeakers(driver);
 	}
 	
+	@SuppressWarnings("unused")
 	public AddSpeakers mapSessionWithRandomSpeaker(String EmailId, String Password, String EventFullName) throws InterruptedException{
 		
 //		Login to your Account 

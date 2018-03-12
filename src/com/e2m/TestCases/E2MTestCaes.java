@@ -15,6 +15,7 @@ import com.EventAgendaSetup.AddAttendees;
 import com.EventAgendaSetup.AddExhibitors;
 import com.EventAgendaSetup.AddSessions;
 import com.EventAgendaSetup.AddSpeakers;
+import com.EventAgendaSetup.AddSponsors;
 import com.EventManagement.CloneEvent;
 import com.EventManagement.MapUserToEvent;
 import com.EventManagement.NewEvent;
@@ -44,6 +45,8 @@ public class E2MTestCaes extends BrowserSetUp {
 //	Event Name Should be Unique in Every Run
 	
 	String EventFullName = "Google IO";
+	
+//	String EventFullName = "E2M Automation Testing Event Clone Test";
 	
 	String EventShortName = "Google";
 	
@@ -382,22 +385,58 @@ public class E2MTestCaes extends BrowserSetUp {
 //        new AddExhibitors(driver).exhibitorList(EmailId, Password, EventFullName);
 //
 //	}
+//	
+//	@Test(priority = 33,alwaysRun=true)
+//	public void mapExhibitorWithUserTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Map Exhibitor with User Test");
+//		
+//        new AddExhibitors(driver).mapExhibitorWithUser(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 34,alwaysRun=true)
+//	public void mapExhibitorWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Map Exhibitor with User Group Test");
+//		
+//        new AddExhibitors(driver).mapExhibitorWithUserGroup(EmailId, Password, EventFullName);
+//
+//	}
 	
-	@Test(priority = 32,alwaysRun=true)
-	public void mapExhibitorWithUserTest() throws ParseException, InterruptedException, AWTException {
+	@Test(priority = 35,alwaysRun=true)
+	public void addSponsorTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Map Exhibitor with User Test");
+		System.out.println("Executing : Add Sponsor Test");
 		
-        new AddExhibitors(driver).mapExhibitorWithUser(EmailId, Password, EventFullName);
+        new AddSponsors(driver).addSponsor(EmailId, Password, EventFullName, "3M");
 
 	}
 	
-	@Test(priority = 33,alwaysRun=true)
-	public void mapExhibitorWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
+	@Test(priority = 36,alwaysRun=true)
+	public void sponsorListTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Map Exhibitor with User Group Test");
+		System.out.println("Executing : Sponsor List Test");
 		
-        new AddExhibitors(driver).mapExhibitorWithUserGroup(EmailId, Password, EventFullName);
+        new AddSponsors(driver).sponsorList(EmailId, Password, EventFullName);
+
+	}
+	
+	@Test(priority = 37,alwaysRun=true)
+	public void mapSponsorWithUserTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Map Sponsor with User Test");
+		
+		new AddSponsors(driver).mapSponsorWithUser(EmailId, Password, EventFullName);
+
+	}
+	
+	@Test(priority = 38,alwaysRun=true)
+	public void mapSponsorWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Map Sponsor with User Group Test");
+		
+		new AddSponsors(driver).mapSponsorWithUserGroup(EmailId, Password, EventFullName);
 
 	}
 		
