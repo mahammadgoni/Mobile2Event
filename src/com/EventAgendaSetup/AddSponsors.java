@@ -11,8 +11,8 @@ import org.openqa.selenium.support.ui.Select;
 import com.BaseSetup.BaseSetUp;
 import com.CommonActions.LoginToAccount;
 
-public class AddExhibitors extends BaseSetUp {
-
+public class AddSponsors extends BaseSetUp{
+	
 	By searchEvent = By.xpath("//*[@id='ContentPlaceHolder1_txtEventName']");
 
 	By selectEvent = By.xpath("//*[@id='ContentPlaceHolder1_AutoCompleteExtender1_completionListElem']");
@@ -21,41 +21,31 @@ public class AddExhibitors extends BaseSetUp {
 
 	By clickOnAgendaSetUp = By.xpath("//li[@id='AG']//a[@href='javascript:void(0);']");
 
-	By clickOnExhibitors = By.xpath("//*[@href='exhibitors.aspx'][contains(text(),'Exhibitors')]");
+	By clickOnSponsors = By.xpath("//*[@href='sponsors.aspx'][contains(text(),'Sponsors')]");
+		
+	By clickOnAddSponsors = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='SponsorAddEdit.aspx']");
+		
+	By spnsrName = By.xpath("//*[@id='ContentPlaceHolder1_txtSponsorName1']");
 
-	By clickOn1stExbtr = By.xpath("//*[@id='ContentPlaceHolder1_gvExibitor_chkExhibitors_0']");
+	By addSpnsrBtn = By.xpath("//*[@name='Add']");
 
-	By clickOnPublish = By.xpath("//*[@id='ContentPlaceHolder1_btnBulkPublish']");
+	By spnsrType = By.xpath("//*[@id='ContentPlaceHolder1_txtSponsorType']");
+	
+	By saveSpnsrBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSaveType']");
+	
+	By closePopUp = By.xpath("//html//div[@id='inline1']/a[1]");
+	
+	By selectSpnsrType = By.xpath("//*[@id='ContentPlaceHolder1_ddlSponsorType1_txtCombo']");
 
-	By clickOnUnpublish = By.xpath("//*[@id='ContentPlaceHolder1_btnBulkUnpublish']");
+	By select1stType = By.xpath("//*[@id='ContentPlaceHolder1_ddlSponsorType1_chkList_0']");
 
-	By unpublishState = By.xpath("//*[@id='ContentPlaceHolder1_gvExibitor_imgPublished_0']");
-
-	By publishState = By.xpath("//*[@id='ContentPlaceHolder1_gvExibitor_imgUnPublished_0']");
-
-	By clickOnAddExhibitor = By.xpath("//html//ul[@class='menu-3rd-level clearfix']/li[2]");
-
-	By exhibitorName = By.xpath("//*[@id='ContentPlaceHolder1_txtExbtrName1']");
-
-	By addExbtrBtn = By.xpath("//*[@name='Add']");
-
-	By exbtrType = By.xpath("//*[@id='ContentPlaceHolder1_txtExhibitorType']");
-
-	By saveExbtrBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSaveType']");
-
-	By closePopUp = By.xpath("//html//div[@id='div5']/a[1]");
-
-	By selectExbtrType = By.xpath("//*[@id='ContentPlaceHolder1_ddlExhibitorType1_txtCombo']");
-
-	By select1stType = By.xpath("//*[@id='ContentPlaceHolder1_ddlExhibitorType1_chkList_0']");
-
-	By boothNo = By.xpath("//*[@id='ContentPlaceHolder1_txtBoothNo1']");
+	By boothNo = By.xpath("//*[@id='ContentPlaceHolder1_txtBoothNo']");
 
 	By website = By.xpath("//*[@id='ContentPlaceHolder1_txtWebsite1']");
 
 	By emailId = By.xpath("//*[@id='ContentPlaceHolder1_txtEmail1']");
 
-	By contactNo = By.xpath("//*[@id='ContentPlaceHolder1_txtFax1']");
+	By contactNo = By.xpath("//*[@id='ContentPlaceHolder1_txtContactNo']");
 
 	By selectCountry = By.xpath("//*[@id='ContentPlaceHolder1_ddlCountry1']");
 
@@ -65,17 +55,29 @@ public class AddExhibitors extends BaseSetUp {
 
 	By profile = By.xpath("//html/body[1]");
 
-	By exbtrLogo = By.xpath("//*[@id='ContentPlaceHolder1_fuProfile1']");
+	By spnsrLogo = By.xpath("//*[@id='ContentPlaceHolder1_fuLogo']");
 
-	By exbtrBanner = By.xpath("//*[@id='ContentPlaceHolder1_aClose1']");
+	By spnsrBanner = By.xpath("//*[@id='ContentPlaceHolder1_aClose1']");
 
-	By saveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnEditSave']");
+	By saveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
+	
+	By spnsrCount = By.xpath("//*[@id='ContentPlaceHolder1_gvSponsor']");
+	
+	
+	By clickOn1stSpnsr = By.xpath("//*[@id='ContentPlaceHolder1_gvSponsor_chkSponsors_0']");
 
-	By exbtrCount = By.xpath("//*[@id='ContentPlaceHolder1_gvExibitor']");
+	By clickOnPublish = By.xpath("//*[@id='ContentPlaceHolder1_btnBulkPublish']");
 
-	By clickOnMapExbtr = By.xpath("//html//ul[@class='menu-3rd-level clearfix']/li[4]");
+	By clickOnUnpublish = By.xpath("//*[@id='ContentPlaceHolder1_btnBulkUnpublish']");
 
-	By selectExbtr = By.xpath("//*[@id='ContentPlaceHolder1_ddlInstance']");
+	By unPublishState = By.xpath("//*[@id='ContentPlaceHolder1_gvSponsor_imgPublished_0']");
+
+	By publishState = By.xpath("//*[@id='ContentPlaceHolder1_gvSponsor_imgUnPublished_0']");
+	
+	
+	By clickOnMapSpnsr = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='SponsorMapping.aspx']");
+
+	By selectSpnsr = By.xpath("//*[@id='ContentPlaceHolder1_ddlInstance']");
 
 	By selectUserRadioBtn = By.xpath("//*[@id='ContentPlaceHolder1_rbtnaudience_1']");
 
@@ -92,22 +94,26 @@ public class AddExhibitors extends BaseSetUp {
 	By mapSaveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
 
 	By successMessage = By.xpath("//*[@id='ContentPlaceHolder1_lblError']");
+	
 
 	// Exhibitor Logo Upload Path
 
-	String ExbtrLogoPath = "/Users/goni/Documents/ExhibitorLogo.png";
+	String SpnsrLogoPath = "/Users/goni/Documents/SponsorLogo.jpg";
 
 	// Exhibitor Banner Path
 
-	String ExbtrBannerPath = "/Users/goni/Documents/ExhibitorBanner.png";
+	String SpnsrBannerPath = "/Users/goni/Documents/SponsorBanner.jpg";
 
-	public AddExhibitors(WebDriver driver) {
+
+	
+
+	public AddSponsors(WebDriver driver) {
 		super(driver);
 
 	}
-
-	public AddExhibitors addExhibitor(String EmailId, String Password, String EventFullName, String ExbtrName)throws InterruptedException {
-
+	
+	public AddSponsors addSponsor(String EmailId, String Password, String EventFullName, String SponsorName) throws InterruptedException{
+		
 		// Login to your Account
 
 		new LoginToAccount(driver).loginToAccount(EmailId, Password);
@@ -184,43 +190,43 @@ public class AddExhibitors extends BaseSetUp {
 
 		// Clicking on Exhibitor
 
-		System.out.println("Clicking on Exhibitor");
+		System.out.println("Clicking on Sponsor");
 
-		waitForClickabilityOf(clickOnExhibitors);
+		waitForClickabilityOf(clickOnSponsors);
 
-		driver.findElement(clickOnExhibitors).click();
+		driver.findElement(clickOnSponsors).click();
 
-		// Clicking on Add Exhibitor
+		// Clicking on Add Sponsor
 
-		System.out.println("Clicking on Add Exhibitor");
+		System.out.println("Clicking on Add Sponsor");
 
-		waitForClickabilityOf(clickOnAddExhibitor);
+		waitForClickabilityOf(clickOnAddSponsors);
 
-		driver.findElement(clickOnAddExhibitor).click();
+		driver.findElement(clickOnAddSponsors).click();
 
 		// Clicking on Add Button
 
 		System.out.println("Clicking on Add Button");
 
-		waitForClickabilityOf(addExbtrBtn);
+		waitForClickabilityOf(addSpnsrBtn);
 
-		driver.findElement(addExbtrBtn).click();
+		driver.findElement(addSpnsrBtn).click();
 
-		// Entering Exhibitor Type
+		// Entering Sponsor Type
 
-		System.out.println("Entering Exhibitor Type");
+		System.out.println("Entering Sponsor Type");
 
-		waitForClickabilityOf(exbtrType);
+		waitForClickabilityOf(spnsrType);
 
-		driver.findElement(exbtrType).sendKeys("Silver");
+		driver.findElement(spnsrType).sendKeys("Gold");
 
 		// Clicking On Save Button
 
 		System.out.println("Clicking On Save Button");
 
-		waitForClickabilityOf(saveExbtrBtn);
+		waitForClickabilityOf(saveSpnsrBtn);
 
-		driver.findElement(saveExbtrBtn).click();
+		driver.findElement(saveSpnsrBtn).click();
 
 		// Clicking On Close Pop Up
 
@@ -230,29 +236,29 @@ public class AddExhibitors extends BaseSetUp {
 
 		driver.findElement(closePopUp).click();
 
-		// Clicking On Exhibitor Type
+		// Clicking On Sponsor Type
 
-		System.out.println("Clicking On Exhibitor Type");
+		System.out.println("Clicking On Sponsor Type");
 
-		waitForClickabilityOf(selectExbtrType);
+		waitForClickabilityOf(selectSpnsrType);
 
-		driver.findElement(selectExbtrType).click();
+		driver.findElement(selectSpnsrType).click();
 
-		// Selecting Exhibitor Type
+		// Selecting Sponsor Type
 
-		System.out.println("Selecting Exhibitor Type");
+		System.out.println("Selecting Sponsor Type");
 
 		waitForClickabilityOf(select1stType);
 
 		driver.findElement(select1stType).click();
 
-		// Entering Exhibitor Name
+		// Entering Sponsor Name
 
-		System.out.println("Entering Exhibitor Name as : " + ExbtrName);
+		System.out.println("Entering Sponsor Name as : " + SponsorName);
 
-		waitForClickabilityOf(exhibitorName);
+		waitForClickabilityOf(spnsrName);
 
-		driver.findElement(exhibitorName).sendKeys(ExbtrName);
+		driver.findElement(spnsrName).sendKeys(SponsorName);
 
 		// Entering Booth No
 
@@ -264,35 +270,35 @@ public class AddExhibitors extends BaseSetUp {
 
 		// Converting the String to Lower case
 
-		String sExbtrName = ExbtrName.toLowerCase();
+		String sSpnsrName = SponsorName.toLowerCase();
 
-		// Entering Exhibitor Website
+		// Entering Sponsor Website
 
-		System.out.println("Entering Exhibitor Website as : " + sExbtrName + ".com");
+		System.out.println("Entering Sponsor Website as : " + sSpnsrName + ".com");
 
 		waitForClickabilityOf(website);
 
-		driver.findElement(website).sendKeys(sExbtrName);
+		driver.findElement(website).sendKeys(sSpnsrName);
 
-		// Entering Exhibitor Email Id
+		// Entering Sponsor Email Id
 
-		System.out.println("Entering Exhibitor Email Id as : " + sExbtrName + "@yop.com");
+		System.out.println("Entering Sponsor Email Id as : " + sSpnsrName + "@yop.com");
 
 		waitForClickabilityOf(emailId);
 
-		driver.findElement(emailId).sendKeys(sExbtrName + "@yop.com");
+		driver.findElement(emailId).sendKeys(sSpnsrName + "@yop.com");
 
-		// Entering Exhibitor Phone No
+		// Entering Sponsor Phone No
 
-		System.out.println("Entering Exhibitor Phone No ");
+		System.out.println("Entering Sponsor Phone No ");
 
 		waitForClickabilityOf(contactNo);
 
 		driver.findElement(contactNo).sendKeys("9786653421");
 
-		// Entering Exhibitor Country
+		// Entering Sponsor Country
 
-		System.out.println("Entering Exhibitor Country");
+		System.out.println("Entering Sponsor Country");
 
 		waitForClickabilityOf(selectCountry);
 
@@ -302,37 +308,37 @@ public class AddExhibitors extends BaseSetUp {
 
 		driver.findElement(selectUSA).click();
 
-		// Entering Exhibitor Address
+		// Entering Sponsor Address
 
-		System.out.println("Entering Exhibitor Address");
+		System.out.println("Entering Sponsor Address");
 
 		waitForClickabilityOf(address);
 
 		driver.findElement(address).sendKeys("202,Columbia Heights, Northwest, Washington, D.C.");
 
-		// Entering Exhibitor Profile
+		// Entering Sponsor Profile
 
-		System.out.println("Entering Exhibitor Profile");
+		System.out.println("Entering Sponsor Profile");
 
 		waitForClickabilityOf(profile);
 
-		driver.findElement(profile).sendKeys("This is Test Exhibitor Profile");
+		driver.findElement(profile).sendKeys("This is Test Sponsor Profile");
 
-		// Adding Exhibitor Logo
+		// Adding Sponsor Logo
 
-		System.out.println("Adding Exhibitor Logo");
+		System.out.println("Adding Sponsor Logo");
 
-		waitForClickabilityOf(exbtrLogo);
+		waitForClickabilityOf(spnsrLogo);
 
-		driver.findElement(exbtrLogo).sendKeys(ExbtrLogoPath);
+		driver.findElement(spnsrLogo).sendKeys(SpnsrLogoPath);
 
-		// Adding Exhibitor Banner
+		// Adding Sponsor Banner
 
-		System.out.println("Adding Exhibitor Banner");
+		System.out.println("Adding Sponsor Banner");
 
-		waitForClickabilityOf(exbtrBanner);
+		waitForClickabilityOf(spnsrBanner);
 
-		driver.findElement(exbtrBanner).sendKeys(ExbtrBannerPath);
+		driver.findElement(spnsrBanner).sendKeys(SpnsrBannerPath);
 
 		// Clicking On Save Button
 
@@ -351,30 +357,32 @@ public class AddExhibitors extends BaseSetUp {
 
 		}
 
-		// Getting No Of Exhibitor
+		// Getting No Of Sponsor
 
-		waitForClickabilityOf(exbtrCount);
+		waitForClickabilityOf(spnsrCount);
 
-		List<WebElement> element = driver.findElements(exbtrCount);
+		List<WebElement> element = driver.findElements(spnsrCount);
 
-		int NoOfExExbtr = element.size();
+		int NoOfExSpnsr = element.size();
 
-		if (NoOfExExbtr == 1) {
+		if (NoOfExSpnsr == 1) {
 
-			System.out.println("Successfully Added one Exhibitor");
+			System.out.println("Successfully Added one Sponsor");
 
 		} else {
 
-			System.out.println("Failed to Add Exhibitor");
+			System.out.println("Failed to Add Sponsor");
 
 		}
-
-		return new AddExhibitors(driver);
-
+		
+		
+		
+		return new AddSponsors(driver);
+		
 	}
 
-	public AddExhibitors exhibitorList(String EmailId, String Password, String EventFullName)throws InterruptedException {
-
+	public AddSponsors sponsorList(String EmailId, String Password, String EventFullName) throws InterruptedException{
+		
 		// Login to your Account
 
 		new LoginToAccount(driver).loginToAccount(EmailId, Password);
@@ -451,25 +459,25 @@ public class AddExhibitors extends BaseSetUp {
 
 		// Clicking on Exhibitor
 
-		System.out.println("Clicking on Exhibitor");
+		System.out.println("Clicking on Sponsor");
 
-		waitForClickabilityOf(clickOnExhibitors);
+		waitForClickabilityOf(clickOnSponsors);
 
-		driver.findElement(clickOnExhibitors).click();
+		driver.findElement(clickOnSponsors).click();
 
-		// Unpublishing the Exhibitor
+		// Un-publishing the Exhibitor
 
-		System.out.println("Unpublishing the Exhibitor");
+		System.out.println("Unpublishing the Sponsor");
 
-		waitForClickabilityOf(clickOn1stExbtr);
+		waitForClickabilityOf(clickOn1stSpnsr);
 
-		driver.findElement(clickOn1stExbtr).click();
+		driver.findElement(clickOn1stSpnsr).click();
 
 		waitForClickabilityOf(clickOnUnpublish);
 
 		driver.findElement(clickOnUnpublish).click();
 
-		System.out.println("Clicking On OK to Unpublish the Exhibitor");
+		System.out.println("Clicking On OK to Unpublish the Sponsor");
 
 		try {
 
@@ -489,27 +497,27 @@ public class AddExhibitors extends BaseSetUp {
 
 		}
 
-		waitForClickabilityOf(unpublishState);
+		waitForClickabilityOf(unPublishState);
 
-		WebElement UnPublishStatus = driver.findElement(unpublishState);
+		WebElement UnPublishStatus = driver.findElement(unPublishState);
 
-		System.out.println("Current Exhibitor Status is Unpublish : " + UnPublishStatus.isDisplayed());
+		System.out.println("Current Sponsor Status is Unpublish : " + UnPublishStatus.isDisplayed());
 
 		Thread.sleep(2000);
 
 		// Publishing the Exhibitor
 
-		System.out.println("Publishing the Exhibitor");
+		System.out.println("Publishing the Sponsor");
 
-		waitForClickabilityOf(clickOn1stExbtr);
+		waitForClickabilityOf(clickOn1stSpnsr);
 
-		driver.findElement(clickOn1stExbtr).click();
+		driver.findElement(clickOn1stSpnsr).click();
 
 		waitForClickabilityOf(clickOnPublish);
 
 		driver.findElement(clickOnPublish).click();
 
-		System.out.println("Clicking On OK to Publish the Exhibitor");
+		System.out.println("Clicking On OK to Publish the Sponsor");
 
 		try {
 
@@ -533,16 +541,17 @@ public class AddExhibitors extends BaseSetUp {
 
 		WebElement PublishStatus = driver.findElement(publishState);
 
-		System.out.println("Current Exhibitor Status is Publish : " + PublishStatus.isDisplayed());
+		System.out.println("Current Sponsor Status is Publish : " + PublishStatus.isDisplayed());
 
 		Thread.sleep(2000);
-
-		return new AddExhibitors(driver);
-
+		
+		
+		return new AddSponsors(driver);
+		
 	}
 
-	public AddExhibitors mapExhibitorWithUser(String EmailId, String Password, String EventFullName)throws InterruptedException {
-
+	public AddSponsors mapSponsorWithUser(String EmailId, String Password, String EventFullName) throws InterruptedException{
+		
 		// Login to your Account
 
 		new LoginToAccount(driver).loginToAccount(EmailId, Password);
@@ -617,35 +626,35 @@ public class AddExhibitors extends BaseSetUp {
 
 		driver.findElement(clickOnAgendaSetUp).click();
 
-		// Clicking on Exhibitor
+		// Clicking on Sponsors
 
-		System.out.println("Clicking on Exhibitor");
+		System.out.println("Clicking on Sponsors");
 
-		waitForClickabilityOf(clickOnExhibitors);
+		waitForClickabilityOf(clickOnSponsors);
 
-		driver.findElement(clickOnExhibitors).click();
+		driver.findElement(clickOnSponsors).click();
 
-		// Clicking on Map Exhibitor with Users
+		// Clicking on Map Sponsors with Users
 
-		System.out.println("Clicking on Map Exhibitor with Users");
+		System.out.println("Clicking on Map Sponsors with Users");
 
-		waitForClickabilityOf(clickOnMapExbtr);
+		waitForClickabilityOf(clickOnMapSpnsr);
 
-		driver.findElement(clickOnMapExbtr).click();
+		driver.findElement(clickOnMapSpnsr).click();
 
-		// Selecting Exhibitor
+		// Selecting Sponsors
 
-		System.out.println("Selecting Exhibitor");
+		System.out.println("Selecting Sponsors");
 
-		waitForClickabilityOf(selectExbtr);
+		waitForClickabilityOf(selectSpnsr);
 
-		Select exbtrDropDown = new Select(driver.findElement(selectExbtr));
+		Select exbtrDropDown = new Select(driver.findElement(selectSpnsr));
 
 		exbtrDropDown.selectByIndex(1);
 		
 		Thread.sleep(2000);
 
-		// Clicking on Map Exhibitor with Users
+		// Clicking on Map Sponsors with Users
 
 		System.out.println("Clicking on Select Users Radio Button");
 
@@ -662,8 +671,6 @@ public class AddExhibitors extends BaseSetUp {
 			driver.findElement(selectUserRadioBtn).click();
 
 		}
-		
-//		driver.findElement(selectUserRadioBtn).click();
 		
 		Thread.sleep(2000);
 
@@ -703,20 +710,21 @@ public class AddExhibitors extends BaseSetUp {
 
 		if (ActMessage.equals(ExpMessage)) {
 
-			System.out.println("Successfully Mapped Exhibitor with User");
+			System.out.println("Successfully Mapped Sponsors with User");
 
 		} else {
 
-			System.out.println("Failed to Map Exhibitor with User");
+			System.out.println("Failed to Map Sponsors with User");
 
 		}
-
-		return new AddExhibitors(driver);
-
+		
+		
+		return new AddSponsors(driver);
+		
 	}
 	
-	public AddExhibitors mapExhibitorWithUserGroup(String EmailId, String Password, String EventFullName)throws InterruptedException {
-
+	public AddSponsors mapSponsorWithUserGroup(String EmailId, String Password, String EventFullName) throws InterruptedException{
+		
 		// Login to your Account
 
 		new LoginToAccount(driver).loginToAccount(EmailId, Password);
@@ -791,35 +799,35 @@ public class AddExhibitors extends BaseSetUp {
 
 		driver.findElement(clickOnAgendaSetUp).click();
 
-		// Clicking on Exhibitor
+		// Clicking on Sponsors
 
-		System.out.println("Clicking on Exhibitor");
+		System.out.println("Clicking on Sponsors");
 
-		waitForClickabilityOf(clickOnExhibitors);
+		waitForClickabilityOf(clickOnSponsors);
 
-		driver.findElement(clickOnExhibitors).click();
+		driver.findElement(clickOnSponsors).click();
 
-		// Clicking on Map Exhibitor with Users
+		// Clicking on Map Sponsors with Users
 
-		System.out.println("Clicking on Map Exhibitor with Users");
+		System.out.println("Clicking on Map Sponsors with Users");
 
-		waitForClickabilityOf(clickOnMapExbtr);
+		waitForClickabilityOf(clickOnMapSpnsr);
 
-		driver.findElement(clickOnMapExbtr).click();
+		driver.findElement(clickOnMapSpnsr).click();
 
-		// Selecting Exhibitor
+		// Selecting Sponsors
 
-		System.out.println("Selecting Exhibitor");
+		System.out.println("Selecting Sponsors");
 
-		waitForClickabilityOf(selectExbtr);
+		waitForClickabilityOf(selectSpnsr);
 
-		Select exbtrDropDown = new Select(driver.findElement(selectExbtr));
+		Select exbtrDropDown = new Select(driver.findElement(selectSpnsr));
 
 		exbtrDropDown.selectByIndex(1);
 		
 		Thread.sleep(2000);
 
-		// Clicking on Map Exhibitor with Users
+		// Clicking on Map Sponsors with Users
 
 		System.out.println("Clicking on Select Users Radio Button");
 
@@ -865,16 +873,18 @@ public class AddExhibitors extends BaseSetUp {
 
 		if (ActMessage.equals(ExpMessage)) {
 
-			System.out.println("Successfully Mapped Exhibitor with User Group");
+			System.out.println("Successfully Mapped Sponsors with User Group");
 
 		} else {
 
-			System.out.println("Failed to Map Exhibitor with User Group");
+			System.out.println("Failed to Map Sponsors with User Group");
 
 		}
-
-		return new AddExhibitors(driver);
-
+		
+		
+		return new AddSponsors(driver);
+		
 	}
 
+	
 }
