@@ -110,6 +110,59 @@ public class AddSessions extends BaseSetUp{
 	
 	By saveAndPublishBtn = By.xpath("//*[@id='btnSaveNpublish']");
 	
+//	Create Poll/Vote Elements
+	
+	By searchSession = By.xpath("//*[@class='form-group session-title-srch mr-sm-3']");
+	
+	By allDates = By.xpath("//*[@id='divAllDateFilter']");
+	
+	By clickOnSearchSession = By.xpath("//html//tr[1]/td[2]");
+	
+	By clickOnSearchedSession = By.xpath("//ul[@id='ulsldsession']");
+	
+	By clickOnPoll = By.xpath("//*[@id='tbPoll']");
+	
+	By createPollOrVote = By.xpath("//*[@id='aPollCreate']");
+	
+	By clickOnPollTitle = By.xpath("//*[@name='polltitle']");
+	
+	By enableMultiplyQsn = By.xpath("//*[@for='isPollGroup']");
+	
+	By enableAnonymous = By.xpath("//*[@for='pollTitle2']");
+	
+	By freeText = By.xpath("//*[@id='textbox_0']");
+	
+	By freeText1 = By.xpath("//*[@id='textbox_1']");
+	
+	By singleChoice = By.xpath("//*[@id='radiobutton_0']");
+	
+	By singleChoice1 = By.xpath("//*[@id='radiobutton_1']");
+	
+	By multipleChoice = By.xpath("//*[@id='checkbox_0']");
+	
+	By multipleChoice1 = By.xpath("//*[@id='checkbox_1']");
+	
+	By dropdownList = By.xpath("//*[@id='dropdown_0']");
+	
+	By dropdownList1 = By.xpath("//*[@id='dropdown_1']");
+	
+	By questionTitle = By.xpath("//*[@id='qtitle_0']");
+	
+	By questionTitle1 = By.xpath("//*[@id='qtitle_1']");
+	
+	By options = By.xpath("//*[@name='qfrmOption_0_0']");
+	
+	By options1 = By.xpath("//*[@name='qfrmOption_1_0']");
+	
+	By plus = By.xpath("//i[@class='plus-choice-icon']");
+	
+	By markItOptional = By.xpath("//*[@for='showOptional_0']");
+	
+	By addNewQuestion = By.xpath("//*[@class='add-new-qus-hld']//input[@value='Add New Question']");
+	
+	By savePollBtn = By.xpath("//*[@id='savePoll']");
+	
+	
 	
 	
 
@@ -2270,6 +2323,177 @@ public class AddSessions extends BaseSetUp{
 		return new AddSessions(driver);
 		
 	}
+    
+    public AddSessions addPoll(String EmailId, String Password, String EventFullName,String SessionTitle) throws InterruptedException{
+    	
+		// Login to your Account
+
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+
+		// Searching for Event Name
+
+		System.out.println("Searching for Event Name :" + EventFullName);
+
+		waitForClickabilityOf(searchEvent);
+
+		WebElement search = driver.findElement(searchEvent);
+
+		search.sendKeys(EventFullName);
+
+		// Pressing Enter Button
+
+		search.sendKeys(Keys.ENTER);
+
+		Thread.sleep(2000);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		waitForClickabilityOf(clickOnEvent);
+
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+
+		System.out.println("Clicking On Event : " + ActEventName);
+
+		if (EventFullName.equals(ActEventName)) {
+
+			System.out.println("This is Correct Event");
+
+		} else {
+
+			System.out.println("Failed to Search the Event Name so, searching again ");
+
+			search.clear();
+
+			search.sendKeys(EventFullName);
+
+			Thread.sleep(2000);
+
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			// Pressing Enter Button
+
+			search.sendKeys(Keys.ENTER);
+
+		}
+
+		// Clicking on The Event
+
+		System.out.println("Clicking on The Event");
+
+		waitForClickabilityOf(clickOnEvent);
+
+		driver.findElement(clickOnEvent).click();
+
+		// Clicking on Agenda Setup
+
+		System.out.println("Clicking on Agenda Setup");
+
+		waitForClickabilityOf(clickOnAgendaSetUp);
+
+		driver.findElement(clickOnAgendaSetUp).click();
+
+		// Clicking on Sponsors
+
+		System.out.println("Clicking on Sponsors");
+
+		waitForClickabilityOf(clickOnSession);
+
+		driver.findElement(clickOnSession).click();
+		
+		// Clicking on All Dates
+
+		System.out.println("Clicking on All Dates");
+
+		waitForClickabilityOf(allDates);
+
+		driver.findElement(allDates).click();
+		
+		// Searching for Session Name
+
+		System.out.println("Searching for Session Name :" + SessionTitle);
+
+		waitForClickabilityOf(searchSession);
+
+		WebElement Session = driver.findElement(searchSession);
+
+		Session.sendKeys(SessionTitle);
+		
+		// Pressing Enter Button
+
+		Session.sendKeys(Keys.ENTER);
+
+		Thread.sleep(2000);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		waitForClickabilityOf(clickOnSearchedSession);
+
+		String ActSessionName = driver.findElement(clickOnSearchedSession).getText();
+
+		System.out.println("Clicking On Session : " + ActSessionName);
+
+		if (SessionTitle.equals(ActSessionName)) {
+
+			System.out.println("This is Correct Session");
+
+		} else {
+
+			System.out.println("Failed to Search the Session Name so, searching again ");
+
+			Session.clear();
+
+			Session.sendKeys(SessionTitle);
+
+			Thread.sleep(2000);
+
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+//			 Pressing Enter Button
+
+			Session.sendKeys(Keys.ENTER);
+
+		}
+		
+//		 Selecting the Session
+
+		System.out.println("Selecting the Session");
+
+		waitForClickabilityOf(clickOnSearchedSession);
+
+		driver.findElement(clickOnSearchedSession).click();
+		
+//		 Clicking On Poll
+
+		System.out.println("Clicking On Poll");
+
+		waitForClickabilityOf(clickOnPoll);
+
+		driver.findElement(clickOnPoll).click();
+		
+		
+		
+    	
+    	
+    	
+		return new AddSessions(driver);
+    	
+    }
 
 	
 }
