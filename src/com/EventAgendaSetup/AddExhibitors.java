@@ -95,11 +95,11 @@ public class AddExhibitors extends BaseSetUp {
 
 	// Exhibitor Logo Upload Path
 
-	String ExbtrLogoPath = "/Users/goni/Documents/ExhibitorLogo.png";
+	String ExbtrLogoPath = "/Users/goni/Documents/E2MDatas/ExhibitorLogo.png";
 
 	// Exhibitor Banner Path
 
-	String ExbtrBannerPath = "/Users/goni/Documents/ExhibitorBanner.png";
+	String ExbtrBannerPath = "/Users/goni/Documents/E2MDatas/ExhibitorBanner.png";
 
 	public AddExhibitors(WebDriver driver) {
 		super(driver);
