@@ -112,13 +112,13 @@ public class AddSessions extends BaseSetUp{
 	
 //	Create Poll/Vote Elements
 	
-	By searchSession = By.xpath("//*[@class='form-group session-title-srch mr-sm-3']");
+	By searchSession = By.xpath("//*[@placeholder='Session Title/Track Name']");
 	
 	By allDates = By.xpath("//*[@id='divAllDateFilter']");
 	
-	By clickOnSearchSession = By.xpath("//html//tr[1]/td[2]");
+	By clickOnSearchedSession = By.xpath("//tbody[@id='tbdsessionlist']//td[2]//a");
 	
-	By clickOnSearchedSession = By.xpath("//ul[@id='ulsldsession']");
+	By clickOnSearchSession = By.xpath("//ul[@id='ulsldsession']");
 	
 	By clickOnPoll = By.xpath("//*[@id='tbPoll']");
 	
@@ -150,17 +150,40 @@ public class AddSessions extends BaseSetUp{
 	
 	By questionTitle1 = By.xpath("//*[@id='qtitle_1']");
 	
-	By options = By.xpath("//*[@name='qfrmOption_0_0']");
+	By qOptions = By.xpath("//*[@name='qfrmOption_0_0']");
 	
-	By options1 = By.xpath("//*[@name='qfrmOption_1_0']");
+	By qOptions1 = By.xpath("//*[@name='qfrmOption_0_1']");
 	
-	By plus = By.xpath("//i[@class='plus-choice-icon']");
+	By qOptions2 = By.xpath("//*[@name='qfrmOption_0_2']");
+	
+	By q1Options = By.xpath("//*[@name='qfrmOption_1_0']");
+	
+	By q1Options1 = By.xpath("//*[@name='qfrmOption_1_1']");
+	
+	By q1Options2 = By.xpath("//*[@name='qfrmOption_1_2']");
+	
+	By plus = By.xpath("//a[@class='cross-choice']//i[@class='plus-choice-icon']");
+	
+	By plus1 = By.xpath("//a[@class='cross-choice']//i[@class='plus-choice-icon']");
 	
 	By markItOptional = By.xpath("//*[@for='showOptional_0']");
 	
 	By addNewQuestion = By.xpath("//*[@class='add-new-qus-hld']//input[@value='Add New Question']");
 	
 	By savePollBtn = By.xpath("//*[@id='savePoll']");
+	
+	By noOfPolls = By.xpath("//table[@id='tblPoll']");
+	
+//	Create Resources Elements
+	
+	By clickOnResources = By.xpath("//*[@onclick='goToResourceTab()']");
+	
+	By resourceType = By.xpath("//select[@id='ContentPlaceHolder1_cmbSourceTpe']");
+	
+	By resourceBrowse = By.xpath("//*[@id='upfile2']");
+	
+	
+	
 	
 	
 	
@@ -2324,7 +2347,7 @@ public class AddSessions extends BaseSetUp{
 		
 	}
     
-    public AddSessions addPoll(String EmailId, String Password, String EventFullName,String SessionTitle) throws InterruptedException{
+    public AddSessions addPoll(String EmailId, String Password, String EventFullName,String SessionTitle,boolean Anonymous,String QuestionType) throws InterruptedException{
     	
 		// Login to your Account
 
@@ -2426,11 +2449,11 @@ public class AddSessions extends BaseSetUp{
 
 		Session.sendKeys(SessionTitle);
 		
+		Thread.sleep(2000);
+		
 		// Pressing Enter Button
 
 		Session.sendKeys(Keys.ENTER);
-
-		Thread.sleep(2000);
 
 		try {
 			Thread.sleep(2000);
@@ -2470,21 +2493,516 @@ public class AddSessions extends BaseSetUp{
 
 		}
 		
-//		 Selecting the Session
+//		Selecting the Session
 
 		System.out.println("Selecting the Session");
 
 		waitForClickabilityOf(clickOnSearchedSession);
 
-		driver.findElement(clickOnSearchedSession).click();
+		driver.findElement(clickOnSearchedSession).click();	
 		
-//		 Clicking On Poll
+//		Clicking On Poll
 
 		System.out.println("Clicking On Poll");
 
 		waitForClickabilityOf(clickOnPoll);
 
 		driver.findElement(clickOnPoll).click();
+		
+//		Clicking On Create Poll/Vote
+
+		System.out.println("Clicking On Create Poll/Vote");
+
+		waitForClickabilityOf(createPollOrVote);
+
+		driver.findElement(createPollOrVote).click();
+		
+//		Enable Anonymous Submission
+		
+		if (Anonymous=true) {
+			
+			System.out.println("Enabling Anonymous Submission");
+			
+			waitForClickabilityOf(enableAnonymous);
+
+			driver.findElement(enableAnonymous).click();
+			
+		} else {
+			
+			System.out.println("Anonymous Submission Disabled");
+
+		}
+		
+//		Selecting Question Type
+		
+		if (QuestionType.equals("Single")) {
+			
+//			Entering Poll Title
+
+			System.out.println("Entering Poll Title");
+
+			waitForClickabilityOf(clickOnPollTitle);
+
+			driver.findElement(clickOnPollTitle).sendKeys("Automation Single Poll Testing");
+			
+//			Enabling Multiple Questions
+			
+			System.out.println("Enabling Multiple Questions");
+			
+			waitForClickabilityOf(enableMultiplyQsn);
+
+			driver.findElement(enableMultiplyQsn).click();
+			
+//			Selecting Single Choice Question
+			
+			System.out.println("Selecting Single Choice Question");
+			
+			waitForClickabilityOf(singleChoice);
+
+			driver.findElement(singleChoice).click();
+			
+//			Entering Question Title
+			
+			System.out.println("Entering Question Title");
+			
+			waitForClickabilityOf(questionTitle);
+
+			driver.findElement(questionTitle).sendKeys("What is your Native Language?");
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(qOptions);
+
+			driver.findElement(qOptions).sendKeys("English");
+			
+//			Clicking on Add New Question
+			
+			System.out.println("Clicking on Add New Question");
+			
+			waitForClickabilityOf(addNewQuestion);
+
+			driver.findElement(addNewQuestion).click();
+			
+//			Selecting Single Choice Question
+			
+			System.out.println("Selecting Single Choice Question");
+			
+			waitForClickabilityOf(singleChoice1);
+
+			driver.findElement(singleChoice1).click();
+			
+//			Entering Question Title
+			
+			System.out.println("Entering 2nd Question Title");
+			
+			waitForClickabilityOf(questionTitle1);
+
+			driver.findElement(questionTitle1).sendKeys("Where are you from?");
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(q1Options);
+
+			driver.findElement(q1Options).sendKeys("USA");
+			
+		}else if (QuestionType.equals("Multiple")){
+			
+//			Entering Poll Title
+
+			System.out.println("Entering Poll Title");
+
+			waitForClickabilityOf(clickOnPollTitle);
+
+			driver.findElement(clickOnPollTitle).sendKeys("Automation Multiple Poll Testing");
+			
+//			Enabling Multiple Questions
+			
+			System.out.println("Enabling Multiple Questions");
+			
+			waitForClickabilityOf(enableMultiplyQsn);
+
+			driver.findElement(enableMultiplyQsn).click();
+			
+			System.out.println("Selecting Multiple Choice Question");
+			
+			waitForClickabilityOf(multipleChoice);
+
+			driver.findElement(multipleChoice).click();
+			
+//			Entering Question Title
+			
+			System.out.println("Entering Question Title");
+			
+			waitForClickabilityOf(questionTitle);
+
+			driver.findElement(questionTitle).sendKeys("What is your Native Language?");
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(qOptions);
+
+			driver.findElement(qOptions).sendKeys("English");
+			
+//			Clicking On Plus Button to add another option
+			
+			System.out.println("Clicking On Plus Button to add another option");
+			
+			waitForClickabilityOf(plus);
+
+			driver.findElement(plus).click();
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(qOptions1);
+
+			driver.findElement(qOptions1).sendKeys("German");
+			
+//			Clicking On Plus Button to add another option
+			
+			System.out.println("Clicking On Plus Button to add another option");
+			
+			waitForClickabilityOf(plus);
+
+			driver.findElement(plus).click();
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(qOptions2);
+
+			driver.findElement(qOptions2).sendKeys("French");
+			
+//			Clicking on Add New Question
+			
+			System.out.println("Clicking on Add New Question");
+			
+			waitForClickabilityOf(addNewQuestion);
+
+			driver.findElement(addNewQuestion).click();
+			
+//			Selecting Single Choice Question
+			
+			System.out.println("Selecting Single Choice Question");
+			
+			waitForClickabilityOf(multipleChoice1);
+
+			driver.findElement(multipleChoice1).click();
+			
+//			Entering Question Title
+			
+			System.out.println("Entering 2nd Question Title");
+			
+			waitForClickabilityOf(questionTitle1);
+
+			driver.findElement(questionTitle1).sendKeys("Where are you from?");
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(q1Options);
+			
+			WebElement Plus1 = driver.findElement(q1Options);
+			
+			Plus1.sendKeys("USA");
+			
+			System.out.println("Clicking On Plus Button to add another option");
+			
+			Thread.sleep(2000);
+			
+			// Pressing TAB Button
+
+			Plus1.sendKeys(Keys.TAB,Keys.ENTER);
+			
+			Thread.sleep(2000);
+			
+			// Pressing ENTER Button
+
+//			Plus1.sendKeys(Keys.ENTER);
+			
+//			Clicking On Plus Button to add another option
+			
+//			System.out.println("Clicking On Plus Button to add another option");
+//			
+//			waitForClickabilityOf(plus1);
+//
+//			driver.findElement(plus1).click();
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(q1Options1);
+			
+			WebElement Plus2 = driver.findElement(q1Options1);
+
+			Plus2.sendKeys("Germany");
+			
+			System.out.println("Clicking On Plus Button to add another option");
+			
+			Thread.sleep(2000);
+			
+			// Pressing TAB Button
+
+			Plus2.sendKeys(Keys.TAB,Keys.ENTER);
+			
+			Thread.sleep(2000);
+			
+			// Pressing ENTER Button
+
+//			Plus2.sendKeys(Keys.ENTER);
+			
+//			Clicking On Plus Button to add another option
+			
+//			System.out.println("Clicking On Plus Button to add another option");
+//			
+//			waitForClickabilityOf(plus1);
+//
+//			driver.findElement(plus1).click();
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(q1Options2);
+
+			driver.findElement(q1Options2).sendKeys("UK");
+			
+
+		}else if (QuestionType.equals("Dropdown")){
+			
+//			Entering Poll Title
+
+			System.out.println("Entering Poll Title");
+
+			waitForClickabilityOf(clickOnPollTitle);
+
+			driver.findElement(clickOnPollTitle).sendKeys("Automation Dropdown Poll Testing");
+			
+//			Enabling Multiple Questions
+			
+			System.out.println("Enabling Multiple Questions");
+			
+			waitForClickabilityOf(enableMultiplyQsn);
+
+			driver.findElement(enableMultiplyQsn).click();
+			
+//			Selecting Dropdown List Question
+			
+			System.out.println("Selecting Dropdown List Question");
+			
+			waitForClickabilityOf(dropdownList);
+
+			driver.findElement(dropdownList).click();
+			
+//			Entering Question Title
+			
+			System.out.println("Entering Question Title");
+			
+			waitForClickabilityOf(questionTitle);
+
+			driver.findElement(questionTitle).sendKeys("What is your Native Language?");
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(qOptions);
+
+			driver.findElement(qOptions).sendKeys("English");
+			
+//			Clicking On Plus Button to add another option
+			
+			System.out.println("Clicking On Plus Button to add another option");
+			
+			waitForClickabilityOf(plus);
+
+			driver.findElement(plus).click();
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(qOptions1);
+
+			driver.findElement(qOptions1).sendKeys("German");
+			
+//			Clicking On Plus Button to add another option
+			
+			System.out.println("Clicking On Plus Button to add another option");
+			
+			waitForClickabilityOf(plus);
+
+			driver.findElement(plus).click();
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(qOptions2);
+
+			driver.findElement(qOptions2).sendKeys("French");
+			
+//			Clicking on Add New Question
+			
+			System.out.println("Clicking on Add New Question");
+			
+			waitForClickabilityOf(addNewQuestion);
+
+			driver.findElement(addNewQuestion).click();
+			
+//			Selecting Single Choice Question
+			
+			System.out.println("Selecting Single Choice Question");
+			
+			waitForClickabilityOf(dropdownList1);
+
+			driver.findElement(dropdownList1).click();
+			
+//			Entering Question Title
+			
+			System.out.println("Entering 2nd Question Title");
+			
+			waitForClickabilityOf(questionTitle1);
+
+			driver.findElement(questionTitle1).sendKeys("Where are you from?");
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(q1Options);
+			
+			WebElement Plus1 = driver.findElement(q1Options);
+			
+			Plus1.sendKeys("USA");
+			
+			System.out.println("Clicking On Plus Button to add another option");
+			
+			Thread.sleep(2000);
+			
+			// Pressing TAB Button
+
+			Plus1.sendKeys(Keys.TAB,Keys.ENTER);
+			
+			Thread.sleep(2000);
+			
+			// Pressing ENTER Button
+
+//			Plus1.sendKeys(Keys.ENTER);
+			
+//			Clicking On Plus Button to add another option
+			
+//			System.out.println("Clicking On Plus Button to add another option");
+//			
+//			waitForClickabilityOf(plus1);
+//
+//			driver.findElement(plus1).click();
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(q1Options1);
+			
+			WebElement Plus2 = driver.findElement(q1Options1);
+
+			Plus2.sendKeys("Germany");
+			
+			System.out.println("Clicking On Plus Button to add another option");
+			
+			Thread.sleep(2000);
+			
+			// Pressing TAB Button
+
+			Plus2.sendKeys(Keys.TAB,Keys.ENTER);
+			
+			Thread.sleep(2000);
+			
+			// Pressing ENTER Button
+			
+
+			
+//			Plus2.sendKeys(Keys.ENTER,Keys.ENTER);
+			
+//			Clicking On Plus Button to add another option
+			
+//			System.out.println("Clicking On Plus Button to add another option");
+//			
+//			waitForClickabilityOf(plus1);
+//
+//			driver.findElement(plus1).click();
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(q1Options2);
+
+			driver.findElement(q1Options2).sendKeys("UK");
+			
+		}else {
+			
+			System.out.println("Selecting Free Text Question");
+			
+//			Entering Poll Title
+
+			System.out.println("Entering Poll Title");
+
+			waitForClickabilityOf(clickOnPollTitle);
+
+			driver.findElement(clickOnPollTitle).sendKeys("Automation Free Text Poll Testing");
+			
+//			Enabling Multiple Questions
+			
+			System.out.println("Enabling Multiple Questions");
+			
+			waitForClickabilityOf(enableMultiplyQsn);
+
+			driver.findElement(enableMultiplyQsn).click();
+			
+//			Entering Question Title
+			
+			System.out.println("Entering Question Title");
+			
+			waitForClickabilityOf(questionTitle);
+
+			driver.findElement(questionTitle).sendKeys("What is your Native Language?");
+			
+//			Clicking on Add New Question
+			
+			System.out.println("Clicking on Add New Question");
+			
+			waitForClickabilityOf(addNewQuestion);
+
+			driver.findElement(addNewQuestion).click();
+			
+//			Entering Question Title
+			
+			System.out.println("Entering 2nd Question Title");
+			
+			waitForClickabilityOf(questionTitle1);
+
+			driver.findElement(questionTitle1).sendKeys("Where are you from?");
+			
+		}
+      
+//		Clicking on Save Button
+		
+		System.out.println("Clicking On Save Button");
+
+		waitForClickabilityOf(savePollBtn);
+
+		driver.findElement(savePollBtn).click();
 		
 		
 		

@@ -51,7 +51,7 @@ public class E2MTestCaes extends BrowserSetUp {
 	
 	String EventShortName = "Google";
 	
-	String SessionTitle = "Grand Final";
+	String SessionTitle = "Pre Match";
 	
 	String TrackName = "Parking";
 	
@@ -287,6 +287,44 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new AddSessions(driver).addNetworkingSession(EmailId, Password, EventFullName, TrackName, Location,false);
 //
 //	}
+	
+	@Test(priority = 22,alwaysRun=true)
+	public void addPollWithFreeTextTest() throws ParseException, InterruptedException {
+
+		System.out.println("Executing : Add Poll to Session with Free Text Question Test");
+		
+		new AddSessions(driver).addPoll(EmailId, Password, EventFullName, SessionTitle, true, "Free Text");
+
+	}
+	
+	@Test(priority = 23,alwaysRun=true)
+	public void addPollWithSingleChoiceTest() throws ParseException, InterruptedException {
+
+		System.out.println("Executing : Add Poll to Session with Single Choice Question Test");
+		
+		new AddSessions(driver).addPoll(EmailId, Password, EventFullName, SessionTitle, true, "Single");
+
+	}
+	
+	@Test(priority = 24,alwaysRun=true)
+	public void addPollWithMultipleChoiceTest() throws ParseException, InterruptedException {
+
+		System.out.println("Executing : Add Poll to Session with Multiple Choice Question Test");
+		
+		new AddSessions(driver).addPoll(EmailId, Password, EventFullName, SessionTitle, true, "Multiple");
+
+	}
+	
+	@Test(priority = 25,alwaysRun=true)
+	public void addPollWithDropDownListTest() throws ParseException, InterruptedException {
+
+		System.out.println("Executing : Add Poll to Session with Dropdown List Question Test");
+		
+		new AddSessions(driver).addPoll(EmailId, Password, EventFullName, SessionTitle, true, "Dropdown");
+
+	}
+	
+		
 //	
 //	@Test(priority = 22,alwaysRun=true)
 //	public void addSpeakersTest() throws ParseException, InterruptedException {
@@ -440,15 +478,15 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new AddSponsors(driver).mapSponsorWithUserGroup(EmailId, Password, EventFullName);
 //
 //	}
-	
-	@Test(priority = 39,alwaysRun=true)
-	public void uploadE2MDataTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Upload E2MData Test");
-		
-		new UploadData(driver).e2mDataImport(EmailId, Password, EventFullName);
-
-	}
+//	
+//	@Test(priority = 39,alwaysRun=true)
+//	public void uploadE2MDataTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Upload E2MData Test");
+//		
+//		new UploadData(driver).e2mDataImport(EmailId, Password, EventFullName);
+//
+//	}
 		
 //	@Test(priority = 7,alwaysRun=true)
 //	public void cloneToNewEventTest() {
