@@ -287,40 +287,76 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new AddSessions(driver).addNetworkingSession(EmailId, Password, EventFullName, TrackName, Location,false);
 //
 //	}
+//	
+//	@Test(priority = 22,alwaysRun=true)
+//	public void addPollWithFreeTextTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Poll to Session with Free Text Question Test");
+//		
+//		new AddSessions(driver).addPoll(EmailId, Password, EventFullName, SessionTitle, true, "Free Text");
+//
+//	}
+//	
+//	@Test(priority = 23,alwaysRun=true)
+//	public void addPollWithSingleChoiceTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Poll to Session with Single Choice Question Test");
+//		
+//		new AddSessions(driver).addPoll(EmailId, Password, EventFullName, SessionTitle, true, "Single");
+//
+//	}
+//	
+//	@Test(priority = 24,alwaysRun=true)
+//	public void addPollWithMultipleChoiceTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Poll to Session with Multiple Choice Question Test");
+//		
+//		new AddSessions(driver).addPoll(EmailId, Password, EventFullName, SessionTitle, true, "Multiple");
+//
+//	}
+//	
+//	@Test(priority = 25,alwaysRun=true)
+//	public void addPollWithDropDownListTest() throws ParseException, InterruptedException {
+//
+//		System.out.println("Executing : Add Poll to Session with Dropdown List Question Test");
+//		
+//		new AddSessions(driver).addPoll(EmailId, Password, EventFullName, SessionTitle, true, "Dropdown");
+//
+//	}
+//	
+//	@Test(priority = 26,alwaysRun=true)
+//	public void uploadLinkTypeResourceTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Upload Link Type Resource Test");
+//		
+//		new AddSessions(driver).addResources(EmailId, Password, EventFullName, SessionTitle, "Link");
+//
+//	}
+//	
+//	@Test(priority = 27,alwaysRun=true)
+//	public void uploadFileTypeResourceTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Upload File Type Resource Test");
+//		
+//		new AddSessions(driver).addResources(EmailId, Password, EventFullName, SessionTitle, "File");
+//
+//	}
+//	
+//	@Test(priority = 28,alwaysRun=true)
+//	public void seatingArrangementTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Seating Arrangement Test");
+//		
+//		new AddSessions(driver).seatingArrangement(EmailId, Password, EventFullName, SessionTitle, "Clerk Table", true);
+//
+//	}
 	
-	@Test(priority = 22,alwaysRun=true)
-	public void addPollWithFreeTextTest() throws ParseException, InterruptedException {
+	@Test(priority = 29,alwaysRun=true)
+	public void addSessionCapacityTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Add Poll to Session with Free Text Question Test");
+		System.out.println("Executing : Add Session Capacity Test");
 		
-		new AddSessions(driver).addPoll(EmailId, Password, EventFullName, SessionTitle, true, "Free Text");
-
-	}
-	
-	@Test(priority = 23,alwaysRun=true)
-	public void addPollWithSingleChoiceTest() throws ParseException, InterruptedException {
-
-		System.out.println("Executing : Add Poll to Session with Single Choice Question Test");
-		
-		new AddSessions(driver).addPoll(EmailId, Password, EventFullName, SessionTitle, true, "Single");
-
-	}
-	
-	@Test(priority = 24,alwaysRun=true)
-	public void addPollWithMultipleChoiceTest() throws ParseException, InterruptedException {
-
-		System.out.println("Executing : Add Poll to Session with Multiple Choice Question Test");
-		
-		new AddSessions(driver).addPoll(EmailId, Password, EventFullName, SessionTitle, true, "Multiple");
-
-	}
-	
-	@Test(priority = 25,alwaysRun=true)
-	public void addPollWithDropDownListTest() throws ParseException, InterruptedException {
-
-		System.out.println("Executing : Add Poll to Session with Dropdown List Question Test");
-		
-		new AddSessions(driver).addPoll(EmailId, Password, EventFullName, SessionTitle, true, "Dropdown");
+		new AddSessions(driver).addSessionCapacity(EmailId, Password, EventFullName, SessionTitle);
 
 	}
 	

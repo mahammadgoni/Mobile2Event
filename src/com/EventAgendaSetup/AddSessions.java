@@ -1,5 +1,11 @@
 package com.EventAgendaSetup;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,6 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.BaseSetup.BaseSetUp;
 import com.CommonActions.LoginToAccount;
@@ -163,28 +170,106 @@ public class AddSessions extends BaseSetUp{
 	By q1Options2 = By.xpath("//*[@name='qfrmOption_1_2']");
 	
 	By plus = By.xpath("//a[@class='cross-choice']//i[@class='plus-choice-icon']");
-	
-	By plus1 = By.xpath("//a[@class='cross-choice']//i[@class='plus-choice-icon']");
-	
+		
 	By markItOptional = By.xpath("//*[@for='showOptional_0']");
 	
 	By addNewQuestion = By.xpath("//*[@class='add-new-qus-hld']//input[@value='Add New Question']");
 	
 	By savePollBtn = By.xpath("//*[@id='savePoll']");
 	
-	By noOfPolls = By.xpath("//table[@id='tblPoll']");
+	By noOfPolls = By.xpath("//*[@class='checkbox checkbox-success']");
 	
 //	Create Resources Elements
 	
 	By clickOnResources = By.xpath("//*[@onclick='goToResourceTab()']");
 	
+	By uploadResources = By.xpath("//*[@value='Upload Resources']");
+	
 	By resourceType = By.xpath("//select[@id='ContentPlaceHolder1_cmbSourceTpe']");
+	
+	By resourceTitle = By.xpath("//*[@id='txtLinkResourceTitle']");
+	
+	By resourceLink = By.xpath("//*[@id='txtLinkResourcLink']");
+	
+	By resourceSaveBtn = By.xpath("//*[@id='btnResourceLinkSave']");
+	
+	By resourceCloseBtn = By.xpath("//div[@id='AddResource']//a[@class='close-popup']");
 	
 	By resourceBrowse = By.xpath("//*[@id='upfile2']");
 	
+	By resourceNo = By.xpath("//*[@class='resc-row']");
 	
+	String ResourceFilePath = "/Users/goni/Documents/E2MDatas/ResourceData/ResourcesData.pdf";
 	
+//	Seating Arrangement Elements
 	
+	By clickOnSeating = By.xpath("//*[@onclick='SeatTabClick();']");
+	
+	By clickOnRandonSeating = By.xpath("//*[@for='chkIsRandomSeating']");
+	
+	By viewAllTables = By.xpath("//*[@id='anewSeating']");
+	
+	By tableName = By.xpath("//*[@id='ContentPlaceHolder1_txtCategory']");
+	
+	By tableCapacity = By.xpath("//*[@id='ContentPlaceHolder1_txtCapacity']");
+	
+	By addTableBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnAddResourceCategory']");
+	
+	By tableCloseBtn = By.xpath("//*[@onclick='CloseSeatingPanel();']");
+	
+	By assignUsers = By.xpath("//*[@id='txtUser']");
+	
+	By selectAllUserCheckBox = By.xpath("//*[@id='user_all_chk']");
+	
+	By doneBtn = By.xpath("//*[@class='pull-right']//*[@onclick='user_done()']");
+	
+	By saveSeatingBtn = By.xpath("//*[@id='btnSave']");
+	
+	By existingNoOfAttendees = By.xpath("//*[@class='spdvnew p-r-20']");
+	
+//	Session Capacity Elements
+	
+	By clickOnCapacity = By.xpath("//*[@onclick='goToCapacityTab()']");
+	
+	By sessionCapacityBtn = By.xpath("//*[@for='chksessionCapity']");
+	
+	By noOfMaxSeats = By.xpath("//*[@id='txtSessionCapacity']");
+	
+	By allowWaitlistBtn = By.xpath("//*[@for='chkSessionCapacityWL']");
+	
+	By allowAddBookings = By.xpath("//*[@id='txtSessionCapacityWaitingList']");
+	
+	By availbilityDurationBtn = By.xpath("//*[@for='chkCapacityavlDuration']");
+	
+	By capStartDate = By.xpath("//*[@id='txtCapacityavlStartDate']");
+	
+	By capStartTime = By.xpath("//*[@id='txtCapacityavlStartTime']");
+	
+	By capEndDate = By.xpath("//*[@id='txtCapacityavlEndDate']");
+	
+	By capEndTime = By.xpath("//*[@id='txtCapacityavlEndTime']");
+	
+	By capSaveBtn = By.xpath("//*[@id='btnSave']");
+	
+//	Session Groups tab
+	
+	By clickOnSessionGroups = By.xpath("//*[@onclick='goToGroupTab();']");
+	
+	By associateGrpBtn = By.xpath("//*[@for='chkIsassociateGroup']");
+	
+	By searchGroup = By.xpath("//*[@id='txtGroup']");
+	
+	By selctAllGrpChkBox = By.xpath("//*[@id='group_all_chk']");
+	
+	By doneGrpBtn = By.xpath("//*[@class='pull-right']//*[@onclick='group_done()']");
+	
+	By searchUser = By.xpath("//*[@id='txtUsergroup']");
+	
+	By selectAllUser = By.xpath("//*[@id='usergroup_all_chk']");
+	
+	By doneUserBtn = By.xpath("//*[@class='pull-right']//*[@onclick='usergroup_done()']");
+	
+	By saveSessionGroupBtn = By.xpath("//*[@id='btnSaveBottom']");
 	
 	
 	
@@ -2423,9 +2508,9 @@ public class AddSessions extends BaseSetUp{
 
 		driver.findElement(clickOnAgendaSetUp).click();
 
-		// Clicking on Sponsors
+		// Clicking on Session
 
-		System.out.println("Clicking on Sponsors");
+		System.out.println("Clicking on Session");
 
 		waitForClickabilityOf(clickOnSession);
 
@@ -2577,6 +2662,22 @@ public class AddSessions extends BaseSetUp{
 
 			driver.findElement(qOptions).sendKeys("English");
 			
+//			Clicking On Plus Button to add another option
+			
+			System.out.println("Clicking On Plus Button to add another option");
+			
+			waitForClickabilityOf(plus);
+
+			driver.findElement(plus).click();
+			
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(qOptions1);
+
+			driver.findElement(qOptions1).sendKeys("German");
+			
 //			Clicking on Add New Question
 			
 			System.out.println("Clicking on Add New Question");
@@ -2606,8 +2707,28 @@ public class AddSessions extends BaseSetUp{
 			System.out.println("Entering Question Options");
 			
 			waitForClickabilityOf(q1Options);
+			
+			WebElement Plus1 = driver.findElement(q1Options);
+			
+			Plus1.sendKeys("USA");
+			
+			System.out.println("Clicking On Plus Button to add another option");
+			
+			Thread.sleep(2000);
+			
+			// Pressing TAB Button
 
-			driver.findElement(q1Options).sendKeys("USA");
+			Plus1.sendKeys(Keys.TAB,Keys.ENTER);
+			
+			Thread.sleep(2000);
+						
+//			Entering Question Options
+			
+			System.out.println("Entering Question Options");
+			
+			waitForClickabilityOf(q1Options1);
+			
+			driver.findElement(q1Options1).sendKeys("UK");
 			
 		}else if (QuestionType.equals("Multiple")){
 			
@@ -2724,19 +2845,7 @@ public class AddSessions extends BaseSetUp{
 			Plus1.sendKeys(Keys.TAB,Keys.ENTER);
 			
 			Thread.sleep(2000);
-			
-			// Pressing ENTER Button
-
-//			Plus1.sendKeys(Keys.ENTER);
-			
-//			Clicking On Plus Button to add another option
-			
-//			System.out.println("Clicking On Plus Button to add another option");
-//			
-//			waitForClickabilityOf(plus1);
-//
-//			driver.findElement(plus1).click();
-			
+						
 //			Entering Question Options
 			
 			System.out.println("Entering Question Options");
@@ -2756,18 +2865,6 @@ public class AddSessions extends BaseSetUp{
 			Plus2.sendKeys(Keys.TAB,Keys.ENTER);
 			
 			Thread.sleep(2000);
-			
-			// Pressing ENTER Button
-
-//			Plus2.sendKeys(Keys.ENTER);
-			
-//			Clicking On Plus Button to add another option
-			
-//			System.out.println("Clicking On Plus Button to add another option");
-//			
-//			waitForClickabilityOf(plus1);
-//
-//			driver.findElement(plus1).click();
 			
 //			Entering Question Options
 			
@@ -2896,18 +2993,6 @@ public class AddSessions extends BaseSetUp{
 			
 			Thread.sleep(2000);
 			
-			// Pressing ENTER Button
-
-//			Plus1.sendKeys(Keys.ENTER);
-			
-//			Clicking On Plus Button to add another option
-			
-//			System.out.println("Clicking On Plus Button to add another option");
-//			
-//			waitForClickabilityOf(plus1);
-//
-//			driver.findElement(plus1).click();
-			
 //			Entering Question Options
 			
 			System.out.println("Entering Question Options");
@@ -2927,20 +3012,6 @@ public class AddSessions extends BaseSetUp{
 			Plus2.sendKeys(Keys.TAB,Keys.ENTER);
 			
 			Thread.sleep(2000);
-			
-			// Pressing ENTER Button
-			
-
-			
-//			Plus2.sendKeys(Keys.ENTER,Keys.ENTER);
-			
-//			Clicking On Plus Button to add another option
-			
-//			System.out.println("Clicking On Plus Button to add another option");
-//			
-//			waitForClickabilityOf(plus1);
-//
-//			driver.findElement(plus1).click();
 			
 //			Entering Question Options
 			
@@ -3004,14 +3075,1159 @@ public class AddSessions extends BaseSetUp{
 
 		driver.findElement(savePollBtn).click();
 		
+//		Verifying  whether the Poll added or not 
 		
+		waitForClickabilityOf(noOfPolls);
 		
-    	
-    	
+		List<WebElement> Polls = driver.findElements(noOfPolls);
+		
+		int NoOfExPolls = Polls.size();
+		
+//		System.out.println(NoOfExPolls);
+		
+		if (NoOfExPolls==3) {
+			
+			System.out.println("Successfully Added One Free Text Poll");
+			
+		} else if (NoOfExPolls==4) {
+			
+			System.out.println("Successfully Added One Single Choice Poll");
+			
+		} else if (NoOfExPolls==5) {
+			
+			System.out.println("Successfully Added One Multiple Choice Poll");
+			
+		} else if (NoOfExPolls==6) {
+			
+			System.out.println("Successfully Added One Dropdown Choice Poll");
+			
+		}else {
+			
+			System.out.println("Failed to Add New Poll");
+
+		}
+		    	
     	
 		return new AddSessions(driver);
     	
     }
 
+	public AddSessions addResources(String EmailId, String Password, String EventFullName,String SessionTitle,String ResourceFormatType) throws InterruptedException, AWTException{
+		
+    	
+		// Login to your Account
+
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+
+		// Searching for Event Name
+
+		System.out.println("Searching for Event Name :" + EventFullName);
+
+		waitForClickabilityOf(searchEvent);
+
+		WebElement search = driver.findElement(searchEvent);
+
+		search.sendKeys(EventFullName);
+
+		// Pressing Enter Button
+
+		search.sendKeys(Keys.ENTER);
+
+		Thread.sleep(2000);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		waitForClickabilityOf(clickOnEvent);
+
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+
+		System.out.println("Clicking On Event : " + ActEventName);
+
+		if (EventFullName.equals(ActEventName)) {
+
+			System.out.println("This is Correct Event");
+
+		} else {
+
+			System.out.println("Failed to Search the Event Name so, searching again ");
+
+			search.clear();
+
+			search.sendKeys(EventFullName);
+
+			Thread.sleep(2000);
+
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			// Pressing Enter Button
+
+			search.sendKeys(Keys.ENTER);
+
+		}
+
+		// Clicking on The Event
+
+		System.out.println("Clicking on The Event");
+
+		waitForClickabilityOf(clickOnEvent);
+
+		driver.findElement(clickOnEvent).click();
+
+		// Clicking on Agenda Setup
+
+		System.out.println("Clicking on Agenda Setup");
+
+		waitForClickabilityOf(clickOnAgendaSetUp);
+
+		driver.findElement(clickOnAgendaSetUp).click();
+
+		// Clicking on Session
+
+		System.out.println("Clicking on Session");
+
+		waitForClickabilityOf(clickOnSession);
+
+		driver.findElement(clickOnSession).click();
+		
+		// Clicking on All Dates
+
+		System.out.println("Clicking on All Dates");
+
+		waitForClickabilityOf(allDates);
+
+		driver.findElement(allDates).click();
+		
+		// Searching for Session Name
+
+		System.out.println("Searching for Session Name :" + SessionTitle);
+
+		waitForClickabilityOf(searchSession);
+
+		WebElement Session = driver.findElement(searchSession);
+
+		Session.sendKeys(SessionTitle);
+		
+		Thread.sleep(2000);
+		
+		// Pressing Enter Button
+
+		Session.sendKeys(Keys.ENTER);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		waitForClickabilityOf(clickOnSearchedSession);
+
+		String ActSessionName = driver.findElement(clickOnSearchedSession).getText();
+
+		System.out.println("Clicking On Session : " + ActSessionName);
+
+		if (SessionTitle.equals(ActSessionName)) {
+
+			System.out.println("This is Correct Session");
+
+		} else {
+
+			System.out.println("Failed to Search the Session Name so, searching again ");
+
+			Session.clear();
+
+			Session.sendKeys(SessionTitle);
+
+			Thread.sleep(2000);
+
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+//			 Pressing Enter Button
+
+			Session.sendKeys(Keys.ENTER);
+
+		}
+		
+//		Selecting the Session
+
+		System.out.println("Selecting the Session");
+
+		waitForClickabilityOf(clickOnSearchedSession);
+
+		driver.findElement(clickOnSearchedSession).click();	
+		
+//		Clicking On Resources	
+
+		System.out.println("Clicking On Resources");
+
+		waitForClickabilityOf(clickOnResources);
+
+		driver.findElement(clickOnResources).click();
+		
+//		Clicking On Upload Resources
+
+		System.out.println("Clicking On Upload Resources");
+
+		waitForClickabilityOf(uploadResources);
+
+		driver.findElement(uploadResources).click();
+		
+//		Selecting Resource Type
+		
+		String ResouceType = "Link";
+
+		if (ResourceFormatType.equals(ResouceType)) {
+
+			System.out.println("Selecting Resouce Type as : Link");
+			
+			waitForClickabilityOf(resourceType);
+		
+			Select Type = new Select(driver.findElement(resourceType));
+			
+			Type.selectByIndex(1);
+			
+//			Entering Resource Title
+
+			System.out.println("Entering Resource Title as : "+ResourceFormatType+" Resource");
+
+			waitForClickabilityOf(resourceTitle);
+
+			driver.findElement(resourceTitle).sendKeys(ResourceFormatType+" Resource");
+			
+//			Entering Resource Link
+
+			System.out.println("Entering Resource Link as : https://google.com");
+
+			waitForClickabilityOf(resourceLink);
+
+			driver.findElement(resourceLink).sendKeys("https://google.com");
+			
+//			Clicking on Save Button
+
+			System.out.println("Clicking on Save Button");
+
+			waitForClickabilityOf(resourceSaveBtn);
+
+			driver.findElement(resourceSaveBtn).click();
+							
+
+		} else {
+
+			System.out.println("Selecting Resouce Type as : File");
+			
+//			Entering Resource Link
+
+			System.out.println("Clicking On Browse to Upload the PDF File");
+
+			waitForClickabilityOf(resourceBrowse);
+			
+			WebElement BrowseBtn = driver.findElement(resourceBrowse);
+			
+			BrowseBtn.click();
+						
+			File file = new File(ResourceFilePath);
+			
+			StringSelection sel = new StringSelection(file.getAbsolutePath());
+			
+//			System.out.println(sel);
+			
+//			Copy to Clipboard	
+			
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(sel, null);
+			
+//			CMD+TAB is needed to since it launches a java app and Browser looses focus
+			
+			Robot robot = new Robot();
+			
+//			robot.keyPress(KeyEvent.VK_META);
+//			
+			robot.delay(2000);
+//			
+//			robot.keyPress(KeyEvent.VK_TAB);
+//			
+//			robot.delay(1000);
+//			
+//			robot.keyRelease(KeyEvent.VK_META);
+//			
+//			robot.delay(1000);
+//			
+//			robot.keyRelease(KeyEvent.VK_TAB);
+//			
+//			robot.delay(1000);
+			
+//			Goto the Resource File Path
+			
+			robot.keyPress(KeyEvent.VK_META+KeyEvent.VK_SHIFT+KeyEvent.VK_G);
+					
+//			robot.keyPress(KeyEvent.VK_SHIFT);
+//			
+//			robot.keyPress(KeyEvent.VK_G);
+			
+			robot.delay(1000);
+			
+			robot.keyRelease(KeyEvent.VK_META+KeyEvent.VK_SHIFT+KeyEvent.VK_G);
+			
+//			robot.keyRelease(KeyEvent.VK_SHIFT);
+//
+//			robot.keyRelease(KeyEvent.VK_G);
+			
+//			Paste the Clip Board Value
+			
+			robot.delay(1000);
+			
+			robot.keyPress(KeyEvent.VK_META);
+			
+			robot.delay(1000);
+			
+			robot.keyPress(KeyEvent.VK_V);
+			
+			robot.delay(1000);
+			
+			robot.keyRelease(KeyEvent.VK_META);
+			
+			robot.delay(1000);
+			
+			robot.keyRelease(KeyEvent.VK_V);
+			
+			robot.delay(1000);
+			
+			
+			robot.delay(1000);
+			
+//			Press Enter Key to Close the Window
+			
+			robot.delay(1000);
+			
+			robot.keyPress(KeyEvent.VK_ENTER);
+			
+			robot.delay(1000);
+			
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			
+			robot.delay(1000);
+						
+			robot.keyPress(KeyEvent.VK_ENTER);
+			
+			robot.delay(1000);
+			
+			robot.keyRelease(KeyEvent.VK_ENTER);	
+			
+			robot.delay(1000);
+
+		}
+		
+//		Getting No Of Existing Resource Count
+		
+		System.out.println("Getting No Of Existing Resource Count");
+		
+		waitForClickabilityOf(resourceNo);
+		
+		List<WebElement> element = driver.findElements(resourceNo);
+		
+		int NoOfExResources = element.size();
+		
+		if (NoOfExResources==1) {
+			
+			System.out.println("Successfully Uploaded One Resource");
+			
+		} else {
+			
+			System.out.println("Failed to Upload One Resource");
+
+		}
+		
+		
+		return new AddSessions(driver);
+		
+	}
 	
+	public AddSessions seatingArrangement(String EmailId, String Password, String EventFullName,String SessionTitle,String TableName,boolean RandomSeating) throws InterruptedException{
+		
+		// Login to your Account
+
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+
+		// Searching for Event Name
+
+		System.out.println("Searching for Event Name :" + EventFullName);
+
+		waitForClickabilityOf(searchEvent);
+
+		WebElement search = driver.findElement(searchEvent);
+
+		search.sendKeys(EventFullName);
+
+		// Pressing Enter Button
+
+		search.sendKeys(Keys.ENTER);
+
+		Thread.sleep(2000);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		waitForClickabilityOf(clickOnEvent);
+
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+
+		System.out.println("Clicking On Event : " + ActEventName);
+
+		if (EventFullName.equals(ActEventName)) {
+
+			System.out.println("This is Correct Event");
+
+		} else {
+
+			System.out.println("Failed to Search the Event Name so, searching again ");
+
+			search.clear();
+
+			search.sendKeys(EventFullName);
+
+			Thread.sleep(2000);
+
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			// Pressing Enter Button
+
+			search.sendKeys(Keys.ENTER);
+
+		}
+
+		// Clicking on The Event
+
+		System.out.println("Clicking on The Event");
+
+		waitForClickabilityOf(clickOnEvent);
+
+		driver.findElement(clickOnEvent).click();
+
+		// Clicking on Agenda Setup
+
+		System.out.println("Clicking on Agenda Setup");
+
+		waitForClickabilityOf(clickOnAgendaSetUp);
+
+		driver.findElement(clickOnAgendaSetUp).click();
+
+		// Clicking on Session
+
+		System.out.println("Clicking on Session");
+
+		waitForClickabilityOf(clickOnSession);
+
+		driver.findElement(clickOnSession).click();
+		
+		// Clicking on All Dates
+
+		System.out.println("Clicking on All Dates");
+
+		waitForClickabilityOf(allDates);
+
+		driver.findElement(allDates).click();
+		
+		// Searching for Session Name
+
+		System.out.println("Searching for Session Name :" + SessionTitle);
+
+		waitForClickabilityOf(searchSession);
+
+		WebElement Session = driver.findElement(searchSession);
+
+		Session.sendKeys(SessionTitle);
+		
+		Thread.sleep(2000);
+		
+		// Pressing Enter Button
+
+		Session.sendKeys(Keys.ENTER);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		waitForClickabilityOf(clickOnSearchedSession);
+
+		String ActSessionName = driver.findElement(clickOnSearchedSession).getText();
+
+		System.out.println("Clicking On Session : " + ActSessionName);
+
+		if (SessionTitle.equals(ActSessionName)) {
+
+			System.out.println("This is Correct Session");
+
+		} else {
+
+			System.out.println("Failed to Search the Session Name so, searching again ");
+
+			Session.clear();
+
+			Session.sendKeys(SessionTitle);
+
+			Thread.sleep(2000);
+
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+//			 Pressing Enter Button
+
+			Session.sendKeys(Keys.ENTER);
+
+		}
+		
+//		Selecting the Session
+
+		System.out.println("Selecting the Session");
+
+		waitForClickabilityOf(clickOnSearchedSession);
+
+		driver.findElement(clickOnSearchedSession).click();	
+		
+//		Clicking On Seating	
+
+		System.out.println("Clicking On Seating");
+
+		waitForClickabilityOf(clickOnSeating);
+
+		driver.findElement(clickOnSeating).click();
+		
+//		Clicking on Random Seating 
+		
+		if (RandomSeating=true) {
+			
+			System.out.println("Clicking On Random Seating");
+
+			waitForClickabilityOf(clickOnRandonSeating);
+
+			driver.findElement(clickOnRandonSeating).click();
+			
+		} else {
+			
+			System.out.println("Random Seating disabled");
+
+		}
+		
+//		Clicking On View All Tables
+		
+		System.out.println("Clicking On View All Tables");
+
+		waitForClickabilityOf(viewAllTables);
+
+		driver.findElement(viewAllTables).click();
+		
+//		Entering Table Name
+		
+		System.out.println("Entering Table Name");
+
+		waitForClickabilityOf(tableName);
+
+		driver.findElement(tableName).sendKeys(TableName);
+		
+//		Entering Table Capacity
+		
+		System.out.println("Entering Table Capacity");
+
+		waitForClickabilityOf(tableCapacity);
+
+		driver.findElement(tableCapacity).sendKeys("30");
+		
+//		Clicking On Add Button
+		
+		System.out.println("Clicking On Add Button");
+
+		waitForClickabilityOf(addTableBtn);
+
+		driver.findElement(addTableBtn).click();
+		
+//		Clicking On Close Button
+		
+		System.out.println("Clicking On Close Button");
+
+		waitForClickabilityOf(tableCloseBtn);
+
+		driver.findElement(tableCloseBtn).click();
+		
+//		Clicking On Search Attendees
+		
+		System.out.println("Clicking On Search Attendees");
+
+		waitForClickabilityOf(assignUsers);
+
+		driver.findElement(assignUsers).click();
+		
+//		Clicking On Select All Users
+		
+		System.out.println("Clicking On Select All Users");
+
+		waitForClickabilityOf(selectAllUserCheckBox);
+
+		driver.findElement(selectAllUserCheckBox).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Done Button
+		
+		System.out.println("Clicking On Done Button");
+
+		waitForClickabilityOf(doneBtn);
+
+		driver.findElement(doneBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Save Button
+		
+		System.out.println("Clicking On Save Button");
+
+		waitForClickabilityOf(saveSeatingBtn);
+
+		driver.findElement(saveSeatingBtn).click();
+		
+//		Clicking On Seating	
+
+		System.out.println("Clicking On Seating");
+
+		waitForClickabilityOf(clickOnSeating);
+
+		driver.findElement(clickOnSeating).click();
+		
+		Thread.sleep(2000);
+		
+//		Getting No Of Existing Attendee Count
+		
+		try {
+			
+			waitForClickabilityOf(existingNoOfAttendees);
+			
+			List<WebElement> element = driver.findElements(existingNoOfAttendees);
+			
+			int NoOfExAttendees = element.size();
+			
+			if (NoOfExAttendees>1) {
+				
+				System.out.println("Successfully Arranged Seating Management");
+				
+			} else {
+				
+				System.out.println("Failed to Arrange Seating Management");
+
+			}
+			
+		} catch (Exception e) {
+			
+		}
+				
+		
+		return new AddSessions(driver);
+		
+	}
+	
+	public AddSessions addSessionCapacity(String EmailId, String Password, String EventFullName,String SessionTitle) throws InterruptedException{
+		
+		// Login to your Account
+
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+
+		// Searching for Event Name
+
+		System.out.println("Searching for Event Name :" + EventFullName);
+
+		waitForClickabilityOf(searchEvent);
+
+		WebElement search = driver.findElement(searchEvent);
+
+		search.sendKeys(EventFullName);
+
+		// Pressing Enter Button
+
+		search.sendKeys(Keys.ENTER);
+
+		Thread.sleep(2000);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		waitForClickabilityOf(clickOnEvent);
+
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+
+		System.out.println("Clicking On Event : " + ActEventName);
+
+		if (EventFullName.equals(ActEventName)) {
+
+			System.out.println("This is Correct Event");
+
+		} else {
+
+			System.out.println("Failed to Search the Event Name so, searching again ");
+
+			search.clear();
+
+			search.sendKeys(EventFullName);
+
+			Thread.sleep(2000);
+
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			// Pressing Enter Button
+
+			search.sendKeys(Keys.ENTER);
+
+		}
+
+		// Clicking on The Event
+
+		System.out.println("Clicking on The Event");
+
+		waitForClickabilityOf(clickOnEvent);
+
+		driver.findElement(clickOnEvent).click();
+
+		// Clicking on Agenda Setup
+
+		System.out.println("Clicking on Agenda Setup");
+
+		waitForClickabilityOf(clickOnAgendaSetUp);
+
+		driver.findElement(clickOnAgendaSetUp).click();
+
+		// Clicking on Session
+
+		System.out.println("Clicking on Session");
+
+		waitForClickabilityOf(clickOnSession);
+
+		driver.findElement(clickOnSession).click();
+		
+		// Clicking on All Dates
+
+		System.out.println("Clicking on All Dates");
+
+		waitForClickabilityOf(allDates);
+
+		driver.findElement(allDates).click();
+		
+		// Searching for Session Name
+
+		System.out.println("Searching for Session Name :" + SessionTitle);
+
+		waitForClickabilityOf(searchSession);
+
+		WebElement Session = driver.findElement(searchSession);
+
+		Session.sendKeys(SessionTitle);
+		
+		Thread.sleep(2000);
+		
+		// Pressing Enter Button
+
+		Session.sendKeys(Keys.ENTER);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		waitForClickabilityOf(clickOnSearchedSession);
+
+		String ActSessionName = driver.findElement(clickOnSearchedSession).getText();
+
+		System.out.println("Clicking On Session : " + ActSessionName);
+
+		if (SessionTitle.equals(ActSessionName)) {
+
+			System.out.println("This is Correct Session");
+
+		} else {
+
+			System.out.println("Failed to Search the Session Name so, searching again ");
+
+			Session.clear();
+
+			Session.sendKeys(SessionTitle);
+
+			Thread.sleep(2000);
+
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+//			 Pressing Enter Button
+
+			Session.sendKeys(Keys.ENTER);
+
+		}
+		
+//		Selecting the Session
+
+		System.out.println("Selecting the Session");
+
+		waitForClickabilityOf(clickOnSearchedSession);
+
+		driver.findElement(clickOnSearchedSession).click();	
+		
+//		Clicking On Capacity	
+
+		System.out.println("Clicking On Capacity");
+
+		waitForClickabilityOf(clickOnCapacity);
+
+		driver.findElement(clickOnCapacity).click();
+		
+		Thread.sleep(2000);
+				
+//		Enabeling Session Capacity	
+
+		System.out.println("Enabeling Session Capacity");
+
+		waitForClickabilityOf(sessionCapacityBtn);
+		
+		boolean CapBtn = driver.findElement(sessionCapacityBtn).isSelected();
+		
+		System.out.println(CapBtn);
+		
+		if (CapBtn==true) {
+			
+		}else {
+			
+			driver.findElement(sessionCapacityBtn).click();
+			
+		}
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Capacity	
+
+		System.out.println("Entering Max Capacity as : 50");
+
+		waitForClickabilityOf(noOfMaxSeats);
+		
+		driver.findElement(noOfMaxSeats).clear();
+
+		driver.findElement(noOfMaxSeats).sendKeys("50");
+		
+		Thread.sleep(2000);
+		
+//		Enabeling Allow Wait list	
+
+		System.out.println("Enabeling Allow Waitlist");
+
+		waitForClickabilityOf(allowWaitlistBtn);
+
+		driver.findElement(allowWaitlistBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Capacity	
+
+		System.out.println("Entering Max Waitlist Capacity as : 5");
+
+		waitForClickabilityOf(allowAddBookings);
+		
+		driver.findElement(allowAddBookings).clear();
+
+		driver.findElement(allowAddBookings).sendKeys("5");
+		
+		Thread.sleep(2000);
+		
+//		Enabeling Allow Waitlist	
+
+		System.out.println("Enabeling Availbility Duaration");
+
+		waitForClickabilityOf(availbilityDurationBtn);
+
+		driver.findElement(availbilityDurationBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Entering Start Date	
+
+		System.out.println("Entering Start Date");
+
+		waitForClickabilityOf(capStartDate);
+		
+		driver.findElement(capStartDate).clear();
+
+		driver.findElement(capStartDate).sendKeys("26/01/2018");
+		
+		Thread.sleep(2000);
+		
+//		Entering Start Time	
+
+		System.out.println("Entering Start Time");
+
+		waitForClickabilityOf(capStartTime);
+		
+		driver.findElement(capStartTime).clear();
+
+		driver.findElement(capStartTime).sendKeys("10:00AM");
+		
+		Thread.sleep(2000);
+		
+//		Entering End Date	
+
+		System.out.println("Entering End Date");
+
+		waitForClickabilityOf(capEndDate);
+		
+		driver.findElement(capEndDate).clear();
+
+		driver.findElement(capEndDate).sendKeys("26/01/2018");
+		
+		Thread.sleep(2000);
+		
+//		Entering Start Time	
+
+		System.out.println("Entering End Time");
+
+		waitForClickabilityOf(capEndTime);
+		
+		driver.findElement(capEndTime).clear();
+
+		driver.findElement(capEndTime).sendKeys("08:00PM");
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Save Button	
+
+		System.out.println("Clicking On Save Button");
+
+		waitForClickabilityOf(capSaveBtn);
+
+		driver.findElement(capSaveBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Capacity	
+
+		System.out.println("Clicking On Capacity");
+
+		waitForClickabilityOf(clickOnCapacity);
+
+		driver.findElement(clickOnCapacity).click();
+		
+//		Checking for Capability Button
+
+		waitForClickabilityOf(sessionCapacityBtn);
+		
+		boolean CapBtn1 = driver.findElement(sessionCapacityBtn).isSelected();
+		
+		System.out.println(CapBtn1);
+		
+		if (CapBtn1==false) {
+			
+			System.out.println("Successfully Created Capacity Management");
+			
+		}else {
+			
+			System.out.println("Failed to Create Capacity Management");
+			
+		}
+		
+		return new AddSessions(driver);
+		
+	}
+	
+	public AddSessions addSessionGroup(String EmailId, String Password, String EventFullName,String SessionTitle,boolean Group) throws InterruptedException{
+		
+		// Login to your Account
+
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+
+		// Searching for Event Name
+
+		System.out.println("Searching for Event Name :" + EventFullName);
+
+		waitForClickabilityOf(searchEvent);
+
+		WebElement search = driver.findElement(searchEvent);
+
+		search.sendKeys(EventFullName);
+
+		// Pressing Enter Button
+
+		search.sendKeys(Keys.ENTER);
+
+		Thread.sleep(2000);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		waitForClickabilityOf(clickOnEvent);
+
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+
+		System.out.println("Clicking On Event : " + ActEventName);
+
+		if (EventFullName.equals(ActEventName)) {
+
+			System.out.println("This is Correct Event");
+
+		} else {
+
+			System.out.println("Failed to Search the Event Name so, searching again ");
+
+			search.clear();
+
+			search.sendKeys(EventFullName);
+
+			Thread.sleep(2000);
+
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			// Pressing Enter Button
+
+			search.sendKeys(Keys.ENTER);
+
+		}
+
+		// Clicking on The Event
+
+		System.out.println("Clicking on The Event");
+
+		waitForClickabilityOf(clickOnEvent);
+
+		driver.findElement(clickOnEvent).click();
+
+		// Clicking on Agenda Setup
+
+		System.out.println("Clicking on Agenda Setup");
+
+		waitForClickabilityOf(clickOnAgendaSetUp);
+
+		driver.findElement(clickOnAgendaSetUp).click();
+
+		// Clicking on Session
+
+		System.out.println("Clicking on Session");
+
+		waitForClickabilityOf(clickOnSession);
+
+		driver.findElement(clickOnSession).click();
+		
+		// Clicking on All Dates
+
+		System.out.println("Clicking on All Dates");
+
+		waitForClickabilityOf(allDates);
+
+		driver.findElement(allDates).click();
+		
+		// Searching for Session Name
+
+		System.out.println("Searching for Session Name :" + SessionTitle);
+
+		waitForClickabilityOf(searchSession);
+
+		WebElement Session = driver.findElement(searchSession);
+
+		Session.sendKeys(SessionTitle);
+		
+		Thread.sleep(2000);
+		
+		// Pressing Enter Button
+
+		Session.sendKeys(Keys.ENTER);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		waitForClickabilityOf(clickOnSearchedSession);
+
+		String ActSessionName = driver.findElement(clickOnSearchedSession).getText();
+
+		System.out.println("Clicking On Session : " + ActSessionName);
+
+		if (SessionTitle.equals(ActSessionName)) {
+
+			System.out.println("This is Correct Session");
+
+		} else {
+
+			System.out.println("Failed to Search the Session Name so, searching again ");
+
+			Session.clear();
+
+			Session.sendKeys(SessionTitle);
+
+			Thread.sleep(2000);
+
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+//			 Pressing Enter Button
+
+			Session.sendKeys(Keys.ENTER);
+
+		}
+		
+//		Selecting the Session
+
+		System.out.println("Selecting the Session");
+
+		waitForClickabilityOf(clickOnSearchedSession);
+
+		driver.findElement(clickOnSearchedSession).click();	
+		
+//		Clicking On Session Group	
+
+		System.out.println("Clicking On Session Group");
+
+		waitForClickabilityOf(clickOnSessionGroups);
+
+		driver.findElement(clickOnSessionGroups).click();
+		
+		Thread.sleep(2000);
+		
+		
+		
+		return new AddSessions(driver);
+		
+	}
 }
