@@ -51,7 +51,7 @@ public class E2MTestCaes extends BrowserSetUp {
 	
 	String EventShortName = "Google";
 	
-	String SessionTitle = "Pre Match";
+	String SessionTitle = "Networking";
 	
 	String TrackName = "Parking";
 	
@@ -350,13 +350,31 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new AddSessions(driver).seatingArrangement(EmailId, Password, EventFullName, SessionTitle, "Clerk Table", true);
 //
 //	}
+//	
+//	@Test(priority = 29,alwaysRun=true)
+//	public void addSessionCapacityTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Session Capacity Test");
+//		
+//		new AddSessions(driver).addSessionCapacity(EmailId, Password, EventFullName, SessionTitle);
+//
+//	}
 	
-	@Test(priority = 29,alwaysRun=true)
-	public void addSessionCapacityTest() throws ParseException, InterruptedException, AWTException {
+	@Test(priority = 30,alwaysRun=true)
+	public void addSessionGroupTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Add Session Capacity Test");
+		System.out.println("Executing : Add Session Group Test");
 		
-		new AddSessions(driver).addSessionCapacity(EmailId, Password, EventFullName, SessionTitle);
+		new AddSessions(driver).addSessionGroup(EmailId, Password, EventFullName, SessionTitle, true);
+
+	}
+	
+	@Test(priority = 31,alwaysRun=true)
+	public void addSessionUsersTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Add Session Users Test");
+		
+		new AddSessions(driver).addSessionGroup(EmailId, Password, EventFullName, SessionTitle, false);
 
 	}
 	

@@ -257,6 +257,18 @@ public class AddSessions extends BaseSetUp{
 	
 	By associateGrpBtn = By.xpath("//*[@for='chkIsassociateGroup']");
 	
+	By addGroup = By.xpath("//*[@id='btnAddNew']");
+	
+	By groupName = By.xpath("//*[@id='txtGroupName']");
+	
+	By showOnMobile = By.xpath("//*[@id='SOM']");
+	
+	By grp1stUser = By.xpath("//html//div[@id='inline7']//tr[1]/td[1]/input[1]");
+	
+	By grp2ndUser = By.xpath("//html//div[@id='inline7']//tr[2]/td[1]/input[1]");
+	
+	By newGroupAddBtn = By.xpath("//*[@id='Saveattendee']");
+	
 	By searchGroup = By.xpath("//*[@id='txtGroup']");
 	
 	By selctAllGrpChkBox = By.xpath("//*[@id='group_all_chk']");
@@ -265,11 +277,17 @@ public class AddSessions extends BaseSetUp{
 	
 	By searchUser = By.xpath("//*[@id='txtUsergroup']");
 	
-	By selectAllUser = By.xpath("//*[@id='usergroup_all_chk']");
+	By selectAllUserChkBox = By.xpath("//*[@id='usergroup_all_chk']");
 	
 	By doneUserBtn = By.xpath("//*[@class='pull-right']//*[@onclick='usergroup_done()']");
 	
 	By saveSessionGroupBtn = By.xpath("//*[@id='btnSaveBottom']");
+	
+	By selectAllGroup = By.xpath("//*[@id='chk_select_all_group']");
+	
+	By selectAllUser = By.xpath("//*[@id='chk_select_all_usergroup']");
+	
+	String GroupName = "Event Helper";
 	
 	
 	
@@ -3909,9 +3927,9 @@ public class AddSessions extends BaseSetUp{
 		
 		Thread.sleep(2000);
 				
-//		Enabeling Session Capacity	
+//		Enabling Session Capacity	
 
-		System.out.println("Enabeling Session Capacity");
+		System.out.println("Enabling Session Capacity");
 
 		waitForClickabilityOf(sessionCapacityBtn);
 		
@@ -3941,9 +3959,9 @@ public class AddSessions extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
-//		Enabeling Allow Wait list	
+//		Enabling Allow Wait list	
 
-		System.out.println("Enabeling Allow Waitlist");
+		System.out.println("Enabling Allow Waitlist");
 
 		waitForClickabilityOf(allowWaitlistBtn);
 
@@ -3963,9 +3981,9 @@ public class AddSessions extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
-//		Enabeling Allow Waitlist	
+//		Enabling Allow Wait list	
 
-		System.out.println("Enabeling Availbility Duaration");
+		System.out.println("Enabling Availbility Duaration");
 
 		waitForClickabilityOf(availbilityDurationBtn);
 
@@ -4225,7 +4243,216 @@ public class AddSessions extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
+//		Enabling Associate Group
 		
+		System.out.println("Enabling Associate Group");
+		
+		Thread.sleep(2000);
+
+		waitForClickabilityOf(associateGrpBtn);
+		
+		Thread.sleep(2000);
+		
+		boolean AssociateBtn = driver.findElement(associateGrpBtn).isSelected();
+		
+		System.out.println(AssociateBtn);
+		
+		if (AssociateBtn==true) {
+			
+		}else {
+			
+			driver.findElement(associateGrpBtn).click();
+			
+		}
+		
+		Thread.sleep(2000);
+	 
+//		Adding User Type
+	 	
+		if (Group==true) {
+			
+//			Clicking On Add Group	
+
+			System.out.println("Clicking On Add Group");
+
+			waitForClickabilityOf(addGroup);
+
+			driver.findElement(addGroup).click();
+			
+//			Entering the New Group Name	
+
+			System.out.println("Entering the New Group Name");
+
+			waitForClickabilityOf(groupName);
+
+			driver.findElement(groupName).sendKeys(GroupName);
+			
+//			Enabling Show On Mobile Check Box		
+
+			System.out.println("Enabling Show On Mobile Check Box");
+
+			waitForClickabilityOf(showOnMobile);
+
+			driver.findElement(showOnMobile).click();
+			
+//			Selecting 1st User Check Box		
+
+			System.out.println("Selecting 1st User Check Box");
+
+			waitForClickabilityOf(grp1stUser);
+
+			driver.findElement(grp1stUser).click();
+			
+//			Selecting 2nd User Check Box		
+
+			System.out.println("Selecting 2nd User Check Box");
+
+			waitForClickabilityOf(grp2ndUser);
+
+			driver.findElement(grp2ndUser).click();
+			
+			Thread.sleep(2000);
+			
+//			Selecting 2nd User Check Box		
+
+			System.out.println("Clicking On Add to Save the Group");
+
+			waitForClickabilityOf(newGroupAddBtn);
+
+			driver.findElement(newGroupAddBtn).click();
+			
+			Thread.sleep(2000);
+			
+//			Clicking On Search Group		
+
+			System.out.println("Clicking On Search Group");
+
+			waitForClickabilityOf(searchGroup);
+
+			driver.findElement(searchGroup).sendKeys(GroupName);
+			
+			Thread.sleep(2000);
+			
+//			Selecting All Group Name		
+
+			System.out.println("Selecting All Group Name");
+
+			waitForClickabilityOf(selctAllGrpChkBox);
+
+			driver.findElement(selctAllGrpChkBox).click();
+			
+			Thread.sleep(2000);
+			
+//			Selecting All Group Name		
+
+			System.out.println("Clicking On Done to save Group");
+
+			waitForClickabilityOf(doneGrpBtn);
+
+			driver.findElement(doneGrpBtn).click();
+			
+		} else {
+			
+//			Clicking On Search User		
+
+			System.out.println("Clicking On Search User");
+
+			waitForClickabilityOf(searchUser);
+
+			driver.findElement(searchUser).click();
+			
+			Thread.sleep(2000);
+			
+//			Selecting All User		
+
+			System.out.println("Selecting All User");
+
+			waitForClickabilityOf(selectAllUserChkBox);
+
+			driver.findElement(selectAllUserChkBox).click();
+			
+			Thread.sleep(2000);
+			
+//			Selecting All User	
+
+			System.out.println("Clicking On Done to save Users");
+
+			waitForClickabilityOf(doneUserBtn);
+
+			driver.findElement(doneUserBtn).click();
+			
+			Thread.sleep(2000);
+
+
+		}
+		
+//		Selecting All Group Name		
+
+		System.out.println("Clicking On Save Button");
+
+		waitForClickabilityOf(saveSessionGroupBtn);
+
+		driver.findElement(saveSessionGroupBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Session Group	
+
+		System.out.println("Clicking On Session Group");
+
+		waitForClickabilityOf(clickOnSessionGroups);
+
+		driver.findElement(clickOnSessionGroups).click();
+		
+		Thread.sleep(2000);
+		
+		if (Group==true) {
+			
+//			Clicking On Session Group	
+
+			waitForClickabilityOf(selectAllGroup);
+			
+			List<WebElement> element = driver.findElements(selectAllGroup);
+			
+			int NoOfExGroups = element.size();
+			
+			System.out.println(NoOfExGroups);
+			
+			if (NoOfExGroups >1) {
+				
+				System.out.println("Successfully Added Groups to Session");
+				
+			} else {
+				
+				System.out.println("Failed to Add Groups to Session");
+
+			}
+			
+			
+		}else {
+			
+//			Clicking On Session Group	
+
+			waitForClickabilityOf(selectAllUser);
+			
+			List<WebElement> element = driver.findElements(selectAllUser);
+			
+			int NoOfExUsers = element.size();
+			
+			System.out.println(NoOfExUsers);
+			
+			if (NoOfExUsers >2) {
+				
+				System.out.println("Successfully Added Users to Session");
+				
+			} else {
+				
+				System.out.println("Failed to Add Users to Session");
+
+			}
+			
+		}
+			
 		
 		return new AddSessions(driver);
 		
