@@ -17,6 +17,7 @@ import com.EventAgendaSetup.AddSessions;
 import com.EventAgendaSetup.AddSpeakers;
 import com.EventAgendaSetup.AddSponsors;
 import com.EventAgendaSetup.UploadData;
+import com.EventLive_TheEvent.PollOrVote;
 import com.EventManagement.CloneEvent;
 import com.EventManagement.MapUserToEvent;
 import com.EventManagement.NewEvent;
@@ -359,25 +360,58 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new AddSessions(driver).addSessionCapacity(EmailId, Password, EventFullName, SessionTitle);
 //
 //	}
+//	
+//	@Test(priority = 30,alwaysRun=true)
+//	public void addSessionGroupTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Session Group Test");
+//		
+//		new AddSessions(driver).addSessionGroup(EmailId, Password, EventFullName, SessionTitle, true);
+//
+//	}
+//	
+//	@Test(priority = 31,alwaysRun=true)
+//	public void addSessionUsersTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Session Users Test");
+//		
+//		new AddSessions(driver).addSessionGroup(EmailId, Password, EventFullName, SessionTitle, false);
+//
+//	}
 	
-	@Test(priority = 30,alwaysRun=true)
-	public void addSessionGroupTest() throws ParseException, InterruptedException, AWTException {
+	@Test(priority = 32,alwaysRun=true)
+	public void mapSessionToPollTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Add Session Group Test");
+		System.out.println("Executing : Map Session to Poll Test");
 		
-		new AddSessions(driver).addSessionGroup(EmailId, Password, EventFullName, SessionTitle, true);
+		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session", false, false, false);
 
 	}
 	
-	@Test(priority = 31,alwaysRun=true)
-	public void addSessionUsersTest() throws ParseException, InterruptedException, AWTException {
+	@Test(priority = 33,alwaysRun=true)
+	public void mapSessionToPollAnonymousEnabledTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Add Session Users Test");
+		System.out.println("Executing : Map Session to Poll with Anonymous Submission Enabled Test");
 		
-		new AddSessions(driver).addSessionGroup(EmailId, Password, EventFullName, SessionTitle, false);
-
+		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session",true,false,false);
+		
 	}
 	
+	@Test(priority = 34,alwaysRun=true)
+	public void mapSessionToPollSetDateTimeEnabledTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Map Session to Poll with Anonymous Submission,Set Date/Time Enabled Test");
+		
+		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session", true, true, false);
+	}
+	
+	@Test(priority = 35,alwaysRun=true)
+	public void mapSessionToPollSelectTimeEnabledTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Map Session to Poll with Anonymous Submission,Select Time Enabled Test");
+		
+		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session", true, false, true);
+	}
 		
 //	
 //	@Test(priority = 22,alwaysRun=true)
