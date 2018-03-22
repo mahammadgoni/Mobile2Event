@@ -378,40 +378,40 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new AddSessions(driver).addSessionGroup(EmailId, Password, EventFullName, SessionTitle, false);
 //
 //	}
-	
-	@Test(priority = 32,alwaysRun=true)
-	public void mapSessionToPollTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Map Session to Poll Test");
-		
-		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session", false, false, false);
-
-	}
-	
+//	
+//	@Test(priority = 32,alwaysRun=true)
+//	public void mapSessionToPollTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Map Session to Poll Test");
+//		
+//		new PollOrVote(driver).mapSessionToPoll(EmailId, Password, EventFullName);
+//
+//	}
+//	
 	@Test(priority = 33,alwaysRun=true)
 	public void mapSessionToPollAnonymousEnabledTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Map Session to Poll with Anonymous Submission Enabled Test");
+		System.out.println("Executing : Map Session to Poll with Anonymous Submission and Set Time Enabled Test");
 		
-		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session",true,false,false);
+		new PollOrVote(driver).mapSessionToPollAnonymousSetTime(EmailId, Password, EventFullName);
 		
 	}
-	
-	@Test(priority = 34,alwaysRun=true)
-	public void mapSessionToPollSetDateTimeEnabledTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Map Session to Poll with Anonymous Submission,Set Date/Time Enabled Test");
-		
-		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session", true, true, false);
-	}
-	
-	@Test(priority = 35,alwaysRun=true)
-	public void mapSessionToPollSelectTimeEnabledTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Map Session to Poll with Anonymous Submission,Select Time Enabled Test");
-		
-		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session", true, false, true);
-	}
+//	
+//	@Test(priority = 34,alwaysRun=true)
+//	public void mapSessionToPollSetDateTimeEnabledTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Map Session to Poll with Anonymous Submission,Set Date/Time Enabled Test");
+//		
+//		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session", true, true, false);
+//	}
+//	
+//	@Test(priority = 35,alwaysRun=true)
+//	public void mapSessionToPollSelectTimeEnabledTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Map Session to Poll with Anonymous Submission,Select Time Enabled Test");
+//		
+//		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session", true, false, true);
+//	}
 		
 //	
 //	@Test(priority = 22,alwaysRun=true)

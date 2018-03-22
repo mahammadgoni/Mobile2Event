@@ -2,8 +2,10 @@ package com.BaseSetup;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -36,12 +38,17 @@ public class BaseSetUp {
 	
 		} catch (UnhandledAlertException e) {
 			
-			
-		}
+		}   	
     	
-
-//		return alertMessage;
+    }
+    
+    protected void scrollDown(By Element){
     	
+    	WebElement element  = driver.findElement(Element);
+    	
+    	JavascriptExecutor js = (JavascriptExecutor) driver;
+    	
+    	js.executeScript("arguments[0].scrollIntoView();",element);
     	
     	
     }
