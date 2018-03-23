@@ -1,7 +1,6 @@
 package com.EventLive_TheEvent;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -23,6 +22,33 @@ public class PollOrVote extends BaseSetUp{
 	By clickOnLiveEvent = By.xpath("//li[@id='LV']//a[@href='javascript:void(0);']");
 	
 	By clickOnPollVote = By.xpath("//*[@href='New/Poll/Index']");
+	
+//	View, Clone and Download Report Elements
+	
+	By clickOn1stPollOption = By.xpath("//*[@id='tblPollList']/tbody/tr[1]//*[@class='dropdown drop-filter mr-sm-0 mb-sm-0']");
+	
+	By clickOn1stCheckBox = By.xpath("//table[@id='tblPollList']/tbody/tr[1]/td[1]");
+	
+	By view1stPoll = By.xpath("//*[@class='auto-adjst-cont pt-sm-3 clearfix']/button[2]");
+	
+	By clone1stPoll = By.xpath("//*[@class='auto-adjst-cont pt-sm-3 clearfix']/button[4]");
+	
+	By download1stPollReport = By.xpath("//*[@class='auto-adjst-cont pt-sm-3 clearfix']/button[6]");
+	
+	By save1stPollName = By.xpath("//*[@id='tblPollList']/tbody/tr[1]/td[2]/a");
+	
+	By tabPollName = By.xpath("//span[@id='lblsurveyTitle']");
+	
+	By exstPollList = By.xpath("//div[@class='dropdown drop-filter mr-sm-0 mb-sm-0']");
+	
+	By selectAllPoll = By.xpath("//table[@id='tblPollList']/thead/tr/th[1]");
+	
+	By allPollOption = By.xpath("//div[@id='divAction']//div[@class='dropdown drop-filter mr-sm-0 mb-sm-0']");
+	
+	By downloadAllPollReport = By.xpath("//*[@value='Download Report']");
+	
+	
+//	Map session to poll Elements
 	
 	By clickOn1stUpdateMapping = By.xpath("//div[@id='recordsFound']/table/tbody/tr[1]/td[3]//*[contains(text(),'Update Mapping')]");
 	
@@ -181,6 +207,227 @@ public class PollOrVote extends BaseSetUp{
 		
 		driver.findElement(clickOnPollVote).click();
 		
+	}
+	
+	public PollOrVote viewPoll(String EmailId, String Password,String EventFullName) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+//		Clicking on Poll/Vote Option
+		
+		System.out.println("Clicking on Poll/Vote Option");
+		
+		waitForClickabilityOf(clickOn1stPollOption);
+		
+		driver.findElement(clickOn1stPollOption).click();
+		
+//		Save Poll Name
+		
+		String PollName = "Title: "+driver.findElement(save1stPollName).getText();
+		
+		System.out.println(PollName);
+		
+//		Clicking on View Poll/Vote
+		
+		System.out.println("Clicking on View Poll/Vote");
+		
+		waitForClickabilityOf(view1stPoll);
+		
+		driver.findElement(view1stPoll).click();
+				
+//		Store the current window handle
+		
+		String winHandleBefore = driver.getWindowHandle();
+
+//		Perform the click operation that opens new window
+
+//		Switch to new window opened
+		
+		for(String winHandle : driver.getWindowHandles()){
+			
+		    driver.switchTo().window(winHandle);
+		}
+		
+//		Save Poll Name
+		
+		String TabPollName = driver.findElement(tabPollName).getText();
+		
+		System.out.println(TabPollName);
+		
+		if (PollName.equals(TabPollName)) {
+			
+			System.out.println("Successfully Viewed The Poll");
+			
+		} else {
+			
+			System.out.println("Failed to View the Poll");
+
+		}
+		
+//		Close the new window, if that window no more required
+		
+		driver.close();
+
+//		Switch back to original browser (first window)
+		
+		driver.switchTo().window(winHandleBefore);
+		
+		
+		return new PollOrVote(driver);
+		
+	}
+	
+	public PollOrVote clonePoll(String EmailId, String Password,String EventFullName) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+//		Getting No Of Existing Poll Count
+		
+		waitForClickabilityOf(exstPollList);
+		
+		List<WebElement> poll = driver.findElements(exstPollList);
+		
+		int NoOfExPolls = poll.size();
+		
+//		System.out.println(NoOfExPolls);
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Poll/Vote Option
+		
+		System.out.println("Clicking on Poll/Vote Option");
+		
+		waitForClickabilityOf(clickOn1stPollOption);
+		
+		driver.findElement(clickOn1stPollOption).click();
+		
+//		Clicking on Clone Poll/Vote Option
+		
+		System.out.println("Clicking on Clone Poll/Vote Option");
+		
+		waitForClickabilityOf(clone1stPoll);
+		
+		driver.findElement(clone1stPoll).click();
+		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
+		
+		Thread.sleep(2000);
+		
+//		Getting No Of Existing Poll Count
+		
+		waitForClickabilityOf(exstPollList);
+		
+		List<WebElement> poll1 = driver.findElements(exstPollList);
+		
+		int NoOfExPolls1 = poll1.size();
+		
+//		System.out.println(NoOfExPolls1);
+		
+//		Verifying Poll Numbers
+		
+		if (NoOfExPolls==NoOfExPolls1-1) {
+			
+			System.out.println("Successfully Cloned one Poll");
+			
+		} else {
+			
+			System.out.println("Failed to Clone the Poll");
+
+		}
+		
+		
+		
+		return new PollOrVote(driver);
+	}
+	
+	public PollOrVote downloadReport(String EmailId, String Password,String EventFullName,String DownloadReport) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+//		Clicking on Poll/Vote Option
+		
+		System.out.println("Clicking on Poll/Vote Option");
+		
+		waitForClickabilityOf(clickOn1stPollOption);
+		
+		driver.findElement(clickOn1stPollOption).click();
+		
+//		Checking condition for Report Download
+		
+		if (DownloadReport.equals("All")) {
+			
+			System.out.println("Downloading Report for all Polls");
+			
+//			Selecting All Polls
+			
+			System.out.println("Selecting All Polls");
+			
+			waitForClickabilityOf(selectAllPoll);
+			
+			driver.findElement(selectAllPoll).click();
+			
+//			Clicking on All Poll/Vote Option
+			
+			System.out.println("Clicking on All Poll/Vote Option");
+			
+			waitForClickabilityOf(allPollOption);
+			
+			driver.findElement(allPollOption).click();
+			
+//			Clicking on Poll/Vote Option
+			
+			System.out.println("Clicking on Download All Poll/Vote Report");
+			
+			waitForClickabilityOf(downloadAllPollReport);
+			
+			driver.findElement(downloadAllPollReport).click();
+			
+			Thread.sleep(2000);
+			
+			
+		} else {
+			
+			System.out.println("Downloading Report for One Poll");
+						
+//			Selecting All Polls
+			
+			System.out.println("Selecting 1st Poll");
+			
+			waitForClickabilityOf(clickOn1stPollOption);
+			
+			driver.findElement(clickOn1stPollOption).click();
+			
+//			Clicking on All Poll/Vote Option
+			
+			System.out.println("Clicking on 1st Poll/Vote Option");
+			
+			waitForClickabilityOf(allPollOption);
+			
+			driver.findElement(allPollOption).click();
+			
+//			Clicking on Poll/Vote Option
+			
+			System.out.println("Clicking on Download All Poll/Vote Report");
+			
+			waitForClickabilityOf(downloadAllPollReport);
+			
+			driver.findElement(downloadAllPollReport).click();
+
+		}
+		
+		System.out.println("Downloading Report");
+		
+		
+
+		
+		
+		return new PollOrVote(driver);
 	}
 	
 	public PollOrVote mapSessionToPoll(String EmailId, String Password,String EventFullName) throws InterruptedException{
@@ -356,11 +603,13 @@ public class PollOrVote extends BaseSetUp{
 			
 		driver.findElement(enableAnonymousBtn).click();
 		
+		driver.findElement(enableAnonymousBtn).sendKeys(Keys.ARROW_DOWN);
+		
 //		Window Scrolling Down
 		
 		try {
 			
-			scrollDown(enableAnonymousBtn);
+			scrollDown();
 			
 		} catch (Exception e) {
 			
@@ -371,9 +620,9 @@ public class PollOrVote extends BaseSetUp{
 		System.out.println("Enabling Anonymous Mandatory Button");
 			
 		waitForClickabilityOf(anonymousMandatoryBtn);
-			
-		driver.findElement(anonymousMandatoryBtn).click();
 		
+		driver.findElement(anonymousMandatoryBtn).click();
+				
 //		Clicking On Session Timer Button
 		
 		Thread.sleep(2000);
@@ -391,12 +640,12 @@ public class PollOrVote extends BaseSetUp{
 		waitForClickabilityOf(clickOnSesnActiveSetTime);
 		
 		driver.findElement(clickOnSesnActiveSetTime).click();
-		
+				
 //		Window Scrolling Down
 		
 		try {
 			
-			scrollDown(deactiveOnTime);
+			scrollDown();
 			
 		} catch (Exception e) {
 			

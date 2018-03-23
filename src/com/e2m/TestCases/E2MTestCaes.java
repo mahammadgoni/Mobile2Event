@@ -388,14 +388,14 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-	@Test(priority = 33,alwaysRun=true)
-	public void mapSessionToPollAnonymousEnabledTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Map Session to Poll with Anonymous Submission and Set Time Enabled Test");
-		
-		new PollOrVote(driver).mapSessionToPollAnonymousSetTime(EmailId, Password, EventFullName);
-		
-	}
+//	@Test(priority = 33,alwaysRun=true)
+//	public void mapSessionToPollAnonymousEnabledTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Map Session to Poll with Anonymous Submission and Set Time Enabled Test");
+//		
+//		new PollOrVote(driver).mapSessionToPollAnonymousSetTime(EmailId, Password, EventFullName);
+//		
+//	}
 //	
 //	@Test(priority = 34,alwaysRun=true)
 //	public void mapSessionToPollSetDateTimeEnabledTest() throws ParseException, InterruptedException, AWTException {
@@ -412,6 +412,42 @@ public class E2MTestCaes extends BrowserSetUp {
 //		
 //		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session", true, false, true);
 //	}
+//	
+//	@Test(priority = 35,alwaysRun=true)
+//	public void viewPollDetailsTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : View Poll Details Test");
+//		
+//		new PollOrVote(driver).viewPoll(EmailId, Password, EventFullName);
+//		
+//	}
+//	
+//	@Test(priority = 36,alwaysRun=true)
+//	public void clonePollorVoteTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Clone Poll/Vote Test");
+//		
+//		new PollOrVote(driver).clonePoll(EmailId, Password, EventFullName);
+//		
+//	}
+	
+	@Test(priority = 37,alwaysRun=true)
+	public void downloadOnePollReportTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Download One Poll/Vote Report Test");
+		
+		new PollOrVote(driver).downloadReport(EmailId, Password, EventFullName, "One");
+		
+	}
+	
+	@Test(priority = 38,alwaysRun=true)
+	public void downloadAllPollReportTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Download All Poll/Vote Report Test");
+		
+		new PollOrVote(driver).downloadReport(EmailId, Password, EventFullName, "All");
+		
+	}
 		
 //	
 //	@Test(priority = 22,alwaysRun=true)
