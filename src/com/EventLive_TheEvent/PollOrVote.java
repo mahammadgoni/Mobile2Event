@@ -27,7 +27,9 @@ public class PollOrVote extends BaseSetUp{
 	
 	By clickOn1stPollOption = By.xpath("//*[@id='tblPollList']/tbody/tr[1]//*[@class='dropdown drop-filter mr-sm-0 mb-sm-0']");
 	
-	By clickOn1stCheckBox = By.xpath("//table[@id='tblPollList']/tbody/tr[1]/td[1]");
+//	By clickOn1stCheckBox = By.xpath("//table[@id='tblPollList']//tbody/tr[1]/td/span");
+	
+	By clickOn1stCheckBox = By.xpath("/html[1]/body[1]/section[1]/div[1]/section[1]/div[1]/section[1]//div[4]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/span[1]");
 	
 	By view1stPoll = By.xpath("//*[@class='auto-adjst-cont pt-sm-3 clearfix']/button[2]");
 	
@@ -41,7 +43,9 @@ public class PollOrVote extends BaseSetUp{
 	
 	By exstPollList = By.xpath("//div[@class='dropdown drop-filter mr-sm-0 mb-sm-0']");
 	
-	By selectAllPoll = By.xpath("//table[@id='tblPollList']/thead/tr/th[1]");
+//	By selectAllPoll = By.xpath("//div[@class='checkbox checkbox-success select-all']");
+	
+	By selectAllPoll = By.xpath("/html[1]/body[1]/section[1]/div[1]/section[1]/div[1]/section[1]//div[4]/div[2]/table[1]/thead[1]/tr[1]/th[1]/div[1]");
 	
 	By allPollOption = By.xpath("//div[@id='divAction']//div[@class='dropdown drop-filter mr-sm-0 mb-sm-0']");
 	
@@ -350,13 +354,13 @@ public class PollOrVote extends BaseSetUp{
 		
 		commonActivities(EmailId, Password, EventFullName);
 		
-//		Clicking on Poll/Vote Option
-		
-		System.out.println("Clicking on Poll/Vote Option");
-		
-		waitForClickabilityOf(clickOn1stPollOption);
-		
-		driver.findElement(clickOn1stPollOption).click();
+////		Clicking on Poll/Vote Option
+//		
+//		System.out.println("Clicking on Poll/Vote Option");
+//		
+//		waitForClickabilityOf(clickOn1stPollOption);
+//		
+//		driver.findElement(clickOn1stPollOption).click();
 		
 //		Checking condition for Report Download
 		
@@ -399,9 +403,9 @@ public class PollOrVote extends BaseSetUp{
 			
 			System.out.println("Selecting 1st Poll");
 			
-			waitForClickabilityOf(clickOn1stPollOption);
+			waitForClickabilityOf(clickOn1stCheckBox);
 			
-			driver.findElement(clickOn1stPollOption).click();
+			driver.findElement(clickOn1stCheckBox).click();
 			
 //			Clicking on All Poll/Vote Option
 			

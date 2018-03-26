@@ -18,6 +18,7 @@ import com.EventAgendaSetup.AddSpeakers;
 import com.EventAgendaSetup.AddSponsors;
 import com.EventAgendaSetup.UploadData;
 import com.EventLive_TheEvent.PollOrVote;
+import com.EventLive_TheEvent.Rate;
 import com.EventManagement.CloneEvent;
 import com.EventManagement.MapUserToEvent;
 import com.EventManagement.NewEvent;
@@ -448,6 +449,15 @@ public class E2MTestCaes extends BrowserSetUp {
 		new PollOrVote(driver).downloadReport(EmailId, Password, EventFullName, "All");
 		
 	}
+//	
+//	@Test(priority = 39,alwaysRun=true)
+//	public void addRatingTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Question Rate Test");
+//		
+//		new Rate(driver).addRate(EmailId, Password, EventFullName);
+//		
+//	}
 		
 //	
 //	@Test(priority = 22,alwaysRun=true)
