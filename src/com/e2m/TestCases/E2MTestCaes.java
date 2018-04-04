@@ -22,6 +22,7 @@ import com.EventLive_TheEvent.Rate;
 import com.EventManagement.CloneEvent;
 import com.EventManagement.MapUserToEvent;
 import com.EventManagement.NewEvent;
+import com.EventMeetings.ConfigureMeetings;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
 import com.Utils.BrowserSetUp;
@@ -431,24 +432,24 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new PollOrVote(driver).clonePoll(EmailId, Password, EventFullName);
 //		
 //	}
-	
-	@Test(priority = 37,alwaysRun=true)
-	public void downloadOnePollReportTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Download One Poll/Vote Report Test");
-		
-		new PollOrVote(driver).downloadReport(EmailId, Password, EventFullName, "One");
-		
-	}
-	
-	@Test(priority = 38,alwaysRun=true)
-	public void downloadAllPollReportTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Download All Poll/Vote Report Test");
-		
-		new PollOrVote(driver).downloadReport(EmailId, Password, EventFullName, "All");
-		
-	}
+//	
+//	@Test(priority = 37,alwaysRun=true)
+//	public void downloadOnePollReportTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Download One Poll/Vote Report Test");
+//		
+//		new PollOrVote(driver).downloadReport(EmailId, Password, EventFullName, "One");
+//		
+//	}
+//	
+//	@Test(priority = 38,alwaysRun=true)
+//	public void downloadAllPollReportTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Download All Poll/Vote Report Test");
+//		
+//		new PollOrVote(driver).downloadReport(EmailId, Password, EventFullName, "All");
+//		
+//	}
 //	
 //	@Test(priority = 39,alwaysRun=true)
 //	public void addRatingTest() throws ParseException, InterruptedException, AWTException {
@@ -460,7 +461,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //	}
 		
 //	
-//	@Test(priority = 22,alwaysRun=true)
+//	@Test(priority = 40,alwaysRun=true)
 //	public void addSpeakersTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Speakers to Event Test");
@@ -469,7 +470,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 23,alwaysRun=true)
+//	@Test(priority = 41,alwaysRun=true)
 //	public void mapSessionWithRandomUserTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Map Session with Random User Test");
@@ -478,7 +479,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 24,alwaysRun=true)
+//	@Test(priority = 42,alwaysRun=true)
 //	public void createSpeakerAndMapWithCreateSessionTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Create Speaker and Map with Create Session Test");
@@ -487,7 +488,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 25,alwaysRun=true)
+//	@Test(priority = 43,alwaysRun=true)
 //	public void downloadQRCodeTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Download QR Code Test");
@@ -496,7 +497,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 26,alwaysRun=true)
+//	@Test(priority = 44,alwaysRun=true)
 //	public void mapUserRolesTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map User Roles Test");
@@ -505,7 +506,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 27,alwaysRun=true)
+//	@Test(priority = 45,alwaysRun=true)
 //	public void attendeeVisibilityTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Disable Attendee Visibility Test");
@@ -514,7 +515,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 28,alwaysRun=true)
+//	@Test(priority = 46,alwaysRun=true)
 //	public void manageGroupTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Manage Group Test");
@@ -523,7 +524,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 29,alwaysRun=true)
+//	@Test(priority = 47,alwaysRun=true)
 //	public void matchMakingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Match Making Test");
@@ -532,7 +533,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 30,alwaysRun=true)
+//	@Test(priority = 48,alwaysRun=true)
 //	public void importAttendeesTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Import Attendees Test");
@@ -541,7 +542,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 31,alwaysRun=true)
+//	@Test(priority = 49,alwaysRun=true)
 //	public void addExhibitorTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Add Exhibitor Test");
@@ -550,7 +551,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 32,alwaysRun=true)
+//	@Test(priority = 50,alwaysRun=true)
 //	public void exhibitorListTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Exhibitor List Test");
@@ -559,7 +560,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 33,alwaysRun=true)
+//	@Test(priority = 51,alwaysRun=true)
 //	public void mapExhibitorWithUserTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map Exhibitor with User Test");
@@ -568,7 +569,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 34,alwaysRun=true)
+//	@Test(priority = 52,alwaysRun=true)
 //	public void mapExhibitorWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map Exhibitor with User Group Test");
@@ -577,7 +578,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 35,alwaysRun=true)
+//	@Test(priority = 53,alwaysRun=true)
 //	public void addSponsorTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Add Sponsor Test");
@@ -586,7 +587,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 36,alwaysRun=true)
+//	@Test(priority = 54,alwaysRun=true)
 //	public void sponsorListTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Sponsor List Test");
@@ -595,7 +596,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 37,alwaysRun=true)
+//	@Test(priority = 55,alwaysRun=true)
 //	public void mapSponsorWithUserTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map Sponsor with User Test");
@@ -604,7 +605,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 38,alwaysRun=true)
+//	@Test(priority = 56,alwaysRun=true)
 //	public void mapSponsorWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map Sponsor with User Group Test");
@@ -613,7 +614,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 39,alwaysRun=true)
+//	@Test(priority = 58,alwaysRun=true)
 //	public void uploadE2MDataTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Upload E2MData Test");
@@ -621,6 +622,17 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new UploadData(driver).e2mDataImport(EmailId, Password, EventFullName);
 //
 //	}
+	
+	@Test(priority = 59,alwaysRun=true)
+	public void geniusMeetingsTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Genius Meetings  Test");
+		
+		new ConfigureMeetings(driver).ConfigGeniusMetting(EmailId, Password, EventFullName);
+
+	}
+	
+	
 		
 //	@Test(priority = 7,alwaysRun=true)
 //	public void cloneToNewEventTest() {

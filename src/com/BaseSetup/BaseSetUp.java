@@ -1,5 +1,9 @@
 package com.BaseSetup;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -43,15 +47,21 @@ public class BaseSetUp {
     
 //    protected void scrollDown(By Element){
     	
-       protected void scrollDown(){	
+       protected void scrollDown() throws AWTException{	
     	
 //    	WebElement element  = driver.findElement(Element);
     	
-    	JavascriptExecutor js = (JavascriptExecutor) driver;
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
     	
-    	js.executeScript("scroll(0,300);");
-    	
+    	js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+  	
 //    	js.executeScript("arguments[0].scrollIntoView();",element);
+    	   
+//    	   Robot robot = new Robot();
+    	   
+//    	   robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+    	   
+//    	   robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
     	
     	
     }

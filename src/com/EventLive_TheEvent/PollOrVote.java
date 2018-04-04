@@ -58,6 +58,8 @@ public class PollOrVote extends BaseSetUp{
 	
 	By clickOn2ndUpdateMapping = By.xpath("//div[@id='recordsFound']/table/tbody/tr[2]/td[3]//*[contains(text(),'Update Mapping')]");
 	
+	By clickOn3rdUpdateMapping = By.xpath("//div[@id='recordsFound']/table/tbody/tr[3]/td[3]//*[contains(text(),'Update Mapping')]");
+	
 	By searchSessionName = By.xpath("//*[@id='txtmapsession']");
 	
 	By clickOn1stSessionChkBox = By.xpath("//div[@id='sldmapsession']//*[@class='ui-menu-item'][1]//*[@class='checkbox']");
@@ -88,13 +90,13 @@ public class PollOrVote extends BaseSetUp{
 	
 	By clickOn3rdTimiers = By.xpath("//tbody[@id='tbdmapsession']/tr[3]/td[6]/div/div[2]");
 	
-//	By activeToggleBtn = By.xpath("//*[@class='col-sm-12 pt-sm-3 pb-sm-3']/div[1]/div[1][@class='checkbox-toggle']/label");
+	By activeToggleBtn = By.xpath("//*[@class='col-sm-12 pt-sm-3 pb-sm-3']/div[1]/div[1][@class='checkbox-toggle']/label");
 	
-	By activeToggleBtn = By.xpath("//*[@class='col-sm-12 pt-sm-3 pb-sm-3']/div[1]/div[1][@class='checkbox-toggle']");
+//	By activeToggleBtn = By.xpath("//*[@class='col-sm-12 pt-sm-3 pb-sm-3']/div[1]/div[1][@class='checkbox-toggle']");
 	
-	By enableAnonymousBtn = By.xpath("//*[@class='col-sm-12 pt-sm-3 pb-sm-3']/div[3]/div[1][@class='checkbox-toggle']");
+	By enableAnonymousBtn = By.xpath("//*[@class='col-sm-12 pt-sm-3 pb-sm-3']/div[3]/div[1][@class='checkbox-toggle']/label");
 	
-	By anonymousMandatoryBtn = By.xpath("//*[@class='col-sm-12 pt-sm-3 pb-sm-3']/div[4]/div[1][@class='checkbox-toggle']");
+	By anonymousMandatoryBtn = By.xpath("//*[@class='col-sm-12 pt-sm-3 pb-sm-3']/div[4]/div[1][@class='checkbox-toggle']/label");
 	
 	By clickOnSesnActiveSetTime = By.xpath("//*[@class='customradiobuttonholder clearfix pb-3']/div[2]/label[1]");
 	
@@ -117,6 +119,8 @@ public class PollOrVote extends BaseSetUp{
 	By deactiveSessionStatusEnd = By.xpath("//div[@class='col-12']//*[@class='col-md-12']/div/div[3]");
 	
 	By mappedSession = By.xpath("//*[@id='tbdmapsession']");
+	
+//	By mappedSession = By.xpath("//table[@id='tblsession']");
 	
 	By saveBtn = By.xpath("//button[@type='button'][contains(text(),'Save changes')]");
 	
@@ -400,20 +404,20 @@ public class PollOrVote extends BaseSetUp{
 			System.out.println("Downloading Report for One Poll");
 						
 //			Selecting All Polls
-			
-			System.out.println("Selecting 1st Poll");
-			
-			waitForClickabilityOf(clickOn1stCheckBox);
-			
-			driver.findElement(clickOn1stCheckBox).click();
+//			
+//			System.out.println("Selecting 1st Poll");
+//			
+//			waitForClickabilityOf(clickOn1stCheckBox);
+//			
+//			driver.findElement(clickOn1stCheckBox).click();
 			
 //			Clicking on All Poll/Vote Option
 			
 			System.out.println("Clicking on 1st Poll/Vote Option");
 			
-			waitForClickabilityOf(allPollOption);
+			waitForClickabilityOf(clickOn1stPollOption);
 			
-			driver.findElement(allPollOption).click();
+			driver.findElement(clickOn1stPollOption).click();
 			
 //			Clicking on Poll/Vote Option
 			
@@ -545,11 +549,21 @@ public class PollOrVote extends BaseSetUp{
 		
 		System.out.println("Clicking on Update Mapping");
 		
-		waitForClickabilityOf(clickOn1stUpdateMapping);
+		waitForClickabilityOf(clickOn2ndUpdateMapping);
 		
-		driver.findElement(clickOn1stUpdateMapping).click();
+		driver.findElement(clickOn2ndUpdateMapping).click();
 		
 		System.out.println("Mapping with Session");
+		
+//		Getting No of Existing Sessions Count
+		
+//		waitForClickabilityOf(mappedSession);
+//		
+//		List<WebElement> element = driver.findElements(mappedSession);
+//		
+//		int NoOfExSession = element.size();
+//		
+//		System.out.println(NoOfExSession);
 		
 //		Clicking on Search Session Name
 		
@@ -561,11 +575,11 @@ public class PollOrVote extends BaseSetUp{
 		
 //		Selecting 2nd Session
 		
-		System.out.println("Selecting 2nd Session");
+		System.out.println("Selecting 1st Session");
 		
-		waitForClickabilityOf(clickOn2ndSessionChkBox);
+		waitForClickabilityOf(clickOn1stSessionChkBox);
 		
-		driver.findElement(clickOn2ndSessionChkBox).click();
+		driver.findElement(clickOn1stSessionChkBox).click();
 		
 //		Clicking On Done Button
 		
@@ -574,92 +588,116 @@ public class PollOrVote extends BaseSetUp{
 		waitForClickabilityOf(clickOnDoneButton);
 		
 		driver.findElement(clickOnDoneButton).click();
-		
-//		Getting No of Existing Sessions Count
-		
-		waitForClickabilityOf(mappedSession);
-		
-		List<WebElement> element = driver.findElements(mappedSession);
-		
-		int NoOfExSession = element.size();
-						
+								
 //		Clicking On Session Setting Button
 		
 		System.out.println("Clicking On Session Setting Button");
 		
-		waitForClickabilityOf(clickOn2ndSesnSettings);
+		waitForClickabilityOf(clickOn1stSesnSettings);
 		
-		driver.findElement(clickOn2ndSesnSettings).click();
+		driver.findElement(clickOn1stSesnSettings).click();
 		
 //		Clicking On Session Settings Button to Active Status
 		
-		System.out.println("Clicking On Session Settings Button to Active the Status");
-		
-		waitForClickabilityOf(activeToggleBtn);
-			
-		driver.findElement(activeToggleBtn).click();
-		
-//		Enabling Anonymous Submission 
-		
-		System.out.println("Enabling Anonymous Submission");
-			
-		waitForClickabilityOf(enableAnonymousBtn);
-			
-		driver.findElement(enableAnonymousBtn).click();
-		
-		driver.findElement(enableAnonymousBtn).sendKeys(Keys.ARROW_DOWN);
-		
-//		Window Scrolling Down
-		
 		try {
 			
-			scrollDown();
+			System.out.println("Clicking On Session Settings Button to Active the Status");
+			
+			waitForVisibilityOf(activeToggleBtn);
+				
+			driver.findElement(activeToggleBtn).click();
 			
 		} catch (Exception e) {
 			
+			System.out.println(e.getMessage());
+
 		}
+				
+//		Window Scrolling Down
+		
+//		try {
+//			
+//			scrollDown();
+//			
+//		} catch (Exception e) {
+//			
+//		}
+		
+//		Enabling Anonymous Submission 
+		
+		try {
+			
+			System.out.println("Enabling Anonymous Submission");
+			
+			waitForVisibilityOf(enableAnonymousBtn);
+				
+			driver.findElement(enableAnonymousBtn).click();
+			
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+			
+		}
+						
+//		Window Scrolling Down
+		
+//		try {
+//			
+//			scrollDown();
+//			
+//		} catch (Exception e) {
+//			
+//		}
 		
 //		Enabling Anonymous Mandatory Button
 		
-		System.out.println("Enabling Anonymous Mandatory Button");
+		try {
 			
-		waitForClickabilityOf(anonymousMandatoryBtn);
-		
-		driver.findElement(anonymousMandatoryBtn).click();
-				
+			System.out.println("Enabling Anonymous Mandatory Button");
+			
+			waitForVisibilityOf(anonymousMandatoryBtn);
+			
+			driver.findElement(anonymousMandatoryBtn).click();
+			
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+			
+		}
+						
 //		Clicking On Session Timer Button
 		
 		Thread.sleep(2000);
 		
 		System.out.println("Clicking On Session Timer Settings Button");
 		
-		waitForClickabilityOf(clickOn2ndTimiers);
+		waitForVisibilityOf(clickOn1stTimiers);
 		
-		driver.findElement(clickOn2ndTimiers).click();
+		driver.findElement(clickOn1stTimiers).click();
 		
 //		Clicking On Set Date/Time Toggle Button
 		
 		System.out.println("Clicking On Set Date/Time Toggle Button");
 		
-		waitForClickabilityOf(clickOnSesnActiveSetTime);
+		waitForVisibilityOf(clickOnSesnActiveSetTime);
 		
 		driver.findElement(clickOnSesnActiveSetTime).click();
 				
 //		Window Scrolling Down
 		
-		try {
-			
-			scrollDown();
-			
-		} catch (Exception e) {
-			
-		}
+//		try {
+//			
+//			scrollDown();
+//			
+//		} catch (Exception e) {
+//			
+//		}
 		
 //		Setting Activate Date
 		
 		System.out.println("Setting Activate Date");
 		
-		waitForClickabilityOf(activeOnDate);
+		waitForVisibilityOf(activeOnDate);
 		
 		driver.findElement(activeOnDate).sendKeys("04/30/2018");
 		
@@ -667,7 +705,7 @@ public class PollOrVote extends BaseSetUp{
 		
 		System.out.println("Setting Activate Time");
 		
-		waitForClickabilityOf(activeOnTime);
+		waitForVisibilityOf(activeOnTime);
 		
 		driver.findElement(activeOnTime).sendKeys("9:00 AM");
 		
@@ -675,7 +713,7 @@ public class PollOrVote extends BaseSetUp{
 		
 		System.out.println("Setting Deactivate Date");
 		
-		waitForClickabilityOf(deactiveOnDate);
+		waitForVisibilityOf(deactiveOnDate);
 		
 		driver.findElement(deactiveOnDate).sendKeys("04/30/2018");
 		
@@ -683,13 +721,13 @@ public class PollOrVote extends BaseSetUp{
 		
 		System.out.println("Setting Deactivate Time");
 		
-		waitForClickabilityOf(deactiveOnTime);
+		waitForVisibilityOf(deactiveOnTime);
 		
 		driver.findElement(deactiveOnTime).sendKeys("9:00 PM");
 		
 //		Getting No of Existing Sessions Count
 		
-		waitForClickabilityOf(mappedSession);
+		waitForVisibilityOf(mappedSession);
 		
 		List<WebElement> element1 = driver.findElements(mappedSession);
 		
@@ -697,7 +735,7 @@ public class PollOrVote extends BaseSetUp{
 		
 		System.out.println(NoOfExSession1);
 		
-		if (NoOfExSession==NoOfExSession1-1) {
+		if (NoOfExSession1==1) {
 			
 			System.out.println("Successfully Mapped One Sesson with Poll");
 			
@@ -736,9 +774,9 @@ public class PollOrVote extends BaseSetUp{
 		
 		System.out.println("Clicking on Update Mapping");
 		
-		waitForClickabilityOf(clickOn1stUpdateMapping);
+		waitForClickabilityOf(clickOn3rdUpdateMapping);
 		
-		driver.findElement(clickOn1stUpdateMapping).click();
+		driver.findElement(clickOn3rdUpdateMapping).click();
 		
 		Thread.sleep(2000);
 		
