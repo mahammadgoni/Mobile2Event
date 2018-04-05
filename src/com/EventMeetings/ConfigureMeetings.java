@@ -27,6 +27,8 @@ public class ConfigureMeetings extends BaseSetUp{
 	
 	By enableGeniusBar = By.xpath("//*[@id='ContentPlaceHolder1_rbtnSetupGeniusBar_0']");
 	
+	By disableGeniusBar = By.xpath("//*[@id='ContentPlaceHolder1_rbtnSetupGeniusBar_1']");
+	
 	By manageLocationType = By.xpath("//*[@id='ContentPlaceHolder1_Button2']");
 	
 	By manageLocation = By.xpath("//*[@id='ContentPlaceHolder1_btnShowLocation']");
@@ -107,6 +109,23 @@ public class ConfigureMeetings extends BaseSetUp{
 	
 	By oneToOneSettings = By.xpath("//*[@id='ContentPlaceHolder1_OneToOneLab']");
 	
+	By enableOneToOne = By.xpath("//*[@id='ContentPlaceHolder1_rbtnOnetoOneMeeting_0']");
+	
+	By dateRangeFrom1 = By.xpath("//*[@id='ContentPlaceHolder1_txt_meetingFromDate']");
+		
+	By dateRangeTo1 = By.xpath("//*[@id='ContentPlaceHolder1_txt_meetingToDate']");
+	
+	By timeRangeFrom1 = By.xpath("//*[@id='ContentPlaceHolder1_txtFromTime']");
+	
+	By timeRangeTo1 = By.xpath("//*[@id='ContentPlaceHolder1_txtToTime']");
+	
+	By slotDifference1 = By.xpath("//*[@id='ContentPlaceHolder1_ddltimeslot']");
+	
+	By slot1CheckBox = By.xpath("//*[@id='ContentPlaceHolder1_chktimeslot']");
+	
+	By labelForPoll1 = By.xpath("//*[@id='ContentPlaceHolder1_txtForPollOnetoOne']");
+	
+	By pushPollMsg1 = By.xpath("//*[@id='ContentPlaceHolder1_txtPollPushMessageOnetoOne']");
 
 	
 	
@@ -203,7 +222,7 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 	}
 	
-	public ConfigureMeetings ConfigGeniusMetting(String EmailId, String Password,String EventFullName) throws InterruptedException{
+	public ConfigureMeetings configGeniusMetting(String EmailId, String Password,String EventFullName) throws InterruptedException{
 		
 		commonActivities(EmailId, Password, EventFullName);
 		
@@ -215,7 +234,7 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		boolean EnableMeetings = driver.findElement(enableMeetings).isSelected();
 		
-		System.out.println(EnableMeetings);
+		System.out.println("Enabled Meeting Configure : "+EnableMeetings);
 		
 		if (EnableMeetings==false) {
 			
@@ -234,7 +253,7 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		boolean EnableGeniusBar = driver.findElement(enableGeniusBar).isSelected();
 		
-		System.out.println(EnableGeniusBar);
+		System.out.println("Enabled Genius Meeting Configure : "+EnableGeniusBar);
 		
 		if (EnableGeniusBar==false) {
 			
@@ -633,7 +652,7 @@ public class ConfigureMeetings extends BaseSetUp{
 			
 		} catch (Exception e) {
 			
-			System.out.println(e.getMessage());
+//			System.out.println(e.getMessage());
 			
 		}
 				
@@ -642,7 +661,7 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 	}
 	
-	public ConfigureMeetings ConfigOneToOneMeeting(String EmailId, String Password,String EventFullName) throws InterruptedException{
+	public ConfigureMeetings configOneToOneMeeting(String EmailId, String Password,String EventFullName) throws InterruptedException{
 		
 		commonActivities(EmailId, Password, EventFullName);
 		
@@ -654,30 +673,51 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		boolean EnableMeetings = driver.findElement(enableMeetings).isSelected();
 		
-		System.out.println(EnableMeetings);
+		System.out.println("Enabled Meeting Configure : "+EnableMeetings);
 		
-		if (EnableMeetings==false) {
-			
-			driver.findElement(enableMeetings).click();
-						
+		if (EnableMeetings==true) {
+									
 		} else {
 			
+			driver.findElement(enableMeetings).click();
 			
 		}
 		
-//	    Enable Setup Genius Bar
+		Thread.sleep(2000);
 		
-		System.out.println("Enabling Setup Genius Bar");
+//	    Disable Setup Genius Bar
 		
-		waitForClickabilityOf(enableGeniusBar);
+		System.out.println("Disabling Setup Genius Bar");
 		
-		boolean EnableGeniusBar = driver.findElement(enableGeniusBar).isSelected();
+		waitForClickabilityOf(disableGeniusBar);
 		
-		System.out.println(EnableGeniusBar);
+		boolean DisableGeniusBar = driver.findElement(disableGeniusBar).isSelected();
 		
-		if (EnableGeniusBar==false) {
+		System.out.println("Disabled Genius Meeting Configure : "+DisableGeniusBar);
+		
+		if (DisableGeniusBar==false) {
 			
-			driver.findElement(enableGeniusBar).click();
+			driver.findElement(disableGeniusBar).click();
+						
+		} else {
+			
+		}
+		
+		Thread.sleep(2000);
+		
+//	    Enable Setup One to One Meetings
+		
+		System.out.println("Enable Setup One to One Meetings");
+		
+		waitForClickabilityOf(enableOneToOne);
+		
+		boolean EnableOneToOne = driver.findElement(enableOneToOne).isSelected();
+		
+		System.out.println("Enabled One To One Meeting Configure : "+EnableOneToOne);
+		
+		if (EnableOneToOne==false) {
+			
+			driver.findElement(enableOneToOne).click();
 						
 		} else {
 			
@@ -703,7 +743,7 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		driver.findElement(locationType).clear();
 		
-		driver.findElement(locationType).sendKeys("Genius Type");
+		driver.findElement(locationType).sendKeys("One To One");
 		
 //	    Add Location Type Button
 		
@@ -739,7 +779,7 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		driver.findElement(locationName).clear();
 		
-		driver.findElement(locationName).sendKeys("Genius Room");
+		driver.findElement(locationName).sendKeys("General Room");
 		
 //	    Selecting Location Type 
 		
@@ -749,7 +789,7 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		Select LocationDropDown = new Select(driver.findElement(locationTypeDropDown));
 		
-		LocationDropDown.selectByIndex(1);
+		LocationDropDown.selectByIndex(2);
 		
 		Thread.sleep(2000);
 		
@@ -761,7 +801,7 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		driver.findElement(locationCapacity).clear();
 		
-		driver.findElement(locationCapacity).sendKeys("3");
+		driver.findElement(locationCapacity).sendKeys("1");
 		
 //	    Clicking On Save Button
 		
@@ -780,176 +820,16 @@ public class ConfigureMeetings extends BaseSetUp{
 		driver.findElement(addLocationClosebtn).click();
 		
 		Thread.sleep(2000);
-		
-//	    Clicking On Manage Topic
-		
-		System.out.println("Clicking On Manage Topic");
-		
-		waitForClickabilityOf(manageTopic);
-		
-		driver.findElement(manageTopic).click();
-		
-//	    Entering Topic Name
-		
-		System.out.println("Entering Topic Name");
-		
-		waitForClickabilityOf(topicName);
-		
-		driver.findElement(topicName).clear();
-		
-		driver.findElement(topicName).sendKeys("Framework Discussion");
-		
-//	    Entering Email Address
-		
-		System.out.println("Entering Email Address");
-		
-		waitForClickabilityOf(addTopicEmail);
-		
-		driver.findElement(addTopicEmail).clear();
-		
-		driver.findElement(addTopicEmail).sendKeys("genius@yopmail.com");
-		
-//	    Select Location Type
-		
-		System.out.println("Select Location Type");
-		
-		waitForClickabilityOf(locationTypeCheckBox);
-		
-		driver.findElement(locationTypeCheckBox).click();
-		
-//	    Clicking on Add Topic Button
-		
-		System.out.println("Clicking on Add Topic Button");
-		
-		waitForClickabilityOf(addTopicBtn);
-		
-		driver.findElement(addTopicBtn).click();
-		
-//	    Clicking On Close Button
-		
-		System.out.println("Clicking On Close Button");
-		
-		waitForClickabilityOf(topicCloseBtn);
-		
-		driver.findElement(topicCloseBtn).click();
-		
-		Thread.sleep(2000);
-		
-//	    Entering Email Address
-		
-		System.out.println("Entering Email Address");
-		
-		waitForClickabilityOf(topicEmailId);
-		
-		driver.findElement(topicEmailId).clear();
-		
-		driver.findElement(topicEmailId).sendKeys("genius@yopmail.com");
-		
-//	    Clicking On Manage Topic
-		
-		System.out.println("Clicking On Manage Sub Topic");
-		
-		waitForClickabilityOf(manageSubTopic);
-		
-		driver.findElement(manageSubTopic).click();
-		
-		Thread.sleep(2000);
-		
-//	    Selecting Topic 
-		
-		System.out.println("Selecting Topic");
-		
-		waitForClickabilityOf(selectTopic);
-		
-		Select TopicDropDown = new Select(driver.findElement(selectTopic));
-		
-		TopicDropDown.selectByIndex(1);
-		
-		Thread.sleep(2000);
-		
-//	    Entering Topic Name
-		
-		System.out.println("Entering Sub Topic Name");
-		
-		waitForClickabilityOf(subTopicName);
-		
-		driver.findElement(subTopicName).clear();
-		
-		driver.findElement(subTopicName).sendKeys("Hybrid Framework");
-		
-//	    Entering Email Address
-		
-		System.out.println("Entering Email Address");
-		
-		waitForClickabilityOf(subTopicEmail);
-		
-		driver.findElement(subTopicEmail).clear();
-		
-		driver.findElement(subTopicEmail).sendKeys("genius@yopmail.com");
-		
-//	    Clicking on Add Sub Topic Button
-		
-		System.out.println("Clicking on Add Sub Topic Button");
-		
-		waitForClickabilityOf(addSubTopicBtn);
-		
-		driver.findElement(addSubTopicBtn).click();
-		
-//	    Clicking On Close Button
-		
-		System.out.println("Clicking On Close Button");
-		
-		waitForClickabilityOf(addSubTopicCloseBtn);
-		
-		driver.findElement(addSubTopicCloseBtn).click();
-		
-		Thread.sleep(2000);
-			
-//	    Entering Genius Bar tab Name
-		
-		System.out.println("Entering Genius Bar tab Name");
-		
-		waitForClickabilityOf(geniusBarTabName);
-		
-		driver.findElement(geniusBarTabName).clear();
-		
-		driver.findElement(geniusBarTabName).sendKeys("Framework Bar Tab");
-		
-		Thread.sleep(2000);
-		
-//	    Entering Meeting Description 1 Level
-		
-		System.out.println("Entering Meeting Description 1 Level");
-		
-		waitForClickabilityOf(descriptionLabel1);
-		
-		driver.findElement(descriptionLabel1).clear();
-		
-		driver.findElement(descriptionLabel1).sendKeys("We will discuss about all kinds of Framework");
-		
-		Thread.sleep(2000);
-	
-//	    Entering Meeting Description 2 Level
-		
-		System.out.println("Entering Meeting Description 2 Level");
-		
-		waitForClickabilityOf(descriptionLabel2);
-		
-		driver.findElement(descriptionLabel2).clear();
-		
-		driver.findElement(descriptionLabel2).sendKeys("We will discuss more about Framework Creation");
-		
-		Thread.sleep(2000);
-		
+					
 //	    Entering Activation Date Range from
 		
 //		System.out.println("Selecting the Activation Date Range from");
 //		
-//		waitForClickabilityOf(dateRangeFrom);
+//		waitForClickabilityOf(dateRangeFrom1);
 //		
-//		driver.findElement(dateRangeFrom).click();
+//		driver.findElement(dateRangeFrom1).click();
 //		
-//		driver.findElement(dateRangeFrom).clear();
+//		driver.findElement(dateRangeFrom1).clear();
 //				
 //		Thread.sleep(2000);
 //		
@@ -973,11 +853,11 @@ public class ConfigureMeetings extends BaseSetUp{
 //		
 //		System.out.println("Selecting the Activation Date Range to");
 //		
-//		waitForClickabilityOf(dateRangeTo);
+//		waitForClickabilityOf(dateRangeTo1);
 //		
-//		driver.findElement(dateRangeTo).click();
+//		driver.findElement(dateRangeTo1).click();
 //		
-//		driver.findElement(dateRangeTo).clear();
+//		driver.findElement(dateRangeTo1).clear();
 //		
 //		Thread.sleep(2000);
 //		
@@ -1001,11 +881,11 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		System.out.println("Entering Activation Time Range from");
 		
-		waitForClickabilityOf(timeRangeFrom);
+		waitForClickabilityOf(timeRangeFrom1);
 		
-		driver.findElement(timeRangeFrom).clear();
+		driver.findElement(timeRangeFrom1).clear();
 		
-		driver.findElement(timeRangeFrom).sendKeys("10:00 AM");
+		driver.findElement(timeRangeFrom1).sendKeys("10:00 AM");
 		
 		Thread.sleep(2000);
 		
@@ -1013,21 +893,29 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		System.out.println("Entering Activation Time Range to");
 		
-		waitForClickabilityOf(timeRangeTo);
+		waitForClickabilityOf(timeRangeTo1);
 		
-		driver.findElement(timeRangeTo).clear();
+		driver.findElement(timeRangeTo1).clear();
 		
-		driver.findElement(timeRangeTo).sendKeys("12:00 PM");
+		driver.findElement(timeRangeTo1).sendKeys("12:00 PM");
 		
 		Thread.sleep(2000);
 		
+//	    Checking the Time Slot
+		
+		System.out.println("Checking the Time Slot");
+		
+		waitForClickabilityOf(slot1CheckBox);
+		
+		driver.findElement(slot1CheckBox).click();
+				
 //	    Selecting Time Slot Difference  
 		
 		System.out.println("Selecting Time Slot Difference");
 		
-		waitForClickabilityOf(slotDifference);
+		waitForClickabilityOf(slotDifference1);
 		
-		Select TimeSlots = new Select(driver.findElement(slotDifference));
+		Select TimeSlots = new Select(driver.findElement(slotDifference1));
 		
 		TimeSlots.selectByIndex(4);
 		
@@ -1037,11 +925,11 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		System.out.println("Entering Label for Poll");
 		
-		waitForClickabilityOf(labelForPoll);
+		waitForClickabilityOf(labelForPoll1);
 		
-		driver.findElement(labelForPoll).clear();
+		driver.findElement(labelForPoll1).clear();
 		
-		driver.findElement(labelForPoll).sendKeys("Genius Meeting");
+		driver.findElement(labelForPoll1).sendKeys("One To One Meeting");
 		
 		Thread.sleep(2000);
 		
@@ -1049,11 +937,11 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		System.out.println("Entering Push Poll Message");
 		
-		waitForClickabilityOf(pushPollMsg);
+		waitForClickabilityOf(pushPollMsg1);
 		
-		driver.findElement(pushPollMsg).clear();
+		driver.findElement(pushPollMsg1).clear();
 		
-		driver.findElement(pushPollMsg).sendKeys("Please share your valuable feed back");
+		driver.findElement(pushPollMsg1).sendKeys("Please share your valuable feed back");
 		
 		Thread.sleep(2000);
 		
@@ -1072,7 +960,7 @@ public class ConfigureMeetings extends BaseSetUp{
 			
 		} catch (Exception e) {
 			
-			System.out.println(e.getMessage());
+//			System.out.println(e.getMessage());
 			
 		}
 		
