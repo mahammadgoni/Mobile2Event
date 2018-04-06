@@ -37,6 +37,8 @@ public class ExpertTopicMapping extends BaseSetUp{
 	
 	By moveUserToRight = By.xpath("//*[@id='ContentPlaceHolder1_imgRight']");
 	
+	By selectAllUsers = By.xpath("//*[@id='ContentPlaceHolder1_rbtnaudience_0']");
+	
 	By saveButton = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
 	
 		
@@ -148,6 +150,8 @@ public class ExpertTopicMapping extends BaseSetUp{
 		
 		TopicDropDown.selectByIndex(1);
 		
+		Thread.sleep(2000);
+		
 //	    Selecting Expert User
 		
 		System.out.println("Selecting Expert User");
@@ -156,6 +160,8 @@ public class ExpertTopicMapping extends BaseSetUp{
 		
 		driver.findElement(expert1stUser).click();
 		
+		Thread.sleep(2000);
+		
 //	    Moving Expert User to Right Side
 		
 		System.out.println("Moving Expert User to Right Side");
@@ -163,6 +169,10 @@ public class ExpertTopicMapping extends BaseSetUp{
 		waitForClickabilityOf(moveExpertToRight);
 		
 		driver.findElement(moveExpertToRight).click();
+		
+		Thread.sleep(2000);
+		
+//		Condition to select User Type
 		
 		if (UserType.equals("Group")) {
 			
@@ -284,6 +294,22 @@ public class ExpertTopicMapping extends BaseSetUp{
 			}
 			
 		} else{
+			
+//		    Selecting all user if not Selected
+			
+			System.out.println("Selecting All User");
+			
+			waitForClickabilityOf(selectAllUsers);
+			
+			boolean SelectAllUsers = driver.findElement(selectAllUsers).isSelected();
+						
+			if (SelectAllUsers==false) {
+				
+				driver.findElement(selectAllUsers).click();
+							
+			} else {
+				
+			}
 			
 			Thread.sleep(2000);
 			
