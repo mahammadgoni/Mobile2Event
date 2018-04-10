@@ -24,6 +24,7 @@ import com.EventManagement.MapUserToEvent;
 import com.EventManagement.NewEvent;
 import com.EventMeetings.ConfigureMeetings;
 import com.EventMeetings.ExpertTopicMapping;
+import com.EventMeetings.UploadMeetings;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
 import com.Utils.BrowserSetUp;
@@ -641,31 +642,40 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new ConfigureMeetings(driver).configOneToOneMeeting(EmailId, Password, EventFullName);
 //
 //	}
+//	
+//	@Test(priority = 61,alwaysRun=true)
+//	public void mappingExpertTopicWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Mapping Expert Topic With User Group Test");
+//		
+//		new ExpertTopicMapping(driver).addExpertTopicMapping(EmailId, Password, EventFullName, "Group");
+//
+//	}
+//	
+//	@Test(priority = 62,alwaysRun=true)
+//	public void mappingExpertTopicWithSelectedUserTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Mapping Expert Topic With Selected User Test");
+//		
+//		new ExpertTopicMapping(driver).addExpertTopicMapping(EmailId, Password, EventFullName, "User");
+//
+//	}
+//	
+//	@Test(priority = 63,alwaysRun=true)
+//	public void mappingExpertTopicWithAllUserTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Mapping Expert Topic With All User Test");
+//		
+//		new ExpertTopicMapping(driver).addExpertTopicMapping(EmailId, Password, EventFullName, "All");
+//
+//	}
 	
-	@Test(priority = 61,alwaysRun=true)
-	public void mappingExpertTopicWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
+	@Test(priority = 64,alwaysRun=true)
+	public void uploadMeetingsTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Mapping Expert Topic With User Group Test");
+		System.out.println("Executing : Upload Meetings Test");
 		
-		new ExpertTopicMapping(driver).addExpertTopicMapping(EmailId, Password, EventFullName, "Group");
-
-	}
-	
-	@Test(priority = 62,alwaysRun=true)
-	public void mappingExpertTopicWithSelectedUserTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Mapping Expert Topic With Selected User Test");
-		
-		new ExpertTopicMapping(driver).addExpertTopicMapping(EmailId, Password, EventFullName, "User");
-
-	}
-	
-	@Test(priority = 63,alwaysRun=true)
-	public void mappingExpertTopicWithAllUserTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Mapping Expert Topic With All User Test");
-		
-		new ExpertTopicMapping(driver).addExpertTopicMapping(EmailId, Password, EventFullName, "All");
+		new UploadMeetings(driver).meetingsUpload(EmailId, Password, EventFullName);
 
 	}
 	
