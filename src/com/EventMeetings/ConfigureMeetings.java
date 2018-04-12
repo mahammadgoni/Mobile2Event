@@ -204,7 +204,7 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		driver.findElement(clickOnEvent).click();
 
-//		Clicking on Live Event
+//		Clicking on Meetings
 		
 		System.out.println("Clicking on Meetings");
 		
@@ -212,7 +212,7 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		driver.findElement(clickOnMeetings).click();
 		
-//		Clicking on Poll/Vote
+//		Clicking on Configure Meetings
 		
 		System.out.println("Clicking on Configure Meetings");
 		
@@ -609,7 +609,7 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		Select TimeSlots = new Select(driver.findElement(slotDifference));
 		
-		TimeSlots.selectByIndex(4);
+		TimeSlots.selectByIndex(1);
 		
 		Thread.sleep(2000);
 		
@@ -637,7 +637,7 @@ public class ConfigureMeetings extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
-//	    Entering Push Poll Message
+//	    Clicking on save Button to create the Genius Meeitngs
 		
 		System.out.println("Clicking on save Button to create the Genius Meeitngs");
 		

@@ -51,11 +51,11 @@ public class E2MTestCaes extends BrowserSetUp {
 	
 //	Event Name Should be Unique in Every Run
 	
-	String EventFullName = "Google IO";
+//	String EventFullName = "Google IO";
 	
-//	String EventFullName = "E2M Automation Testing Event Clone Test";
+	String EventFullName = "Nokia 2 Pre Launch Event";
 	
-	String EventShortName = "Google";
+	String EventShortName = "Nokia 2";
 	
 	String SessionTitle = "Networking";
 	
@@ -199,7 +199,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //	@Test(priority = 12,alwaysRun=true)
 //	public void addSessionWithTrackAndLocationToEventTest() throws ParseException, InterruptedException {
 //
-//		System.out.println("Executing : Add Session with Track and Loaction to Event Test");
+//		System.out.println("Executing : Add Session with Track and Location to Event Test");
 //		
 //		new AddSessions(driver).addSessionsWithTrackAndLocation(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
 //
@@ -208,7 +208,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //	@Test(priority = 13,alwaysRun=true)
 //	public void addSessionWithOutTrackAndLocationToEventTest() throws ParseException, InterruptedException {
 //
-//		System.out.println("Executing : Add Session without Track and Loaction to Event Test");
+//		System.out.println("Executing : Add Session without Track and Location to Event Test");
 //		
 //		new AddSessions(driver).addSessionsWithOutTrackAndLocation(EmailId, Password, EventFullName, SessionTitle, Location);
 //
@@ -462,7 +462,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new Rate(driver).addRate(EmailId, Password, EventFullName);
 //		
 //	}
-		
+//		
 //	
 //	@Test(priority = 40,alwaysRun=true)
 //	public void addSpeakersTest() throws ParseException, InterruptedException {
@@ -680,13 +680,21 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 	
-	
 	@Test(priority = 65,alwaysRun=true)
-	public void setUpGeneralMeetingsTest() throws ParseException, InterruptedException, AWTException {
+	public void setUpGeneralMeetingTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Set Up General Meetings Test");
+		System.out.println("Executing : Set Up General Meeting Test");
 		
 		new SetUpMeetings(driver).setUpGeneralMeeting(EmailId, Password, EventFullName);
+
+	}
+	
+	@Test(priority = 66,alwaysRun=true)
+	public void setUpGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Set Up Genius Meeting Test");
+		
+		new SetUpMeetings(driver).setUpGeniusMeeting(EmailId, Password, EventFullName);
 
 	}
 	

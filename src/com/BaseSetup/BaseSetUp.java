@@ -1,9 +1,6 @@
 package com.BaseSetup;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -21,12 +18,12 @@ public class BaseSetUp {
     }
 
     protected void waitForVisibilityOf(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebDriverWait wait = new WebDriverWait(driver, 120);
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
     
     protected void waitForClickabilityOf(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebDriverWait wait = new WebDriverWait(driver, 120);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
     
@@ -40,6 +37,8 @@ public class BaseSetUp {
         	alert.dismiss();
 	
 		} catch (UnhandledAlertException e) {
+			
+			System.out.println("This is Exception Message : "+e.getMessage());
 			
 		}   	
     	

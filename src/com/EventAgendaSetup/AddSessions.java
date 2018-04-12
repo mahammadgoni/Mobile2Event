@@ -35,7 +35,7 @@ public class AddSessions extends BaseSetUp{
 	
 	By noOfSessions = By.xpath("//*[@class='checkbox checkbox-success']");
 	
-	By clickOnAddSession = By.xpath("//ul[@id='3rdlevelmenu']//li//a[@href='/Session-AddEdit_New.aspx?session=0']");
+	By clickOnAddSession = By.xpath("//ul[@id='3rdlevelmenu']//li//a[@href='/Session-AddEdit_New.aspx']");
 	
 	By clickOnAddSessionFromLocation = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='Session-AddEdit_New.aspx?session=0']");
 	
