@@ -24,6 +24,7 @@ import com.EventManagement.MapUserToEvent;
 import com.EventManagement.NewEvent;
 import com.EventMeetings.ConfigureMeetings;
 import com.EventMeetings.ExpertTopicMapping;
+import com.EventMeetings.SetUpMeetings;
 import com.EventMeetings.UploadMeetings;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
@@ -669,13 +670,23 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new ExpertTopicMapping(driver).addExpertTopicMapping(EmailId, Password, EventFullName, "All");
 //
 //	}
+//	
+//	@Test(priority = 64,alwaysRun=true)
+//	public void uploadMeetingsTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Upload Meetings Test");
+//		
+//		new UploadMeetings(driver).meetingsUpload(EmailId, Password, EventFullName);
+//
+//	}
 	
-	@Test(priority = 64,alwaysRun=true)
-	public void uploadMeetingsTest() throws ParseException, InterruptedException, AWTException {
+	
+	@Test(priority = 65,alwaysRun=true)
+	public void setUpGeneralMeetingsTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Upload Meetings Test");
+		System.out.println("Executing : Set Up General Meetings Test");
 		
-		new UploadMeetings(driver).meetingsUpload(EmailId, Password, EventFullName);
+		new SetUpMeetings(driver).setUpGeneralMeeting(EmailId, Password, EventFullName);
 
 	}
 	

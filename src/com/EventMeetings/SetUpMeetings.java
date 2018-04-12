@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.BaseSetup.BaseSetUp;
 import com.CommonActions.LoginToAccount;
@@ -18,11 +19,13 @@ public class SetUpMeetings extends BaseSetUp{
 	
 	By clickOnMeetings = By.xpath("//*[@id='meetingmodule']");
 	
+//	General Meeting
+	
 	By setUpMeetings = By.xpath("//a[@class='ChangeArrow menu-hidden-arrow'][contains(text(),'Setup Meetings')]");
 	
-	By generalRadioBtn = By.xpath("//*[@id='ContentPlaceHolder1_rbtnTypeSelection_0']");
+	By manageMeetings = By.xpath("//a[@class='ChangeArrow menu-hidden-arrow'][contains(text(),'Manage Meetings')]");
 	
-	By geniusRadioBtn = By.xpath("//*[@id='ContentPlaceHolder1_rbtnTypeSelection_1']");
+	By generalRadioBtn = By.xpath("//*[@id='ContentPlaceHolder1_rbtnTypeSelection_0']");
 	
 	By requestedByUser = By.xpath("//*[@id='ContentPlaceHolder1_btnSelectAttendee']");
 	
@@ -54,7 +57,7 @@ public class SetUpMeetings extends BaseSetUp{
 	
 	By genMtinEndTime = By.xpath("//*[@id='ContentPlaceHolder1_txtToTime']");
 	
-	By description = By.xpath("//html//tr[1]/td[6]/a[1]");
+	By description = By.xpath("//*[@id='ContentPlaceHolder1_txtDesc']");
 	
 	By genLocationType = By.xpath("//*[@id='ContentPlaceHolder1_ddlLocationType']");
 	
@@ -62,9 +65,44 @@ public class SetUpMeetings extends BaseSetUp{
 	
 	By genPollOrSurvey = By.xpath("//*[@id='ContentPlaceHolder1_btnSelectPoll']");
 	
+	By gen1stPoll = By.xpath("//table[@id='tblPollList']/tbody/tr[1]/td[1]/input");
+	
+	By gen2ndPoll = By.xpath("//table[@id='tblPollList']/tbody/tr[2]/td[1]/input");	
+	
+	By pollAddBtn = By.xpath("//*[@id='ContentPlaceHolder1_Button1']");	
+	
 	By genSendNotification = By.xpath("//*[@id='ContentPlaceHolder1_chkSendNotify_0']");
 	
 	By genSaveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnEditSave']");
+	
+	By genMeetingNo1 = By.xpath("//*[@id='ContentPlaceHolder1_gvMeeting_chkcheck_0']");
+	
+//	Genius Meeting
+	
+	
+	By geniusRadioBtn = By.xpath("//*[@id='ContentPlaceHolder1_rbtnTypeSelection_1']");
+	
+	By selectReqstdByUser = By.xpath("//*[@id='ContentPlaceHolder1_btnSelectAttendee']");
+	
+	By availableBy = By.xpath("//*[@id='ContentPlaceHolder1_ddlAvailabilityBy']");
+	
+	By topic = By.xpath("//*[@id='ContentPlaceHolder1_ddlTopic']");
+	
+	By subTopic = By.xpath("//*[@id='ContentPlaceHolder1_ddlSubTopic']");
+	
+	By geniusDescription = By.xpath("//*[@id='ContentPlaceHolder1_txtGeniDesc']");
+	
+	By notes = By.xpath("//*[@id='ContentPlaceHolder1_txtNotes']");
+	
+	By geniusLocation = By.xpath("//*[@id='ContentPlaceHolder1_ddlLocation']");
+	
+	By expertAvailbility = By.xpath("//*[@id='ContentPlaceHolder1_btnExpertsAvail']");
+	
+	By expertName = By.xpath("//*[@id='ContentPlaceHolder1_ddlExperts']");
+	
+	By locationName = By.xpath("//*[@id='ContentPlaceHolder1_ddlLocation']");
+	
+	
 	
 	
 	
@@ -162,8 +200,258 @@ public class SetUpMeetings extends BaseSetUp{
 	
 //	General Meeting Set up
 	
-	public SetUpMeetings setUpGeneralMeeting(String EmailId, String Password,String EventFullName){
+	public SetUpMeetings setUpGeneralMeeting(String EmailId, String Password,String EventFullName) throws InterruptedException{
 		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Select Requested By User
+		
+		System.out.println("Clicking on Select Requested By User");
+		
+		waitForClickabilityOf(requestedByUser);
+		
+		driver.findElement(requestedByUser).click();
+		
+		Thread.sleep(2000);
+		
+//		Selecting 1st User
+		
+		System.out.println("Selecting 1st User");
+		
+		waitForClickabilityOf(reqstdBy1stUser);
+		
+		driver.findElement(reqstdBy1stUser).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Add Button
+		
+		System.out.println("Clicking On Add Button");
+		
+		waitForClickabilityOf(addByBtn);
+		
+		driver.findElement(addByBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Select Requested To User
+		
+		System.out.println("Clicking on Select Requested To User");
+		
+		waitForClickabilityOf(requestedToUser);
+		
+		driver.findElement(requestedToUser).click();
+		
+		Thread.sleep(2000);
+		
+//		Selecting 2nd User
+		
+		System.out.println("Selecting 2nd User");
+		
+		waitForClickabilityOf(reqstdTo2ndUser);
+		
+		driver.findElement(reqstdTo2ndUser).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Add Button
+		
+		System.out.println("Clicking On Add Button");
+		
+		waitForClickabilityOf(addToBtn);
+		
+		driver.findElement(addToBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Pre Approved Check Box
+		
+		System.out.println("Clicking On Pre Approved Check Box");
+		
+		waitForClickabilityOf(preApprovedBtn);
+		
+		driver.findElement(preApprovedBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Entering The Meeting Title
+		
+		System.out.println("Entering The Meeting Title");
+		
+		waitForClickabilityOf(genMtinTitle);
+		
+		driver.findElement(genMtinTitle).sendKeys("General Automation Meeting");
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Date Field
+		
+		System.out.println("Clicking On Date Field");
+		
+		waitForClickabilityOf(genMtinDate);
+		
+		driver.findElement(genMtinDate).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Goto Next Month
+		
+		System.out.println("Clicking On Goto Next Month");
+		
+		waitForClickabilityOf(genGoToNxtMnth);
+		
+		driver.findElement(genGoToNxtMnth).click();
+		
+		Thread.sleep(2000);
+		
+//		Selecting the Date
+		
+		System.out.println("Selecting the Date ");
+		
+		waitForClickabilityOf(selectMay4th);
+		
+		driver.findElement(selectMay4th).click();
+		
+		Thread.sleep(2000);
+		
+//		Selecting the Start Time
+		
+		System.out.println("Selecting the Start Time");
+		
+		waitForClickabilityOf(genMtinStartTime);
+		
+		driver.findElement(genMtinStartTime).sendKeys("10:00 AM");
+		
+		Thread.sleep(2000);
+		
+//		Selecting the End Time
+		
+		System.out.println("Selecting the End Time");
+		
+		waitForClickabilityOf(genMtinEndTime);
+		
+		driver.findElement(genMtinEndTime).sendKeys("12:00 PM");
+		
+		Thread.sleep(2000);
+		
+//		Selecting the End Time
+		
+		System.out.println("Entering The Meeting Description");
+		
+		waitForClickabilityOf(description);
+		
+		driver.findElement(description).sendKeys("This is Automaion Testing General Meeting Description");
+		
+		Thread.sleep(2000);
+		
+//	    Selecting Location Type 
+		
+		System.out.println("Selecting Location Type");
+		
+		waitForClickabilityOf(genLocationType);
+		
+		Select LocationTypeDropDown = new Select(driver.findElement(genLocationType));
+		
+		LocationTypeDropDown.selectByIndex(2);
+		
+		Thread.sleep(2000);
+		
+//	    Selecting Location  
+		
+		System.out.println("Selecting Location ");
+		
+		waitForClickabilityOf(genLocation);
+		
+		Select LocationDropDown = new Select(driver.findElement(genLocation));
+		
+		LocationDropDown.selectByIndex(1);
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Associate Poll/Survey Button
+		
+		System.out.println("Clicking On Associate Poll/Survey Button");
+		
+		waitForClickabilityOf(genPollOrSurvey);
+		
+		driver.findElement(genPollOrSurvey).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Associate Poll/Survey Button
+		
+		System.out.println("Selecting 1st Associate Poll/Survey");
+		
+		waitForClickabilityOf(gen1stPoll);
+		
+		driver.findElement(gen1stPoll).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Associate Poll/Survey Add Button
+		
+		System.out.println("Clicking On Associate Poll/Survey Add Button");
+		
+		waitForClickabilityOf(pollAddBtn);
+		
+		driver.findElement(pollAddBtn).click();
+		
+		Thread.sleep(2000);
+
+//		Clicking On Save Button
+		
+		System.out.println("Clicking On Save Button");
+		
+		waitForClickabilityOf(genSaveBtn);
+		
+		driver.findElement(genSaveBtn).click();
+		
+		Thread.sleep(2000);
+		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Meetings
+		
+		System.out.println("Clicking on Meetings");
+		
+		waitForClickabilityOf(clickOnMeetings);
+		
+		driver.findElement(clickOnMeetings).click();
+		
+//		Clicking on Manage Meetings
+		
+		System.out.println("Clicking on Manage Meetings");
+		
+		waitForClickabilityOf(manageMeetings);
+		
+		driver.findElement(manageMeetings).click();
+		
+		Thread.sleep(2000);
+		
+//		Checking for Created Meeting
+		
+		boolean genMeeting = driver.findElement(genMeetingNo1).isDisplayed();
+		
+		if (genMeeting==true) {
+			
+			System.out.println("Successfully Created One General Meeting");
+			
+		} else {
+			
+			System.out.println("Failed to Create General Meeting");
+
+		}
+			
 		
 		
 		return new SetUpMeetings(driver);
@@ -172,7 +460,19 @@ public class SetUpMeetings extends BaseSetUp{
 	
 //	Genius Meeting Set up
 	
-	public SetUpMeetings setUpGeniusMeeting(String EmailId, String Password,String EventFullName){
+	public SetUpMeetings setUpGeniusMeeting(String EmailId, String Password,String EventFullName) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Ginius Meetings Radio Button
+		
+		System.out.println("Clicking on Ginius Meetings Radio Button");
+		
+		waitForClickabilityOf(geniusRadioBtn);
+		
+		driver.findElement(geniusRadioBtn).click();
 		
 		
 		return new SetUpMeetings(driver);
