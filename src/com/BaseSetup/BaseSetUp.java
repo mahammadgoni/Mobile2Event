@@ -38,7 +38,7 @@ public class BaseSetUp {
 	
 		} catch (UnhandledAlertException e) {
 			
-			System.out.println("This is Exception Message : "+e.getMessage());
+//			System.out.println("This is Exception Message : "+e.getMessage());
 			
 		}   	
     	

@@ -81,7 +81,7 @@ public class SetUpMeetings extends BaseSetUp{
 	
 	By genSaveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnEditSave']");
 	
-	By genMeetingNo1 = By.xpath("//*[@id='ContentPlaceHolder1_gvMeeting_chkcheck_0']");
+	By genMeetingNo1 = By.xpath("//*[@id='ContentPlaceHolder1_gvMeeting_lblMeetingTitle_0']");
 	
 //	Genius Meeting
 	
@@ -127,7 +127,7 @@ public class SetUpMeetings extends BaseSetUp{
 	
 	By slot4 = By.xpath("//a[@id='TimeLiALByExperts4']");
 	
-	By geniusMeetingNo1 = By.xpath("//*[@id='ContentPlaceHolder1_gvGenuisReport_Geniuschkcheck_0']");
+	By geniusMeetingNo1 = By.xpath("//*[@id='ContentPlaceHolder1_gvGenuisReport_lblTopicName_0']");
 	
 		
 
@@ -292,13 +292,13 @@ public class SetUpMeetings extends BaseSetUp{
 		
 //		Clicking On Pre Approved Check Box
 		
-		System.out.println("Clicking On Pre Approved Check Box");
-		
-		waitForClickabilityOf(preApprovedBtn);
-		
-		driver.findElement(preApprovedBtn).click();
-		
-		Thread.sleep(2000);
+//		System.out.println("Clicking On Pre Approved Check Box");
+//		
+//		waitForClickabilityOf(preApprovedBtn);
+//		
+//		driver.findElement(preApprovedBtn).click();
+//		
+//		Thread.sleep(2000);
 		
 //		Entering The Meeting Title
 		
@@ -455,6 +455,8 @@ public class SetUpMeetings extends BaseSetUp{
 		Thread.sleep(2000);
 				
 //		Checking for Created Meeting
+		
+		waitForClickabilityOf(genMeetingNo1);
 		
 		boolean genMeeting = driver.findElement(genMeetingNo1).isDisplayed();
 		
@@ -770,6 +772,8 @@ public class SetUpMeetings extends BaseSetUp{
 		Thread.sleep(2000);
 		
 //		Checking for Created Meeting
+		
+		waitForClickabilityOf(geniusMeetingNo1);
 		
 		boolean geniusMeeting = driver.findElement(geniusMeetingNo1).isDisplayed();
 		
