@@ -64,7 +64,7 @@ public class BrowserSetUp {
 
 			// driver.manage().window().maximize();
 
-			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 			
 			driver.manage().timeouts().setScriptTimeout(500, TimeUnit.SECONDS);
 
@@ -106,7 +106,7 @@ public class BrowserSetUp {
 
 			// driver.manage().window().maximize();
 			
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 			
 			driver.manage().timeouts().setScriptTimeout(100, TimeUnit.SECONDS);
 

@@ -1,7 +1,9 @@
 package com.BaseSetup;
 
+import java.awt.AWTException;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,12 +18,12 @@ public class BaseSetUp {
     }
 
     protected void waitForVisibilityOf(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebDriverWait wait = new WebDriverWait(driver, 120);
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
     
     protected void waitForClickabilityOf(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebDriverWait wait = new WebDriverWait(driver, 120);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
     
@@ -36,15 +38,34 @@ public class BaseSetUp {
 	
 		} catch (UnhandledAlertException e) {
 			
+//			System.out.println("This is Exception Message : "+e.getMessage());
 			
-		}
+		}   	
     	
-
-//		return alertMessage;
+    }
+    
+//    protected void scrollDown(By Element){
     	
+       protected void scrollDown() throws AWTException{	
+    	
+//    	WebElement element  = driver.findElement(Element);
+    	
+    	JavascriptExecutor js = ((JavascriptExecutor) driver);
+    	
+    	js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+  	
+//    	js.executeScript("arguments[0].scrollIntoView();",element);
+    	   
+//    	   Robot robot = new Robot();
+    	   
+//    	   robot.keyPress(KeyEvent.VK_PAGE_DOWN);
+    	   
+//    	   robot.keyRelease(KeyEvent.VK_PAGE_DOWN);
     	
     	
     }
+        
+  
 	
 	
 

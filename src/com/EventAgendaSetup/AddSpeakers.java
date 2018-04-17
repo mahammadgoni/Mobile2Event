@@ -125,7 +125,7 @@ public class AddSpeakers extends BaseSetUp{
 	
 	By showMappings = By.xpath("//*[@id='btnListView']");
 	
-	String ImagePath = "/Users/goni/Documents/SpeakerImage.png";
+	String ImagePath = "/Users/goni/Documents/E2MDatas/SpeakerImage.png";
 	
 
 	public AddSpeakers(WebDriver driver) {

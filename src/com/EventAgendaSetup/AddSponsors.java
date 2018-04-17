@@ -98,11 +98,11 @@ public class AddSponsors extends BaseSetUp{
 
 	// Exhibitor Logo Upload Path
 
-	String SpnsrLogoPath = "/Users/goni/Documents/SponsorLogo.jpg";
+	String SpnsrLogoPath = "/Users/goni/Documents/E2MDatas/SponsorLogo.jpg";
 
 	// Exhibitor Banner Path
 
-	String SpnsrBannerPath = "/Users/goni/Documents/SponsorBanner.jpg";
+	String SpnsrBannerPath = "/Users/goni/Documents/E2MDatas/SponsorBanner.jpg";
 
 
 	

@@ -99,6 +99,22 @@ public class AddAttendees extends BaseSetUp{
 	
 	By expertUser3rd = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUserRole_2_7_2']");
 	
+	By appCheckIn4th = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUserRole_3_1_3']");
+	
+	By appUser4th = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUserRole_3_2_3']");
+	
+	By chatbot4th = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUserRole_3_3_3']");
+	
+	By expertUser4th = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUserRole_3_7_3']");
+	
+	By appCheckIn5th = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUserRole_4_1_4']");
+	
+	By appUser5th = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUserRole_4_2_4']");
+	
+	By chatbot5th = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUserRole_4_3_4']");
+	
+	By expertUser5th = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUserRole_4_7_4']");
+	
 	By clickOnMatchMaking = By.xpath("//html//section[@class='container-fluid header-menu-bot-white pushmenu-toggle']//li[3]/a[1]");
 	
 	By manageCategory = By.xpath("//*[@id='btnAddSponsorType']");
@@ -391,7 +407,7 @@ public class AddAttendees extends BaseSetUp{
 		
 		System.out.println(NoOfExUsers);
 		
-		int i = 3;
+		int i = 10;
 		
         if (NoOfExUsers > i) {
         	
@@ -442,6 +458,52 @@ public class AddAttendees extends BaseSetUp{
     		waitForClickabilityOf(expertUser3rd);
     		
     		driver.findElement(expertUser3rd).click();
+    		
+    		try {
+    			
+//        		Giving Access to 4th user
+        		
+        		System.out.println("Giving Access to 4th user");
+        		
+        		waitForClickabilityOf(appCheckIn4th);
+        		
+        		driver.findElement(appCheckIn4th).click();
+        		
+        		waitForClickabilityOf(appUser4th);
+        		
+        		driver.findElement(appUser4th).click();
+        		
+        		waitForClickabilityOf(chatbot4th);
+        		
+        		driver.findElement(chatbot4th).click();
+        		
+        		waitForClickabilityOf(expertUser4th);
+        		
+        		driver.findElement(expertUser4th).click();
+        		
+//        		Giving Access to 5th user
+        		
+        		System.out.println("Giving Access to 5th user");
+        		
+        		waitForClickabilityOf(appCheckIn5th);
+        		
+        		driver.findElement(appCheckIn5th).click();
+        		
+        		waitForClickabilityOf(appUser5th);
+        		
+        		driver.findElement(appUser5th).click();
+        		
+        		waitForClickabilityOf(chatbot5th);
+        		
+        		driver.findElement(chatbot5th).click();
+        		
+        		waitForClickabilityOf(expertUser5th);
+        		
+        		driver.findElement(expertUser5th).click();
+				
+			} catch (Exception e) {
+				
+			}
 			
 		} else {
 

@@ -22,8 +22,7 @@ public class AddUser extends BaseSetUp {
 
 	By menu = By.xpath("//*[@class='toggle-menu']");
 
-	// By menu = By.xpath("//*[@class='toggle-menu' and
-	// @href='javascript:{}']");
+	// By menu = By.xpath("//*[@class='toggle-menu' and @href='javascript:{}']");
 
 	By userMgnt = By.xpath("//*[@id='UM']");
 
@@ -307,8 +306,7 @@ public class AddUser extends BaseSetUp {
 
 	}
 
-	public AddUser addUnverifiedUser(String EmailId, String Password, String FirstName, String LastName,
-			String AddUserEmail) {
+	public AddUser addUnverifiedUser(String EmailId, String Password, String FirstName, String LastName,String AddUserEmail) {
 
 		System.out.println("Entering Email id  is : " + EmailId);
 
