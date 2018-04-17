@@ -18,12 +18,12 @@ public class BaseSetUp {
     }
 
     protected void waitForVisibilityOf(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 120);
+        WebDriverWait wait = new WebDriverWait(driver, 180);
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
     
     protected void waitForClickabilityOf(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 120);
+        WebDriverWait wait = new WebDriverWait(driver, 180);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
     

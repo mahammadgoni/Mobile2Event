@@ -700,7 +700,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	Need to Check from Here
+////	Need to Check from Here
 //	
 //	@Test(priority = 67,alwaysRun=true)
 //	public void viewOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
@@ -719,15 +719,15 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new ManageMeetings(driver).acceptGenMeeting(EmailId, Password, EventFullName);
 //
 //	}
-//	
-//	@Test(priority = 69,alwaysRun=true)
-//	public void rescheduleOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
-//
-//		System.out.println("Executing : Reschedule One To One Meeting Test");
-//		
-//		new ManageMeetings(driver).rescheduleGenMeeting(EmailId, Password, EventFullName);
-//
-//	}
+	
+	@Test(priority = 69,alwaysRun=true)
+	public void rescheduleOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Reschedule One To One Meeting Test");
+		
+		new ManageMeetings(driver).rescheduleGenMeeting(EmailId, Password, EventFullName);
+
+	}
 //	
 //	@Test(priority = 70,alwaysRun=true)
 //	public void cancelOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
@@ -747,32 +747,32 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 72,alwaysRun=true)
-//	public void viewGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
-//
-//		System.out.println("Executing : View Genius Meeting Test");
-//		
-//		new ManageMeetings(driver).viewGeniusMeeting(EmailId, Password, EventFullName);
-//
-//	}
-//	
-//	@Test(priority = 73,alwaysRun=true)
-//	public void acceptGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
-//
-//		System.out.println("Executing : Accept Genius Meeting Test");
-//		
-//		new ManageMeetings(driver).acceptGeniusMeeting(EmailId, Password, EventFullName);
-//
-//	}
-//	
-//	@Test(priority = 74,alwaysRun=true)
-//	public void rescheduleGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
-//
-//		System.out.println("Executing : Reschedule Genius Meeting Test");
-//		
-//		new ManageMeetings(driver).rescheduleGeniusMeeting(EmailId, Password, EventFullName);
-//
-//	}
+	@Test(priority = 72,alwaysRun=true)
+	public void viewGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : View Genius Meeting Test");
+		
+		new ManageMeetings(driver).viewGeniusMeeting(EmailId, Password, EventFullName);
+
+	}
+	
+	@Test(priority = 73,alwaysRun=true)
+	public void acceptGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Accept Genius Meeting Test");
+		
+		new ManageMeetings(driver).acceptGeniusMeeting(EmailId, Password, EventFullName);
+
+	}
+	
+	@Test(priority = 74,alwaysRun=true)
+	public void rescheduleGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Reschedule Genius Meeting Test");
+		
+		new ManageMeetings(driver).rescheduleGeniusMeeting(EmailId, Password, EventFullName);
+
+	}
 //	
 //	@Test(priority = 75,alwaysRun=true)
 //	public void cancelGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
@@ -783,7 +783,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 75,alwaysRun=true)
+//	@Test(priority = 76,alwaysRun=true)
 //	public void deleteGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Delete Genius Meeting Test");
@@ -795,14 +795,24 @@ public class E2MTestCaes extends BrowserSetUp {
 //	Till Here
 	
 	
-	@Test(priority = 76,alwaysRun=true)
-	public void resetPasswordTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Reset User Password Test");
-		
-		new EditUserDetails(driver).resetUserPassword(EmailId, Password);
-
-	}
+//	@Test(priority = 77,alwaysRun=true)
+//	public void resetPasswordTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Reset User Password Test");
+//		
+//		new EditUserDetails(driver).resetUserPassword(EmailId, Password);
+//
+//	}
+	
+	
+//	@Test(priority = 78,alwaysRun=true)
+//	public void changeUserDetailsTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Change User Details Test");
+//		
+//		new EditUserDetails(driver).editAndChangeUserDetails(EmailId, Password);
+//
+//	}
 	
 		
 //	@Test(priority = 7,alwaysRun=true)

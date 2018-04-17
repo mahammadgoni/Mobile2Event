@@ -580,20 +580,19 @@ public class SetUpMeetings extends BaseSetUp{
 			
 			Thread.sleep(2000);
 			
-//			Clicking on Manage Meetings
+//			Clicking on Genius Radio Button
 			
-			System.out.println("Clicking on Manage Meetings");
+			System.out.println("Clicking on Genius Radio Button");
 			
 			waitForClickabilityOf(geniusRadioBtn);
 			
 			driver.findElement(geniusRadioBtn).click();
 					
 		}
-		
-		
+				
 		Thread.sleep(2000);
 		
-//		Clicking on Genius Meetings Radio Button
+//		Clicking on Select Requested By User
 		
 		System.out.println("Clicking on Select Requested By User");
 		
@@ -603,7 +602,7 @@ public class SetUpMeetings extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
-//		Selecting 1st User
+//		Selecting the User
 		
 		System.out.println("Selecting the User");
 		

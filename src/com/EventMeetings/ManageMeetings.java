@@ -308,9 +308,19 @@ public class ManageMeetings extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
+		
+		Thread.sleep(2000);
+		
 //		Storing the One To One Meeting Status
 		
-		waitForClickabilityOf(oneAcceptStatus);
+//		waitForClickabilityOf(oneAcceptStatus);
 		
 		String Status1  = driver.findElement(oneAcceptStatus).getText();
 		
@@ -322,11 +332,11 @@ public class ManageMeetings extends BaseSetUp{
 		
 		if (Status.equals(Status1)) {
 			
-			System.out.println("Sccessfully Accepted Meeting Status");
-			
+			System.out.println("Failed to Accept Meeting Status");
+						
 		} else {
 			
-			System.out.println("Failed to Accept Meeting Status");
+			System.out.println("Sccessfully Accepted Meeting Status");
 
 		}
 				
@@ -398,6 +408,14 @@ public class ManageMeetings extends BaseSetUp{
 		
 		driver.findElement(SaveBtn).click();
 		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
+		
 //		Storing the One To One Meeting Status
 		
 		waitForClickabilityOf(oneTime);
@@ -412,11 +430,11 @@ public class ManageMeetings extends BaseSetUp{
 		
 		if (Time.equals(Time1)) {
 			
-			System.out.println("Sccessfully Rescheduled the Meeting");
+			System.out.println("Failed to Reschedule Meeting");
 			
 		} else {
 			
-			System.out.println("Failed to Reschedule Meeting");
+			System.out.println("Sccessfully Rescheduled the Meeting");
 
 		}
 		
@@ -682,6 +700,16 @@ public class ManageMeetings extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
+		
+		Thread.sleep(2000);
+		
 //		Storing the One To One Meeting Status
 		
 		waitForClickabilityOf(oneAcceptStatus);
@@ -696,11 +724,11 @@ public class ManageMeetings extends BaseSetUp{
 		
 		if (Status.equals(Status1)) {
 			
-			System.out.println("Sccessfully Accepted Meeting Status");
+			System.out.println("Failed to Accept Meeting Status");
 			
 		} else {
 			
-			System.out.println("Failed to Accept Meeting Status");
+			System.out.println("Sccessfully Accepted Meeting Status");
 
 		}
 		
@@ -775,6 +803,16 @@ public class ManageMeetings extends BaseSetUp{
 		waitForClickabilityOf(SaveBtn);
 		
 		driver.findElement(SaveBtn).click();
+		
+		Thread.sleep(2000);
+		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
 		
 //		Storing the One To One Meeting Status
 		

@@ -56,6 +56,22 @@ public class EditUserDetails extends BaseSetUp{
 	
 	String Password1stUser = "#auto123";
 	
+//	Change User Details 
+	
+	By firstName = By.xpath("//*[@id='ContentPlaceHolder1_txtFirstName']");
+	
+	By lastName = By.xpath("//*[@id='ContentPlaceHolder1_txtLastName']");
+	
+	By position = By.xpath("//*[@id='ContentPlaceHolder1_txtPosition']");
+	
+	By organization = By.xpath("//*[@id='ContentPlaceHolder1_txtOrganization']");
+	
+	By organizationName = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_lblOrganization_0']");
+	
+	By jobTitle = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_lblJobTitle_0']");
+	
+
+	
 	
 	
 	
@@ -226,34 +242,42 @@ public class EditUserDetails extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
-//		Clicking on Users from User Management
-
-		System.out.println("Clicking on Users from User Management");
-
-		waitForClickabilityOf(rolesPrivilege);
-
-		driver.findElement(rolesPrivilege).click();
-		
-		Thread.sleep(2000);
-		
-//		Clicking on Map Roles
-
-		System.out.println("Clicking on Map Roles");
-
-		waitForClickabilityOf(mapRoles);
-		
-		boolean MapRoles = driver.findElement(mapRoles).isEnabled();
-		
-		if (MapRoles==true) {
+		try {
 			
-			driver.findElement(mapRoles).click();
-			
-		} else {
-			
-			driver.findElement(mapRoles).click();
+//			Clicking on Users from User Management
 
+			System.out.println("Clicking on Users from User Management");
+
+			waitForClickabilityOf(rolesPrivilege);
+
+			driver.findElement(rolesPrivilege).click();
+			
+			Thread.sleep(2000);
+			
+//			Clicking on Map Roles
+
+			System.out.println("Clicking on Map Roles");
+
+			waitForClickabilityOf(mapRoles);
+			
+			boolean MapRoles = driver.findElement(mapRoles).isEnabled();
+			
+			System.out.println(MapRoles);
+			
+			if (MapRoles==true) {
+				
+				driver.findElement(mapRoles).click();
+				
+			} else {
+				
+				driver.findElement(mapRoles).click();
+
+			}
+			
+		} catch (Exception e) {
+			
 		}
-		
+	
 		Thread.sleep(2000);
 		
 //	    Selecting User Type 
@@ -373,6 +397,146 @@ public class EditUserDetails extends BaseSetUp{
 		}
 			
 		
+		
+		return new EditUserDetails(driver);
+		
+	}
+	
+	public EditUserDetails editAndChangeUserDetails(String EmailId, String Password) throws InterruptedException{
+		
+		commonLogin(EmailId, Password);
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Menu
+
+		System.out.println("Clicking on Menu");
+
+		waitForClickabilityOf(menu);
+
+		driver.findElement(menu).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on User Management
+
+		System.out.println("Clicking on User Management");
+
+		waitForClickabilityOf(userMgnt);
+
+		driver.findElement(userMgnt).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Users from User Management
+
+		System.out.println("Clicking on Users from User Management");
+
+		waitForClickabilityOf(user);
+
+		driver.findElement(user).click();
+		
+		Thread.sleep(2000);
+		
+//		Storing the 1st User Email in String
+		
+		String Organization1st = driver.findElement(organizationName).getText();
+		
+		System.out.println("Organization Name is : "+Organization1st);
+		
+		Thread.sleep(2000);
+		
+//		Storing the 1st User Email in String
+		
+		String JobTitle1st = driver.findElement(jobTitle).getText();
+		
+		System.out.println("Job Title is : "+JobTitle1st);
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Edit Button	
+
+		System.out.println("Clicking on Edit Button	");
+
+		waitForClickabilityOf(user1stEditBtn);
+
+		driver.findElement(user1stEditBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Entering the New Position	
+
+		System.out.println("Entering the New Position");
+
+		waitForClickabilityOf(position);
+
+		driver.findElement(position).clear();
+		
+		driver.findElement(position).sendKeys("Automation Manager");
+		
+		Thread.sleep(2000);
+		
+//		Entering the New Organization
+
+		System.out.println("Entering the New Organization");
+
+		waitForClickabilityOf(organization);
+
+		driver.findElement(organization).clear();
+		
+		driver.findElement(organization).sendKeys("Automation Web Spiders");
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Edit Button	
+
+		System.out.println("Clicking On Save Button to Save the details");
+
+		waitForClickabilityOf(saveButton);
+
+		driver.findElement(saveButton).click();
+		
+		Thread.sleep(2000);
+		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
+		
+		Thread.sleep(2000);
+		
+//		Storing the 1st User Email in String
+		
+		String Organization1stN = driver.findElement(organizationName).getText();
+		
+		System.out.println("Organization Name is : "+Organization1stN);
+		
+		Thread.sleep(2000);
+		
+//		Storing the 1st User Email in String
+		
+		String JobTitle1stN = driver.findElement(jobTitle).getText();
+		
+		System.out.println("Job Title is : "+JobTitle1stN);
+		
+		Thread.sleep(2000);
+		
+//		Verifying the details 
+				
+		if (Organization1st==Organization1stN) {
+			
+			System.out.println("Failed to Change User Details");
+						
+		} else {
+			
+			System.out.println("Successfully Changed User Details");
+			
+
+		}
+			
 		
 		return new EditUserDetails(driver);
 		
