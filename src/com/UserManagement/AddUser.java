@@ -91,6 +91,8 @@ public class AddUser extends BaseSetUp {
 	By bulkUploadHistory = By.xpath("//*[@id='ContentPlaceHolder1_Button1']");
 
 	By refreshBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnRefresh']");
+	
+	
 
 	public AddUser(WebDriver driver) {
 		super(driver);

@@ -2,13 +2,11 @@ package com.e2m.TestCases;
 
 import java.awt.AWTException;
 import java.text.ParseException;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import com.CommonActions.ForgotPassword;
 import com.CommonActions.LoginToAccount;
 import com.EventAgendaSetup.AddAttendees;
@@ -30,10 +28,13 @@ import com.EventMeetings.UploadMeetings;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
 import com.UserManagement.EditUserDetails;
+import com.UserManagement.RolesAndPrivileges;
 import com.Utils.BrowserSetUp;
 import com.Utils.GetScreenShot;
 
-//@Listeners({ GetScreenShot.class })
+// This Listener is for taking screen shot
+
+//    @Listeners({ GetScreenShot.class })
 
 public class E2MTestCaes extends BrowserSetUp {
 
@@ -47,7 +48,7 @@ public class E2MTestCaes extends BrowserSetUp {
 
 	String Password = "#e2m321";
 
-	String BulkUserPath = "/Users/goni/Documents/E2MDatas/ImportUser_Template.xlsx";
+	String BulkUserUploadPath = "/Users/goni/Documents/E2MDatas/ImportUser_Template.xlsx";
 	
 	String UploadAttendeePath = "/Users/goni/Documents/E2MDatas/ImportMapuserdata_Template.xlsx";
 	
@@ -174,7 +175,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //		System.out.println("Executing : Bulk User Upload Test");
 //
-//		new AddUser(driver).userBulkUpload(EmailId, Password, BulkUserPath);
+//		new AddUser(driver).userBulkUpload(EmailId, Password, BulkUserUploadPath);
 //		
 //
 //	}
@@ -700,7 +701,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-////	Need to Check from Here
+//	Need to Check from Here
 //	
 //	@Test(priority = 67,alwaysRun=true)
 //	public void viewOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
@@ -719,15 +720,15 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new ManageMeetings(driver).acceptGenMeeting(EmailId, Password, EventFullName);
 //
 //	}
-	
-	@Test(priority = 69,alwaysRun=true)
-	public void rescheduleOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Reschedule One To One Meeting Test");
-		
-		new ManageMeetings(driver).rescheduleGenMeeting(EmailId, Password, EventFullName);
-
-	}
+//	
+//	@Test(priority = 69,alwaysRun=true)
+//	public void rescheduleOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Reschedule One To One Meeting Test");
+//		
+//		new ManageMeetings(driver).rescheduleGenMeeting(EmailId, Password, EventFullName);
+//
+//	}
 //	
 //	@Test(priority = 70,alwaysRun=true)
 //	public void cancelOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
@@ -747,32 +748,32 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-	@Test(priority = 72,alwaysRun=true)
-	public void viewGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : View Genius Meeting Test");
-		
-		new ManageMeetings(driver).viewGeniusMeeting(EmailId, Password, EventFullName);
-
-	}
-	
-	@Test(priority = 73,alwaysRun=true)
-	public void acceptGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Accept Genius Meeting Test");
-		
-		new ManageMeetings(driver).acceptGeniusMeeting(EmailId, Password, EventFullName);
-
-	}
-	
-	@Test(priority = 74,alwaysRun=true)
-	public void rescheduleGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Reschedule Genius Meeting Test");
-		
-		new ManageMeetings(driver).rescheduleGeniusMeeting(EmailId, Password, EventFullName);
-
-	}
+//	@Test(priority = 72,alwaysRun=true)
+//	public void viewGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : View Genius Meeting Test");
+//		
+//		new ManageMeetings(driver).viewGeniusMeeting(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 73,alwaysRun=true)
+//	public void acceptGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Accept Genius Meeting Test");
+//		
+//		new ManageMeetings(driver).acceptGeniusMeeting(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 74,alwaysRun=true)
+//	public void rescheduleGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Reschedule Genius Meeting Test");
+//		
+//		new ManageMeetings(driver).rescheduleGeniusMeeting(EmailId, Password, EventFullName);
+//
+//	}
 //	
 //	@Test(priority = 75,alwaysRun=true)
 //	public void cancelGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
@@ -793,8 +794,8 @@ public class E2MTestCaes extends BrowserSetUp {
 //	}
 //	
 //	Till Here
-	
-	
+//	
+//	
 //	@Test(priority = 77,alwaysRun=true)
 //	public void resetPasswordTest() throws ParseException, InterruptedException, AWTException {
 //
@@ -803,8 +804,8 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new EditUserDetails(driver).resetUserPassword(EmailId, Password);
 //
 //	}
-	
-	
+//	
+//	
 //	@Test(priority = 78,alwaysRun=true)
 //	public void changeUserDetailsTest() throws ParseException, InterruptedException, AWTException {
 //
@@ -813,6 +814,15 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new EditUserDetails(driver).editAndChangeUserDetails(EmailId, Password);
 //
 //	}
+	
+	@Test(priority = 79,alwaysRun=true)
+	public void addCMSRolesAndPrivilegesTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Add CMS Roles and Privileges Test");
+		
+		new RolesAndPrivileges(driver).addRoleAndPrivilege(EmailId, Password);
+
+	}
 	
 		
 //	@Test(priority = 7,alwaysRun=true)
@@ -833,8 +843,8 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new MapUserToEvent(driver).mapUserToEvent(EmailId, Password, "CTech Symposium", "kevinms@yopmail.com");
 //
 //	}
-//	
-//	
+	
+	
 
 
 
