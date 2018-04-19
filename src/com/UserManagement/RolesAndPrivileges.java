@@ -61,9 +61,7 @@ public class RolesAndPrivileges extends BaseSetUp{
 	
 	String Role = "Automation Manger";
 	
-	
-	
-	
+		
 
 	public RolesAndPrivileges(WebDriver driver) {
 		super(driver);
@@ -339,6 +337,13 @@ public class RolesAndPrivileges extends BaseSetUp{
 		
 		
 		
+		return new RolesAndPrivileges(driver);
+		
+	}
+	
+	public RolesAndPrivileges globalRights(){
+		
+			
 		return new RolesAndPrivileges(driver);
 		
 	}
