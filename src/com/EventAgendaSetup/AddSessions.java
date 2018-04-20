@@ -843,9 +843,9 @@ public class AddSessions extends BaseSetUp{
 	
 	System.out.println("Clicking on Add Session");
 	
-	waitForClickabilityOf(clickOnAddSessionFromLocation);
+	waitForClickabilityOf(clickOnAddSession);
 	
-	driver.findElement(clickOnAddSessionFromLocation).click();
+	driver.findElement(clickOnAddSession).click();
 	
 //	Adding Search Track
 	
@@ -2207,6 +2207,7 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(clickOnEvent).click();
 
+		Thread.sleep(2000);
 		
 //		Clicking on Agenda Setup
 		
@@ -2216,6 +2217,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(clickOnAgendaSetUp).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Session
 		
 		System.out.println("Clicking on Session");
@@ -2223,6 +2226,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(clickOnSession);
 		
 		driver.findElement(clickOnSession).click();
+		
+		Thread.sleep(2000);
 		
 //		Checking for existing Sessions no
 		
@@ -2240,6 +2245,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(clickOnAddSession).click();
 		
+		Thread.sleep(2000);
+		
 //		Adding Search Track
 		
 		System.out.println("Entering Session Title  as :  Check-In-Registration");
@@ -2254,6 +2261,8 @@ public class AddSessions extends BaseSetUp{
 			
 			driver.findElement(searchTrack).sendKeys(TrackName+" NET");
 			
+			Thread.sleep(2000);
+			
 //			Clicking on Create Track
 			
 			System.out.println("Clicking on Create Track");
@@ -2261,6 +2270,8 @@ public class AddSessions extends BaseSetUp{
 			waitForClickabilityOf(createTrack);
 			
 			driver.findElement(createTrack).click();
+			
+			Thread.sleep(2000);
 			
 //			Adding Hex Color Code
 			
@@ -2270,6 +2281,8 @@ public class AddSessions extends BaseSetUp{
 			
 			driver.findElement(colorCode).sendKeys("#268dad");
 			
+			Thread.sleep(2000);
+			
 //			Clicking on Save Button
 			
 			System.out.println("Clicking on Save Button");
@@ -2278,13 +2291,19 @@ public class AddSessions extends BaseSetUp{
 			
 			driver.findElement(trackName).click();
 			
+			Thread.sleep(2000);
+			
 			waitForClickabilityOf(saveBtn);
 			
 			driver.findElement(saveBtn).click();
 			
+			Thread.sleep(2000);
+			
 			waitForClickabilityOf(cancelBtn);
 			
 			driver.findElement(cancelBtn).click();
+			
+			Thread.sleep(2000);
 			
 		} else {
 			
@@ -2300,6 +2319,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(activityDropDown).click();
 		
+		Thread.sleep(2000);
+		
 //		Selecting Activity As Networking from Drop Down
 		
 		System.out.println("Selecting Activity As Networking from Drop Down");
@@ -2307,6 +2328,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(networking);
 		
 		driver.findElement(networking).click();
+		
+		Thread.sleep(2000);
 		
 //		Selecting Session Start Date as Event Date
 		
@@ -2320,6 +2343,8 @@ public class AddSessions extends BaseSetUp{
 		
 		selectDate.sendKeys(Keys.ENTER);
 		
+		Thread.sleep(2000);
+		
 //		Selecting Session Start Time
 		
 		System.out.println("Selecting Session Start Time");
@@ -2328,6 +2353,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(startTime).sendKeys("09:00 AM");
 		
+		Thread.sleep(2000);
+		
 //		Selecting Session End Time
 		
 		System.out.println("Selecting Session End Time");
@@ -2335,6 +2362,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(endTime);
 		
 		driver.findElement(endTime).sendKeys("09:00 PM");
+		
+		Thread.sleep(2000);
 		
 //		Search the Location
 		
@@ -2346,6 +2375,8 @@ public class AddSessions extends BaseSetUp{
 			
 			driver.findElement(searchLocation).sendKeys(Location+" NET");
 			
+			Thread.sleep(2000);
+			
 //			Click On Add Location
 			
 			System.out.println("Click On Add Location");
@@ -2353,6 +2384,8 @@ public class AddSessions extends BaseSetUp{
 			waitForClickabilityOf(createLocation);
 			
 			driver.findElement(createLocation).click();
+			
+			Thread.sleep(2000);
 			
 //			Click On Add Button
 			
@@ -2362,6 +2395,8 @@ public class AddSessions extends BaseSetUp{
 			
 			driver.findElement(addBtn).click();
 			
+			Thread.sleep(2000);
+			
 //			Click On Close Pop Up
 			
 			System.out.println("Click On Close Pop Up");
@@ -2369,6 +2404,8 @@ public class AddSessions extends BaseSetUp{
 			waitForClickabilityOf(closePopUp);
 			
 			driver.findElement(closePopUp).click();
+			
+			Thread.sleep(2000);
 			
 		} else {
 			
@@ -2378,6 +2415,8 @@ public class AddSessions extends BaseSetUp{
 			
 			driver.findElement(searchLocation).sendKeys(Location+" NET");
 			
+			Thread.sleep(2000);
+			
 //			Click On Add Location
 			
 			System.out.println("Click On Add Location");
@@ -2385,6 +2424,8 @@ public class AddSessions extends BaseSetUp{
 			waitForClickabilityOf(createLocation);
 			
 			driver.findElement(createLocation).click();
+			
+			Thread.sleep(2000);
 			
 //			Click On Add Button
 			
@@ -2394,6 +2435,8 @@ public class AddSessions extends BaseSetUp{
 			
 			driver.findElement(addBtn).click();
 			
+			Thread.sleep(2000);
+			
 //			Click On Close Pop Up
 			
 			System.out.println("Click On Close Pop Up");
@@ -2401,6 +2444,8 @@ public class AddSessions extends BaseSetUp{
 			waitForClickabilityOf(closePopUp);
 			
 			driver.findElement(closePopUp).click();
+			
+			Thread.sleep(2000);
 
 		}
 				
@@ -2413,6 +2458,8 @@ public class AddSessions extends BaseSetUp{
 			waitForClickabilityOf(sessionDescription);
 			
 			driver.findElement(sessionDescription).sendKeys("This is Automation Testing Networking Session Description");
+			
+			Thread.sleep(2000);
 			
 		} catch (Exception e) {
 			
@@ -2427,6 +2474,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(saveAndPublishBtn);
 		
 		driver.findElement(saveAndPublishBtn).click();
+		
+		Thread.sleep(2000);
 		
 //		Verifying  whether the Session added or not 
 		

@@ -2,13 +2,11 @@ package com.e2m.TestCases;
 
 import java.awt.AWTException;
 import java.text.ParseException;
-
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import com.CommonActions.ForgotPassword;
 import com.CommonActions.LoginToAccount;
 import com.EventAgendaSetup.AddAttendees;
@@ -30,10 +28,14 @@ import com.EventMeetings.UploadMeetings;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
 import com.UserManagement.EditUserDetails;
+import com.UserManagement.RolesAndPrivileges;
+import com.UserManagement.UpdateUserCredentials;
 import com.Utils.BrowserSetUp;
 import com.Utils.GetScreenShot;
 
-//@Listeners({ GetScreenShot.class })
+// This Listener is for taking screen shot
+
+//    @Listeners({ GetScreenShot.class })
 
 public class E2MTestCaes extends BrowserSetUp {
 
@@ -46,8 +48,16 @@ public class E2MTestCaes extends BrowserSetUp {
 	String EmailId = "ethan.taylor@yopmail.com";
 
 	String Password = "#e2m321";
+	
+//	String EmailId = "autobmc@bmc.com";
 
-	String BulkUserPath = "/Users/goni/Documents/E2MDatas/ImportUser_Template.xlsx";
+//	String Password = "bmcevent";
+	
+//	String EmailId = "clientadmin@webspiders.com";
+
+//	String Password = "#bmc321";
+
+	String BulkUserUploadPath = "/Users/goni/Documents/E2MDatas/ImportUser_Template.xlsx";
 	
 	String UploadAttendeePath = "/Users/goni/Documents/E2MDatas/ImportMapuserdata_Template.xlsx";
 	
@@ -93,8 +103,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //		System.out.println("Executing : Login To Account Test");
 //
-//		new LoginToAccount(driver).loginToAccount(EmailId, Password);
-//		
+//		new LoginToAccount(driver).loginToAccount(EmailId, Password);	
 //
 //	}
 //	
@@ -105,7 +114,6 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //		new ForgotPassword(driver).forgotPassword("jakesoly@mailinator.com", "#e2m321");
 //		
-//
 //	}
 //	
 //	@Test(priority = 3,alwaysRun=true)
@@ -116,7 +124,6 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //		new DeleteUser(driver).deleteSelectedUser(EmailId, Password);
 //		
-//
 //	}
 //	
 //	@Test(priority = 4,alwaysRun=true)
@@ -125,8 +132,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		System.out.println("Executing : Delete All Selected User Test");
 //
 //		new DeleteUser(driver).deleteAllUser(EmailId, Password);
-//		
-//		
+//				
 //	}
 //	
 //	@Test(priority = 5,alwaysRun=true)
@@ -136,7 +142,6 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //		new DeleteUser(driver).undoUserDeletion(EmailId, Password);
 //
-//
 //	}
 //	
 //	@Test(priority = 6,alwaysRun=true)
@@ -145,8 +150,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		System.out.println("Executing : Purge All User Test");
 //
 //		new DeleteUser(driver).purgeAllUser(EmailId, Password);
-//
-//		
+//	
 //	}
 //	
 //	@Test(priority = 7,alwaysRun=true)
@@ -156,7 +160,6 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //		new AddUser(driver).addVerifiedUser(EmailId, Password, "Kevin", "Ms", "kevinms@yopmail.com");
 //		
-//
 //	}
 //
 //	@Test(priority = 8,alwaysRun=true)
@@ -166,7 +169,6 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //		new AddUser(driver).addUnverifiedUser(EmailId, Password, "Liam", "Neson", "liamneson@yopmail.com");
 //		
-//
 //	}
 //
 //	@Test(priority = 9,alwaysRun=true)
@@ -174,22 +176,57 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //		System.out.println("Executing : Bulk User Upload Test");
 //
-//		new AddUser(driver).userBulkUpload(EmailId, Password, BulkUserPath);
-//		
+//		new AddUser(driver).userBulkUpload(EmailId, Password, BulkUserUploadPath);	
 //
 //	}
 //	
 //	@Test(priority = 10,alwaysRun=true)
+//	public void resetPasswordTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Reset User Password Test");
+//		
+//		new EditUserDetails(driver).resetUserPassword(EmailId, Password);
+//
+//	}
+//	
+//	
+//	@Test(priority = 11,alwaysRun=true)
+//	public void changeUserDetailsTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Change User Details Test");
+//		
+//		new EditUserDetails(driver).editAndChangeUserDetails(EmailId, Password);
+//
+//	}
+//	
+//	@Test(priority = 12,alwaysRun=true)
+//	public void addCMSRolesAndPrivilegesTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add CMS Roles and Privileges Test");
+//		
+//		new RolesAndPrivileges(driver).addRoleAndPrivilege(EmailId, Password);
+//
+//	}
+	
+	@Test(priority = 13,alwaysRun=true)
+	public void updateUserCredentialsTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Update User Credentials Test");
+		
+		new UpdateUserCredentials(driver).updateCredentials(EmailId, Password, EventFullName);
+
+	}
+//	
+//	@Test(priority = 14,alwaysRun=true)
 //	public void newEventCreationTest() {
 //
 //		System.out.println("Executing : New Event Creation Test");
 //
 //		new NewEvent(driver).newEventCreation(EmailId, Password, EventFullName, EventShortName);
 //
-//
 //	}
 //	
-//	@Test(priority = 11,alwaysRun=true)
+//	@Test(priority = 15,alwaysRun=true)
 //	public void addSessionToEventTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Session to Event Test");
@@ -198,7 +235,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 12,alwaysRun=true)
+//	@Test(priority = 16,alwaysRun=true)
 //	public void addSessionWithTrackAndLocationToEventTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Session with Track and Location to Event Test");
@@ -207,7 +244,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 13,alwaysRun=true)
+//	@Test(priority = 17,alwaysRun=true)
 //	public void addSessionWithOutTrackAndLocationToEventTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Session without Track and Location to Event Test");
@@ -216,7 +253,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 14,alwaysRun=true)
+//	@Test(priority = 18,alwaysRun=true)
 //	public void addCheckInRegistrationWithTrackSessionTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Check In Registration With Track Session to Event Test");
@@ -225,7 +262,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 15,alwaysRun=true)
+//	@Test(priority = 19,alwaysRun=true)
 //	public void addCheckInRegistrationWithOutTrackSessionTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Check In Registration without Track Location Session to Event Test");
@@ -234,7 +271,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 16,alwaysRun=true)
+//	@Test(priority = 20,alwaysRun=true)
 //	public void addBreakfastTypeSessionTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Breakfast Type Session to Event Test");
@@ -245,7 +282,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 17,alwaysRun=true)
+//	@Test(priority = 21,alwaysRun=true)
 //	public void addLunchTypeSessionTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Lunch Type Session to Event Test");
@@ -256,7 +293,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 18,alwaysRun=true)
+//	@Test(priority = 22,alwaysRun=true)
 //	public void addTeaTypeSessionTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Tea Type Session to Event Test");
@@ -267,7 +304,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 19,alwaysRun=true)
+//	@Test(priority = 23,alwaysRun=true)
 //	public void addDinnerTypeSessionTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Dinner Type Session to Event Test");
@@ -278,7 +315,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 20,alwaysRun=true)
+//	@Test(priority = 24,alwaysRun=true)
 //	public void addNetworkingWithTrackSessionTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Networking With Track Session to Event Test");
@@ -287,7 +324,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 21,alwaysRun=true)
+//	@Test(priority = 25,alwaysRun=true)
 //	public void addnetworkingWithOutTrackSessionTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Networking Without Track Location Session to Event Test");
@@ -296,7 +333,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 22,alwaysRun=true)
+//	@Test(priority = 26,alwaysRun=true)
 //	public void addPollWithFreeTextTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Poll to Session with Free Text Question Test");
@@ -305,7 +342,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 23,alwaysRun=true)
+//	@Test(priority = 27,alwaysRun=true)
 //	public void addPollWithSingleChoiceTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Poll to Session with Single Choice Question Test");
@@ -314,7 +351,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 24,alwaysRun=true)
+//	@Test(priority = 28,alwaysRun=true)
 //	public void addPollWithMultipleChoiceTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Poll to Session with Multiple Choice Question Test");
@@ -323,7 +360,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 25,alwaysRun=true)
+//	@Test(priority = 29,alwaysRun=true)
 //	public void addPollWithDropDownListTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Poll to Session with Dropdown List Question Test");
@@ -332,7 +369,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 26,alwaysRun=true)
+//	@Test(priority = 30,alwaysRun=true)
 //	public void uploadLinkTypeResourceTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Upload Link Type Resource Test");
@@ -341,7 +378,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 27,alwaysRun=true)
+//	@Test(priority = 31,alwaysRun=true)
 //	public void uploadFileTypeResourceTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Upload File Type Resource Test");
@@ -350,7 +387,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 28,alwaysRun=true)
+//	@Test(priority = 32,alwaysRun=true)
 //	public void seatingArrangementTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Seating Arrangement Test");
@@ -359,7 +396,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 29,alwaysRun=true)
+//	@Test(priority = 33,alwaysRun=true)
 //	public void addSessionCapacityTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Add Session Capacity Test");
@@ -368,7 +405,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 30,alwaysRun=true)
+//	@Test(priority = 34,alwaysRun=true)
 //	public void addSessionGroupTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Add Session Group Test");
@@ -377,7 +414,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 31,alwaysRun=true)
+//	@Test(priority = 35,alwaysRun=true)
 //	public void addSessionUsersTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Add Session Users Test");
@@ -386,7 +423,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 32,alwaysRun=true)
+//	@Test(priority = 36,alwaysRun=true)
 //	public void mapSessionToPollTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map Session to Poll Test");
@@ -395,7 +432,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 33,alwaysRun=true)
+//	@Test(priority = 37,alwaysRun=true)
 //	public void mapSessionToPollAnonymousEnabledTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map Session to Poll with Anonymous Submission and Set Time Enabled Test");
@@ -404,7 +441,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		
 //	}
 //	
-//	@Test(priority = 34,alwaysRun=true)
+//	@Test(priority = 38,alwaysRun=true)
 //	public void mapSessionToPollSetDateTimeEnabledTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map Session to Poll with Anonymous Submission,Set Date/Time Enabled Test");
@@ -412,7 +449,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session", true, true, false);
 //	}
 //	
-//	@Test(priority = 35,alwaysRun=true)
+//	@Test(priority = 39,alwaysRun=true)
 //	public void mapSessionToPollSelectTimeEnabledTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map Session to Poll with Anonymous Submission,Select Time Enabled Test");
@@ -420,7 +457,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new PollOrVote(driver).pollMappingUpdation(EmailId, Password, EventFullName, "Session", true, false, true);
 //	}
 //	
-//	@Test(priority = 35,alwaysRun=true)
+//	@Test(priority = 40,alwaysRun=true)
 //	public void viewPollDetailsTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : View Poll Details Test");
@@ -429,7 +466,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		
 //	}
 //	
-//	@Test(priority = 36,alwaysRun=true)
+//	@Test(priority = 41,alwaysRun=true)
 //	public void clonePollorVoteTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Clone Poll/Vote Test");
@@ -438,7 +475,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		
 //	}
 //	
-//	@Test(priority = 37,alwaysRun=true)
+//	@Test(priority = 42,alwaysRun=true)
 //	public void downloadOnePollReportTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Download One Poll/Vote Report Test");
@@ -447,7 +484,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		
 //	}
 //	
-//	@Test(priority = 38,alwaysRun=true)
+//	@Test(priority = 43,alwaysRun=true)
 //	public void downloadAllPollReportTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Download All Poll/Vote Report Test");
@@ -456,7 +493,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		
 //	}
 //	
-//	@Test(priority = 39,alwaysRun=true)
+//	@Test(priority = 44,alwaysRun=true)
 //	public void addRatingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Add Question Rate Test");
@@ -465,8 +502,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //		
 //	}
 //		
-//	
-//	@Test(priority = 40,alwaysRun=true)
+//	@Test(priority = 45,alwaysRun=true)
 //	public void addSpeakersTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Speakers to Event Test");
@@ -475,7 +511,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 41,alwaysRun=true)
+//	@Test(priority = 46,alwaysRun=true)
 //	public void mapSessionWithRandomUserTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Map Session with Random User Test");
@@ -484,7 +520,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 42,alwaysRun=true)
+//	@Test(priority = 47,alwaysRun=true)
 //	public void createSpeakerAndMapWithCreateSessionTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Create Speaker and Map with Create Session Test");
@@ -493,7 +529,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 43,alwaysRun=true)
+//	@Test(priority = 48,alwaysRun=true)
 //	public void downloadQRCodeTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Download QR Code Test");
@@ -502,7 +538,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 44,alwaysRun=true)
+//	@Test(priority = 49,alwaysRun=true)
 //	public void mapUserRolesTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map User Roles Test");
@@ -511,7 +547,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 45,alwaysRun=true)
+//	@Test(priority = 50,alwaysRun=true)
 //	public void attendeeVisibilityTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Disable Attendee Visibility Test");
@@ -520,7 +556,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 46,alwaysRun=true)
+//	@Test(priority = 51,alwaysRun=true)
 //	public void manageGroupTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Manage Group Test");
@@ -529,7 +565,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 47,alwaysRun=true)
+//	@Test(priority = 52,alwaysRun=true)
 //	public void matchMakingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Match Making Test");
@@ -538,7 +574,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 48,alwaysRun=true)
+//	@Test(priority = 53,alwaysRun=true)
 //	public void importAttendeesTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Import Attendees Test");
@@ -547,7 +583,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 49,alwaysRun=true)
+//	@Test(priority = 54,alwaysRun=true)
 //	public void addExhibitorTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Add Exhibitor Test");
@@ -556,7 +592,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 50,alwaysRun=true)
+//	@Test(priority = 55,alwaysRun=true)
 //	public void exhibitorListTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Exhibitor List Test");
@@ -565,7 +601,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 51,alwaysRun=true)
+//	@Test(priority = 56,alwaysRun=true)
 //	public void mapExhibitorWithUserTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map Exhibitor with User Test");
@@ -574,7 +610,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 52,alwaysRun=true)
+//	@Test(priority = 57,alwaysRun=true)
 //	public void mapExhibitorWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map Exhibitor with User Group Test");
@@ -583,7 +619,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 53,alwaysRun=true)
+//	@Test(priority = 58,alwaysRun=true)
 //	public void addSponsorTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Add Sponsor Test");
@@ -592,7 +628,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 54,alwaysRun=true)
+//	@Test(priority = 59,alwaysRun=true)
 //	public void sponsorListTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Sponsor List Test");
@@ -601,7 +637,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 55,alwaysRun=true)
+//	@Test(priority = 60,alwaysRun=true)
 //	public void mapSponsorWithUserTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map Sponsor with User Test");
@@ -610,7 +646,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 56,alwaysRun=true)
+//	@Test(priority = 61,alwaysRun=true)
 //	public void mapSponsorWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Map Sponsor with User Group Test");
@@ -619,7 +655,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 58,alwaysRun=true)
+//	@Test(priority = 62,alwaysRun=true)
 //	public void uploadE2MDataTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Upload E2MData Test");
@@ -628,7 +664,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 59,alwaysRun=true)
+//	@Test(priority = 63,alwaysRun=true)
 //	public void geniusMeetingsConfigTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Genius Meeting Config Test");
@@ -637,7 +673,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 60,alwaysRun=true)
+//	@Test(priority = 64,alwaysRun=true)
 //	public void oneToOneMeetingConfigTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : One to One Meeting Config Test");
@@ -646,7 +682,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 61,alwaysRun=true)
+//	@Test(priority = 65,alwaysRun=true)
 //	public void mappingExpertTopicWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Mapping Expert Topic With User Group Test");
@@ -655,7 +691,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 62,alwaysRun=true)
+//	@Test(priority = 66,alwaysRun=true)
 //	public void mappingExpertTopicWithSelectedUserTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Mapping Expert Topic With Selected User Test");
@@ -664,7 +700,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 63,alwaysRun=true)
+//	@Test(priority = 67,alwaysRun=true)
 //	public void mappingExpertTopicWithAllUserTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Mapping Expert Topic With All User Test");
@@ -673,7 +709,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 64,alwaysRun=true)
+//	@Test(priority = 68,alwaysRun=true)
 //	public void uploadMeetingsTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Upload Meetings Test");
@@ -682,7 +718,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 65,alwaysRun=true)
+//	@Test(priority = 69,alwaysRun=true)
 //	public void setUpGeneralMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Set Up General Meeting Test");
@@ -691,7 +727,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 66,alwaysRun=true)
+//	@Test(priority = 70,alwaysRun=true)
 //	public void setUpGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Set Up Genius Meeting Test");
@@ -700,9 +736,9 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	Need to Check from Here
+////	Need to Check from Here
 //	
-//	@Test(priority = 67,alwaysRun=true)
+//	@Test(priority = 71,alwaysRun=true)
 //	public void viewOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : View One To One Meeting Test");
@@ -711,7 +747,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 68,alwaysRun=true)
+//	@Test(priority = 72,alwaysRun=true)
 //	public void acceptOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Accept One To One Meeting Test");
@@ -720,7 +756,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 69,alwaysRun=true)
+//	@Test(priority = 73,alwaysRun=true)
 //	public void rescheduleOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Reschedule One To One Meeting Test");
@@ -729,7 +765,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 70,alwaysRun=true)
+//	@Test(priority = 74,alwaysRun=true)
 //	public void cancelOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Cancel One To One Meeting Test");
@@ -738,7 +774,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 71,alwaysRun=true)
+//	@Test(priority = 75,alwaysRun=true)
 //	public void deleteOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Delete One To One Meeting Test");
@@ -747,7 +783,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 72,alwaysRun=true)
+//	@Test(priority = 76,alwaysRun=true)
 //	public void viewGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : View Genius Meeting Test");
@@ -756,7 +792,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 73,alwaysRun=true)
+//	@Test(priority = 77,alwaysRun=true)
 //	public void acceptGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Accept Genius Meeting Test");
@@ -765,7 +801,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 74,alwaysRun=true)
+//	@Test(priority = 78,alwaysRun=true)
 //	public void rescheduleGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Reschedule Genius Meeting Test");
@@ -774,7 +810,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 75,alwaysRun=true)
+//	@Test(priority = 79,alwaysRun=true)
 //	public void cancelGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Cancel Genius Meeting Test");
@@ -783,7 +819,7 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	@Test(priority = 75,alwaysRun=true)
+//	@Test(priority = 80,alwaysRun=true)
 //	public void deleteGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
 //
 //		System.out.println("Executing : Delete Genius Meeting Test");
@@ -792,17 +828,10 @@ public class E2MTestCaes extends BrowserSetUp {
 //
 //	}
 //	
-//	Till Here
+////	Till Here
 	
 	
-	@Test(priority = 76,alwaysRun=true)
-	public void resetPasswordTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Reset User Password Test");
-		
-		new EditUserDetails(driver).resetUserPassword(EmailId, Password);
-
-	}
 	
 		
 //	@Test(priority = 7,alwaysRun=true)
@@ -823,8 +852,8 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new MapUserToEvent(driver).mapUserToEvent(EmailId, Password, "CTech Symposium", "kevinms@yopmail.com");
 //
 //	}
-//	
-//	
+	
+	
 
 
 

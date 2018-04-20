@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class BrowserSetUp {
+public class BrowserSetUp extends ReadAndWriteTestData{
 
 	protected static WebDriver driver;
 
@@ -21,6 +21,10 @@ public class BrowserSetUp {
 	String firefoxLogPath = "/Users/goni/Documents/workspace/WebSpiders/Event2Mobile/Browser_Driver/firefoxLogs";
 
 	String e2mURL = "https://cmsuat2.event2mobile.com/";
+	
+//	String e2mURL = "https://bmccmsuat.event2mobile.com";
+	
+//	String BrowserName1 = getCellData(1, 0);
 
 	protected void openBrowser(String BrowserName) {
 		
