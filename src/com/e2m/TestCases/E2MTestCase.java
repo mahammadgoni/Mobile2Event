@@ -1,7 +1,9 @@
 package com.e2m.TestCases;
 
 import java.awt.AWTException;
+import java.io.IOException;
 import java.text.ParseException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -37,13 +39,13 @@ import com.Utils.GetScreenShot;
 
 //    @Listeners({ GetScreenShot.class })
 
-public class E2MTestCaes extends BrowserSetUp {
+public class E2MTestCase extends BrowserSetUp {
 
 //	 Please select the Browser before run all the Test Cases
 
 //	String BrowserName = "Firefox";
 
-	String BrowserName = "Chrome";
+//	String BrowserName = "Chrome";
 
 	String EmailId = "ethan.taylor@yopmail.com";
 
@@ -76,9 +78,9 @@ public class E2MTestCaes extends BrowserSetUp {
 	String Location = "Ground Floor";
 
 	@BeforeClass
-	public void setUp() throws InterruptedException {
-
-		openBrowser(BrowserName);
+	public void setUp() throws InterruptedException, InvalidFormatException, IOException {
+		
+		openBrowser();
 
 	}
 
@@ -90,7 +92,7 @@ public class E2MTestCaes extends BrowserSetUp {
 	}
 	
 	@AfterMethod
-	public void afterMethod(){
+	public void afterMethod() throws IOException, InvalidFormatException{
 		
 		logOut();
 		

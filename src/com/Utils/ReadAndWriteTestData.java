@@ -13,13 +13,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ReadAndWriteTestData {
 	
-//	String testDataPath = "/Users/goni/Documents/workspace/WebSpiders/Event2Mobile/Test Data/TestData.xlsx";
 	
-//	String testDataPath = "/Users/goni/Documents/E2MDatas/ImportUser_Template.xlsx";
-	
-	public static String testDataPath = "/Users/goni/Documents/E2MDatas/TestData.xlsx";
-	
-	String sheetName = "Users";
+//	public static String testDataPath = "/Test Data/TestData.xlsx";
 	
 	
 	@SuppressWarnings("resource")
@@ -27,8 +22,9 @@ public class ReadAndWriteTestData {
 	public static String getCellData(int RowNum,int CellNum) throws InvalidFormatException, IOException{
 		
 		try {
+			String home = System.getProperty("user.dir");
 			
-			File file = new File(testDataPath);
+			File file = new File(home+"/Test Data/TestData.xlsx");
 			
 			FileInputStream fis = new FileInputStream(file);
 			

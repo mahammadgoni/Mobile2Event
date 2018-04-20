@@ -1,7 +1,8 @@
 package com.Utils;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.UnhandledAlertException;
@@ -14,31 +15,39 @@ public class BrowserSetUp extends ReadAndWriteTestData{
 
 	protected static WebDriver driver;
 
-	String geckoPath = "/Users/goni/Documents/workspace/WebSpiders/Event2Mobile/Browser_Driver/geckodriver";
+	String geckoPath = "/Browser_Driver/geckodriver";
 
-	String chromeDrPath = "/Users/goni/Documents/workspace/WebSpiders/Event2Mobile/Browser_Driver/chromedriver";
-
-	String firefoxLogPath = "/Users/goni/Documents/workspace/WebSpiders/Event2Mobile/Browser_Driver/firefoxLogs";
-
-	String e2mURL = "https://cmsuat2.event2mobile.com/";
+	String firefoxLogPath = "/Browser_Driver/firefoxLogs";
 	
+	String chromeDrPath = "/Browser_Driver/chromedriver";
+
+//	String e2mURL = "https://cmsuat2.event2mobile.com/";
+		
 //	String e2mURL = "https://bmccmsuat.event2mobile.com";
+		
+	String home = System.getProperty("user.dir");
 	
-//	String BrowserName1 = getCellData(1, 0);
 
-	protected void openBrowser(String BrowserName) {
+
+	protected void openBrowser() throws InvalidFormatException, IOException {
+		
+		String e2mURL = getCellData(1, 1);
+		
+		String BrowserName = getCellData(1, 0);
+		
+		System.out.println(BrowserName);
 		
 //		DesiredCapabilities caps = new DesiredCapabilities();
 //		
 //		caps.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
 
-		if (BrowserName == "Chrome") {
+		if (BrowserName.equals("Chrome")) {
 
 			System.out.println("===============================================");
 
 			System.out.println("Opening the Chrome Browser");
 
-			System.setProperty("webdriver.chrome.driver", chromeDrPath);
+			System.setProperty("webdriver.chrome.driver", home+chromeDrPath);
 			
 //			String dir = "/Library/Application Support/Google/Chrome";
 
@@ -82,13 +91,13 @@ public class BrowserSetUp extends ReadAndWriteTestData{
 
 			System.out.println("Opening the Firefox Browser");
 
-			System.setProperty("webdriver.gecko.driver", geckoPath);
+			System.setProperty("webdriver.gecko.driver", home+geckoPath);
 
 			// This code will store all unwanted Firefox warnings to a file
 
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
 
-			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, firefoxLogPath);
+			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, home+firefoxLogPath);
 
 			driver = new FirefoxDriver();
 
@@ -149,7 +158,9 @@ public class BrowserSetUp extends ReadAndWriteTestData{
 
 	}
 	
-	protected void logOut(){
+	protected void logOut() throws InvalidFormatException, IOException{
+		
+		String e2mURL = getCellData(1, 1);
 		
 		try {
 						
@@ -187,5 +198,7 @@ public class BrowserSetUp extends ReadAndWriteTestData{
 		}
 
 	}
+		
+	
 
 }
