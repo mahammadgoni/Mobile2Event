@@ -1,12 +1,8 @@
 package com.UserManagement;
 
-import java.util.List;
-
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
 import com.BaseSetup.BaseSetUp;
 
 public class UpdateUserCredentials extends BaseSetUp{
@@ -27,7 +23,7 @@ public class UpdateUserCredentials extends BaseSetUp{
 	
 	By searchEvent = By.xpath("//*[@id='ContentPlaceHolder1_ddlEvents']");
 	
-	By selectEvent = By.xpath("//select[@id='ContentPlaceHolder1_ddlEvents']//*[contains(text(),'Nokia 2 Pre Launch Event')]");
+//	By selectEvent = By.xpath("//select[@id='ContentPlaceHolder1_ddlEvents']//*[contains(text(),'Nokia 2 Pre Launch Event')]");
 	
 	By availableUser = By.xpath("//*[@type='checkbox']");
 
@@ -97,7 +93,7 @@ public class UpdateUserCredentials extends BaseSetUp{
 		
 	}
 	
-	public UpdateUserCredentials updateCredentials(String EmailId, String Password) throws InterruptedException{
+	public UpdateUserCredentials updateCredentials(String EmailId, String Password,String EventFullName) throws InterruptedException{
 		
 		commonLogin(EmailId, Password);
 		
@@ -138,28 +134,24 @@ public class UpdateUserCredentials extends BaseSetUp{
 		System.out.println("Searching for the Event ");
 
 		waitForClickabilityOf(searchEvent);
-		
-		Select EventsDropDown = new Select(driver.findElement(searchEvent));
-		
-		EventsDropDown.selectByIndex(2);
 	
 		driver.findElement(searchEvent).click();
 		
 		Thread.sleep(2000);
 		
-		List<WebElement> Events = driver.findElements(searchEvent);
-		
-		int EventNo = Events.size();
-		
-		for (int i = 1; i < EventNo; i++) {
-			
-		}
-		
-		
-		
-//	    Clicking on Add Button to Add Role
+//	    Selecting the Event
 
-		System.out.println("Selecting the 1st User ");
+		System.out.println("Selecting the Event  : "+EventFullName);
+
+		waitForClickabilityOf(By.xpath("//select[@id='ContentPlaceHolder1_ddlEvents']//*[contains(text(),'"+EventFullName+"')]"));
+
+		driver.findElement(By.xpath("//select[@id='ContentPlaceHolder1_ddlEvents']//*[contains(text(),'"+EventFullName+"')]")).click();
+		
+		Thread.sleep(2000);
+				
+//	    Selecting the 1st User
+
+		System.out.println("Selecting the 1st User");
 
 		waitForClickabilityOf(select1stUser);
 
@@ -167,7 +159,7 @@ public class UpdateUserCredentials extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
-//		Searching for the Event 
+//		Clicking On Update Credentials Button
 
 		System.out.println("Clicking On Update Credentials Button");
 
@@ -177,10 +169,78 @@ public class UpdateUserCredentials extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
+//		Clicking On User Verification Checkbox
+
+		System.out.println("Clicking On User Verification Checkbox");
+
+		waitForClickabilityOf(userVerification);
+
+		driver.findElement(userVerification).click();
 		
+		Thread.sleep(2000);
 		
+//		Clicking On User Verification Checkbox
+
+		System.out.println("Clicking On Verify User Radio Button");
+
+		waitForClickabilityOf(verifyUser);
+
+		driver.findElement(verifyUser).click();
 		
+		Thread.sleep(2000);
 		
+//		Clicking On Reset Password Checkbox
+
+		System.out.println("Clicking On Reset Password Checkbox");
+
+		waitForClickabilityOf(resetPassBox);
+
+		driver.findElement(resetPassBox).click();
+		
+		Thread.sleep(2000);
+		
+//		Entering Reset Password
+
+		System.out.println("Entering Reset Password");
+
+		waitForClickabilityOf(resetPass);
+
+		driver.findElement(resetPass).sendKeys("123456");
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Save Button
+
+		System.out.println("Clicking On Save Button");
+
+		waitForClickabilityOf(saveBtn);
+
+		driver.findElement(saveBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Verifying the Pop Up Message
+		
+    	Alert alert  = driver.switchTo().alert();   
+    	
+    	String alertMessage = driver.switchTo().alert().getText();    
+    	
+		Thread.sleep(2000);
+    	
+    	alert.accept();
+    	
+		Thread.sleep(2000);
+		
+		if (alertMessage.equals("User credentials updated successfully.")) {
+			
+			System.out.println("Successfully Updated User Credentials");
+			
+		} else {
+			
+			System.out.println("Failed to Update User Credentials");
+
+		}
+			
 		
 		return new UpdateUserCredentials(driver);
 		

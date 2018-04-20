@@ -20,9 +20,9 @@ public class BrowserSetUp extends ReadAndWriteTestData{
 
 	String firefoxLogPath = "/Users/goni/Documents/workspace/WebSpiders/Event2Mobile/Browser_Driver/firefoxLogs";
 
-//	String e2mURL = "https://cmsuat2.event2mobile.com/";
+	String e2mURL = "https://cmsuat2.event2mobile.com/";
 	
-	String e2mURL = "https://bmccmsuat.event2mobile.com";
+//	String e2mURL = "https://bmccmsuat.event2mobile.com";
 	
 //	String BrowserName1 = getCellData(1, 0);
 
