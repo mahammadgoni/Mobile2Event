@@ -15,13 +15,15 @@ public class BrowserSetUp {
 
 	protected static WebDriver driver;
 
-	String geckoPath = "D:\\koushikpal\\Selenium Webdriver\\geckodriver-v0.19.1-win64";
+	String geckoPath = "D:\\koushikpal\\Selenium Webdriver\\geckodriver-v0.19.1-win64\\geckodriver.exe";
 
-	String chromeDrPath = "D:\\koushikpal\\Selenium Webdriver\\Chrome\\New folder";
+	String chromeDrPath = "D:\\koushikpal\\Selenium Webdriver\\Chrome\\New folder\\chromedriver.exe";
 
 	String firefoxLogPath = "D:\\koushikpal\\Browserlogs";
 
-	String e2mURL = "https://cmsuat2.event2mobile.com/";
+	//String e2mURL = "https://cmsuat2.event2mobile.com/";
+	//String e2mURL = "https://wfcmstest.webspiders.com/?ws_test_email_param=sandeep.bose@webspiders.com/";
+	String e2mURL = "https://wfcmstest.webspiders.com/?ws_test_email_param=sandeep.bose@webspiders.com";
 
 	protected void openBrowser(String BrowserName) {
 		
@@ -49,19 +51,19 @@ public class BrowserSetUp {
 			
 //			options.addArguments(dir);
 
-			options.addArguments("--log-level=3");
-
-			options.addArguments("--silent");
-
-			options.addArguments("disable-infobars");
-
-			options.addArguments("--start-maximized");
-
-			options.addArguments("--disable-logging");
+//			options.addArguments("--log-level=3");
+//
+//			options.addArguments("--silent");
+//
+//			options.addArguments("disable-infobars");
+//
+//			options.addArguments("--start-maximized");
+//
+//			options.addArguments("--disable-logging");
 
 			driver = new ChromeDriver(options);
 
-			driver.manage().window().fullscreen();
+			//driver.manage().window().fullscreen();
 
 			// driver.manage().window().maximize();
 
@@ -83,7 +85,7 @@ public class BrowserSetUp {
 
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
 
-			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, firefoxLogPath);
+			//System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, firefoxLogPath);
 
 			driver = new FirefoxDriver();
 
@@ -99,7 +101,7 @@ public class BrowserSetUp {
 			//
 			// driver.manage().window().setSize(dm);
 
-			driver.manage().window().fullscreen();
+			//driver.manage().window().fullscreen();
 
 			// driver.manage().window().setPosition(new Point(-2000, 0));
 
