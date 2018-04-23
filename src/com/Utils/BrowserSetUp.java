@@ -172,15 +172,15 @@ public class BrowserSetUp extends ReadAndWriteTestData{
 			
 		} catch (UnhandledAlertException e) {
 			
-	    	Alert alert  = driver.switchTo().alert();  
-	    	
-	    	String alertMessage = driver.switchTo().alert().getText();  
-	    	
-	    	System.out.println(alertMessage); 
-	    	
-        	alert.accept();
-        	
 	    	try {
+	    		
+		    	Alert alert  = driver.switchTo().alert();  
+		    	
+		    	String alertMessage = driver.switchTo().alert().getText();  
+		    	
+		    	System.out.println(alertMessage); 
+		    	
+	        	alert.accept();
 
 	        	alert.dismiss();
 	        	

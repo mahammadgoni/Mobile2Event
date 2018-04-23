@@ -17,6 +17,7 @@ import com.EventAgendaSetup.AddSessions;
 import com.EventAgendaSetup.AddSpeakers;
 import com.EventAgendaSetup.AddSponsors;
 import com.EventAgendaSetup.UploadData;
+import com.EventGamification.QuizOrTrivia;
 import com.EventLive_TheEvent.PollOrVote;
 import com.EventLive_TheEvent.Rate;
 import com.EventManagement.CloneEvent;
@@ -209,15 +210,15 @@ public class E2MTestCase extends BrowserSetUp {
 //		new RolesAndPrivileges(driver).addRoleAndPrivilege(EmailId, Password);
 //
 //	}
-	
-	@Test(priority = 13,alwaysRun=true)
-	public void updateUserCredentialsTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Update User Credentials Test");
-		
-		new UpdateUserCredentials(driver).updateCredentials(EmailId, Password, EventFullName);
-
-	}
+//	
+//	@Test(priority = 13,alwaysRun=true)
+//	public void updateUserCredentialsTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Update User Credentials Test");
+//		
+//		new UpdateUserCredentials(driver).updateCredentials(EmailId, Password, EventFullName);
+//
+//	}
 //	
 //	@Test(priority = 14,alwaysRun=true)
 //	public void newEventCreationTest() {
@@ -832,9 +833,15 @@ public class E2MTestCase extends BrowserSetUp {
 //	
 ////	Till Here
 	
-	
+	@Test(priority = 81,alwaysRun=true)
+	public void addQuizOrTriviaTest() throws ParseException, InterruptedException, AWTException {
 
-	
+		System.out.println("Executing : Add Quiz Or Trivia Test");
+		
+		new QuizOrTrivia(driver).addQuizOrTrivia(EmailId, Password, EventFullName);
+
+	}
+		
 		
 //	@Test(priority = 7,alwaysRun=true)
 //	public void cloneToNewEventTest() {
