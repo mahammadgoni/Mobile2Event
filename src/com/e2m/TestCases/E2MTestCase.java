@@ -1,7 +1,9 @@
 package com.e2m.TestCases;
 
 import java.awt.AWTException;
+import java.io.IOException;
 import java.text.ParseException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -15,6 +17,10 @@ import com.EventAgendaSetup.AddSessions;
 import com.EventAgendaSetup.AddSpeakers;
 import com.EventAgendaSetup.AddSponsors;
 import com.EventAgendaSetup.UploadData;
+import com.EventGamification.Badges;
+import com.EventGamification.Locations;
+import com.EventGamification.QuizOrTrivia;
+import com.EventGamification.ScoringRules;
 import com.EventLive_TheEvent.PollOrVote;
 import com.EventLive_TheEvent.Rate;
 import com.EventManagement.CloneEvent;
@@ -37,13 +43,13 @@ import com.Utils.GetScreenShot;
 
 //    @Listeners({ GetScreenShot.class })
 
-public class E2MTestCaes extends BrowserSetUp {
+public class E2MTestCase extends BrowserSetUp {
 
 //	 Please select the Browser before run all the Test Cases
 
 //	String BrowserName = "Firefox";
 
-	String BrowserName = "Chrome";
+//	String BrowserName = "Chrome";
 
 	String EmailId = "ethan.taylor@yopmail.com";
 
@@ -76,9 +82,9 @@ public class E2MTestCaes extends BrowserSetUp {
 	String Location = "Ground Floor";
 
 	@BeforeClass
-	public void setUp() throws InterruptedException {
-
-		openBrowser(BrowserName);
+	public void setUp() throws InterruptedException, InvalidFormatException, IOException {
+		
+		openBrowser();
 
 	}
 
@@ -90,7 +96,7 @@ public class E2MTestCaes extends BrowserSetUp {
 	}
 	
 	@AfterMethod
-	public void afterMethod(){
+	public void afterMethod() throws IOException, InvalidFormatException{
 		
 		logOut();
 		
@@ -207,15 +213,15 @@ public class E2MTestCaes extends BrowserSetUp {
 //		new RolesAndPrivileges(driver).addRoleAndPrivilege(EmailId, Password);
 //
 //	}
-	
-	@Test(priority = 13,alwaysRun=true)
-	public void updateUserCredentialsTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Update User Credentials Test");
-		
-		new UpdateUserCredentials(driver).updateCredentials(EmailId, Password, EventFullName);
-
-	}
+//	
+//	@Test(priority = 13,alwaysRun=true)
+//	public void updateUserCredentialsTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Update User Credentials Test");
+//		
+//		new UpdateUserCredentials(driver).updateCredentials(EmailId, Password, EventFullName);
+//
+//	}
 //	
 //	@Test(priority = 14,alwaysRun=true)
 //	public void newEventCreationTest() {
@@ -829,10 +835,61 @@ public class E2MTestCaes extends BrowserSetUp {
 //	}
 //	
 ////	Till Here
+//	
+//	@Test(priority = 81,alwaysRun=true)
+//	public void addQuizOrTriviaTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Quiz Or Trivia Test");
+//		
+//		new QuizOrTrivia(driver).addQuizOrTrivia(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 82,alwaysRun=true)
+//	public void addLocationQuestionsTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Location Questions Test");
+//		
+//		new Locations(driver).addLocations(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 83,alwaysRun=true)
+//	public void createQuizScoringRuleTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Create Quiz Scoring Rules Test");
+//		
+//		new ScoringRules(driver).addScoringRules(EmailId, Password, EventFullName, "Quiz", "100", "75", "50");
+//
+//	}
+//	
+//	@Test(priority = 84,alwaysRun=true)
+//	public void createLocationScoringRulesTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Create Location Scoring Rules Test");
+//		
+//		new ScoringRules(driver).addScoringRules(EmailId, Password, EventFullName, "Location", "100", "75", "50");
+//
+//	}
+//	
+//	@Test(priority = 85,alwaysRun=true)
+//	public void addBadgeAndMapWithQuizTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Badge and Map with Quiz Test");
+//		
+//		new Badges(driver).addBadges(EmailId, Password, EventFullName, "QuizMap", "Quiz");
+//
+//	}
 	
-	
+	@Test(priority = 86,alwaysRun=true)
+	public void addBadgeAndMapWithLocationTest() throws ParseException, InterruptedException, AWTException {
 
-	
+		System.out.println("Executing : Add Badge and Map with Location	 Test");
+		
+		new Badges(driver).addBadges(EmailId, Password, EventFullName, "LocationMap", "Location");
+
+	}
+		
 		
 //	@Test(priority = 7,alwaysRun=true)
 //	public void cloneToNewEventTest() {
