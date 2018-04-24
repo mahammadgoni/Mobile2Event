@@ -17,7 +17,10 @@ import com.EventAgendaSetup.AddSessions;
 import com.EventAgendaSetup.AddSpeakers;
 import com.EventAgendaSetup.AddSponsors;
 import com.EventAgendaSetup.UploadData;
+import com.EventGamification.Badges;
+import com.EventGamification.Locations;
 import com.EventGamification.QuizOrTrivia;
+import com.EventGamification.ScoringRules;
 import com.EventLive_TheEvent.PollOrVote;
 import com.EventLive_TheEvent.Rate;
 import com.EventManagement.CloneEvent;
@@ -832,13 +835,58 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 ////	Till Here
+//	
+//	@Test(priority = 81,alwaysRun=true)
+//	public void addQuizOrTriviaTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Quiz Or Trivia Test");
+//		
+//		new QuizOrTrivia(driver).addQuizOrTrivia(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 82,alwaysRun=true)
+//	public void addLocationQuestionsTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Location Questions Test");
+//		
+//		new Locations(driver).addLocations(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 83,alwaysRun=true)
+//	public void createQuizScoringRuleTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Create Quiz Scoring Rules Test");
+//		
+//		new ScoringRules(driver).addScoringRules(EmailId, Password, EventFullName, "Quiz", "100", "75", "50");
+//
+//	}
+//	
+//	@Test(priority = 84,alwaysRun=true)
+//	public void createLocationScoringRulesTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Create Location Scoring Rules Test");
+//		
+//		new ScoringRules(driver).addScoringRules(EmailId, Password, EventFullName, "Location", "100", "75", "50");
+//
+//	}
+//	
+//	@Test(priority = 85,alwaysRun=true)
+//	public void addBadgeAndMapWithQuizTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Badge and Map with Quiz Test");
+//		
+//		new Badges(driver).addBadges(EmailId, Password, EventFullName, "QuizMap", "Quiz");
+//
+//	}
 	
-	@Test(priority = 81,alwaysRun=true)
-	public void addQuizOrTriviaTest() throws ParseException, InterruptedException, AWTException {
+	@Test(priority = 86,alwaysRun=true)
+	public void addBadgeAndMapWithLocationTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Add Quiz Or Trivia Test");
+		System.out.println("Executing : Add Badge and Map with Location	 Test");
 		
-		new QuizOrTrivia(driver).addQuizOrTrivia(EmailId, Password, EventFullName);
+		new Badges(driver).addBadges(EmailId, Password, EventFullName, "LocationMap", "Location");
 
 	}
 		

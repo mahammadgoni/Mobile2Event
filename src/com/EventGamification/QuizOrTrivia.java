@@ -72,6 +72,8 @@ public class QuizOrTrivia extends BaseSetUp{
 	
 	By deleteBtn = By.xpath("//*[@id='ContentPlaceHolder1_gvResources_imgDel_0']");
 	
+	By generateAllQRs = By.xpath("//a[@id='ContentPlaceHolder1_btnDownloadBC']");
+	
 	
 	
 	
@@ -451,6 +453,8 @@ public class QuizOrTrivia extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
+//		Creating the 1st Questions
+		
 		commonQuestionAdd(true, "Automation Game Room", "100", "What is your Domain?", ".Net", "pHp", "Java", "Python", "D");
 		
 		Thread.sleep(2000);
@@ -463,6 +467,8 @@ public class QuizOrTrivia extends BaseSetUp{
 		}
 		
 		Thread.sleep(2000);
+		
+//		Creating the 2nd Questions
 		
 		commonQuestionAdd(true, "Automation Gym Room", "100", "Which Year is this?", "2015", "2016", "2018", "2019", "C");
 		
@@ -477,6 +483,8 @@ public class QuizOrTrivia extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
+//		Creating the 3rd Questions
+		
 		commonQuestionAdd(false, "Automation Code Room", "100", "Which Month is this?", "December", "May", "June", "July", "B");
 		
 		Thread.sleep(2000);
@@ -490,6 +498,8 @@ public class QuizOrTrivia extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
+//		Creating the 4th Questions
+		
 		commonQuestionAdd(false, "Automation Test Room", "100", "When the Event will Start?", "6.00 AM", "7.00 PM", "8.00 AM", "9.00 PM", "A");
 		
 		Thread.sleep(2000);
@@ -500,6 +510,18 @@ public class QuizOrTrivia extends BaseSetUp{
 		} catch (Exception e) {
 			
 		}
+		
+		Thread.sleep(2000);
+		
+//		Clicking On Generate All QRs
+		
+		System.out.println("Clicking On Generate All QRs");
+		
+		waitForClickabilityOf(generateAllQRs);
+		
+		driver.findElement(generateAllQRs).click();
+		
+		Thread.sleep(2000);
 		
 //		Checking No Of Questions
 		
