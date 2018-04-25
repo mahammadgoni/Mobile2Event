@@ -19,6 +19,7 @@ import com.EventAgendaSetup.AddSponsors;
 import com.EventAgendaSetup.UploadData;
 import com.EventGamification.Badges;
 import com.EventGamification.Locations;
+import com.EventGamification.MakeAFriend;
 import com.EventGamification.QuizOrTrivia;
 import com.EventGamification.ScoringRules;
 import com.EventLive_TheEvent.PollOrVote;
@@ -873,20 +874,38 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 85,alwaysRun=true)
-//	public void addBadgeAndMapWithQuizTest() throws ParseException, InterruptedException, AWTException {
+//	public void addUserConnectionTest() throws ParseException, InterruptedException, AWTException {
 //
-//		System.out.println("Executing : Add Badge and Map with Quiz Test");
+//		System.out.println("Executing : Add User Connection Test");
 //		
-//		new Badges(driver).addBadges(EmailId, Password, EventFullName, "QuizMap", "Quiz");
+//		new MakeAFriend(driver).addConnectionRules(EmailId, Password, EventFullName);
 //
 //	}
 	
 	@Test(priority = 86,alwaysRun=true)
+	public void addBadgeAndMapWithQuizTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Add Badge and Map with Quiz Test");
+		
+		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Quiz Map", "Quiz");
+
+	}
+	
+	@Test(priority = 87,alwaysRun=true)
 	public void addBadgeAndMapWithLocationTest() throws ParseException, InterruptedException, AWTException {
 
-		System.out.println("Executing : Add Badge and Map with Location	 Test");
+		System.out.println("Executing : Add Badge and Map with LocationTest");
 		
-		new Badges(driver).addBadges(EmailId, Password, EventFullName, "LocationMap", "Location");
+		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Location Map", "Location");
+
+	}
+	
+	@Test(priority = 88,alwaysRun=true)
+	public void addBadgeAndMapWithUserTest() throws ParseException, InterruptedException, AWTException {
+
+		System.out.println("Executing : Add Badge and Map with User Test");
+		
+		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Making Friend Map", "User");
 
 	}
 		

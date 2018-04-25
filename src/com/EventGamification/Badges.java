@@ -43,6 +43,8 @@ public class Badges extends BaseSetUp{
 	
 	By selectAllLocationCheckBox = By.xpath("//*[@id='ContentPlaceHolder1_gvResources_chkHeader']");
 	
+	By selectUserCheckBox = By.xpath("//*[@id='ContentPlaceHolder1_gvResources_rbtnUC_0']");
+	
 	By saveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
 	
 	
@@ -242,6 +244,16 @@ public class Badges extends BaseSetUp{
 		
 		Time.sendKeys(Keys.ENTER);
 		
+//		Again selecting the Time
+		
+		Thread.sleep(2000);
+		
+		Date.click();
+		
+		Date.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+		
 		if (MappingGameType.equals("Quiz")) {
 			
 			System.out.println("Selecting the Game Type As Quiz");
@@ -254,7 +266,7 @@ public class Badges extends BaseSetUp{
 			
 			Thread.sleep(2000);
 			
-//			Entering Activation Time
+//			Clicking On Select All Check Box
 			
 			System.out.println("Clicking On Select All Check Box");
 			
@@ -274,10 +286,26 @@ public class Badges extends BaseSetUp{
 			GameTypeDropDown.selectByIndex(2);
 			
 			Thread.sleep(2000);
+			
+//			Clicking On Select All Check Box
+			
+			System.out.println("Clicking On Select All Check Box");
+			
+			waitForClickabilityOf(selectAllLocationCheckBox);
+			
+			driver.findElement(selectAllLocationCheckBox).click();
 						
 		}else {
 			
 			System.out.println("Selecting the Game Type As Make a Friend");
+			
+//			Clicking On Select All Check Box
+			
+			System.out.println("Selecting User Connection Box");
+			
+			waitForClickabilityOf(selectUserCheckBox);
+			
+			driver.findElement(selectUserCheckBox).click();
 						
 		}
 		
@@ -288,6 +316,14 @@ public class Badges extends BaseSetUp{
 		waitForClickabilityOf(saveBtn);
 		
 		driver.findElement(saveBtn).click();
+		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
 		
 		
 		return new Badges(driver);

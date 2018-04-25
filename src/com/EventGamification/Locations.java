@@ -259,7 +259,7 @@ public class Locations extends BaseSetUp{
 		
 		Time.click();
 		
-		Time.sendKeys(Keys.ENTER);
+		Time.sendKeys(Keys.UP,Keys.ENTER);
 		
 		Thread.sleep(2000);
 		
