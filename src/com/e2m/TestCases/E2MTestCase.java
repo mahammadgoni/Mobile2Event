@@ -32,6 +32,7 @@ import com.EventMeetings.ExpertTopicMapping;
 import com.EventMeetings.ManageMeetings;
 import com.EventMeetings.SetUpMeetings;
 import com.EventMeetings.UploadMeetings;
+import com.EventSetup.AboutEvent;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
 import com.UserManagement.EditUserDetails;
@@ -52,9 +53,9 @@ public class E2MTestCase extends BrowserSetUp {
 
 //	String BrowserName = "Chrome";
 
-	String EmailId = "ethan.taylor@yopmail.com";
+//	String EmailId = "ethan.taylor@yopmail.com";
 
-	String Password = "#e2m321";
+//	String Password = "#e2m321";
 	
 //	String EmailId = "autobmc@bmc.com";
 
@@ -72,9 +73,9 @@ public class E2MTestCase extends BrowserSetUp {
 	
 //	String EventFullName = "Google IO";
 	
-	String EventFullName = "Nokia 2 Pre Launch Event";
-	
-	String EventShortName = "Nokia 2";
+//	String EventFullName = "Nokia 2 Pre Launch Event";
+		
+//	String EventShortName = "Nokia 2";
 	
 	String SessionTitle = "Networking";
 	
@@ -234,13 +235,76 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 15,alwaysRun=true)
+//	public void viewEventInfoTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : View Event Info Test");
+//		
+//		new AboutEvent(driver).eventInfo(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 16,alwaysRun=true)
+//	public void addVenueTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Add Venue Test");
+//		
+//		new AboutEvent(driver).addVenue(EmailId, Password, EventFullName, "Madison Square Garden", "Madison Square North, New York, NY, USA");
+//
+//	}
+//	
+//	@Test(priority = 17,alwaysRun=true)
+//	public void addDisclaimerTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Add Disclaimer Test");
+//		
+//		new AboutEvent(driver).addDisclaimer(EmailId, Password, EventFullName);
+//
+//	}
+	
+	
+	@Test(priority = 18,alwaysRun=true)
+	public void addSocialLinkTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+		
+		String EmailId = getCellData(1, 5);
+
+		String Password = getCellData(1, 6);
+		
+		String EventFullName = getCellData(1, 7);
+		
+		String EventShortName = getCellData(1, 8);
+
+		System.out.println("Executing : Add Social Link Test");
+		
+		new AboutEvent(driver).addSocialLink(EmailId, Password, EventFullName, EventShortName);
+
+	}
+//	
+//	@Test(priority = 15,alwaysRun=true)
 //	public void addSessionToEventTest() throws ParseException, InterruptedException {
 //
 //		System.out.println("Executing : Add Session to Event Test");
 //		
 //		new AddSessions(driver).addSessions(EmailId, Password, EventFullName,SessionTitle,TrackName,Location);
 //
-//	}
+//	}	
 //	
 //	@Test(priority = 16,alwaysRun=true)
 //	public void addSessionWithTrackAndLocationToEventTest() throws ParseException, InterruptedException {
@@ -881,33 +945,33 @@ public class E2MTestCase extends BrowserSetUp {
 //		new MakeAFriend(driver).addConnectionRules(EmailId, Password, EventFullName);
 //
 //	}
-	
-	@Test(priority = 86,alwaysRun=true)
-	public void addBadgeAndMapWithQuizTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Add Badge and Map with Quiz Test");
-		
-		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Quiz Map", "Quiz");
-
-	}
-	
-	@Test(priority = 87,alwaysRun=true)
-	public void addBadgeAndMapWithLocationTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Add Badge and Map with LocationTest");
-		
-		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Location Map", "Location");
-
-	}
-	
-	@Test(priority = 88,alwaysRun=true)
-	public void addBadgeAndMapWithUserTest() throws ParseException, InterruptedException, AWTException {
-
-		System.out.println("Executing : Add Badge and Map with User Test");
-		
-		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Making Friend Map", "User");
-
-	}
+//	
+//	@Test(priority = 86,alwaysRun=true)
+//	public void addBadgeAndMapWithQuizTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Badge and Map with Quiz Test");
+//		
+//		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Quiz Map", "Quiz");
+//
+//	}
+//	
+//	@Test(priority = 87,alwaysRun=true)
+//	public void addBadgeAndMapWithLocationTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Badge and Map with LocationTest");
+//		
+//		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Location Map", "Location");
+//
+//	}
+//	
+//	@Test(priority = 88,alwaysRun=true)
+//	public void addBadgeAndMapWithUserTest() throws ParseException, InterruptedException, AWTException {
+//
+//		System.out.println("Executing : Add Badge and Map with User Test");
+//		
+//		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Making Friend Map", "User");
+//
+//	}
 		
 		
 //	@Test(priority = 7,alwaysRun=true)
