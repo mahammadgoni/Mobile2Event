@@ -1,5 +1,7 @@
 package com.EventSetup;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -24,9 +26,7 @@ public class AboutEvent extends BaseSetUp{
 	By manageVanues = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='Venue-AddEdit.aspx']");
 	
 	By addVanues = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='Venue-AddEdit.aspx']");
-	
-	By usefullInfo = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='UsefulInfo.aspx']");
-	
+		
 	By declaimers = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='Disclaimer.aspx']");
 		
 //	Event Info Elements
@@ -71,7 +71,32 @@ public class AboutEvent extends BaseSetUp{
 	
 	By socialAdd = By.xpath("//a[@id='ContentPlaceHolder1_grdInstance_lnkAdd']");
 	
-//	
+//	Useful Info Elements
+	
+	By usefullInfo = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='UsefulInfo.aspx']");
+	
+	By addNewBtn = By.xpath("//a[@id='ContentPlaceHolder1_A3']");
+	
+	By importBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnImport']");
+	
+	By useFullFileUpload = By.xpath("//*[@id='ContentPlaceHolder1_fileupload']");
+	
+	By bulkUploadHistory = By.xpath("//*[@id='ContentPlaceHolder1_btnBulkUploadHistory']");
+	
+	By titleName = By.xpath("//*[@id='ContentPlaceHolder1_txtTitle']");
+	
+	By enableBtn = By.xpath("//*[@id='ContentPlaceHolder1_rblShowInApp_0']");
+	
+	By addTag = By.xpath("//*[@id='ContentPlaceHolder1_txtTags']");
+	
+	By browseBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnUpload']");
+	
+	By suceessMessage = By.xpath("//li[@id='liPostSuccessMessage']");
+	
+	By bulkSaveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnAdd']");
+	
+	By noExstInfo = By.xpath("//*[@class='btn-delete']");
+	
 	
 	
 
@@ -82,6 +107,7 @@ public class AboutEvent extends BaseSetUp{
 		super(driver);
 		
 	}
+	
 	
 	public void commonActivities(String EmailId, String Password,String EventFullName) throws InterruptedException{
 		
@@ -174,6 +200,7 @@ public class AboutEvent extends BaseSetUp{
 		
 	}
 	
+//  Event Info Method
 	
 	
 //	Event Info Method
@@ -208,6 +235,7 @@ public class AboutEvent extends BaseSetUp{
 		
 	}
 	
+//  Add Venue Method
 	
 	
 //	Add Venues Method 
@@ -297,6 +325,7 @@ public class AboutEvent extends BaseSetUp{
 //	Add Disclaimer Method
 	
 	
+//	Add Disclaimer Method
 
 	public AboutEvent addDisclaimer(String EmailId, String Password,String EventFullName) throws InterruptedException{
 		
@@ -380,6 +409,7 @@ public class AboutEvent extends BaseSetUp{
 		
 	}
 	
+//	Add Social Link Method
 	
 	
 //	Add Social Link Method
@@ -482,17 +512,205 @@ public class AboutEvent extends BaseSetUp{
 		return new AboutEvent(driver);
 		
 	}
-	
-	
+		
 	
 //	Add Use full Info Method
 	
-	public AboutEvent addUseFullInfo(String EmailId, String Password,String EventFullName) throws InterruptedException{
+	public AboutEvent addUseFullInfo(String EmailId, String Password,String EventFullName,String EventShortName) throws InterruptedException{
 		
 		commonActivities(EmailId, Password, EventFullName);
 		
+		Thread.sleep(2000);
 		
+//		Clicking on Useful Info
+		
+		System.out.println("Clicking on Useful Info");
+		
+		waitForClickabilityOf(usefullInfo);
+		
+		driver.findElement(usefullInfo).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Add New Button
+		
+		System.out.println("Clicking on Add New Button");
+		
+		waitForClickabilityOf(addNewBtn);
+		
+		driver.findElement(addNewBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Entering the Title or Menu Name
+		
+		System.out.println("Entering the Title or Menu Name");
+		
+		waitForClickabilityOf(titleName);
+		
+		driver.findElement(titleName).clear();
+		
+		driver.findElement(titleName).sendKeys(EventShortName+" Useful Info");
+		
+		Thread.sleep(2000);
+		
+//		Enabling Show In App
+		
+		boolean Enable = driver.findElement(enableBtn).isSelected();
+		
+		if (Enable==false) {
+			
+			System.out.println("Enabling Show In App");
+			
+			waitForClickabilityOf(enableBtn);
+			
+			driver.findElement(enableBtn).click();
+			
+		} else {
+			
+			System.out.println("Show In App already Enabled");
+
+		}
+		
+//		Entering the Title or Menu Name
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Entering the Add Tag");
+		
+		waitForClickabilityOf(addTag);
+		
+		driver.findElement(addTag).clear();
+		
+		driver.findElement(addTag).sendKeys("Automation");
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Add New Button
+		
+		System.out.println("Clicking on Save Button");
+		
+		waitForClickabilityOf(saveBtn);
+		
+		driver.findElement(saveBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Added Useful Info name
+		
+		String UsefulTitle = driver.findElement(By.xpath("//*[contains(text(),'"+EventShortName+" Useful Info')]")).getText(); 
+		
+//		 Actual Useful Info
+		
+		String UsefulTitle1 = EventShortName+" Useful Info";
+		
+//		Verifying Useful Info
+		
+		if (UsefulTitle.equals(UsefulTitle1)) {
+			
+			System.out.println("Successfully Added Useful Info");
+			
+		} else {
+			
+			System.out.println("Failed to Add Useful Info");
+
+		}
+		
+				
 		return null;
+		
+	}
+	
+//	Bulk Upload Method
+	
+	public AboutEvent bulkUploadUsefullInfo(String EmailId, String Password,String EventFullName) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Useful Info
+		
+		System.out.println("Clicking on Useful Info");
+		
+		waitForClickabilityOf(usefullInfo);
+		
+		driver.findElement(usefullInfo).click();
+		
+		Thread.sleep(2000);
+		
+//		Storing the Existing Elements 
+		
+		waitForClickabilityOf(noExstInfo);
+
+		List<WebElement> ExstInfo = driver.findElements(noExstInfo);
+
+		int NoExInfo = ExstInfo.size();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Import Button
+		
+		System.out.println("Clicking on Import Button");
+		
+		waitForClickabilityOf(importBtn);
+		
+		driver.findElement(importBtn).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Import Button
+		
+		System.out.println("Selecting the Import File");
+		
+		waitForClickabilityOf(useFullFileUpload);
+		
+		driver.findElement(useFullFileUpload).sendKeys(home+"/Test Data/UsefulInfoImportTemplate.xlsx");
+		
+		Thread.sleep(2000);	
+		
+//		Clicking on Save Button
+		
+		System.out.println("Clicking on Save Button");
+		
+		waitForClickabilityOf(bulkSaveBtn);
+		
+		driver.findElement(bulkSaveBtn).click();
+		
+		Thread.sleep(2000);	
+		
+//		Clicking on Useful Info
+		
+		System.out.println("Clicking on Useful Info");
+		
+		waitForClickabilityOf(usefullInfo);
+		
+		driver.findElement(usefullInfo).click();
+		
+		Thread.sleep(2000);	
+		
+//		Storing the Existing Elements 
+		
+		waitForClickabilityOf(noExstInfo);
+
+		List<WebElement> ExstInfo1 = driver.findElements(noExstInfo);
+
+		int NoExInfo1 = ExstInfo1.size();
+						
+//		Verifying Social Name
+		
+		if (NoExInfo1==NoExInfo+2) {
+			
+			System.out.println("Successfully Uploaded Useful Info");
+			
+		} else {
+			
+			System.out.println("Failed to Upload Useful Info");
+
+		}
+	
+		
+		return new AboutEvent(driver);
 		
 	}
 	

@@ -278,10 +278,43 @@ public class E2MTestCase extends BrowserSetUp {
 //		new AboutEvent(driver).addDisclaimer(EmailId, Password, EventFullName);
 //
 //	}
+//	
+//	@Test(priority = 18,alwaysRun=true)
+//	public void addSocialLinkTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String EventShortName = getCellData(1, 8);
+//
+//		System.out.println("Executing : Add Social Link Test");
+//		
+//		new AboutEvent(driver).addSocialLink(EmailId, Password, EventFullName, EventShortName);
+//
+//	}
+//	
+//	@Test(priority = 19,alwaysRun=true)
+//	public void addUsefulInfoTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String EventShortName = getCellData(1, 8);
+//
+//		System.out.println("Executing : Add Useful Info Test");
+//		
+//		new AboutEvent(driver).addUseFullInfo(EmailId, Password, EventFullName, EventShortName);
+//
+//	}
 	
-	
-	@Test(priority = 18,alwaysRun=true)
-	public void addSocialLinkTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+	@Test(priority = 20,alwaysRun=true)
+	public void bulkUplloadUsefulInfoTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
 		
 		String EmailId = getCellData(1, 5);
 
@@ -289,11 +322,9 @@ public class E2MTestCase extends BrowserSetUp {
 		
 		String EventFullName = getCellData(1, 7);
 		
-		String EventShortName = getCellData(1, 8);
-
-		System.out.println("Executing : Add Social Link Test");
+		System.out.println("Executing : Bulk Upload Useful Info Test");
 		
-		new AboutEvent(driver).addSocialLink(EmailId, Password, EventFullName, EventShortName);
+		new AboutEvent(driver).bulkUploadUsefullInfo(EmailId, Password, EventFullName);
 
 	}
 //	
