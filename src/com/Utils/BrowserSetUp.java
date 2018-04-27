@@ -35,7 +35,7 @@ public class BrowserSetUp extends ReadAndWriteTestData{
 		
 		String BrowserName = getCellData(1, 0);
 		
-		System.out.println(BrowserName);
+//		System.out.println(BrowserName);
 		
 //		DesiredCapabilities caps = new DesiredCapabilities();
 //		

@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BaseSetUp {
 	
     protected WebDriver driver;
+    
+	 protected String home = System.getProperty("user.dir");
 
     public BaseSetUp(WebDriver driver) {
         this.driver = driver;
