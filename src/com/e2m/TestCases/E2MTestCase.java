@@ -33,6 +33,7 @@ import com.EventMeetings.ManageMeetings;
 import com.EventMeetings.SetUpMeetings;
 import com.EventMeetings.UploadMeetings;
 import com.EventSetup.AboutEvent;
+import com.EventSetup.AppBranding;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
 import com.UserManagement.EditUserDetails;
@@ -312,9 +313,55 @@ public class E2MTestCase extends BrowserSetUp {
 //		new AboutEvent(driver).addUseFullInfo(EmailId, Password, EventFullName, EventShortName);
 //
 //	}
+//	
+//	@Test(priority = 20,alwaysRun=true)
+//	public void bulkUplloadUsefulInfoTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Bulk Upload Useful Info Test");
+//		
+//		new AboutEvent(driver).bulkUploadUsefullInfo(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 21,alwaysRun=true)
+//	public void logoAndThemeUploadTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Upload Logo and Theme Test");
+//		
+//		new AppBranding(driver).logoAndTheme(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 22,alwaysRun=true)
+//	public void eventBackgroundImageTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Event Background Image Test");
+//		
+//		new AppBranding(driver).eventBackground(EmailId, Password, EventFullName);
+//
+//	}
 	
-	@Test(priority = 20,alwaysRun=true)
-	public void bulkUplloadUsefulInfoTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+	
+	@Test(priority = 23,alwaysRun=true)
+	public void eventBabberTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
 		
 		String EmailId = getCellData(1, 5);
 
@@ -322,9 +369,9 @@ public class E2MTestCase extends BrowserSetUp {
 		
 		String EventFullName = getCellData(1, 7);
 		
-		System.out.println("Executing : Bulk Upload Useful Info Test");
+		System.out.println("Executing : Event Banner Test");
 		
-		new AboutEvent(driver).bulkUploadUsefullInfo(EmailId, Password, EventFullName);
+		new AppBranding(driver).eventBanner(EmailId, Password, EventFullName, "NoLink");
 
 	}
 //	
