@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import com.BaseSetup.BaseSetUp;
 import com.CommonActions.LoginToAccount;
@@ -43,6 +44,40 @@ public class AppMenu extends BaseSetUp{
 	By menu3rdItem = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_ReorderListMenuCategory__rli3___dih3']//div//img[@id='imgRowOrderChange']");
 	
 	By saveDisplayOrder = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
+	
+//	Add Menu Elements
+	
+	By clickOnAddMenu = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='MenuAddEdit.aspx']");
+	
+	By menuName = By.xpath("//*[@id='ContentPlaceHolder1_txtMenu']");
+	
+	By menuCategory = By.xpath("//*[@id='ContentPlaceHolder1_ddlMenuCategory']");
+	
+	By mapMenu = By.xpath("//*[@id='ContentPlaceHolder1_ddlMapMenu']");
+	
+	By listCaption = By.xpath("//*[@id='ContentPlaceHolder1_txtListCaption']");
+	
+	By detailCaption = By.xpath("//*[@id='ContentPlaceHolder1_txtDetailCaption']");
+	
+	By menuIconCustom = By.xpath("//*[@id='ContentPlaceHolder1_rblMenuCategoryIcon_0']");
+	
+	By menuIconDefault = By.xpath("//*[@id='ContentPlaceHolder1_rblMenuCategoryIcon_1']");
+	
+	By uploadMenuIcon = By.xpath("//*[@id='ContentPlaceHolder1_FUCategory']");
+	
+	By chooseIconBadge = By.xpath("//*[@src='write/Menu/Badge.png']");
+	
+//	Manage Menu Items
+	
+	By clickOnManageMenu = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='MenuList.aspx']");
+	
+	By searchMenu = By.xpath("//*[@id='ContentPlaceHolder1_txtMenu']");
+	
+	By menu1stName = By.xpath("//a[@id='ContentPlaceHolder1_gvMenu_btnEdit_0']");
+	
+	
+	
+	
 	
 	
 	
@@ -228,6 +263,8 @@ public class AppMenu extends BaseSetUp{
 		
 	}
 
+//	Manage Category Method
+	
 	public AppMenu manageCategory(String EmailId, String Password,String EventFullName) throws InterruptedException{
 		
 		commonActivities(EmailId, Password, EventFullName);
@@ -268,7 +305,7 @@ public class AppMenu extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
-//		Clicking on Category Ordering
+//		Clicking on Save Display Order
 		
 		System.out.println("Clicking on Save Display Order");
 		
@@ -301,4 +338,132 @@ public class AppMenu extends BaseSetUp{
 		
 	}
 
+//	Add Menu Method
+	
+	public AppMenu addMenuItem(String EmailId, String Password,String EventFullName,String MenuName) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Add Menu
+		
+		System.out.println("Clicking on Add Menu");
+		
+		waitForClickabilityOf(clickOnAddMenu);
+		
+		driver.findElement(clickOnAddMenu).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Add Menu
+		
+		System.out.println("Entering Menu Name");
+		
+		waitForClickabilityOf(menuName);
+		
+		driver.findElement(menuName).sendKeys(MenuName);
+		
+		Thread.sleep(2000);
+		
+//	    Selecting Menu Category
+		
+		System.out.println("Selecting Menu Category");
+		
+		waitForClickabilityOf(menuCategory);
+		
+		Select MenuCategory = new Select(driver.findElement(menuCategory));
+		
+		MenuCategory.selectByIndex(1);
+		
+		Thread.sleep(2000);
+		
+//	    Mapping Menu
+		
+		System.out.println("Mapping Menu");
+		
+		waitForClickabilityOf(mapMenu);
+		
+		Select MapMenu = new Select(driver.findElement(mapMenu));
+		
+		MapMenu.selectByIndex(1);
+		
+		Thread.sleep(2000);
+		
+//		Entering New Category Name
+		
+		System.out.println("Uploading Menu Icon Image");
+		
+		waitForClickabilityOf(uploadMenuIcon);
+		
+		driver.findElement(uploadMenuIcon).sendKeys(home+"/Test Data/AddMenu.png");
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Save Display Order
+		
+		System.out.println("Clicking on Save Display Order");
+		
+		waitForClickabilityOf(saveDisplayOrder);
+		
+		driver.findElement(saveDisplayOrder).click();
+		
+		Thread.sleep(2000);
+		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
+		
+		Thread.sleep(2000);
+		
+//		Searching for Event Name
+		
+		System.out.println("Searching for Menu Name");
+		
+		waitForClickabilityOf(searchMenu);
+		
+		WebElement search = driver.findElement(searchMenu);
+		
+		search.sendKeys(MenuName);
+		
+//		Pressing Enter Button 
+		
+		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+				
+//		Storing the Item Name
+		
+		String MenuItem = driver.findElement(menu1stName).getText();
+		
+	    Thread.sleep(2000);
+		
+		if (MenuItem.equals(MenuName)) {
+			
+			System.out.println("Successfully Added One Menu");
+			
+		} else {
+			
+			System.out.println("Failed to Add Menu ");
+
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		return new AppMenu(driver);
+		
+	}
+	
 }
