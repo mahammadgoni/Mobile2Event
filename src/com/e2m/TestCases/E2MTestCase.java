@@ -34,6 +34,7 @@ import com.EventMeetings.SetUpMeetings;
 import com.EventMeetings.UploadMeetings;
 import com.EventSetup.AboutEvent;
 import com.EventSetup.AppBranding;
+import com.EventSetup.AppMenu;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
 import com.UserManagement.EditUserDetails;
@@ -358,22 +359,83 @@ public class E2MTestCase extends BrowserSetUp {
 //		new AppBranding(driver).eventBackground(EmailId, Password, EventFullName);
 //
 //	}
+//	
+//	
+//	@Test(priority = 23,alwaysRun=true)
+//	public void eventBannerNoLinkTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Event Banner with Nolink Test");
+//		
+//		new AppBranding(driver).eventBanner(EmailId, Password, EventFullName, "NoLink");
+//
+//	}
+//	
+//	
+//	@Test(priority = 24,alwaysRun=true)
+//	public void eventBannerInternalLinkTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Event Banner Internal Link Test");
+//		
+//		new AppBranding(driver).eventBanner(EmailId, Password, EventFullName, "Internal");
+//
+//	}
+//	
+//	@Test(priority = 25,alwaysRun=true)
+//	public void eventBannerExternalTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Event Banner with External Link Test");
+//		
+//		new AppBranding(driver).eventBanner(EmailId, Password, EventFullName, "External");
+//
+//	}
+//		
+//	@Test(priority = 26,alwaysRun=true)
+//	public void addMenuCategoryTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Add New Menu Category Test");
+//		
+//		new AppMenu(driver).addNewCategory(EmailId, Password, EventFullName, "AutoAndroid");
+//
+//	}
 	
+@Test(priority = 27,alwaysRun=true)
+public void manageCategoryTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
 	
-	@Test(priority = 23,alwaysRun=true)
-	public void eventBabberTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
-		
-		String EmailId = getCellData(1, 5);
+	String EmailId = getCellData(1, 5);
 
-		String Password = getCellData(1, 6);
-		
-		String EventFullName = getCellData(1, 7);
-		
-		System.out.println("Executing : Event Banner Test");
-		
-		new AppBranding(driver).eventBanner(EmailId, Password, EventFullName, "NoLink");
+	String Password = getCellData(1, 6);
+	
+	String EventFullName = getCellData(1, 7);
+	
+	System.out.println("Executing : Manage Category Test");
+	
+	new AppMenu(driver).manageCategory(EmailId, Password, EventFullName);
 
-	}
+}
 //	
 //	@Test(priority = 15,alwaysRun=true)
 //	public void addSessionToEventTest() throws ParseException, InterruptedException {
