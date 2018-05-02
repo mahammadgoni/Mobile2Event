@@ -33,6 +33,8 @@ import com.EventMeetings.ManageMeetings;
 import com.EventMeetings.SetUpMeetings;
 import com.EventMeetings.UploadMeetings;
 import com.EventSetup.AboutEvent;
+import com.EventSetup.AppBranding;
+import com.EventSetup.AppMenu;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
 import com.UserManagement.EditUserDetails;
@@ -312,21 +314,128 @@ public class E2MTestCase extends BrowserSetUp {
 //		new AboutEvent(driver).addUseFullInfo(EmailId, Password, EventFullName, EventShortName);
 //
 //	}
+//	
+//	@Test(priority = 20,alwaysRun=true)
+//	public void bulkUplloadUsefulInfoTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Bulk Upload Useful Info Test");
+//		
+//		new AboutEvent(driver).bulkUploadUsefullInfo(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 21,alwaysRun=true)
+//	public void logoAndThemeUploadTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Upload Logo and Theme Test");
+//		
+//		new AppBranding(driver).logoAndTheme(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	@Test(priority = 22,alwaysRun=true)
+//	public void eventBackgroundImageTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Event Background Image Test");
+//		
+//		new AppBranding(driver).eventBackground(EmailId, Password, EventFullName);
+//
+//	}
+//	
+//	
+//	@Test(priority = 23,alwaysRun=true)
+//	public void eventBannerNoLinkTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Event Banner with Nolink Test");
+//		
+//		new AppBranding(driver).eventBanner(EmailId, Password, EventFullName, "NoLink");
+//
+//	}
+//	
+//	
+//	@Test(priority = 24,alwaysRun=true)
+//	public void eventBannerInternalLinkTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Event Banner Internal Link Test");
+//		
+//		new AppBranding(driver).eventBanner(EmailId, Password, EventFullName, "Internal");
+//
+//	}
+//	
+//	@Test(priority = 25,alwaysRun=true)
+//	public void eventBannerExternalTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Event Banner with External Link Test");
+//		
+//		new AppBranding(driver).eventBanner(EmailId, Password, EventFullName, "External");
+//
+//	}
+//		
+//	@Test(priority = 26,alwaysRun=true)
+//	public void addMenuCategoryTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Add New Menu Category Test");
+//		
+//		new AppMenu(driver).addNewCategory(EmailId, Password, EventFullName, "AutoAndroid");
+//
+//	}
 	
-	@Test(priority = 20,alwaysRun=true)
-	public void bulkUplloadUsefulInfoTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
-		
-		String EmailId = getCellData(1, 5);
+@Test(priority = 27,alwaysRun=true)
+public void manageCategoryTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+	
+	String EmailId = getCellData(1, 5);
 
-		String Password = getCellData(1, 6);
-		
-		String EventFullName = getCellData(1, 7);
-		
-		System.out.println("Executing : Bulk Upload Useful Info Test");
-		
-		new AboutEvent(driver).bulkUploadUsefullInfo(EmailId, Password, EventFullName);
+	String Password = getCellData(1, 6);
+	
+	String EventFullName = getCellData(1, 7);
+	
+	System.out.println("Executing : Manage Category Test");
+	
+	new AppMenu(driver).manageCategory(EmailId, Password, EventFullName);
 
-	}
+}
 //	
 //	@Test(priority = 15,alwaysRun=true)
 //	public void addSessionToEventTest() throws ParseException, InterruptedException {
