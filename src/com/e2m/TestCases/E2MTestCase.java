@@ -421,9 +421,24 @@ public class E2MTestCase extends BrowserSetUp {
 //		new AppMenu(driver).addNewCategory(EmailId, Password, EventFullName, "AutoAndroid");
 //
 //	}
-	
-@Test(priority = 27,alwaysRun=true)
-public void manageCategoryTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//	
+//@Test(priority = 27,alwaysRun=true)
+//public void manageCategoryTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//	
+//	String EmailId = getCellData(1, 5);
+//
+//	String Password = getCellData(1, 6);
+//	
+//	String EventFullName = getCellData(1, 7);
+//	
+//	System.out.println("Executing : Manage Category Test");
+//	
+//	new AppMenu(driver).manageCategory(EmailId, Password, EventFullName);
+//
+//}
+
+@Test(priority = 28,alwaysRun=true)
+public void addMenuTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
 	
 	String EmailId = getCellData(1, 5);
 
@@ -431,9 +446,9 @@ public void manageCategoryTest() throws ParseException, InterruptedException, In
 	
 	String EventFullName = getCellData(1, 7);
 	
-	System.out.println("Executing : Manage Category Test");
+	System.out.println("Executing : Add Menu Test");
 	
-	new AppMenu(driver).manageCategory(EmailId, Password, EventFullName);
+	new AppMenu(driver).addMenuItem(EmailId, Password, EventFullName,"KKR");
 
 }
 //	

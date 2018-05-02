@@ -714,11 +714,5 @@ public class AboutEvent extends BaseSetUp{
 		
 	}
 	
-	
-	
-	
-	
-	
-	
 
 }
