@@ -39,9 +39,9 @@ public class AppMenu extends BaseSetUp{
 	
 	By itemName1st = By.xpath("//*[@id='ContentPlaceHolder1_gvCategory_lblCategory_0']");
 		
-	By menu1stItem = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_ReorderListMenuCategory__rli0___dih0']//div//img[@id='imgRowOrderChange']");
+	By cat1stItem = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_ReorderListMenuCategory__rli0___dih0']//div//img[@id='imgRowOrderChange']");
 	
-	By menu3rdItem = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_ReorderListMenuCategory__rli3___dih3']//div//img[@id='imgRowOrderChange']");
+	By cat3rdItem = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_ReorderListMenuCategory__rli3___dih3']//div//img[@id='imgRowOrderChange']");
 	
 	By saveDisplayOrder = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
 	
@@ -75,14 +75,11 @@ public class AppMenu extends BaseSetUp{
 	
 	By menu1stName = By.xpath("//a[@id='ContentPlaceHolder1_gvMenu_btnEdit_0']");
 	
+	By menuOrdering = By.xpath("//*[@id='ContentPlaceHolder1_btndisplayOrderChange']");
 	
+	By menu1stItem = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_ReorderListMenu__rli0___dih0']//div//img[@id='imgRowOrderChange']");
 	
-	
-	
-	
-	
-	
-	
+	By menu3rdItem = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_ReorderListMenu__rli3___dih3']//div//img[@id='imgRowOrderChange']");
 	
 
 	public AppMenu(WebDriver driver) {
@@ -252,12 +249,7 @@ public class AppMenu extends BaseSetUp{
 			System.out.println("Failed to Add New Category");
 
 		}
-		
-		
-		
-		
-		
-		
+	
 		
 		return new AppMenu(driver);
 		
@@ -289,11 +281,11 @@ public class AppMenu extends BaseSetUp{
 		
 //		1st Item Name and Address
 		
-		WebElement source = driver.findElement(menu1stItem);
+		WebElement source = driver.findElement(cat1stItem);
 				
 //		3rd Item Name and Address
 		
-		WebElement destination = driver.findElement(menu3rdItem);
+		WebElement destination = driver.findElement(cat3rdItem);
 	
 //		Will Drag and Drop the Elements
 		
@@ -452,18 +444,73 @@ public class AppMenu extends BaseSetUp{
 
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		return new AppMenu(driver);
 		
 	}
 	
+//	Manage Menu Items
+	
+	public AppMenu manageMenuOrdering(String EmailId, String Password,String EventFullName) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Category Ordering
+		
+		System.out.println("Clicking on Manage Menu Items");
+		
+		waitForClickabilityOf(clickOnManageMenu);
+		
+		driver.findElement(clickOnManageMenu).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Category Ordering
+		
+		System.out.println("Clicking on Menu Ordering");
+		
+		waitForClickabilityOf(menuOrdering);
+		
+		driver.findElement(menuOrdering).click();
+		
+		Thread.sleep(2000);
+				
+//		1st Item Name and Address
+		
+		WebElement source = driver.findElement(menu1stItem);
+				
+//		3rd Item Name and Address
+		
+		WebElement destination = driver.findElement(menu3rdItem);
+				
+		Thread.sleep(2000);
+	
+//		Will Drag and Drop the Elements
+		
+		Actions action  = new Actions(driver);
+		
+		System.out.println("Performing Drag and Drop Operation");
+		
+		action.dragAndDrop(source, destination).build().perform();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Save Display Order
+		
+		System.out.println("Clicking on Save Display Order");
+		
+		waitForClickabilityOf(saveDisplayOrder);
+		
+		driver.findElement(saveDisplayOrder).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Successfully Changed the Menu Ordering");
+					
+		
+		return new AppMenu(driver);
+		
+	}
 }

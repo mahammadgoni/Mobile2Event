@@ -35,6 +35,7 @@ import com.EventMeetings.UploadMeetings;
 import com.EventSetup.AboutEvent;
 import com.EventSetup.AppBranding;
 import com.EventSetup.AppMenu;
+import com.EventSetup.Resources;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
 import com.UserManagement.EditUserDetails;
@@ -49,41 +50,7 @@ import com.Utils.GetScreenShot;
 
 public class E2MTestCase extends BrowserSetUp {
 
-//	 Please select the Browser before run all the Test Cases
 
-//	String BrowserName = "Firefox";
-
-//	String BrowserName = "Chrome";
-
-//	String EmailId = "ethan.taylor@yopmail.com";
-
-//	String Password = "#e2m321";
-	
-//	String EmailId = "autobmc@bmc.com";
-
-//	String Password = "bmcevent";
-	
-//	String EmailId = "clientadmin@webspiders.com";
-
-//	String Password = "#bmc321";
-
-	String BulkUserUploadPath = "/Users/goni/Documents/E2MDatas/ImportUser_Template.xlsx";
-	
-	String UploadAttendeePath = "/Users/goni/Documents/E2MDatas/ImportMapuserdata_Template.xlsx";
-	
-//	Event Name Should be Unique in Every Run
-	
-//	String EventFullName = "Google IO";
-	
-//	String EventFullName = "Nokia 2 Pre Launch Event";
-		
-//	String EventShortName = "Nokia 2";
-	
-	String SessionTitle = "Networking";
-	
-	String TrackName = "Parking";
-	
-	String Location = "Ground Floor";
 
 	@BeforeClass
 	public void setUp() throws InterruptedException, InvalidFormatException, IOException {
@@ -109,7 +76,11 @@ public class E2MTestCase extends BrowserSetUp {
 	}
 
 //	@Test(priority = 1,alwaysRun=true)
-//	public void loginToAccountTest() throws InterruptedException {
+//	public void loginToAccountTest() throws InterruptedException, InvalidFormatException, IOException {
+//	
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
 //
 //		System.out.println("Executing : Login To Account Test");
 //
@@ -127,7 +98,11 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 3,alwaysRun=true)
-//	public void deleteSelectedUserTest() {
+//	public void deleteSelectedUserTest() throws InvalidFormatException, IOException {
+//		
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
 //
 //		System.out.println("Executing : Delete Selected User Test");
 //
@@ -137,7 +112,11 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 4,alwaysRun=true)
-//	public void deleteAllSelectedUserTest() {
+//	public void deleteAllSelectedUserTest() throws InvalidFormatException, IOException {
+//		
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
 //
 //		System.out.println("Executing : Delete All Selected User Test");
 //
@@ -146,7 +125,11 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 5,alwaysRun=true)
-//	public void undoUserDeletionTest() {
+//	public void undoUserDeletionTest() throws InvalidFormatException, IOException {
+//		
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
 //
 //		System.out.println("Executing : Undo User Deletion Test");
 //
@@ -155,7 +138,11 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 6,alwaysRun=true)
-//	public void purgeAllUserTest() {
+//	public void purgeAllUserTest() throws InvalidFormatException, IOException {
+//		
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
 //
 //		System.out.println("Executing : Purge All User Test");
 //
@@ -164,7 +151,11 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 7,alwaysRun=true)
-//	public void addVerifiedUserTest() throws InterruptedException {
+//	public void addVerifiedUserTest() throws InterruptedException, InvalidFormatException, IOException {
+//		
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
 //
 //		System.out.println("Executing : Add Verified User Test");
 //
@@ -173,7 +164,11 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //
 //	@Test(priority = 8,alwaysRun=true)
-//	public void addUnverifiedUserTest() throws InterruptedException {
+//	public void addUnverifiedUserTest() throws InterruptedException, InvalidFormatException, IOException {
+//		
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
 //
 //		System.out.println("Executing : Add Unverified User Test");
 //
@@ -182,7 +177,13 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //
 //	@Test(priority = 9,alwaysRun=true)
-//	public void bulkUserUploadTest() throws InterruptedException {
+//	public void bulkUserUploadTest() throws InterruptedException, InvalidFormatException, IOException {
+//		
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
+//    	
+//    	String BulkUserUploadPath = getCellData(1, 12);
 //
 //		System.out.println("Executing : Bulk User Upload Test");
 //
@@ -191,7 +192,11 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 10,alwaysRun=true)
-//	public void resetPasswordTest() throws ParseException, InterruptedException, AWTException {
+//	public void resetPasswordTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
 //
 //		System.out.println("Executing : Reset User Password Test");
 //		
@@ -201,7 +206,11 @@ public class E2MTestCase extends BrowserSetUp {
 //	
 //	
 //	@Test(priority = 11,alwaysRun=true)
-//	public void changeUserDetailsTest() throws ParseException, InterruptedException, AWTException {
+//	public void changeUserDetailsTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
 //
 //		System.out.println("Executing : Change User Details Test");
 //		
@@ -210,7 +219,11 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 12,alwaysRun=true)
-//	public void addCMSRolesAndPrivilegesTest() throws ParseException, InterruptedException, AWTException {
+//	public void addCMSRolesAndPrivilegesTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
 //
 //		System.out.println("Executing : Add CMS Roles and Privileges Test");
 //		
@@ -219,7 +232,13 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 13,alwaysRun=true)
-//	public void updateUserCredentialsTest() throws ParseException, InterruptedException, AWTException {
+//	public void updateUserCredentialsTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
+//    	
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Update User Credentials Test");
 //		
@@ -228,7 +247,15 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 //	@Test(priority = 14,alwaysRun=true)
-//	public void newEventCreationTest() {
+//	public void newEventCreationTest() throws InvalidFormatException, IOException {
+//		
+//	    String EmailId = getCellData(1, 5);
+//
+//    	String Password = getCellData(1, 6);
+//    	
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String EventShortName = getCellData(1, 8);
 //
 //		System.out.println("Executing : New Event Creation Test");
 //
@@ -436,9 +463,70 @@ public class E2MTestCase extends BrowserSetUp {
 //	new AppMenu(driver).manageCategory(EmailId, Password, EventFullName);
 //
 //}
+//
+//@Test(priority = 28,alwaysRun=true)
+//public void addMenuTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//	
+//	String EmailId = getCellData(1, 5);
+//
+//	String Password = getCellData(1, 6);
+//	
+//	String EventFullName = getCellData(1, 7);
+//	
+//	System.out.println("Executing : Add Menu Test");
+//	
+//	new AppMenu(driver).addMenuItem(EmailId, Password, EventFullName,"KKR");
+//
+//}
+//
+//@Test(priority = 29,alwaysRun=true)
+//public void manageMenuOrderingTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//	
+//	String EmailId = getCellData(1, 5);
+//
+//	String Password = getCellData(1, 6);
+//	
+//	String EventFullName = getCellData(1, 7);
+//	
+//	System.out.println("Executing : Manage Menu Ordering Test");
+//	
+//	new AppMenu(driver).manageMenuOrdering(EmailId, Password, EventFullName);
+//
+//}
+//
+//@Test(priority = 30,alwaysRun=true)
+//public void addResourcesCategoryTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//	
+//	String EmailId = getCellData(1, 5);
+//
+//	String Password = getCellData(1, 6);
+//	
+//	String EventFullName = getCellData(1, 7);
+//	
+//	System.out.println("Executing : Add Resources Category Test");
+//	
+//	new Resources(driver).addResourceCategory(EmailId, Password, EventFullName, "ResCat");
+//
+//}
+//
+//@Test(priority = 31,alwaysRun=true)
+//public void mapResourcesTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//	
+//	String EmailId = getCellData(1, 5);
+//
+//	String Password = getCellData(1, 6);
+//	
+//	String EventFullName = getCellData(1, 7);
+//	
+//	System.out.println("Executing : Map Resources Test");
+//	
+//	new Resources(driver).mapResources(EmailId, Password, EventFullName);
+//
+//}
 
-@Test(priority = 28,alwaysRun=true)
-public void addMenuTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+
+@Test(priority = 32,alwaysRun=true)
+public void publishResourcesTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
 	
 	String EmailId = getCellData(1, 5);
 
@@ -446,14 +534,26 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 	
 	String EventFullName = getCellData(1, 7);
 	
-	System.out.println("Executing : Add Menu Test");
+	System.out.println("Executing : Publish Resources Test");
 	
-	new AppMenu(driver).addMenuItem(EmailId, Password, EventFullName,"KKR");
+	new Resources(driver).publishResource(EmailId, Password, EventFullName);	
 
 }
 //	
 //	@Test(priority = 15,alwaysRun=true)
-//	public void addSessionToEventTest() throws ParseException, InterruptedException {
+//	public void addSessionToEventTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
+//		
+//		String TrackName = getCellData(1, 10);
+//		
+//		String Location = getCellData(1, 11);
 //
 //		System.out.println("Executing : Add Session to Event Test");
 //		
@@ -462,7 +562,19 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}	
 //	
 //	@Test(priority = 16,alwaysRun=true)
-//	public void addSessionWithTrackAndLocationToEventTest() throws ParseException, InterruptedException {
+//	public void addSessionWithTrackAndLocationToEventTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
+//		
+//		String TrackName = getCellData(1, 10);
+//		
+//		String Location = getCellData(1, 11);
 //
 //		System.out.println("Executing : Add Session with Track and Location to Event Test");
 //		
@@ -471,7 +583,17 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 17,alwaysRun=true)
-//	public void addSessionWithOutTrackAndLocationToEventTest() throws ParseException, InterruptedException {
+//	public void addSessionWithOutTrackAndLocationToEventTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
+//				
+//		String Location = getCellData(1, 11);
 //
 //		System.out.println("Executing : Add Session without Track and Location to Event Test");
 //		
@@ -480,7 +602,17 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 18,alwaysRun=true)
-//	public void addCheckInRegistrationWithTrackSessionTest() throws ParseException, InterruptedException {
+//	public void addCheckInRegistrationWithTrackSessionTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
+//		String TrackName = getCellData(1, 10);
+//		
+//		String Location = getCellData(1, 11);
 //
 //		System.out.println("Executing : Add Check In Registration With Track Session to Event Test");
 //		
@@ -489,7 +621,17 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 19,alwaysRun=true)
-//	public void addCheckInRegistrationWithOutTrackSessionTest() throws ParseException, InterruptedException {
+//	public void addCheckInRegistrationWithOutTrackSessionTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
+//		String TrackName = getCellData(1, 10);
+//		
+//		String Location = getCellData(1, 11);
 //
 //		System.out.println("Executing : Add Check In Registration without Track Location Session to Event Test");
 //		
@@ -498,7 +640,17 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 20,alwaysRun=true)
-//	public void addBreakfastTypeSessionTest() throws ParseException, InterruptedException {
+//	public void addBreakfastTypeSessionTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
+//		String TrackName = getCellData(1, 10);
+//		
+//		String Location = getCellData(1, 11);
 //
 //		System.out.println("Executing : Add Breakfast Type Session to Event Test");
 //		
@@ -509,7 +661,17 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 21,alwaysRun=true)
-//	public void addLunchTypeSessionTest() throws ParseException, InterruptedException {
+//	public void addLunchTypeSessionTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
+//		String TrackName = getCellData(1, 10);
+//		
+//		String Location = getCellData(1, 11);
 //
 //		System.out.println("Executing : Add Lunch Type Session to Event Test");
 //		
@@ -520,7 +682,17 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 22,alwaysRun=true)
-//	public void addTeaTypeSessionTest() throws ParseException, InterruptedException {
+//	public void addTeaTypeSessionTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
+//		String TrackName = getCellData(1, 10);
+//		
+//		String Location = getCellData(1, 11);
 //
 //		System.out.println("Executing : Add Tea Type Session to Event Test");
 //		
@@ -531,7 +703,17 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 23,alwaysRun=true)
-//	public void addDinnerTypeSessionTest() throws ParseException, InterruptedException {
+//	public void addDinnerTypeSessionTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
+//		String TrackName = getCellData(1, 10);
+//		
+//		String Location = getCellData(1, 11);
 //
 //		System.out.println("Executing : Add Dinner Type Session to Event Test");
 //		
@@ -542,7 +724,17 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 24,alwaysRun=true)
-//	public void addNetworkingWithTrackSessionTest() throws ParseException, InterruptedException {
+//	public void addNetworkingWithTrackSessionTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
+//		String TrackName = getCellData(1, 10);
+//		
+//		String Location = getCellData(1, 11);
 //
 //		System.out.println("Executing : Add Networking With Track Session to Event Test");
 //		
@@ -551,8 +743,18 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 25,alwaysRun=true)
-//	public void addnetworkingWithOutTrackSessionTest() throws ParseException, InterruptedException {
+//	public void addnetworkingWithOutTrackSessionTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
 //
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
+//		String TrackName = getCellData(1, 10);
+//		
+//		String Location = getCellData(1, 11);
+//		
 //		System.out.println("Executing : Add Networking Without Track Location Session to Event Test");
 //		
 //		new AddSessions(driver).addNetworkingSession(EmailId, Password, EventFullName, TrackName, Location,false);
@@ -560,7 +762,15 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 26,alwaysRun=true)
-//	public void addPollWithFreeTextTest() throws ParseException, InterruptedException {
+//	public void addPollWithFreeTextTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
 //
 //		System.out.println("Executing : Add Poll to Session with Free Text Question Test");
 //		
@@ -569,7 +779,15 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 27,alwaysRun=true)
-//	public void addPollWithSingleChoiceTest() throws ParseException, InterruptedException {
+//	public void addPollWithSingleChoiceTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
 //
 //		System.out.println("Executing : Add Poll to Session with Single Choice Question Test");
 //		
@@ -578,7 +796,15 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 28,alwaysRun=true)
-//	public void addPollWithMultipleChoiceTest() throws ParseException, InterruptedException {
+//	public void addPollWithMultipleChoiceTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
 //
 //		System.out.println("Executing : Add Poll to Session with Multiple Choice Question Test");
 //		
@@ -587,7 +813,15 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 29,alwaysRun=true)
-//	public void addPollWithDropDownListTest() throws ParseException, InterruptedException {
+//	public void addPollWithDropDownListTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
 //
 //		System.out.println("Executing : Add Poll to Session with Dropdown List Question Test");
 //		
@@ -596,7 +830,15 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 30,alwaysRun=true)
-//	public void uploadLinkTypeResourceTest() throws ParseException, InterruptedException, AWTException {
+//	public void uploadLinkTypeResourceTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
 //
 //		System.out.println("Executing : Upload Link Type Resource Test");
 //		
@@ -605,7 +847,15 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 31,alwaysRun=true)
-//	public void uploadFileTypeResourceTest() throws ParseException, InterruptedException, AWTException {
+//	public void uploadFileTypeResourceTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
 //
 //		System.out.println("Executing : Upload File Type Resource Test");
 //		
@@ -614,7 +864,15 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 32,alwaysRun=true)
-//	public void seatingArrangementTest() throws ParseException, InterruptedException, AWTException {
+//	public void seatingArrangementTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
 //
 //		System.out.println("Executing : Seating Arrangement Test");
 //		
@@ -623,7 +881,15 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 33,alwaysRun=true)
-//	public void addSessionCapacityTest() throws ParseException, InterruptedException, AWTException {
+//	public void addSessionCapacityTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
 //
 //		System.out.println("Executing : Add Session Capacity Test");
 //		
@@ -632,7 +898,15 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 34,alwaysRun=true)
-//	public void addSessionGroupTest() throws ParseException, InterruptedException, AWTException {
+//	public void addSessionGroupTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
 //
 //		System.out.println("Executing : Add Session Group Test");
 //		
@@ -641,7 +915,15 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 35,alwaysRun=true)
-//	public void addSessionUsersTest() throws ParseException, InterruptedException, AWTException {
+//	public void addSessionUsersTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
 //
 //		System.out.println("Executing : Add Session Users Test");
 //		
@@ -650,7 +932,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 36,alwaysRun=true)
-//	public void mapSessionToPollTest() throws ParseException, InterruptedException, AWTException {
+//	public void mapSessionToPollTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Map Session to Poll Test");
 //		
@@ -659,7 +947,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 37,alwaysRun=true)
-//	public void mapSessionToPollAnonymousEnabledTest() throws ParseException, InterruptedException, AWTException {
+//	public void mapSessionToPollAnonymousEnabledTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Map Session to Poll with Anonymous Submission and Set Time Enabled Test");
 //		
@@ -668,7 +962,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 38,alwaysRun=true)
-//	public void mapSessionToPollSetDateTimeEnabledTest() throws ParseException, InterruptedException, AWTException {
+//	public void mapSessionToPollSetDateTimeEnabledTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Map Session to Poll with Anonymous Submission,Set Date/Time Enabled Test");
 //		
@@ -676,7 +976,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 39,alwaysRun=true)
-//	public void mapSessionToPollSelectTimeEnabledTest() throws ParseException, InterruptedException, AWTException {
+//	public void mapSessionToPollSelectTimeEnabledTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Map Session to Poll with Anonymous Submission,Select Time Enabled Test");
 //		
@@ -684,8 +990,14 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 40,alwaysRun=true)
-//	public void viewPollDetailsTest() throws ParseException, InterruptedException, AWTException {
+//	public void viewPollDetailsTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
 //
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
 //		System.out.println("Executing : View Poll Details Test");
 //		
 //		new PollOrVote(driver).viewPoll(EmailId, Password, EventFullName);
@@ -693,8 +1005,14 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 41,alwaysRun=true)
-//	public void clonePollorVoteTest() throws ParseException, InterruptedException, AWTException {
+//	public void clonePollorVoteTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
 //
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
 //		System.out.println("Executing : Clone Poll/Vote Test");
 //		
 //		new PollOrVote(driver).clonePoll(EmailId, Password, EventFullName);
@@ -702,7 +1020,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 42,alwaysRun=true)
-//	public void downloadOnePollReportTest() throws ParseException, InterruptedException, AWTException {
+//	public void downloadOnePollReportTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Download One Poll/Vote Report Test");
 //		
@@ -711,7 +1035,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 43,alwaysRun=true)
-//	public void downloadAllPollReportTest() throws ParseException, InterruptedException, AWTException {
+//	public void downloadAllPollReportTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Download All Poll/Vote Report Test");
 //		
@@ -720,7 +1050,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 44,alwaysRun=true)
-//	public void addRatingTest() throws ParseException, InterruptedException, AWTException {
+//	public void addRatingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Add Question Rate Test");
 //		
@@ -729,7 +1065,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //		
 //	@Test(priority = 45,alwaysRun=true)
-//	public void addSpeakersTest() throws ParseException, InterruptedException {
+//	public void addSpeakersTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Add Speakers to Event Test");
 //		
@@ -738,7 +1080,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 46,alwaysRun=true)
-//	public void mapSessionWithRandomUserTest() throws ParseException, InterruptedException {
+//	public void mapSessionWithRandomUserTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Map Session with Random User Test");
 //		
@@ -747,7 +1095,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 47,alwaysRun=true)
-//	public void createSpeakerAndMapWithCreateSessionTest() throws ParseException, InterruptedException, AWTException {
+//	public void createSpeakerAndMapWithCreateSessionTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Create Speaker and Map with Create Session Test");
 //		
@@ -756,7 +1110,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 48,alwaysRun=true)
-//	public void downloadQRCodeTest() throws ParseException, InterruptedException, AWTException {
+//	public void downloadQRCodeTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Download QR Code Test");
 //		
@@ -765,7 +1125,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 49,alwaysRun=true)
-//	public void mapUserRolesTest() throws ParseException, InterruptedException, AWTException {
+//	public void mapUserRolesTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Map User Roles Test");
 //		
@@ -774,7 +1140,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 50,alwaysRun=true)
-//	public void attendeeVisibilityTest() throws ParseException, InterruptedException, AWTException {
+//	public void attendeeVisibilityTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Disable Attendee Visibility Test");
 //		
@@ -783,7 +1155,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 51,alwaysRun=true)
-//	public void manageGroupTest() throws ParseException, InterruptedException, AWTException {
+//	public void manageGroupTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Manage Group Test");
 //		
@@ -792,7 +1170,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 52,alwaysRun=true)
-//	public void matchMakingTest() throws ParseException, InterruptedException, AWTException {
+//	public void matchMakingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Match Making Test");
 //		
@@ -801,7 +1185,15 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 53,alwaysRun=true)
-//	public void importAttendeesTest() throws ParseException, InterruptedException, AWTException {
+//	public void importAttendeesTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String UploadAttendeePath = getCellData(1, 13);
 //
 //		System.out.println("Executing : Import Attendees Test");
 //		
@@ -810,7 +1202,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 54,alwaysRun=true)
-//	public void addExhibitorTest() throws ParseException, InterruptedException, AWTException {
+//	public void addExhibitorTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Add Exhibitor Test");
 //		
@@ -819,7 +1217,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 55,alwaysRun=true)
-//	public void exhibitorListTest() throws ParseException, InterruptedException, AWTException {
+//	public void exhibitorListTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Exhibitor List Test");
 //		
@@ -828,7 +1232,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 56,alwaysRun=true)
-//	public void mapExhibitorWithUserTest() throws ParseException, InterruptedException, AWTException {
+//	public void mapExhibitorWithUserTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Map Exhibitor with User Test");
 //		
@@ -837,7 +1247,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 57,alwaysRun=true)
-//	public void mapExhibitorWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
+//	public void mapExhibitorWithUserGroupTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Map Exhibitor with User Group Test");
 //		
@@ -846,7 +1262,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 58,alwaysRun=true)
-//	public void addSponsorTest() throws ParseException, InterruptedException, AWTException {
+//	public void addSponsorTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Add Sponsor Test");
 //		
@@ -855,7 +1277,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 59,alwaysRun=true)
-//	public void sponsorListTest() throws ParseException, InterruptedException, AWTException {
+//	public void sponsorListTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Sponsor List Test");
 //		
@@ -864,7 +1292,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 60,alwaysRun=true)
-//	public void mapSponsorWithUserTest() throws ParseException, InterruptedException, AWTException {
+//	public void mapSponsorWithUserTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Map Sponsor with User Test");
 //		
@@ -873,8 +1307,14 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 61,alwaysRun=true)
-//	public void mapSponsorWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
+//	public void mapSponsorWithUserGroupTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
 //
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
 //		System.out.println("Executing : Map Sponsor with User Group Test");
 //		
 //		new AddSponsors(driver).mapSponsorWithUserGroup(EmailId, Password, EventFullName);
@@ -882,7 +1322,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 62,alwaysRun=true)
-//	public void uploadE2MDataTest() throws ParseException, InterruptedException, AWTException {
+//	public void uploadE2MDataTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Upload E2MData Test");
 //		
@@ -891,7 +1337,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 63,alwaysRun=true)
-//	public void geniusMeetingsConfigTest() throws ParseException, InterruptedException, AWTException {
+//	public void geniusMeetingsConfigTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Genius Meeting Config Test");
 //		
@@ -900,8 +1352,14 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 64,alwaysRun=true)
-//	public void oneToOneMeetingConfigTest() throws ParseException, InterruptedException, AWTException {
+//	public void oneToOneMeetingConfigTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
 //
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
 //		System.out.println("Executing : One to One Meeting Config Test");
 //		
 //		new ConfigureMeetings(driver).configOneToOneMeeting(EmailId, Password, EventFullName);
@@ -909,7 +1367,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 65,alwaysRun=true)
-//	public void mappingExpertTopicWithUserGroupTest() throws ParseException, InterruptedException, AWTException {
+//	public void mappingExpertTopicWithUserGroupTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Mapping Expert Topic With User Group Test");
 //		
@@ -918,8 +1382,14 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 66,alwaysRun=true)
-//	public void mappingExpertTopicWithSelectedUserTest() throws ParseException, InterruptedException, AWTException {
+//	public void mappingExpertTopicWithSelectedUserTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
 //
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
 //		System.out.println("Executing : Mapping Expert Topic With Selected User Test");
 //		
 //		new ExpertTopicMapping(driver).addExpertTopicMapping(EmailId, Password, EventFullName, "User");
@@ -927,7 +1397,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 67,alwaysRun=true)
-//	public void mappingExpertTopicWithAllUserTest() throws ParseException, InterruptedException, AWTException {
+//	public void mappingExpertTopicWithAllUserTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Mapping Expert Topic With All User Test");
 //		
@@ -936,7 +1412,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 68,alwaysRun=true)
-//	public void uploadMeetingsTest() throws ParseException, InterruptedException, AWTException {
+//	public void uploadMeetingsTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Upload Meetings Test");
 //		
@@ -945,7 +1427,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 69,alwaysRun=true)
-//	public void setUpGeneralMeetingTest() throws ParseException, InterruptedException, AWTException {
+//	public void setUpGeneralMeetingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Set Up General Meeting Test");
 //		
@@ -954,7 +1442,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 70,alwaysRun=true)
-//	public void setUpGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+//	public void setUpGeniusMeetingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Set Up Genius Meeting Test");
 //		
@@ -965,7 +1459,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 ////	Need to Check from Here
 //	
 //	@Test(priority = 71,alwaysRun=true)
-//	public void viewOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
+//	public void viewOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : View One To One Meeting Test");
 //		
@@ -974,7 +1474,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 72,alwaysRun=true)
-//	public void acceptOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
+//	public void acceptOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Accept One To One Meeting Test");
 //		
@@ -983,7 +1489,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 73,alwaysRun=true)
-//	public void rescheduleOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
+//	public void rescheduleOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Reschedule One To One Meeting Test");
 //		
@@ -992,7 +1504,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 74,alwaysRun=true)
-//	public void cancelOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
+//	public void cancelOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Cancel One To One Meeting Test");
 //		
@@ -1001,7 +1519,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 75,alwaysRun=true)
-//	public void deleteOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException {
+//	public void deleteOneToOneMeetingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Delete One To One Meeting Test");
 //		
@@ -1010,7 +1534,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 76,alwaysRun=true)
-//	public void viewGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+//	public void viewGeniusMeetingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : View Genius Meeting Test");
 //		
@@ -1019,7 +1549,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 77,alwaysRun=true)
-//	public void acceptGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+//	public void acceptGeniusMeetingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Accept Genius Meeting Test");
 //		
@@ -1028,8 +1564,14 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 78,alwaysRun=true)
-//	public void rescheduleGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+//	public void rescheduleGeniusMeetingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
 //
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//				
 //		System.out.println("Executing : Reschedule Genius Meeting Test");
 //		
 //		new ManageMeetings(driver).rescheduleGeniusMeeting(EmailId, Password, EventFullName);
@@ -1037,7 +1579,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 79,alwaysRun=true)
-//	public void cancelGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+//	public void cancelGeniusMeetingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Cancel Genius Meeting Test");
 //		
@@ -1046,7 +1594,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 80,alwaysRun=true)
-//	public void deleteGeniusMeetingTest() throws ParseException, InterruptedException, AWTException {
+//	public void deleteGeniusMeetingTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Delete Genius Meeting Test");
 //		
@@ -1057,7 +1611,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 ////	Till Here
 //	
 //	@Test(priority = 81,alwaysRun=true)
-//	public void addQuizOrTriviaTest() throws ParseException, InterruptedException, AWTException {
+//	public void addQuizOrTriviaTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Add Quiz Or Trivia Test");
 //		
@@ -1066,7 +1626,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 82,alwaysRun=true)
-//	public void addLocationQuestionsTest() throws ParseException, InterruptedException, AWTException {
+//	public void addLocationQuestionsTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Add Location Questions Test");
 //		
@@ -1075,7 +1641,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 83,alwaysRun=true)
-//	public void createQuizScoringRuleTest() throws ParseException, InterruptedException, AWTException {
+//	public void createQuizScoringRuleTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Create Quiz Scoring Rules Test");
 //		
@@ -1084,7 +1656,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 84,alwaysRun=true)
-//	public void createLocationScoringRulesTest() throws ParseException, InterruptedException, AWTException {
+//	public void createLocationScoringRulesTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Create Location Scoring Rules Test");
 //		
@@ -1093,7 +1671,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 85,alwaysRun=true)
-//	public void addUserConnectionTest() throws ParseException, InterruptedException, AWTException {
+//	public void addUserConnectionTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Add User Connection Test");
 //		
@@ -1102,7 +1686,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 86,alwaysRun=true)
-//	public void addBadgeAndMapWithQuizTest() throws ParseException, InterruptedException, AWTException {
+//	public void addBadgeAndMapWithQuizTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Add Badge and Map with Quiz Test");
 //		
@@ -1111,7 +1701,13 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 87,alwaysRun=true)
-//	public void addBadgeAndMapWithLocationTest() throws ParseException, InterruptedException, AWTException {
+//	public void addBadgeAndMapWithLocationTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Add Badge and Map with LocationTest");
 //		
@@ -1120,17 +1716,31 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	}
 //	
 //	@Test(priority = 88,alwaysRun=true)
-//	public void addBadgeAndMapWithUserTest() throws ParseException, InterruptedException, AWTException {
+//	public void addBadgeAndMapWithUserTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
 //
 //		System.out.println("Executing : Add Badge and Map with User Test");
 //		
 //		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Making Friend Map", "User");
 //
 //	}
-		
-		
+//		
+//		
 //	@Test(priority = 7,alwaysRun=true)
-//	public void cloneToNewEventTest() {
+//	public void cloneToNewEventTest() throws InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String EventShortName = getCellData(1, 8);
 //
 //		System.out.println("Executing : Clone To New Event Test");
 //
@@ -1140,11 +1750,17 @@ public void addMenuTest() throws ParseException, InterruptedException, InvalidFo
 //	
 //	
 //	@Test(priority = 11,alwaysRun=true)
-//	public void mapUserToAnEventTest() throws InterruptedException {
+//	public void mapUserToAnEventTest() throws InterruptedException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
 //
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
 //		System.out.println("Executing : Map User To An Event Test");
 //		
-//		new MapUserToEvent(driver).mapUserToEvent(EmailId, Password, "CTech Symposium", "kevinms@yopmail.com");
+//		new MapUserToEvent(driver).mapUserToEvent(EmailId, Password, EventFullName , "kevinms@yopmail.com");
 //
 //	}
 	
