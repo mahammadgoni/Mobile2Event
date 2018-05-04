@@ -93,20 +93,14 @@ public class AddExhibitors extends BaseSetUp {
 
 	By successMessage = By.xpath("//*[@id='ContentPlaceHolder1_lblError']");
 
-	// Exhibitor Logo Upload Path
-
-	String ExbtrLogoPath = "/Users/goni/Documents/E2MDatas/ExhibitorLogo.png";
-
-	// Exhibitor Banner Path
-
-	String ExbtrBannerPath = "/Users/goni/Documents/E2MDatas/ExhibitorBanner.png";
-
+	
+	
 	public AddExhibitors(WebDriver driver) {
 		super(driver);
 
 	}
 
-	public AddExhibitors addExhibitor(String EmailId, String Password, String EventFullName, String ExbtrName)throws InterruptedException {
+	public AddExhibitors addExhibitor(String EmailId, String Password, String EventFullName, String ExbtrName,String ExbtrType)throws InterruptedException {
 
 		// Login to your Account
 
@@ -165,6 +159,8 @@ public class AddExhibitors extends BaseSetUp {
 			search.sendKeys(Keys.ENTER);
 
 		}
+		
+		Thread.sleep(2000);
 
 		// Clicking on The Event
 
@@ -173,6 +169,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(clickOnEvent);
 
 		driver.findElement(clickOnEvent).click();
+		
+		Thread.sleep(2000);
 
 		// Clicking on Agenda Setup
 
@@ -181,6 +179,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(clickOnAgendaSetUp);
 
 		driver.findElement(clickOnAgendaSetUp).click();
+		
+		Thread.sleep(2000);
 
 		// Clicking on Exhibitor
 
@@ -189,6 +189,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(clickOnExhibitors);
 
 		driver.findElement(clickOnExhibitors).click();
+		
+		Thread.sleep(2000);
 
 		// Clicking on Add Exhibitor
 
@@ -197,6 +199,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(clickOnAddExhibitor);
 
 		driver.findElement(clickOnAddExhibitor).click();
+		
+		Thread.sleep(2000);
 
 		// Clicking on Add Button
 
@@ -205,6 +209,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(addExbtrBtn);
 
 		driver.findElement(addExbtrBtn).click();
+		
+		Thread.sleep(2000);
 
 		// Entering Exhibitor Type
 
@@ -212,7 +218,9 @@ public class AddExhibitors extends BaseSetUp {
 
 		waitForClickabilityOf(exbtrType);
 
-		driver.findElement(exbtrType).sendKeys("Silver");
+		driver.findElement(exbtrType).sendKeys(ExbtrType);
+		
+		Thread.sleep(2000);
 
 		// Clicking On Save Button
 
@@ -221,6 +229,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(saveExbtrBtn);
 
 		driver.findElement(saveExbtrBtn).click();
+		
+		Thread.sleep(2000);
 
 		// Clicking On Close Pop Up
 
@@ -229,6 +239,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(closePopUp);
 
 		driver.findElement(closePopUp).click();
+		
+		Thread.sleep(2000);
 
 		// Clicking On Exhibitor Type
 
@@ -237,6 +249,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(selectExbtrType);
 
 		driver.findElement(selectExbtrType).click();
+		
+		Thread.sleep(2000);
 
 		// Selecting Exhibitor Type
 
@@ -245,6 +259,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(select1stType);
 
 		driver.findElement(select1stType).click();
+		
+		Thread.sleep(2000);
 
 		// Entering Exhibitor Name
 
@@ -253,6 +269,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(exhibitorName);
 
 		driver.findElement(exhibitorName).sendKeys(ExbtrName);
+		
+		Thread.sleep(2000);
 
 		// Entering Booth No
 
@@ -261,6 +279,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(boothNo);
 
 		driver.findElement(boothNo).sendKeys("8");
+		
+		Thread.sleep(2000);
 
 		// Converting the String to Lower case
 
@@ -273,6 +293,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(website);
 
 		driver.findElement(website).sendKeys(sExbtrName);
+		
+		Thread.sleep(2000);
 
 		// Entering Exhibitor Email Id
 
@@ -281,6 +303,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(emailId);
 
 		driver.findElement(emailId).sendKeys(sExbtrName + "@yop.com");
+		
+		Thread.sleep(2000);
 
 		// Entering Exhibitor Phone No
 
@@ -289,6 +313,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(contactNo);
 
 		driver.findElement(contactNo).sendKeys("9786653421");
+		
+		Thread.sleep(2000);
 
 		// Entering Exhibitor Country
 
@@ -301,6 +327,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(selectUSA);
 
 		driver.findElement(selectUSA).click();
+		
+		Thread.sleep(2000);
 
 		// Entering Exhibitor Address
 
@@ -309,6 +337,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(address);
 
 		driver.findElement(address).sendKeys("202,Columbia Heights, Northwest, Washington, D.C.");
+		
+		Thread.sleep(2000);
 
 		// Entering Exhibitor Profile
 
@@ -317,6 +347,8 @@ public class AddExhibitors extends BaseSetUp {
 		waitForClickabilityOf(profile);
 
 		driver.findElement(profile).sendKeys("This is Test Exhibitor Profile");
+		
+		Thread.sleep(2000);
 
 		// Adding Exhibitor Logo
 
@@ -324,17 +356,26 @@ public class AddExhibitors extends BaseSetUp {
 
 		waitForClickabilityOf(exbtrLogo);
 
-		driver.findElement(exbtrLogo).sendKeys(ExbtrLogoPath);
+		driver.findElement(exbtrLogo).sendKeys(home+"/Test Data/ExhibitorLogo.png");
+		
+		Thread.sleep(2000);
+		
+		try {
+//			 Adding Exhibitor Banner
 
-		// Adding Exhibitor Banner
+			System.out.println("Adding Exhibitor Banner");
 
-		System.out.println("Adding Exhibitor Banner");
+			waitForClickabilityOf(exbtrBanner);
 
-		waitForClickabilityOf(exbtrBanner);
+			driver.findElement(exbtrBanner).sendKeys(home+"/Test Data/ExhibitorBanner.png");
 
-		driver.findElement(exbtrBanner).sendKeys(ExbtrBannerPath);
+		} catch (Exception e) {
 
-		// Clicking On Save Button
+		}
+		
+		Thread.sleep(2000);
+
+//		 Clicking On Save Button
 
 		System.out.println("Clicking On Save Button");
 
@@ -351,7 +392,7 @@ public class AddExhibitors extends BaseSetUp {
 
 		}
 
-		// Getting No Of Exhibitor
+//		 Getting No Of Exhibitor
 
 		waitForClickabilityOf(exbtrCount);
 
@@ -363,11 +404,18 @@ public class AddExhibitors extends BaseSetUp {
 
 			System.out.println("Successfully Added one Exhibitor");
 
+		} else if (NoOfExExbtr == 2) {
+			
+			System.out.println("Successfully Added one Exhibitor");
+			
 		} else {
-
+			
 			System.out.println("Failed to Add Exhibitor");
-
+			
 		}
+		
+		
+		
 
 		return new AddExhibitors(driver);
 

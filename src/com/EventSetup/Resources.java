@@ -60,6 +60,20 @@ public class Resources extends BaseSetUp{
 	
 	By errorMsg = By.xpath("//*[@id='ContentPlaceHolder1_lblError']");
 	
+//	Download QR Code Elements
+	
+	By clickOnQR = By.xpath("//*[@id='ContentPlaceHolder1_gvResources_Img2_0']");
+	
+	By imageFileName = By.xpath("//*[@id='txtFileName']");
+	
+	By textWidth = By.xpath("//*[@id='txtwidth']");
+	
+	By textHeight = By.xpath("//*[@id='txtheight']");
+	
+	By generateBtn = By.xpath("//*[@id='btnSave']");
+	
+	By closePopUp = By.xpath("//a[@id='scriptholder_A2']");
+	
 	
 	
 	
@@ -385,7 +399,7 @@ public class Resources extends BaseSetUp{
 		
 	}
 	
-//	Publish the Resource 
+//	Publish the Resource Method
 	
 	public Resources publishResource(String EmailId, String Password,String EventFullName) throws InterruptedException{
 		
@@ -433,7 +447,86 @@ public class Resources extends BaseSetUp{
 		
 	}
 	
+//	Download QR Code Method
 	
+	public Resources downloadQRCode(String EmailId, String Password,String EventFullName,String ImageName) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+
+//		Clicking on Generate QR Code
+		
+		System.out.println("Clicking on Generate QR Code");
+		
+		waitForClickabilityOf(clickOnQR);
+		
+		driver.findElement(clickOnQR).click();
+		
+		Thread.sleep(2000);
+		
+		try {
+			
+//			Entering Image File Name
+			
+			System.out.println("Entering Image File Name");
+			
+			waitForClickabilityOf(imageFileName);
+			
+			driver.findElement(imageFileName).sendKeys(ImageName);
+			
+			Thread.sleep(2000);
+
+//			Entering QR Image Width
+			
+			System.out.println("Entering QR Image Width");
+			
+			waitForClickabilityOf(textWidth);
+			
+			driver.findElement(textWidth).sendKeys("100");
+			
+			Thread.sleep(2000);
+
+//			Entering QR Image Height
+			
+			System.out.println("Entering QR Image Height");
+			
+			waitForClickabilityOf(textHeight);
+			
+			driver.findElement(textHeight).sendKeys("100");
+			
+			Thread.sleep(2000);
+
+//			Clicking on Generate QR Code
+			
+			System.out.println("Clicking on Generate");
+			
+			waitForClickabilityOf(generateBtn);
+			
+			driver.findElement(generateBtn).click();
+			
+			
+		} catch (Exception e) {
+			
+		}
+		
+		Thread.sleep(2000);
+
+//		Clicking on Close Button
+		
+		System.out.println("Clicking on Close Button");
+		
+		waitForClickabilityOf(closePopUp);
+		
+		driver.findElement(closePopUp).click();
+		
+		Thread.sleep(2000);
+
+	
+		
+		return new Resources(driver);
+		
+	}
 	
 	
 	
