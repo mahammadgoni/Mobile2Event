@@ -357,6 +357,8 @@ public class AddSessions extends BaseSetUp{
 				
 		}
 		
+		Thread.sleep(2000);
+		
 //		Saving the Event Date
 		
 		System.out.println("Saving the Event Date");
@@ -366,6 +368,8 @@ public class AddSessions extends BaseSetUp{
 		String EventDate = driver.findElement(eventStartDate).getText();	
 		
 		System.out.println(EventDate);
+		
+		Thread.sleep(2000);
 		
 //		Changing the String to Date
 		
@@ -381,11 +385,16 @@ public class AddSessions extends BaseSetUp{
 	    catch ( Exception ex ){
 	        System.out.println(ex);
 	    }
+	    
+		Thread.sleep(2000);
+	    
 //	  Again changing the Date to String 
 	    
 	    String FEventDate = null;
 	    
 	    SimpleDateFormat sdfr = new SimpleDateFormat("dd/MM/yyyy");
+	    
+		Thread.sleep(2000);
 
 	    try{
 	    	
@@ -412,7 +421,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(clickOnEvent);
 		
 		driver.findElement(clickOnEvent).click();
-
+		
+		Thread.sleep(2000);
 		
 //		Clicking on Agenda Setup
 		
@@ -422,6 +432,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(clickOnAgendaSetUp).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Session
 		
 		System.out.println("Clicking on Session");
@@ -429,6 +441,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(clickOnSession);
 		
 		driver.findElement(clickOnSession).click();
+		
+		Thread.sleep(2000);
 				
 //		Clicking on Add Session
 		
@@ -438,6 +452,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(clickOnAddSession).click();
 		
+		Thread.sleep(2000);
+		
 //		Adding Search Track
 		
 		System.out.println("Entering Session Title  as :  "+SessionTitle);
@@ -445,6 +461,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(sessionTitle);
 		
 		driver.findElement(sessionTitle).sendKeys(SessionTitle);
+		
+		Thread.sleep(2000);
 		
 //		Adding Search Track
 		
@@ -454,6 +472,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(searchTrack).sendKeys(TrackName);
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Create Track
 		
 		System.out.println("Clicking on Create Track");
@@ -461,6 +481,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(createTrack);
 		
 		driver.findElement(createTrack).click();
+		
+		Thread.sleep(2000);
 		
 //		Adding Hex Color Code
 		
@@ -470,6 +492,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(colorCode).sendKeys("#268dad");
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Save Button
 		
 		System.out.println("Clicking on Save Button");
@@ -478,13 +502,19 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(trackName).click();
 		
+		Thread.sleep(2000);
+		
 		waitForClickabilityOf(saveBtn);
 		
 		driver.findElement(saveBtn).click();
 		
+		Thread.sleep(2000);
+		
 		waitForClickabilityOf(cancelBtn);
 		
 		driver.findElement(cancelBtn).click();
+		
+		Thread.sleep(2000);
 		
 //		Clicking on Activity Drop Down
 		
@@ -494,6 +524,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(activityDropDown).click();
 		
+		Thread.sleep(2000);
+		
 //		Selecting Activity As Session from Drop Down
 		
 		System.out.println("Selecting Activity As Session from Drop Down");
@@ -501,6 +533,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(selectSession);
 		
 		driver.findElement(selectSession).click();
+		
+		Thread.sleep(2000);
 		
 //		Selecting Session Start Date as Event Date
 		
@@ -514,6 +548,8 @@ public class AddSessions extends BaseSetUp{
 		
 		selectDate.sendKeys(Keys.ENTER);
 		
+		Thread.sleep(2000);
+		
 //		Selecting Session Start Time
 		
 		System.out.println("Selecting Session Start Time");
@@ -521,6 +557,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(startTime);
 		
 		driver.findElement(startTime).sendKeys("09:00 AM");
+		
+		Thread.sleep(2000);
 		
 //		Selecting Session End Time
 		
@@ -530,6 +568,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(endTime).sendKeys("09:00 PM");
 		
+		Thread.sleep(2000);
+		
 //		Search the Location
 		
 		System.out.println("Search the Location");
@@ -537,6 +577,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(searchLocation);
 		
 		driver.findElement(searchLocation).sendKeys(Location);
+		
+		Thread.sleep(2000);
 		
 //		Click On Add Location
 		
@@ -546,6 +588,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(createLocation).click();
 		
+		Thread.sleep(2000);
+		
 //		Click On Add Button
 		
 		System.out.println("Click On Add Button");
@@ -554,6 +598,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(addBtn).click();
 		
+		Thread.sleep(2000);
+		
 //		Click On Close Pop Up
 		
 		System.out.println("Click On Close Pop Up");
@@ -561,6 +607,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(closePopUp);
 		
 		driver.findElement(closePopUp).click();
+		
+		Thread.sleep(2000);
 		
 //		Adding Some Test Description
 			
@@ -578,6 +626,8 @@ public class AddSessions extends BaseSetUp{
 			
 		}
 		
+		Thread.sleep(2000);
+		
 //		Click On Save and Publish Button
 		
 		System.out.println("Click On Save and Publish Button");
@@ -585,6 +635,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(saveAndPublishBtn);
 		
 		driver.findElement(saveAndPublishBtn).click();
+		
+		Thread.sleep(2000);
 		
 //		Verifying  whether the Session added or not 
 		
