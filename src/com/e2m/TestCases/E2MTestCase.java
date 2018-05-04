@@ -35,6 +35,7 @@ import com.EventMeetings.UploadMeetings;
 import com.EventSetup.AboutEvent;
 import com.EventSetup.AppBranding;
 import com.EventSetup.AppMenu;
+import com.EventSetup.FloorMap;
 import com.EventSetup.Resources;
 import com.UserManagement.AddUser;
 import com.UserManagement.DeleteUser;
@@ -523,22 +524,38 @@ public class E2MTestCase extends BrowserSetUp {
 //	new Resources(driver).mapResources(EmailId, Password, EventFullName);
 //
 //}
-
-
-@Test(priority = 32,alwaysRun=true)
-public void publishResourcesTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
-	
-	String EmailId = getCellData(1, 5);
-
-	String Password = getCellData(1, 6);
-	
-	String EventFullName = getCellData(1, 7);
-	
-	System.out.println("Executing : Publish Resources Test");
-	
-	new Resources(driver).publishResource(EmailId, Password, EventFullName);	
-
-}
+//
+//@Test(priority = 32,alwaysRun=true)
+//public void publishResourcesTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//	
+//	String EmailId = getCellData(1, 5);
+//
+//	String Password = getCellData(1, 6);
+//	
+//	String EventFullName = getCellData(1, 7);
+//	
+//	System.out.println("Executing : Publish Resources Test");
+//	
+//	new Resources(driver).publishResource(EmailId, Password, EventFullName);	
+//
+//}
+//
+//@Test(priority = 33,alwaysRun=true)
+//public void downloadResourceQRCodeTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//	
+//	String EmailId = getCellData(1, 5);
+//
+//	String Password = getCellData(1, 6);
+//	
+//	String EventFullName = getCellData(1, 7);
+//	
+//	String EventShortName = getCellData(1, 8);
+//	
+//	System.out.println("Executing : Download Resource QR Code Test");
+//	
+//	new Resources(driver).downloadQRCode(EmailId, Password, EventFullName, EventShortName);
+//
+//}
 //	
 //	@Test(priority = 15,alwaysRun=true)
 //	public void addSessionToEventTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
@@ -1212,9 +1229,25 @@ public void publishResourcesTest() throws ParseException, InterruptedException, 
 //
 //		System.out.println("Executing : Add Exhibitor Test");
 //		
-//        new AddExhibitors(driver).addExhibitor(EmailId, Password, EventFullName, "Peter");
+//        new AddExhibitors(driver).addExhibitor(EmailId, Password, EventFullName, "Peter","Gold");
+//        
+//	}
+//	
+//	@Test(priority = 55,alwaysRun=true)
+//	public void addSecondExhibitorTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Add Second Exhibitor Test");
+//		        
+//        new AddExhibitors(driver).addExhibitor(EmailId, Password, EventFullName, "Parker","Silver");
 //
 //	}
+//	
 //	
 //	@Test(priority = 55,alwaysRun=true)
 //	public void exhibitorListTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
@@ -1335,6 +1368,40 @@ public void publishResourcesTest() throws ParseException, InterruptedException, 
 //		new UploadData(driver).e2mDataImport(EmailId, Password, EventFullName);
 //
 //	}
+//	
+//
+//@Test(priority = 33,alwaysRun=true)
+//public void addFloorMapTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+//	
+//	String EmailId = getCellData(1, 5);
+//
+//	String Password = getCellData(1, 6);
+//	
+//	String EventFullName = getCellData(1, 7);
+//	
+//	String EventShortName = getCellData(1, 8);
+//	
+//	System.out.println("Executing : Add Floor Map Test");
+//	
+//	new FloorMap(driver).addFloorMap(EmailId, Password, EventFullName, EventShortName+" Floor Map");
+//
+//}
+
+
+@Test(priority = 34,alwaysRun=true)
+public void saveWayFinderTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
+	
+	String EmailId = getCellData(1, 5);
+
+	String Password = getCellData(1, 6);
+	
+	String EventFullName = getCellData(1, 7);
+		
+	System.out.println("Executing : Save Way Finder Test");
+	
+	new FloorMap(driver).wayFinderCreation(EmailId, Password, EventFullName);
+
+}
 //	
 //	@Test(priority = 63,alwaysRun=true)
 //	public void geniusMeetingsConfigTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
