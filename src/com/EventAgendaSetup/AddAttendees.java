@@ -216,6 +216,7 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnEvent).click();
 
+		Thread.sleep(2000);
 		
 //		Clicking on Agenda Setup
 		
@@ -225,6 +226,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnAgendaSetUp).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Speakers
 		
 		System.out.println("Clicking on Attendees");
@@ -232,6 +235,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(clickOnAttendees);
 		
 		driver.findElement(clickOnAttendees).click();
+		
+		Thread.sleep(2000);
 		
 //		Clicking on Download Template
 		
@@ -241,6 +246,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(downloadTemplate).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Export Un Mapped
 		
 		System.out.println("Clicking on Export Un Mapped");
@@ -248,6 +255,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(exportUnMapped);
 		
 		driver.findElement(exportUnMapped).click();
+		
+		Thread.sleep(2000);
 		
 //		Clicking on Export Mapped
 		
@@ -257,6 +266,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(exportMapped).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Download QR
 		
 		System.out.println("Clicking on Download QR");
@@ -264,6 +275,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(downloadQR);
 		
 		driver.findElement(downloadQR).click();
+		
+		Thread.sleep(2000);
 		
 //		Entering the Dimension
 		
@@ -273,6 +286,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(dimension).sendKeys("400");
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Generate QR
 		
 		System.out.println("Clicking on Generate QR");
@@ -280,6 +295,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(generateQR);
 		
 		driver.findElement(generateQR).click();
+		
+		Thread.sleep(2000);
 		
 //		Pop up Handeling 
 		
@@ -365,7 +382,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(clickOnEvent);
 		
 		driver.findElement(clickOnEvent).click();
-
+		
+		Thread.sleep(2000);
 		
 //		Clicking on Agenda Setup
 		
@@ -375,6 +393,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnAgendaSetUp).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Speakers
 		
 		System.out.println("Clicking on Attendees");
@@ -382,6 +402,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(clickOnAttendees);
 		
 		driver.findElement(clickOnAttendees).click();
+		
+		Thread.sleep(2000);
 		
 //		Selecting Not mapped Users
 		
@@ -423,6 +445,8 @@ public class AddAttendees extends BaseSetUp{
     		
     		driver.findElement(appUser1st).click();
     		
+    		Thread.sleep(2000);
+    		
 //    		Giving Access to 2nd user
     		
     		System.out.println("Giving Access to 2nd user");
@@ -438,6 +462,8 @@ public class AddAttendees extends BaseSetUp{
     		waitForClickabilityOf(chatbot2nd);
     		
     		driver.findElement(chatbot2nd).click();
+    		
+    		Thread.sleep(2000);
     		
 //    		Giving Access to 3rd user
     		
@@ -458,6 +484,8 @@ public class AddAttendees extends BaseSetUp{
     		waitForClickabilityOf(expertUser3rd);
     		
     		driver.findElement(expertUser3rd).click();
+    		
+    		Thread.sleep(2000);
     		
     		try {
     			
@@ -509,6 +537,8 @@ public class AddAttendees extends BaseSetUp{
 
 		}
         
+		Thread.sleep(2000);
+        
 //		Clicking On Save Button
 		
 		System.out.println("Clicking On Save Button");
@@ -516,6 +546,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(saveBtn);
 		
 		driver.findElement(saveBtn).click();
+		
+		Thread.sleep(2000);
         
 //		Selecting Mapped Users
 		
@@ -603,6 +635,7 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnEvent).click();
 
+		Thread.sleep(2000);
 		
 //		Clicking on Agenda Setup
 		
@@ -612,6 +645,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnAgendaSetUp).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Speakers
 		
 		System.out.println("Clicking on Attendees");
@@ -620,6 +655,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnAttendees).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Map Groups
 		
 		System.out.println("Clicking on Map Groups");
@@ -627,6 +664,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(clickOnMapGroups);
 		
 		driver.findElement(clickOnMapGroups).click();
+		
+		Thread.sleep(2000);
 						
 //		Clicking on Add Group
 		
@@ -636,6 +675,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(addGroup).click();
 		
+		Thread.sleep(2000);
+		
 //		Entering Group Name
 		
 		System.out.println("Entering Group Name");
@@ -643,6 +684,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(groupName);
 		
 		driver.findElement(groupName).sendKeys(GroupName);
+		
+		Thread.sleep(2000);
 		
 //		Clicking on Show On Mobile
 		
@@ -652,6 +695,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(showOnMobile).click();
 		
+		Thread.sleep(2000);
+		
 //		Selecting First User
 		
 		System.out.println("Selecting First User");
@@ -660,6 +705,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(gUserCheckBox1st).click();
 		
+		Thread.sleep(2000);
+		
 //		Selecting Second User
 		
 		System.out.println("Selecting Second User");
@@ -667,6 +714,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(gUserCheckBox2nd);
 		
 		driver.findElement(gUserCheckBox2nd).click();
+		
+		Thread.sleep(2000);
 		
 //		Clicking On Move Button
 		
@@ -792,6 +841,7 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnEvent).click();
 
+		Thread.sleep(2000);
 		
 //		Clicking on Agenda Setup
 		
@@ -801,6 +851,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnAgendaSetUp).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Speakers
 		
 		System.out.println("Clicking on Attendees");
@@ -808,6 +860,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(clickOnAttendees);
 		
 		driver.findElement(clickOnAttendees).click();
+		
+		Thread.sleep(2000);
 		
 //		Clicking on Attendee Visibility
 		
@@ -817,11 +871,15 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(attendeeVisibility).click();
 		
+		Thread.sleep(2000);
+		
 //		Unchecking user to Off the Visibility 
 		
 		System.out.println("Unchecking First user to Off the Visibility");
 		
 		waitForClickabilityOf(userCheckBox1st);
+		
+		Thread.sleep(2000);
 		
 		boolean result = driver.findElement(userCheckBox1st).isSelected();
 		
@@ -842,13 +900,13 @@ public class AddAttendees extends BaseSetUp{
 						
 		}
 		
+		Thread.sleep(2000);
+		
 		System.out.println("Clicking on Save Button ");
 		
 		waitForClickabilityOf(visibilityOffSaveBtn);
 						
 		driver.findElement(visibilityOffSaveBtn).click();
-		
-		
 		
 //		Getting the Success Message
 		
@@ -946,6 +1004,7 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnEvent).click();
 
+		Thread.sleep(2000);
 		
 //		Clicking on Agenda Setup
 		
@@ -955,6 +1014,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnAgendaSetUp).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Attendees
 		
 		System.out.println("Clicking on Attendees");
@@ -962,6 +1023,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(clickOnAttendees);
 		
 		driver.findElement(clickOnAttendees).click();
+		
+		Thread.sleep(2000);
 		
 //		Clicking on Match Making
 		
@@ -971,6 +1034,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnMatchMaking).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Manage Category
 		
 		System.out.println("Clicking on Manage Category");
@@ -979,6 +1044,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(manageCategory).click();
 		
+		Thread.sleep(2000);
+		
 //		Entering Category Name
 		
 		System.out.println("Entering Category Name as : "+Keyword);
@@ -986,6 +1053,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(categoryName);
 		
 		driver.findElement(categoryName).sendKeys(Keyword);
+		
+		Thread.sleep(2000);
 		
 //		Selecting Category Type
 		
@@ -999,6 +1068,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(selectMultiple).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking On Add Button
 		
 		System.out.println("Clicking On Add Button");
@@ -1006,6 +1077,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(addCategoryBtn);
 		
 		driver.findElement(addCategoryBtn).click();
+		
+		Thread.sleep(2000);
 		
 //		Clicking On Close Pop Up Button
 		
@@ -1015,6 +1088,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(closeCategoryPopUp).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking On Add Keyword Button
 		
 		System.out.println("Clicking On Add Keyword Button");
@@ -1023,6 +1098,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(addKeyword).click();
 		
+		Thread.sleep(2000);
+		
 //		Entering Keyword Name
 		
 		System.out.println("Entering Keyword Name as : "+Keyword);
@@ -1030,6 +1107,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(enterKeyword);
 		
 		driver.findElement(enterKeyword).sendKeys(Keyword);
+		
+		Thread.sleep(2000);
 		
 //		Clicking On Select Category
 		
@@ -1041,6 +1120,8 @@ public class AddAttendees extends BaseSetUp{
 				
 		categoryDropDown.selectByIndex(1);
 		
+		Thread.sleep(2000);
+		
 //		Clicking On Save Button
 		
 		System.out.println("Clicking On Save Button");
@@ -1049,6 +1130,7 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(keywordSaveBtn).click();
 		
+		Thread.sleep(2000);		
 		
 		try {
 			
@@ -1145,6 +1227,7 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnEvent).click();
 
+		Thread.sleep(2000);
 		
 //		Clicking on Agenda Setup
 		
@@ -1154,6 +1237,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(clickOnAgendaSetUp).click();
 		
+		Thread.sleep(2000);
+		
 //		Clicking on Attendees
 		
 		System.out.println("Clicking on Attendees");
@@ -1161,6 +1246,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(clickOnAttendees);
 		
 		driver.findElement(clickOnAttendees).click();
+		
+		Thread.sleep(2000);
 		
 //		Clicking on Import Option
 		
@@ -1170,6 +1257,8 @@ public class AddAttendees extends BaseSetUp{
 		
 		driver.findElement(importAttendees).click();
 		
+		Thread.sleep(2000);
+		
 //		Uploading the excel File
 		
 		System.out.println("Uploading the excel File");
@@ -1177,6 +1266,8 @@ public class AddAttendees extends BaseSetUp{
 		waitForClickabilityOf(uploadAttendeeBtn);
 		
 		driver.findElement(uploadAttendeeBtn).sendKeys(UploadAttendee);
+		
+		Thread.sleep(2000);
 				
 //		Clicking on Save Button
 		
