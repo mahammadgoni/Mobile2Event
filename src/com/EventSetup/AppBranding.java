@@ -549,9 +549,9 @@ public class AppBranding extends BaseSetUp{
 		
 		System.out.println("Clicking on Add New Banner");
 		
-		waitForClickabilityOf(addBanner);
+		waitForClickabilityOf(addNewBanner);
 		
-		driver.findElement(addBanner).click();
+		driver.findElement(addNewBanner).click();
 		
 		Thread.sleep(2000);
 		

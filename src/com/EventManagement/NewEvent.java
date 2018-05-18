@@ -36,7 +36,7 @@ public class NewEvent extends BaseSetUp{
 	
 //	Selecting the Start date as 31th 
 	
-	By selectStartDate = By.xpath("//*[text()='31']");
+	By selectStartDate = By.xpath("//*[text()='30']");
 	
 //	Selecting the End date as 2nd 
 	
@@ -143,7 +143,7 @@ public class NewEvent extends BaseSetUp{
 
 		driver.findElement(goToNextMonth).click();
 		
-		System.out.println("Selecting Event Start Date as : 31st");
+		System.out.println("Selecting Event Start Date as : 30st");
 		
 		waitForClickabilityOf(selectStartDate);
 

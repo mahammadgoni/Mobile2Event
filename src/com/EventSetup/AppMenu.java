@@ -370,6 +370,16 @@ public class AppMenu extends BaseSetUp{
 		
 		Thread.sleep(2000);
 		
+//		Clicking on Add Menu
+		
+		System.out.println("Entering Details Caption");
+		
+		waitForClickabilityOf(detailCaption);
+		
+		driver.findElement(detailCaption).sendKeys(MenuName);
+		
+		Thread.sleep(2000);
+		
 //	    Mapping Menu
 		
 		System.out.println("Mapping Menu");
