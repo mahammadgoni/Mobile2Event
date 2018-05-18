@@ -180,44 +180,50 @@ public class AddUser extends BaseSetUp {
 		waitForClickabilityOf(email);
 
 		driver.findElement(email).sendKeys(AddUserEmail);
+		
+		try {
+			
+			System.out.println("Clicking on User Verification Check Box ");
 
-		System.out.println("Clicking on User Verification Check Box ");
+			if (driver.findElement(verificationCheckBox).isSelected() == true) {
 
-		if (driver.findElement(verificationCheckBox).isSelected() == true) {
+				System.out.println("Verification Check Box is already Selected ");
 
-			System.out.println("Verification Check Box is already Selected ");
+			} else {
 
-		} else {
+				driver.findElement(verificationCheckBox).click();
 
-			driver.findElement(verificationCheckBox).click();
+			}
 
+			System.out.println("Selecting the User type as Verfied");
+
+			if (driver.findElement(verified).isSelected() == true) {
+
+				System.out.println("User type is already Verified ");
+
+			} else {
+
+				driver.findElement(verified).click();
+
+			}
+
+			System.out.println("Clicking On Set Password Check Box");
+
+			waitForClickabilityOf(setPassCheckBox);
+
+			driver.findElement(setPassCheckBox).click();
+
+			System.out.println("Setting Up The Password : #e2m321");
+
+			waitForClickabilityOf(setPassword);
+
+			driver.findElement(setPassword).sendKeys("#e2m321");
+			
+		} catch (Exception e) {
+			
 		}
 
-		System.out.println("Selecting the User type as Verfied");
-
-		if (driver.findElement(verified).isSelected() == true) {
-
-			System.out.println("User type is already Verified ");
-
-		} else {
-
-			driver.findElement(verified).click();
-
-		}
-
-		System.out.println("Clicking On Set Password Check Box");
-
-		waitForClickabilityOf(setPassCheckBox);
-
-		driver.findElement(setPassCheckBox).click();
-
-		System.out.println("Setting Up The Password : #e2m321");
-
-		waitForClickabilityOf(setPassword);
-
-		driver.findElement(setPassword).sendKeys("#e2m321");
-
-		System.out.println("Setting The Possion as : Software Engineer");
+		System.out.println("Setting The Position as : Software Engineer");
 
 		waitForClickabilityOf(position);
 
@@ -383,44 +389,50 @@ public class AddUser extends BaseSetUp {
 		waitForClickabilityOf(email);
 
 		driver.findElement(email).sendKeys(AddUserEmail);
+		
+		try {
+			
+			System.out.println("Clicking on User Verification Check Box ");
 
-		System.out.println("Clicking on User Verification Check Box ");
+			if (driver.findElement(verificationCheckBox).isSelected() == true) {
 
-		if (driver.findElement(verificationCheckBox).isSelected() == true) {
+				System.out.println("Verification Check Box is already Selected ");
 
-			System.out.println("Verification Check Box is already Selected ");
+			} else {
 
-		} else {
+				driver.findElement(verificationCheckBox).click();
 
-			driver.findElement(verificationCheckBox).click();
+			}
 
-		}
+			System.out.println("Selecting the User type as Unverfied");
 
-		System.out.println("Selecting the User type as Unverfied");
+			if (driver.findElement(unverified).isSelected() == true) {
 
-		if (driver.findElement(unverified).isSelected() == true) {
+				System.out.println("User type is already Verified ");
 
-			System.out.println("User type is already Verified ");
+			} else {
 
-		} else {
+				driver.findElement(unverified).click();
 
-			driver.findElement(unverified).click();
+			}
 
-		}
+			System.out.println("Clicking On Set Password Check Box");
 
-		System.out.println("Clicking On Set Password Check Box");
+			waitForClickabilityOf(setPassCheckBox);
 
-		waitForClickabilityOf(setPassCheckBox);
+			driver.findElement(setPassCheckBox).click();
 
-		driver.findElement(setPassCheckBox).click();
+			System.out.println("Setting Up The Password : #e2m321");
 
-		System.out.println("Setting Up The Password : #e2m321");
+			waitForClickabilityOf(setPassword);
 
-		waitForClickabilityOf(setPassword);
+			driver.findElement(setPassword).sendKeys("#e2m321");
+			
+		} catch (Exception e) {
+			
+		}		
 
-		driver.findElement(setPassword).sendKeys("#e2m321");
-
-		System.out.println("Setting The Possion as : Software Engineer");
+		System.out.println("Setting The Position as : Software Engineer");
 
 		waitForClickabilityOf(position);
 

@@ -863,22 +863,24 @@ public void downloadResourceQRCodeTest() throws ParseException, InterruptedExcep
 
 	}
 	
-	@Test(priority = 50,alwaysRun=true)
-	public void uploadFileTypeResourceTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
-		
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-		
-		String EventFullName = getCellData(1, 7);
-		
-		String SessionTitle = getCellData(1, 9);
-
-		System.out.println("Executing : Upload File Type Resource Test");
-		
-		new AddSessions(driver).addResources(EmailId, Password, EventFullName, SessionTitle, "File");
-
-	}
+//	Don't Execute this One
+	
+//	@Test(priority = 50,alwaysRun=true)
+//	public void uploadFileTypeResourceTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//		
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String SessionTitle = getCellData(1, 9);
+//
+//		System.out.println("Executing : Upload File Type Resource Test");
+//		
+//		new AddSessions(driver).addResources(EmailId, Password, EventFullName, SessionTitle, "File");
+//
+//	}
 	
 	@Test(priority = 51,alwaysRun=true)
 	public void seatingArrangementTest() throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
