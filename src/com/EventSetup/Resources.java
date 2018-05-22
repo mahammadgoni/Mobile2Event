@@ -1,9 +1,12 @@
 package com.EventSetup;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import com.BaseSetup.BaseSetUp;
 import com.CommonActions.LoginToAccount;
@@ -73,6 +76,24 @@ public class Resources extends BaseSetUp{
 	By generateBtn = By.xpath("//*[@id='btnSave']");
 	
 	By closePopUp = By.xpath("//a[@id='scriptholder_A2']");
+	
+//	Upload Resource
+		
+	By uploadResources = By.xpath("//*[@class='cstm-icon icon-plus-round']");
+	
+	By resourceType = By.xpath("//select[@id='ContentPlaceHolder1_cmbSourceTpe']");
+	
+	By resourceTitle = By.xpath("//*[@id='txtLinkResourceTitle']");
+	
+	By resourceLink = By.xpath("//*[@id='txtLinkResourcLink']");
+	
+	By resourceSaveBtn = By.xpath("//*[@id='btnResourceLinkSave']");
+	
+	By resourceCloseBtn = By.xpath("//div[@id='AddResource']//a[@class='close-popup']");
+	
+	By resourceBrowse = By.xpath("//*[@id='upfile2']");
+	
+	By resourceNo = By.xpath("//*[@class='resc-row']");
 	
 	
 	
@@ -528,6 +549,99 @@ public class Resources extends BaseSetUp{
 		
 	}
 	
+//	Upload Resource Method
+	
+	public Resources uploadResouce(String EmailId, String Password,String EventFullName,String SessionTitle) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+						
+//		Clicking On Upload Resources
+
+		System.out.println("Clicking On Upload Resources");
+
+		waitForClickabilityOf(uploadResources);
+
+		driver.findElement(uploadResources).click();
+		
+		Thread.sleep(2000);
+		
+//		Selecting Resource Type
+
+		System.out.println("Selecting Resouce Type as : Link");
+			
+		waitForClickabilityOf(resourceType);
+		
+		Select Type = new Select(driver.findElement(resourceType));
+			
+		Type.selectByIndex(1);
+		
+		Thread.sleep(2000);
+			
+//		Entering Resource Title
+
+		System.out.println("Entering Resource Title as : "+SessionTitle+" Resource");
+
+		waitForClickabilityOf(resourceTitle);
+
+		driver.findElement(resourceTitle).sendKeys(SessionTitle+" Resource");
+		
+		Thread.sleep(2000);
+			
+//		Entering Resource Link
+
+		System.out.println("Entering Resource Link as : https://google.com");
+
+		waitForClickabilityOf(resourceLink);
+
+		driver.findElement(resourceLink).sendKeys("https://google.com");
+		
+		Thread.sleep(2000);
+			
+//		Clicking on Save Button
+
+		System.out.println("Clicking on Save Button");
+
+		waitForClickabilityOf(resourceSaveBtn);
+
+		driver.findElement(resourceSaveBtn).click();
+		
+		Thread.sleep(2000);
+		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
+		
+//		Getting No Of Existing Resource Count
+		
+		System.out.println("Getting No Of Existing Resource Count");
+		
+		waitForClickabilityOf(resourceNo);
+		
+		List<WebElement> element = driver.findElements(resourceNo);
+		
+		int NoOfExResources = element.size();
+		
+		Thread.sleep(2000);
+		
+		if (NoOfExResources==1) {
+			
+			System.out.println("Successfully Uploaded One Resource");
+			
+		} else {
+			
+			System.out.println("Failed to Upload One Resource");
+
+		}
+		
+		return new Resources(driver);
+		
+	}
 	
 	
 

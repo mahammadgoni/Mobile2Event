@@ -15,16 +15,8 @@ public class BrowserSetUp extends ReadAndWriteTestData{
 
 	protected static WebDriver driver;
 
-	String geckoPath = "/Browser_Driver/geckodriver";
-
-	String firefoxLogPath = "/Browser_Driver/firefoxLogs";
+//  This Will Store the Project Home Address
 	
-	String chromeDrPath = "/Browser_Driver/chromedriver";
-
-//	String e2mURL = "https://cmsuat2.event2mobile.com/";
-		
-//	String e2mURL = "https://bmccmsuat.event2mobile.com";
-		
 	String home = System.getProperty("user.dir");
 	
 
@@ -34,6 +26,12 @@ public class BrowserSetUp extends ReadAndWriteTestData{
 		String e2mURL = getCellData(1, 1);
 		
 		String BrowserName = getCellData(1, 0);
+		
+		String geckoPath =  getCellData(1, 2);
+
+		String firefoxLogPath =  getCellData(1, 4);
+		
+		String chromeDrPath =  getCellData(1, 3);
 		
 //		System.out.println(BrowserName);
 		
@@ -49,8 +47,6 @@ public class BrowserSetUp extends ReadAndWriteTestData{
 
 			System.setProperty("webdriver.chrome.driver", home+chromeDrPath);
 			
-//			String dir = "/Library/Application Support/Google/Chrome";
-
 			ChromeOptions options = new ChromeOptions();
 
 			// Code for disable the Logs

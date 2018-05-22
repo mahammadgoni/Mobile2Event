@@ -895,9 +895,9 @@ public class AddSessions extends BaseSetUp{
 	
 	System.out.println("Clicking on Add Session");
 	
-	waitForClickabilityOf(clickOnAddSession);
+	waitForClickabilityOf(clickOnAddSessionFromLocation);
 	
-	driver.findElement(clickOnAddSession).click();
+	driver.findElement(clickOnAddSessionFromLocation).click();
 	
 //	Adding Search Track
 	
@@ -2556,6 +2556,8 @@ public class AddSessions extends BaseSetUp{
 		// Login to your Account
 
 		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+		
+		Thread.sleep(2000);
 
 		// Searching for Event Name
 
