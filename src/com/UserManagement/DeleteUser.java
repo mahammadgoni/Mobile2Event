@@ -368,7 +368,7 @@ public class DeleteUser extends BaseSetUp {
 		
 	}
 	
-	public DeleteUser purgeAllUser(String EmailId, String Password){
+	public DeleteUser purgeAllUser(String EmailId, String Password) throws InterruptedException{
 		
 		waitForClickabilityOf(emailId);
 
@@ -401,6 +401,8 @@ public class DeleteUser extends BaseSetUp {
 		waitForClickabilityOf(menu);
 
 		driver.findElement(menu).click();
+		
+		Thread.sleep(2000);
 
 		System.out.println("Clicking on User Management");
 
@@ -408,11 +410,15 @@ public class DeleteUser extends BaseSetUp {
 
 		driver.findElement(userMgnt).click();
 		
+		Thread.sleep(2000);
+		
 		System.out.println("Clicking on Deleted Users from User Management");
 		
 		waitForClickabilityOf(deletedUsers);
 
 		driver.findElement(deletedUsers).click();
+		
+		Thread.sleep(2000);
 		
 		System.out.println("Selecting All Deleted Users");
 		
@@ -420,24 +426,29 @@ public class DeleteUser extends BaseSetUp {
 
 		driver.findElement(selectAllDeletedUser).click();
 		
+		Thread.sleep(2000);
+		
 		System.out.println("Purge All Deleted Users");
 		
 		waitForClickabilityOf(purgeBtn);
 
 		driver.findElement(purgeBtn).click();
 		
-//		try {
+		Thread.sleep(2000);
+		
+		try {
 			
 			popUpHandeling();
 			
 			popUpHandeling();
 			
 			
-//		} catch (Exception e) {
-//			
-//			
-//		
-//		}
+		} catch (Exception e) {
+			
+		
+		}
+		
+		Thread.sleep(2000);
 		
 		System.out.println("Successfully Purge All Deleted Users");
 		

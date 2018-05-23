@@ -142,7 +142,7 @@ public class E2MTestCase extends BrowserSetUp {
 	 }
 	
 	 @Test(priority = 6,alwaysRun=true)
-	 public void purgeAllUserTest() throws InvalidFormatException, IOException {
+	 public void purgeAllUserTest() throws InvalidFormatException, IOException, InterruptedException {
 	
 	 String EmailId = getCellData(1, 5);
 	

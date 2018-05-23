@@ -143,9 +143,9 @@ public class UpdateUserCredentials extends BaseSetUp{
 
 		System.out.println("Selecting the Event  : "+EventFullName);
 
-		waitForClickabilityOf(By.xpath("//select[@id='ContentPlaceHolder1_ddlEvents']//*[contains(text(),'"+EventFullName+"')]"));
+		waitForClickabilityOf(By.xpath("//*[contains(text(),'"+EventFullName+"')]"));
 
-		driver.findElement(By.xpath("//select[@id='ContentPlaceHolder1_ddlEvents']//*[contains(text(),'"+EventFullName+"')]")).click();
+		driver.findElement(By.xpath("//*[contains(text(),'"+EventFullName+"')]")).click();
 		
 		Thread.sleep(2000);
 				
