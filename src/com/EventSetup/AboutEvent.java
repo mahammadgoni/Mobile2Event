@@ -98,10 +98,6 @@ public class AboutEvent extends BaseSetUp{
 	By noExstInfo = By.xpath("//*[@class='btn-delete']");
 	
 	
-	
-
-	
-	
 
 	public AboutEvent(WebDriver driver) {
 		super(driver);

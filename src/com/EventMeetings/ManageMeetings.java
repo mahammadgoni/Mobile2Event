@@ -93,10 +93,7 @@ public class ManageMeetings extends BaseSetUp{
 	
 	By genDelete = By.xpath("//*[@id='ContentPlaceHolder1_gvGenuisReport_GeniusimgDelpractice_0']");
 	
-	
-
-	
-	
+		
 
 	public ManageMeetings(WebDriver driver) {
 		super(driver);

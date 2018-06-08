@@ -95,11 +95,6 @@ public class Resources extends BaseSetUp{
 	
 	By resourceNo = By.xpath("//*[@class='resc-row']");
 	
-	
-	
-	
-	
-	
 
 	public Resources(WebDriver driver) {
 		super(driver);

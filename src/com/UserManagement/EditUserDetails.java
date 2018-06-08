@@ -70,11 +70,6 @@ public class EditUserDetails extends BaseSetUp{
 	
 	By jobTitle = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_lblJobTitle_0']");
 	
-
-	
-	
-	
-	
 	
 
 	public EditUserDetails(WebDriver driver) {

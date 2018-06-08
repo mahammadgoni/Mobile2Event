@@ -125,7 +125,6 @@ public class AddSpeakers extends BaseSetUp{
 	
 	By showMappings = By.xpath("//*[@id='btnListView']");
 	
-	String ImagePath = "/Users/goni/Documents/E2MDatas/SpeakerImage.png";
 	
 
 	public AddSpeakers(WebDriver driver) {
@@ -357,7 +356,7 @@ public class AddSpeakers extends BaseSetUp{
 		
 		waitForClickabilityOf(imageUpload);
 		
-		driver.findElement(imageUpload).sendKeys(ImagePath);
+		driver.findElement(imageUpload).sendKeys(home+"/Test Data/SpeakerImage.png");
 		
 //		Entering save Button 
 		
