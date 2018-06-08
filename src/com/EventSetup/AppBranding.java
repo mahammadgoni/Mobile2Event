@@ -109,11 +109,6 @@ public class AppBranding extends BaseSetUp{
 	By addBanner = By.xpath("//*[@id='ContentPlaceHolder1_btnAdd']");
 	
 	
-	
-	
-	
-	
-	
 
 	public AppBranding(WebDriver driver) {
 		super(driver);

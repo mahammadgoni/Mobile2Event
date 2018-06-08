@@ -26,10 +26,6 @@ public class DeleteUser extends BaseSetUp {
 	
 	By deletedUsers = By.xpath("//*[@href='DeletedUsers.aspx']");
 
-//	int userNo;
-
-//	By selectUser = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUsers_" + userNo + "']");
-
 	By selectAllUser = By.xpath("//*[@id='chkHeader']");
 
 	By deleteSelectedUsers = By.xpath("//*[@title='Delete']");

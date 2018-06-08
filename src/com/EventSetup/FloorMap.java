@@ -52,10 +52,6 @@ public class FloorMap extends BaseSetUp{
 	By errorMsg = By.xpath("//*[@id='ContentPlaceHolder1_lblError']");
 
 	
-	
-	
-	
-	
 
 	public FloorMap(WebDriver driver) {
 		super(driver);

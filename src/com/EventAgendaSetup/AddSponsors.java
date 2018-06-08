@@ -96,16 +96,6 @@ public class AddSponsors extends BaseSetUp{
 	By successMessage = By.xpath("//*[@id='ContentPlaceHolder1_lblError']");
 	
 
-	// Exhibitor Logo Upload Path
-
-	String SpnsrLogoPath = "/Users/goni/Documents/E2MDatas/SponsorLogo.jpg";
-
-	// Exhibitor Banner Path
-
-	String SpnsrBannerPath = "/Users/goni/Documents/E2MDatas/SponsorBanner.jpg";
-
-
-	
 
 	public AddSponsors(WebDriver driver) {
 		super(driver);
@@ -330,7 +320,7 @@ public class AddSponsors extends BaseSetUp{
 
 		waitForClickabilityOf(spnsrLogo);
 
-		driver.findElement(spnsrLogo).sendKeys(SpnsrLogoPath);
+		driver.findElement(spnsrLogo).sendKeys(home+"/Test Data/SponsorLogo.jpg");
 
 		// Adding Sponsor Banner
 
@@ -338,7 +328,7 @@ public class AddSponsors extends BaseSetUp{
 
 		waitForClickabilityOf(spnsrBanner);
 
-		driver.findElement(spnsrBanner).sendKeys(SpnsrBannerPath);
+		driver.findElement(spnsrBanner).sendKeys(home+"/Test Data/SponsorBanner.jpg");
 
 		// Clicking On Save Button
 
