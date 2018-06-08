@@ -38,23 +38,6 @@ public class UploadData extends BaseSetUp{
 	
 	By uploadStatus = By.xpath("//*[@id='ContentPlaceHolder1_gvBulkUploadHistory_lblStatus_0']");
 	
-//	E2MData Excel File Path
-	
-	String E2MData = "/Users/goni/Documents/E2MDatas/E2MDataImportTemplate.xlsx";
-	
-//	Speaker Image Path
-	
-	String SpeakerImage = "/Users/goni/Documents/E2MDatas/anie_speaker.jpg.zip";
-	
-//	Exhibitor Image Path
-	
-	String ExhibitorImage = "/Users/goni/Documents/E2MDatas/anie_Exhibitor.jpg.zip";
-	
-//	Sponsor Image Path
-	
-	String SponsorImage = "/Users/goni/Documents/E2MDatas/anie_Sponsor.jpg.zip";
-	
-	
 
 	public UploadData(WebDriver driver) {
 		super(driver);
@@ -151,7 +134,7 @@ public class UploadData extends BaseSetUp{
 
 		waitForClickabilityOf(clickOnExcelFile);
 
-		driver.findElement(clickOnExcelFile).sendKeys(E2MData);
+		driver.findElement(clickOnExcelFile).sendKeys(home+"/Test Data/E2MDataImportTemplate.xlsx");
 		
 //		Selecting the Speaker.zip File to Upload
 
@@ -159,7 +142,7 @@ public class UploadData extends BaseSetUp{
 
 		waitForClickabilityOf(clickOnSpeakerImage);
 
-		driver.findElement(clickOnSpeakerImage).sendKeys(SpeakerImage);
+		driver.findElement(clickOnSpeakerImage).sendKeys(home+"/Test Data/anie_speaker.jpg.zip");
 		
 //		Selecting the Exhibitor.zip File to Upload
 
@@ -167,7 +150,7 @@ public class UploadData extends BaseSetUp{
 
 		waitForClickabilityOf(clickOnExhibitorImage);
 
-		driver.findElement(clickOnExhibitorImage).sendKeys(ExhibitorImage);
+		driver.findElement(clickOnExhibitorImage).sendKeys(home+"/Test Data/anie_Exhibitor.jpg.zip");
 		
 //		Selecting the Sponsor.zip File to Upload
 
@@ -175,7 +158,7 @@ public class UploadData extends BaseSetUp{
 
 		waitForClickabilityOf(clickOnSponsorImage);
 
-		driver.findElement(clickOnSponsorImage).sendKeys(SponsorImage);
+		driver.findElement(clickOnSponsorImage).sendKeys(home+"/Test Data/anie_Sponsor.jpg.zip");
 		
 //		Clicking On Upload Button
 

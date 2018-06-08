@@ -408,9 +408,7 @@ public class AboutEvent extends BaseSetUp{
 		return new AboutEvent(driver);
 		
 	}
-	
-//	Add Social Link Method
-	
+
 	
 //	Add Social Link Method
 	
