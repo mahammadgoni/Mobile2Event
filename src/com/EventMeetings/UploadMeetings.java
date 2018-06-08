@@ -31,8 +31,6 @@ public class UploadMeetings extends BaseSetUp{
 	
 	By stausMsg = By.xpath("//span[@id='ContentPlaceHolder1_gvBulkUploadHistory_lblStatus_0']");
 	
-	String filePath = "/Users/goni/Documents/E2MDatas/Meeting_Upload.xlsx";
-	
 
 	public UploadMeetings(WebDriver driver) {
 		super(driver);
@@ -137,7 +135,7 @@ public class UploadMeetings extends BaseSetUp{
 		
 		waitForClickabilityOf(chooseFile);
 		
-		driver.findElement(chooseFile).sendKeys(filePath);
+		driver.findElement(chooseFile).sendKeys(home+"/Test Data/Meeting_Upload.xlsx");
 		
 		Thread.sleep(2000);
 		
