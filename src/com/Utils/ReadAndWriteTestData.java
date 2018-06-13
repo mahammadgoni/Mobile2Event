@@ -13,15 +13,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ReadAndWriteTestData {
 	
+		
 	
-//	public static String testDataPath = "/Test Data/TestData.xlsx";
-	
-	
-	@SuppressWarnings("resource")
+	@SuppressWarnings({ "resource", "deprecation" })
 	
 	public static String getCellData(int RowNum,int CellNum) throws InvalidFormatException, IOException{
 		
-		try {
+		
 			String home = System.getProperty("user.dir");
 			
 			File file = new File(home+"/Test Data/TestData.xlsx");
@@ -36,13 +34,19 @@ public class ReadAndWriteTestData {
 			
 			Cell cell = row.getCell(CellNum);
 			
+			cell.setCellType(Cell.CELL_TYPE_STRING);
+			
+			try {
+			
 			String CellData = cell.getStringCellValue();
-					
+			
 			return CellData;
 			
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 			
-			return"";
+			String CellData = cell.getStringCellValue()+"";
+			
+			return CellData;
 			
 		}
 				
