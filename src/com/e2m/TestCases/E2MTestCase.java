@@ -79,18 +79,18 @@ public class E2MTestCase extends BrowserSetUp {
 
 	// Test Cases Methods
 
-//	 @Test(priority = 1,alwaysRun=true)
-//	 public void loginToAccountTest() throws InterruptedException, InvalidFormatException, IOException {
-//	
-//	 String EmailId = getCellData(1, 5);
-//	
-//	 String Password = getCellData(1, 6);
-//	
-//	 System.out.println("Executing : Login To Account Test");
-//	
-//	 new LoginToAccount(driver).loginToAccount(EmailId, Password);
-//	
-//	 }
+	 @Test(priority = 1,alwaysRun=true)
+	 public void loginToAccountTest() throws InterruptedException, InvalidFormatException, IOException {
+	
+	 String EmailId = getCellData(1, 5);
+	
+	 String Password = getCellData(1, 6);
+	
+	 System.out.println("Executing : Login To Account Test");
+	
+	 new LoginToAccount(driver).loginToAccount(EmailId, Password);
+	
+	 }
 //	
 //	 @Test(priority = 2,alwaysRun=true)
 //	 public void forgotPasswordTest() throws InterruptedException, AWTException {
@@ -1358,20 +1358,20 @@ public class E2MTestCase extends BrowserSetUp {
 //
 //	}
 //
-	@Test(priority = 82, alwaysRun = true)
-	public void uploadE2MDataTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		System.out.println("Executing : Upload E2MData Test");
-
-		new UploadData(driver).e2mDataImport(EmailId, Password, EventFullName);
-
-	}
+//	@Test(priority = 82, alwaysRun = true)
+//	public void uploadE2MDataTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Upload E2MData Test");
+//
+//		new UploadData(driver).e2mDataImport(EmailId, Password, EventFullName);
+//
+//	}
 //
 //	@Test(priority = 83, alwaysRun = true)
 //	public void addFloorMapTest() throws ParseException, InterruptedException, InvalidFormatException, IOException {
@@ -1676,159 +1676,159 @@ public class E2MTestCase extends BrowserSetUp {
 //		new ManageMeetings(driver).deleteGeniusMeeting(EmailId, Password, EventFullName);
 //
 //	}
-
-	// Till Here
-
-	@Test(priority = 103, alwaysRun = true)
-	public void addQuizOrTriviaTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		System.out.println("Executing : Add Quiz Or Trivia Test");
-
-		new QuizOrTrivia(driver).addQuizOrTrivia(EmailId, Password, EventFullName);
-
-	}
-
-	@Test(priority = 104, alwaysRun = true)
-	public void addLocationQuestionsTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		System.out.println("Executing : Add Location Questions Test");
-
-		new Locations(driver).addLocations(EmailId, Password, EventFullName);
-
-	}
-
-	@Test(priority = 105, alwaysRun = true)
-	public void createQuizScoringRuleTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		System.out.println("Executing : Create Quiz Scoring Rules Test");
-
-		new ScoringRules(driver).addScoringRules(EmailId, Password, EventFullName, "Quiz", "100", "75", "50");
-
-	}
-
-	@Test(priority = 106, alwaysRun = true)
-	public void createLocationScoringRulesTest()throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		System.out.println("Executing : Create Location Scoring Rules Test");
-
-		new ScoringRules(driver).addScoringRules(EmailId, Password, EventFullName, "Location", "100", "75", "50");
-
-	}
-
-	@Test(priority = 107, alwaysRun = true)
-	public void addUserConnectionTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		System.out.println("Executing : Add User Connection Test");
-
-		new MakeAFriend(driver).addConnectionRules(EmailId, Password, EventFullName);
-
-	}
-
-	@Test(priority = 108, alwaysRun = true)
-	public void addBadgeAndMapWithQuizTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		System.out.println("Executing : Add Badge and Map with Quiz Test");
-
-		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Quiz Map", "Quiz");
-
-	}
-
-	@Test(priority = 109, alwaysRun = true)
-	public void addBadgeAndMapWithLocationTest()throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		System.out.println("Executing : Add Badge and Map with LocationTest");
-
-		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Location Map", "Location");
-
-	}
-
-	@Test(priority = 110, alwaysRun = true)
-	public void addBadgeAndMapWithUserTest()throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		System.out.println("Executing : Add Badge and Map with User Test");
-
-		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Making Friend Map", "User");
-
-	}
-
-	@Test(priority = 111, alwaysRun = true)
-	public void cloneToNewEventTest() throws InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		String EventShortName = getCellData(1, 8);
-
-		System.out.println("Executing : Clone To New Event Test");
-
-		new CloneEvent(driver).cloneToNewEvent(EmailId, Password, EventFullName, EventShortName);
-
-	}
-
-	@Test(priority = 112, alwaysRun = true)
-	public void mapUserToAnEventTest() throws InterruptedException, InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		System.out.println("Executing : Map User To An Event Test");
-
-		new MapUserToEvent(driver).mapUserToEvent(EmailId, Password, EventFullName, "kevinms@yopmail.com");
-
-	}
+//
+//	// Till Here
+//
+//	@Test(priority = 103, alwaysRun = true)
+//	public void addQuizOrTriviaTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Add Quiz Or Trivia Test");
+//
+//		new QuizOrTrivia(driver).addQuizOrTrivia(EmailId, Password, EventFullName);
+//
+//	}
+//
+//	@Test(priority = 104, alwaysRun = true)
+//	public void addLocationQuestionsTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Add Location Questions Test");
+//
+//		new Locations(driver).addLocations(EmailId, Password, EventFullName);
+//
+//	}
+//
+//	@Test(priority = 105, alwaysRun = true)
+//	public void createQuizScoringRuleTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Create Quiz Scoring Rules Test");
+//
+//		new ScoringRules(driver).addScoringRules(EmailId, Password, EventFullName, "Quiz", "100", "75", "50");
+//
+//	}
+//
+//	@Test(priority = 106, alwaysRun = true)
+//	public void createLocationScoringRulesTest()throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Create Location Scoring Rules Test");
+//
+//		new ScoringRules(driver).addScoringRules(EmailId, Password, EventFullName, "Location", "100", "75", "50");
+//
+//	}
+//
+//	@Test(priority = 107, alwaysRun = true)
+//	public void addUserConnectionTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Add User Connection Test");
+//
+//		new MakeAFriend(driver).addConnectionRules(EmailId, Password, EventFullName);
+//
+//	}
+//
+//	@Test(priority = 108, alwaysRun = true)
+//	public void addBadgeAndMapWithQuizTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Add Badge and Map with Quiz Test");
+//
+//		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Quiz Map", "Quiz");
+//
+//	}
+//
+//	@Test(priority = 109, alwaysRun = true)
+//	public void addBadgeAndMapWithLocationTest()throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Add Badge and Map with LocationTest");
+//
+//		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Location Map", "Location");
+//
+//	}
+//
+//	@Test(priority = 110, alwaysRun = true)
+//	public void addBadgeAndMapWithUserTest()throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Add Badge and Map with User Test");
+//
+//		new Badges(driver).addBadges(EmailId, Password, EventFullName, "Making Friend Map", "User");
+//
+//	}
+//
+//	@Test(priority = 111, alwaysRun = true)
+//	public void cloneToNewEventTest() throws InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		String EventShortName = getCellData(1, 8);
+//
+//		System.out.println("Executing : Clone To New Event Test");
+//
+//		new CloneEvent(driver).cloneToNewEvent(EmailId, Password, EventFullName, EventShortName);
+//
+//	}
+//
+//	@Test(priority = 112, alwaysRun = true)
+//	public void mapUserToAnEventTest() throws InterruptedException, InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Map User To An Event Test");
+//
+//		new MapUserToEvent(driver).mapUserToEvent(EmailId, Password, EventFullName, "kevinms@yopmail.com");
+//
+//	}
 
 }
