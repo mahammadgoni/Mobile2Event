@@ -2573,10 +2573,10 @@ public class AddSessions extends BaseSetUp{
 
 		search.sendKeys(Keys.ENTER);
 
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -2599,10 +2599,10 @@ public class AddSessions extends BaseSetUp{
 
 			search.sendKeys(EventFullName);
 
-			Thread.sleep(2000);
+			Thread.sleep(4000);
 
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(4000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
