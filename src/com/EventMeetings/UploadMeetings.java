@@ -123,7 +123,7 @@ public class UploadMeetings extends BaseSetUp{
 		
 	}
 	
-	public UploadMeetings meetingsUpload(String EmailId, String Password,String EventFullName) throws InterruptedException{
+	public UploadMeetings meetingsUpload(String EmailId, String Password,String EventFullName,String MeetingUploadPath) throws InterruptedException{
 		
 		commonActivities(EmailId, Password, EventFullName);
 		
@@ -135,7 +135,7 @@ public class UploadMeetings extends BaseSetUp{
 		
 		waitForClickabilityOf(chooseFile);
 		
-		driver.findElement(chooseFile).sendKeys(home+"/Test Data/Meeting_Upload.xlsx");
+		driver.findElement(chooseFile).sendKeys(MeetingUploadPath);
 		
 		Thread.sleep(2000);
 		

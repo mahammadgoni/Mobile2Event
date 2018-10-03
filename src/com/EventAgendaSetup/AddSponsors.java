@@ -324,11 +324,11 @@ public class AddSponsors extends BaseSetUp{
 
 		// Adding Sponsor Banner
 
-		System.out.println("Adding Sponsor Banner");
-
-		waitForClickabilityOf(spnsrBanner);
-
-		driver.findElement(spnsrBanner).sendKeys(home+"/Test Data/SponsorBanner.jpg");
+//		System.out.println("Adding Sponsor Banner");
+//
+//		waitForClickabilityOf(spnsrBanner);
+//
+//		driver.findElement(spnsrBanner).sendKeys(home+"/Test Data/SponsorBanner.jpg");
 
 		// Clicking On Save Button
 

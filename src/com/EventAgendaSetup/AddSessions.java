@@ -37,7 +37,7 @@ public class AddSessions extends BaseSetUp{
 	
 	By clickOnAddSession = By.xpath("//ul[@id='3rdlevelmenu']//li//a[@href='/Session-AddEdit_New.aspx']");
 	
-	By clickOnAddSessionFromLocation = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='Session-AddEdit_New.aspx?session=0']");
+	By clickOnAddSessionFromLocation = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='Session-AddEdit_New.aspx'][contains(text(),'Add Session')]");
 	
 	By clickOnTracks = By.xpath("//ul[@id='3rdlevelmenu']//li//a[@href='/Track-AddEdit.aspx']");
 	
@@ -514,25 +514,25 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(cancelBtn).click();
 		
-		Thread.sleep(2000);
-		
-//		Clicking on Activity Drop Down
-		
-		System.out.println("Clicking on Activity Drop Down");
-		
-		waitForClickabilityOf(activityDropDown);
-		
-		driver.findElement(activityDropDown).click();
-		
-		Thread.sleep(2000);
-		
-//		Selecting Activity As Session from Drop Down
-		
-		System.out.println("Selecting Activity As Session from Drop Down");
-		
-		waitForClickabilityOf(selectSession);
-		
-		driver.findElement(selectSession).click();
+//		Thread.sleep(2000);
+//		
+////		Clicking on Activity Drop Down
+//		
+//		System.out.println("Clicking on Activity Drop Down");
+//		
+//		waitForClickabilityOf(activityDropDown);
+//		
+//		driver.findElement(activityDropDown).click();
+//		
+//		Thread.sleep(2000);
+//		
+////		Selecting Activity As Session from Drop Down
+//		
+//		System.out.println("Selecting Activity As Session from Drop Down");
+//		
+//		waitForClickabilityOf(selectSession);
+//		
+//		driver.findElement(selectSession).click();
 		
 		Thread.sleep(2000);
 		
@@ -832,11 +832,7 @@ public class AddSessions extends BaseSetUp{
 //	Clicking on Save Button
 	
 	System.out.println("Clicking on Save Button");
-	
-//	waitForClickabilityOf(trackName);
-//	
-//	driver.findElement(trackName).click();
-	
+		
 	waitForClickabilityOf(saveBtn);
 	
 	driver.findElement(saveBtn).click();
@@ -859,6 +855,8 @@ public class AddSessions extends BaseSetUp{
 	
 	driver.findElement(clickOnLocation).click();
 	
+	Thread.sleep(2000);
+	
 //	Clicking On Add Location Button
 	
 	System.out.println("Clicking On Add Location Button");
@@ -866,6 +864,8 @@ public class AddSessions extends BaseSetUp{
 	waitForClickabilityOf(addNewLocation);
 	
 	driver.findElement(addNewLocation).click();
+	
+	Thread.sleep(2000);
 	
 //	Entering Location Name
 	
@@ -875,6 +875,8 @@ public class AddSessions extends BaseSetUp{
 	
 	driver.findElement(locationName).sendKeys(Location+" 1");
 	
+	Thread.sleep(2000);
+	
 //	Clicking On Add Button
 	
 	System.out.println("Clicking On Add Button");
@@ -883,6 +885,8 @@ public class AddSessions extends BaseSetUp{
 	
 	driver.findElement(locationAddBtn).click();
 	
+	Thread.sleep(2000);
+	
 //	Clicking On Close Up Pop up
 	
 	System.out.println("Clicking On Close Up Pop up");
@@ -890,6 +894,8 @@ public class AddSessions extends BaseSetUp{
 	waitForClickabilityOf(locationCloseBtn);
 	
 	driver.findElement(locationCloseBtn).click();
+	
+	Thread.sleep(2000);
 		
 //	Clicking on Add Session
 	
@@ -899,6 +905,8 @@ public class AddSessions extends BaseSetUp{
 	
 	driver.findElement(clickOnAddSessionFromLocation).click();
 	
+	Thread.sleep(2000);
+	
 //	Adding Search Track
 	
 	System.out.println("Entering Session Title  as :  "+SessionTitle+"1");
@@ -906,6 +914,8 @@ public class AddSessions extends BaseSetUp{
 	waitForClickabilityOf(sessionTitle);
 	
 	driver.findElement(sessionTitle).sendKeys(SessionTitle+"1");
+	
+	Thread.sleep(2000);
 	
 //	Adding Search Track
 	
@@ -928,20 +938,20 @@ public class AddSessions extends BaseSetUp{
 	}
 		
 //	Clicking on Activity Drop Down
-	
-	System.out.println("Clicking on Activity Drop Down");
-	
-	waitForClickabilityOf(activityDropDown);
-	
-	driver.findElement(activityDropDown).click();
-	
-//	Selecting Activity As Session from Drop Down
-	
-	System.out.println("Selecting Activity As Session from Drop Down");
-	
-	waitForClickabilityOf(selectSession);
-	
-	driver.findElement(selectSession).click();
+//	
+//	System.out.println("Clicking on Activity Drop Down");
+//	
+//	waitForClickabilityOf(activityDropDown);
+//	
+//	driver.findElement(activityDropDown).click();
+//	
+////	Selecting Activity As Session from Drop Down
+//	
+//	System.out.println("Selecting Activity As Session from Drop Down");
+//	
+//	waitForClickabilityOf(selectSession);
+//	
+//	driver.findElement(selectSession).click();
 	
 //	Selecting Session Start Date as Event Date
 	
@@ -955,6 +965,8 @@ public class AddSessions extends BaseSetUp{
 	
 	selectDate.sendKeys(Keys.ENTER);
 	
+	Thread.sleep(2000);
+	
 //	Selecting Session Start Time
 	
 	System.out.println("Selecting Session Start Time");
@@ -963,6 +975,8 @@ public class AddSessions extends BaseSetUp{
 	
 	driver.findElement(startTime).sendKeys("09:00 AM");
 	
+	Thread.sleep(2000);
+	
 //	Selecting Session End Time
 	
 	System.out.println("Selecting Session End Time");
@@ -970,6 +984,8 @@ public class AddSessions extends BaseSetUp{
 	waitForClickabilityOf(endTime);
 	
 	driver.findElement(endTime).sendKeys("09:00 PM");
+	
+	Thread.sleep(2000);
 	
 //	Search the Location
 	
@@ -980,6 +996,8 @@ public class AddSessions extends BaseSetUp{
 	WebElement SelectLocation = driver.findElement(searchLocation);
 	
 	SelectLocation.sendKeys(Location+" 1");
+	
+	Thread.sleep(2000);
 	
 //	Pressing Tab button
 	
@@ -1008,6 +1026,8 @@ public class AddSessions extends BaseSetUp{
 	waitForClickabilityOf(saveAndPublishBtn);
 	
 	driver.findElement(saveAndPublishBtn).click();
+	
+	Thread.sleep(2000);
 	
 //	Verifying  whether the Session added or not 
 	
@@ -1178,6 +1198,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(clickOnAddSession).click();
 		
+		Thread.sleep(2000);
+		
 //		Adding Search Track
 		
 		System.out.println("Entering Session Title  as :  "+SessionTitle+" 2");
@@ -1186,25 +1208,27 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(sessionTitle).sendKeys(SessionTitle+" 2");
 		
+		Thread.sleep(2000);
+		
 //		Adding Search Track
 		
 		System.out.println("Not Adding any Track");
 				
 //		Clicking on Activity Drop Down
 		
-		System.out.println("Clicking on Activity Drop Down");
-		
-		waitForClickabilityOf(activityDropDown);
-		
-		driver.findElement(activityDropDown).click();
-		
-//		Selecting Activity As Session from Drop Down
-		
-		System.out.println("Selecting Activity As Session from Drop Down");
-		
-		waitForClickabilityOf(selectSession);
-		
-		driver.findElement(selectSession).click();
+//		System.out.println("Clicking on Activity Drop Down");
+//		
+//		waitForClickabilityOf(activityDropDown);
+//		
+//		driver.findElement(activityDropDown).click();
+//		
+////		Selecting Activity As Session from Drop Down
+//		
+//		System.out.println("Selecting Activity As Session from Drop Down");
+//		
+//		waitForClickabilityOf(selectSession);
+//		
+//		driver.findElement(selectSession).click();
 		
 //		Selecting Session Start Date as Event Date
 		
@@ -1218,6 +1242,8 @@ public class AddSessions extends BaseSetUp{
 		
 		selectDate.sendKeys(Keys.ENTER);
 		
+		Thread.sleep(2000);
+		
 //		Selecting Session Start Time
 		
 		System.out.println("Selecting Session Start Time");
@@ -1225,6 +1251,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(startTime);
 		
 		driver.findElement(startTime).sendKeys("09:00 AM");
+		
+		Thread.sleep(2000);
 		
 //		Selecting Session End Time
 		
@@ -1234,6 +1262,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(endTime).sendKeys("09:00 PM");
 		
+		Thread.sleep(2000);
+		
 //		Search the Location
 		
 		System.out.println("Search the Location");
@@ -1241,6 +1271,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(searchLocation);
 		
 		driver.findElement(searchLocation).sendKeys(Location+" 2");
+		
+		Thread.sleep(2000);
 		
 //		Click On Add Location
 		
@@ -1250,6 +1282,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(createLocation).click();
 		
+		Thread.sleep(2000);
+		
 //		Click On Add Button
 		
 		System.out.println("Click On Add Button");
@@ -1257,6 +1291,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(addBtn);
 		
 		driver.findElement(addBtn).click();
+		
+		Thread.sleep(2000);
 		
 //		Click On Close Pop Up
 		
@@ -1290,6 +1326,8 @@ public class AddSessions extends BaseSetUp{
 		
 		driver.findElement(saveAndPublishBtn).click();
 		
+		Thread.sleep(2000);
+		
 //		Verifying  whether the Session added or not 
 		
 		waitForClickabilityOf(noOfSessions);
@@ -1313,7 +1351,7 @@ public class AddSessions extends BaseSetUp{
 	
 }
     
-    public AddSessions addCheckInRegistrationSession(String EmailId, String Password, String EventFullName,String TrackName,String Location,boolean track) throws ParseException, InterruptedException{
+    public AddSessions addCheckInRegistrationSession(String EmailId, String Password, String EventFullName,String TrackName,String SessionTitle,String Location,boolean track) throws ParseException, InterruptedException{
 		
 //		Login to your Account 
 		
@@ -1466,6 +1504,10 @@ public class AddSessions extends BaseSetUp{
 		
 		System.out.println("Entering Session Title  as :  Check-In-Registration");
 		
+		waitForClickabilityOf(sessionTitle);
+		
+		driver.findElement(sessionTitle).sendKeys(SessionTitle+" CIR");
+		
 //		Adding Search Track
 		
 		if (track==true) {
@@ -1515,20 +1557,20 @@ public class AddSessions extends BaseSetUp{
 		}
 				
 //		Clicking on Activity Drop Down
-		
-		System.out.println("Clicking on Activity Drop Down");
-		
-		waitForClickabilityOf(activityDropDown);
-		
-		driver.findElement(activityDropDown).click();
-		
-//		Selecting Activity As Session from Drop Down
-		
-		System.out.println("Selecting Activity As Check-In-Registration from Drop Down");
-		
-		waitForClickabilityOf(checkInRegistration);
-		
-		driver.findElement(checkInRegistration).click();
+//		
+//		System.out.println("Clicking on Activity Drop Down");
+//		
+//		waitForClickabilityOf(activityDropDown);
+//		
+//		driver.findElement(activityDropDown).click();
+//		
+////		Selecting Activity As Session from Drop Down
+//		
+//		System.out.println("Selecting Activity As Check-In-Registration from Drop Down");
+//		
+//		waitForClickabilityOf(checkInRegistration);
+//		
+//		driver.findElement(checkInRegistration).click();
 		
 //		Selecting Session Start Date as Event Date
 		
@@ -1542,6 +1584,8 @@ public class AddSessions extends BaseSetUp{
 		
 		selectDate.sendKeys(Keys.ENTER);
 		
+		Thread.sleep(2000);
+		
 //		Selecting Session Start Time
 		
 		System.out.println("Selecting Session Start Time");
@@ -1549,6 +1593,8 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(startTime);
 		
 		driver.findElement(startTime).sendKeys("09:00 AM");
+		
+		Thread.sleep(2000);
 		
 //		Selecting Session End Time
 		
@@ -1672,7 +1718,7 @@ public class AddSessions extends BaseSetUp{
 		
 	}
 
-	public AddSessions addMealBreakSessions(String EmailId, String Password, String EventFullName,String TrackName,String Location,String MealType) throws ParseException, InterruptedException{
+	public AddSessions addMealBreakSessions(String EmailId, String Password, String EventFullName,String TrackName,String SessionTitle,String Location,String MealType) throws ParseException, InterruptedException{
 		
 //		Login to your Account 
 		
@@ -1859,6 +1905,14 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(clickOnAddSession);
 		
 		driver.findElement(clickOnAddSession).click();
+		
+//		Adding Season Title
+		
+		System.out.println("Entering Session Title  as :  "+MealType);
+		
+		waitForClickabilityOf(sessionTitle);
+		
+		driver.findElement(sessionTitle).sendKeys(SessionTitle+" "+MealType);
 				
 //		Adding Search Track
 		
@@ -1902,72 +1956,74 @@ public class AddSessions extends BaseSetUp{
 		
 //		Clicking on Activity Drop Down
 		
-		System.out.println("Clicking on Activity Drop Down");
-		
-		waitForClickabilityOf(activityDropDown);
-		
-		driver.findElement(activityDropDown).click();
-		
-//		Selecting Activity As Session from Drop Down
-		
-		System.out.println("Selecting Activity As Meal Break from Drop Down");
-		
-		waitForClickabilityOf(mealBreak);
-		
-		driver.findElement(mealBreak).click();
+//		System.out.println("Clicking on Activity Drop Down");
+//		
+//		waitForClickabilityOf(activityDropDown);
+//		
+//		driver.findElement(activityDropDown).click();
+//		
+////		Selecting Activity As Session from Drop Down
+//		
+//		System.out.println("Selecting Activity As Meal Break from Drop Down");
+//		
+//		waitForClickabilityOf(mealBreak);
+//		
+//		driver.findElement(mealBreak).click();
 		
 //		Clicking on Meal Type Drop Down
-		
-		System.out.println("Clicking on Meal Type Drop Down");
-		
-		waitForClickabilityOf(mealTypeDropDown);
-		
-		driver.findElement(mealTypeDropDown).click();
-		
-//		Selecting the Meal Type 
-		
-		if (MealType.equals("Lunch")) {
-						
-//			Selecting Meal Type As Lunch from Drop Down
-			
-			System.out.println("Selecting Meal Type As Lunch from Drop Down");
-			
-			waitForClickabilityOf(lunch);
-			
-			driver.findElement(lunch).click();
-			
-		}else if (MealType.equals("Tea")) {
-			
-//			Selecting Meal Type As Tea from Drop Down
-			
-			System.out.println("Selecting Meal Type As Tea from Drop Down");
-			
-			waitForClickabilityOf(tea);
-			
-			driver.findElement(tea).click();
-			
-		}else if (MealType.equals("Dinner")) {
-			
-//			Selecting Meal Type As Dinner from Drop Down
-			
-			System.out.println("Selecting Meal Type As Dinner from Drop Down");
-			
-			waitForClickabilityOf(dinner);
-			
-			driver.findElement(dinner).click();
-			
-		}else {
-			
-//			Selecting Meal Type As Breakfast from Drop Down
-			
-			System.out.println("Selecting Meal Type As Breakfast from Drop Down");
-			
-			waitForClickabilityOf(breakfast);
-			
-			driver.findElement(breakfast).click();
-			
-				
-		}
+//		
+//		System.out.println("Clicking on Meal Type Drop Down");
+//		
+//		waitForClickabilityOf(mealTypeDropDown);
+//		
+//		driver.findElement(mealTypeDropDown).click();
+//		
+//		Thread.sleep(2000);
+//		
+////		Selecting the Meal Type 
+//		
+//		if (MealType.equals("Lunch")) {
+//						
+////			Selecting Meal Type As Lunch from Drop Down
+//			
+//			System.out.println("Selecting Meal Type As Lunch from Drop Down");
+//			
+//			waitForClickabilityOf(lunch);
+//			
+//			driver.findElement(lunch).click();
+//			
+//		}else if (MealType.equals("Tea")) {
+//			
+////			Selecting Meal Type As Tea from Drop Down
+//			
+//			System.out.println("Selecting Meal Type As Tea from Drop Down");
+//			
+//			waitForClickabilityOf(tea);
+//			
+//			driver.findElement(tea).click();
+//			
+//		}else if (MealType.equals("Dinner")) {
+//			
+////			Selecting Meal Type As Dinner from Drop Down
+//			
+//			System.out.println("Selecting Meal Type As Dinner from Drop Down");
+//			
+//			waitForClickabilityOf(dinner);
+//			
+//			driver.findElement(dinner).click();
+//			
+//		}else {
+//			
+////			Selecting Meal Type As Breakfast from Drop Down
+//			
+//			System.out.println("Selecting Meal Type As Breakfast from Drop Down");
+//			
+//			waitForClickabilityOf(breakfast);
+//			
+//			driver.findElement(breakfast).click();
+//			
+//				
+//		}
 				
 //		Selecting Session Start Date as Event Date
 		
@@ -2143,7 +2199,7 @@ public class AddSessions extends BaseSetUp{
 		
 	}
 
-    public AddSessions addNetworkingSession(String EmailId, String Password, String EventFullName,String TrackName,String Location,boolean track) throws ParseException, InterruptedException{
+    public AddSessions addNetworkingSession(String EmailId, String Password, String EventFullName,String TrackName,String SessionTitle,String Location,boolean track) throws ParseException, InterruptedException{
 		
 //		Login to your Account 
 		
@@ -2301,7 +2357,11 @@ public class AddSessions extends BaseSetUp{
 		
 //		Adding Search Track
 		
-		System.out.println("Entering Session Title  as :  Check-In-Registration");
+		System.out.println("Entering Session Title  as :  "+SessionTitle);
+		
+		waitForClickabilityOf(sessionTitle);
+		
+		driver.findElement(sessionTitle).sendKeys(SessionTitle+" NW");
 		
 //		Adding Search Track
 		
@@ -2364,22 +2424,22 @@ public class AddSessions extends BaseSetUp{
 		}
 				
 //		Clicking on Activity Drop Down
-		
-		System.out.println("Clicking on Activity Drop Down");
-		
-		waitForClickabilityOf(activityDropDown);
-		
-		driver.findElement(activityDropDown).click();
-		
-		Thread.sleep(2000);
-		
-//		Selecting Activity As Networking from Drop Down
-		
-		System.out.println("Selecting Activity As Networking from Drop Down");
-		
-		waitForClickabilityOf(networking);
-		
-		driver.findElement(networking).click();
+//		
+//		System.out.println("Clicking on Activity Drop Down");
+//		
+//		waitForClickabilityOf(activityDropDown);
+//		
+//		driver.findElement(activityDropDown).click();
+//		
+//		Thread.sleep(2000);
+//		
+////		Selecting Activity As Networking from Drop Down
+//		
+//		System.out.println("Selecting Activity As Networking from Drop Down");
+//		
+//		waitForClickabilityOf(networking);
+//		
+//		driver.findElement(networking).click();
 		
 		Thread.sleep(2000);
 		

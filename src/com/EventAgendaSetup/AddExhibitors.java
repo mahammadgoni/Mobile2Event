@@ -33,7 +33,7 @@ public class AddExhibitors extends BaseSetUp {
 
 	By publishState = By.xpath("//*[@id='ContentPlaceHolder1_gvExibitor_imgUnPublished_0']");
 
-	By clickOnAddExhibitor = By.xpath("//html//ul[@class='menu-3rd-level clearfix']/li[2]");
+	By clickOnAddExhibitor = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='exhibitor_AddEdit.aspx'][contains(text(),'Add Exhibitor')]");
 
 	By exhibitorName = By.xpath("//*[@id='ContentPlaceHolder1_txtExbtrName1']");
 

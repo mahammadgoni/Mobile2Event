@@ -44,7 +44,7 @@ public class UploadData extends BaseSetUp{
 	
 	}
 	
-	public UploadData e2mDataImport(String EmailId, String Password, String EventFullName) throws InterruptedException{
+	public UploadData e2mDataImport(String EmailId, String Password, String EventFullName,String E2MDataPath) throws InterruptedException{
 		
 		// Login to your Account
 
@@ -134,7 +134,7 @@ public class UploadData extends BaseSetUp{
 
 		waitForClickabilityOf(clickOnExcelFile);
 
-		driver.findElement(clickOnExcelFile).sendKeys(home+"/Test Data/E2MDataImportTemplate.xlsx");
+		driver.findElement(clickOnExcelFile).sendKeys(E2MDataPath);
 		
 //		Selecting the Speaker.zip File to Upload
 

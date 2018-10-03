@@ -29,7 +29,7 @@ public class AddAttendees extends BaseSetUp{
 	
 	By groupName = By.xpath("//*[@id='ContentPlaceHolder1_txtGroupName']");
 	
-	By showOnMobile = By.xpath("//*[@id='ContentPlaceHolder1_SOM']");
+	By showOnMobile = By.xpath("//*[@id='ContentPlaceHolder1_chkShowOnMobile']");
 	
 	By gUserCheckBox1st = By.xpath("//*[@id='ContentPlaceHolder1_gvUser_chkUser_0']");
 	
@@ -465,29 +465,30 @@ public class AddAttendees extends BaseSetUp{
     		
     		Thread.sleep(2000);
     		
+    		try {
+    		
 //    		Giving Access to 3rd user
     		
-    		System.out.println("Giving Access to 3rd user");
+    	    	System.out.println("Giving Access to 3rd user");
     		
-    		waitForClickabilityOf(appCheckIn3rd);
+    		    waitForClickabilityOf(appCheckIn3rd);
     		
-    		driver.findElement(appCheckIn3rd).click();
+    		    driver.findElement(appCheckIn3rd).click();
     		
-    		waitForClickabilityOf(appUser3rd);
+    		    waitForClickabilityOf(appUser3rd);
     		
-    		driver.findElement(appUser3rd).click();
+    		    driver.findElement(appUser3rd).click();
     		
-    		waitForClickabilityOf(chatbot3rd);
+    		    waitForClickabilityOf(chatbot3rd);
     		
-    		driver.findElement(chatbot3rd).click();
+    		    driver.findElement(chatbot3rd).click();
     		
-    		waitForClickabilityOf(expertUser3rd);
+    		    waitForClickabilityOf(expertUser3rd);
     		
-    		driver.findElement(expertUser3rd).click();
+    		    driver.findElement(expertUser3rd).click();
     		
-    		Thread.sleep(2000);
+    		    Thread.sleep(2000);
     		
-    		try {
     			
 //        		Giving Access to 4th user
         		

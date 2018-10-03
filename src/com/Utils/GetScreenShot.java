@@ -39,11 +39,14 @@ public class GetScreenShot implements ITestListener {
 
 //	 This method will execute before the main test start (@Test)
 	public void onTestStart(ITestResult tr) {
+		captureScreenShot(tr, "start");
 
 	}
 
 //	 This method will execute only if any of the main test(@Test) get skipped
 	public void onTestSkipped(ITestResult tr) {
+		
+		captureScreenShot(tr, "skip");
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult tr) {
