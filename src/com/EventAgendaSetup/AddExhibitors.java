@@ -100,7 +100,7 @@ public class AddExhibitors extends BaseSetUp {
 
 	}
 
-	public AddExhibitors addExhibitor(String EmailId, String Password, String EventFullName, String ExbtrName,String ExbtrType)throws InterruptedException {
+	public AddExhibitors addExhibitor(String EmailId, String Password, String EventFullName, String ExbtrName,String ExbtrType,String ExbtrPath)throws InterruptedException {
 
 		// Login to your Account
 
@@ -356,22 +356,22 @@ public class AddExhibitors extends BaseSetUp {
 
 		waitForClickabilityOf(exbtrLogo);
 
-		driver.findElement(exbtrLogo).sendKeys(home+"/Test Data/ExhibitorLogo.png");
+		driver.findElement(exbtrLogo).sendKeys(ExbtrPath);
 		
-		Thread.sleep(2000);
+//		Thread.sleep(2000);
 		
-		try {
-//			 Adding Exhibitor Banner
-
-			System.out.println("Adding Exhibitor Banner");
-
-			waitForClickabilityOf(exbtrBanner);
-
-			driver.findElement(exbtrBanner).sendKeys(home+"/Test Data/ExhibitorBanner.png");
-
-		} catch (Exception e) {
-
-		}
+//		try {
+////			 Adding Exhibitor Banner
+//
+//			System.out.println("Adding Exhibitor Banner");
+//
+//			waitForClickabilityOf(exbtrBanner);
+//
+//			driver.findElement(exbtrBanner).sendKeys(home+"/Test Data/ExhibitorBanner.png");
+//
+//		} catch (Exception e) {
+//
+//		}
 		
 		Thread.sleep(2000);
 
