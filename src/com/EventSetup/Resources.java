@@ -91,7 +91,7 @@ public class Resources extends BaseSetUp{
 	
 	By resourceCloseBtn = By.xpath("//div[@id='AddResource']//a[@class='close-popup']");
 	
-	By resourceBrowse = By.xpath("//*[@id='upfile2']");
+	By resourceBrowse = By.xpath("//*[@id='upfile1']");
 	
 	By resourceNo = By.xpath("//*[@class='resc-row']");
 	
@@ -578,7 +578,7 @@ public class Resources extends BaseSetUp{
 		
 	}
 	
-//	Upload Resource Method
+//	Upload link Resource Method
 	
 	public Resources uploadResouce(String EmailId, String Password,String EventFullName,String SessionTitle) throws InterruptedException{
 		
@@ -635,6 +635,69 @@ public class Resources extends BaseSetUp{
 		waitForClickabilityOf(resourceSaveBtn);
 
 		driver.findElement(resourceSaveBtn).click();
+		
+		Thread.sleep(2000);
+		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
+		
+//		Getting No Of Existing Resource Count
+		
+		System.out.println("Getting No Of Existing Resource Count");
+		
+		waitForClickabilityOf(resourceNo);
+		
+		List<WebElement> element = driver.findElements(resourceNo);
+		
+		int NoOfExResources = element.size();
+		
+		Thread.sleep(2000);
+		
+		if (NoOfExResources==1) {
+			
+			System.out.println("Successfully Uploaded One Resource");
+			
+		} else {
+			
+			System.out.println("Failed to Upload One Resource");
+
+		}
+		
+		return new Resources(driver);
+		
+	}
+	
+	
+//	Upload File Resource Method
+	
+	public Resources uploadFileResouce(String EmailId, String Password,String EventFullName,String FilePath) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+						
+//		Clicking On Upload Resources
+
+		System.out.println("Clicking On Upload Resources");
+
+		waitForClickabilityOf(uploadResources);
+
+		driver.findElement(uploadResources).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Save Button
+
+		System.out.println("Browsing File Resource ");
+
+		waitForClickabilityOf(resourceBrowse);
+
+		driver.findElement(resourceBrowse).sendKeys(FilePath);
 		
 		Thread.sleep(2000);
 		

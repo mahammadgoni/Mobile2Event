@@ -97,6 +97,14 @@ public class AboutEvent extends BaseSetUp{
 	
 	By noExstInfo = By.xpath("//*[@class='btn-delete']");
 	
+//	App Tutorial 
+	
+	By appTuto = By.xpath("//*[@id='form1']/section[2]/div/ul/li[8]/a");
+	
+	By appTuto1 = By.xpath("Brand");
+	
+	
+	
 	
 
 	public AboutEvent(WebDriver driver) {
@@ -706,6 +714,24 @@ public class AboutEvent extends BaseSetUp{
 		
 		return new AboutEvent(driver);
 		
+	}
+	
+//	App Tutorial Method
+	
+	public AboutEvent appTutorial(String Email,String Password,String EventName) throws InterruptedException{
+		
+		commonActivities(Email, Password, EventName);
+		
+		System.out.println("Clicking On App Tutorial");
+		
+		waitForClickabilityOf(appTuto);
+		
+		driver.findElement(appTuto).click();
+		
+		
+		
+		
+		return new AboutEvent(driver);
 	}
 	
 

@@ -50,6 +50,36 @@ public class FloorMap extends BaseSetUp{
 	By routeColorSave = By.xpath("//*[@class='colorpicker']//div[@class='colorpicker_submit']");
 	
 	By errorMsg = By.xpath("//*[@id='ContentPlaceHolder1_lblError']");
+	
+//	Booth Elements
+	
+	By clickOnBooth1 = By.xpath("//a[@href='FloormapMapper.aspx?mid=418&&eid=4565&&vid=468&&tab=1']");
+	
+	By left = By.xpath("//input[@id='txtLeft']");
+	
+	By top = By.xpath("//input[@id='txtTop']");
+	
+	By right = By.xpath("//input[@id='txtRight']");
+	
+	By bottm = By.xpath("//input[@id='txtBottom']");
+	
+	By width = By.xpath("//input[@id='w']");
+	
+	By hight = By.xpath("//input[@id='h']");
+	
+	By totalW = By.xpath("//input[@id='txtTotalW']");
+	
+	By totalH = By.xpath("//input[@id='txtTotalH']");
+	
+	By name = By.xpath("//input[@id='txtName']");
+	
+	By description = By.xpath("//input[@id='txtDescription']");
+	
+	By exhbtr1 = By.xpath("//label[@for='ContentPlaceHolder1_chkblstExhibitors_0']");
+	
+	By exhbtr2 = By.xpath("//label[@for='ContentPlaceHolder1_chkblstExhibitors_1']");
+	
+	By savebtn = By.xpath("//input[@id='btnSave']");
 
 	
 
@@ -361,6 +391,16 @@ public class FloorMap extends BaseSetUp{
 		return new FloorMap(driver);
 		
 	}
+
+//	Add Booth
+	
+	public FloorMap addBooth(){
+		
+		
+		return new FloorMap(driver);
+		
+	}
+	
 	
 
 }

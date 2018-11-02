@@ -33,7 +33,7 @@ public class AddSponsors extends BaseSetUp{
 	
 	By saveSpnsrBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSaveType']");
 	
-	By closePopUp = By.xpath("//html//div[@id='inline1']/a[1]");
+	By closePopUp = By.xpath("//div[@id='inline1']//a[@class='close-popup']");
 	
 	By selectSpnsrType = By.xpath("//*[@id='ContentPlaceHolder1_ddlSponsorType1_txtCombo']");
 
@@ -102,7 +102,7 @@ public class AddSponsors extends BaseSetUp{
 
 	}
 	
-	public AddSponsors addSponsor(String EmailId, String Password, String EventFullName, String SponsorName) throws InterruptedException{
+	public AddSponsors addSponsor(String EmailId, String Password, String EventFullName, String SponsorName,String SpnsrPath) throws InterruptedException{
 		
 		// Login to your Account
 
@@ -169,6 +169,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(clickOnEvent);
 
 		driver.findElement(clickOnEvent).click();
+		
+		Thread.sleep(2000);
 
 		// Clicking on Agenda Setup
 
@@ -177,6 +179,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(clickOnAgendaSetUp);
 
 		driver.findElement(clickOnAgendaSetUp).click();
+		
+		Thread.sleep(2000);
 
 		// Clicking on Exhibitor
 
@@ -185,6 +189,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(clickOnSponsors);
 
 		driver.findElement(clickOnSponsors).click();
+		
+		Thread.sleep(2000);
 
 		// Clicking on Add Sponsor
 
@@ -193,6 +199,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(clickOnAddSponsors);
 
 		driver.findElement(clickOnAddSponsors).click();
+		
+		Thread.sleep(2000);
 
 		// Clicking on Add Button
 
@@ -201,6 +209,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(addSpnsrBtn);
 
 		driver.findElement(addSpnsrBtn).click();
+		
+		Thread.sleep(2000);
 
 		// Entering Sponsor Type
 
@@ -209,6 +219,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(spnsrType);
 
 		driver.findElement(spnsrType).sendKeys("Gold");
+		
+		Thread.sleep(2000);
 
 		// Clicking On Save Button
 
@@ -217,6 +229,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(saveSpnsrBtn);
 
 		driver.findElement(saveSpnsrBtn).click();
+		
+		Thread.sleep(2000);
 
 		// Clicking On Close Pop Up
 
@@ -225,6 +239,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(closePopUp);
 
 		driver.findElement(closePopUp).click();
+		
+		Thread.sleep(2000);
 
 		// Clicking On Sponsor Type
 
@@ -233,6 +249,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(selectSpnsrType);
 
 		driver.findElement(selectSpnsrType).click();
+		
+		Thread.sleep(2000);
 
 		// Selecting Sponsor Type
 
@@ -241,6 +259,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(select1stType);
 
 		driver.findElement(select1stType).click();
+		
+		Thread.sleep(2000);
 
 		// Entering Sponsor Name
 
@@ -249,6 +269,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(spnsrName);
 
 		driver.findElement(spnsrName).sendKeys(SponsorName);
+		
+		Thread.sleep(2000);
 
 		// Entering Booth No
 
@@ -257,10 +279,14 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(boothNo);
 
 		driver.findElement(boothNo).sendKeys("8");
+		
+		Thread.sleep(2000);
 
 		// Converting the String to Lower case
 
 		String sSpnsrName = SponsorName.toLowerCase();
+		
+		Thread.sleep(2000);
 
 		// Entering Sponsor Website
 
@@ -268,7 +294,9 @@ public class AddSponsors extends BaseSetUp{
 
 		waitForClickabilityOf(website);
 
-		driver.findElement(website).sendKeys(sSpnsrName);
+		driver.findElement(website).sendKeys(sSpnsrName+ ".com");
+		
+		Thread.sleep(2000);
 
 		// Entering Sponsor Email Id
 
@@ -277,6 +305,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(emailId);
 
 		driver.findElement(emailId).sendKeys(sSpnsrName + "@yop.com");
+		
+		Thread.sleep(2000);
 
 		// Entering Sponsor Phone No
 
@@ -285,6 +315,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(contactNo);
 
 		driver.findElement(contactNo).sendKeys("9786653421");
+		
+		Thread.sleep(2000);
 
 		// Entering Sponsor Country
 
@@ -293,10 +325,14 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(selectCountry);
 
 		driver.findElement(selectCountry).click();
+		
+		Thread.sleep(2000);
 
 		waitForClickabilityOf(selectUSA);
 
 		driver.findElement(selectUSA).click();
+		
+		Thread.sleep(2000);
 
 		// Entering Sponsor Address
 
@@ -305,6 +341,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(address);
 
 		driver.findElement(address).sendKeys("202,Columbia Heights, Northwest, Washington, D.C.");
+		
+		Thread.sleep(2000);
 
 		// Entering Sponsor Profile
 
@@ -313,6 +351,8 @@ public class AddSponsors extends BaseSetUp{
 		waitForClickabilityOf(profile);
 
 		driver.findElement(profile).sendKeys("This is Test Sponsor Profile");
+		
+		Thread.sleep(2000);
 
 		// Adding Sponsor Logo
 
@@ -320,15 +360,17 @@ public class AddSponsors extends BaseSetUp{
 
 		waitForClickabilityOf(spnsrLogo);
 
-		driver.findElement(spnsrLogo).sendKeys(home+"/Test Data/SponsorLogo.jpg");
+		driver.findElement(spnsrLogo).sendKeys(SpnsrPath);
+		
+		Thread.sleep(2000);
 
 		// Adding Sponsor Banner
 
-		System.out.println("Adding Sponsor Banner");
-
-		waitForClickabilityOf(spnsrBanner);
-
-		driver.findElement(spnsrBanner).sendKeys(home+"/Test Data/SponsorBanner.jpg");
+//		System.out.println("Adding Sponsor Banner");
+//
+//		waitForClickabilityOf(spnsrBanner);
+//
+//		driver.findElement(spnsrBanner).sendKeys(home+"/Test Data/SponsorBanner.jpg");
 
 		// Clicking On Save Button
 

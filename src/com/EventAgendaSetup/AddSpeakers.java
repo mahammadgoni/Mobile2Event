@@ -788,13 +788,13 @@ public class AddSpeakers extends BaseSetUp{
 		
 		dateDropDown.selectByIndex(1);
 				
-//		Clicking on Select Session
-		
-		System.out.println("Clicking on Select Session");
-		
-		waitForClickabilityOf(clickOnActivity);
-		
-		driver.findElement(clickOnActivity).click();
+////		Clicking on Select Session
+//		
+//		System.out.println("Clicking on Select Session");
+//		
+//		waitForClickabilityOf(clickOnActivity);
+//		
+//		driver.findElement(clickOnActivity).click();
 				
 //		Entering the Sessions Title 
 		

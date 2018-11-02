@@ -17,7 +17,7 @@ public class BrowserSetUp extends ReadAndWriteTestData{
 
 //  This Will Store the Project Home Address
 	
-	String home = System.getProperty("user.dir");
+	protected String home = System.getProperty("user.dir");
 	
 
 
