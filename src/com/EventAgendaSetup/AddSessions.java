@@ -289,11 +289,277 @@ public class AddSessions extends BaseSetUp{
 	
 	String GroupName = "Event Helper";
 	
+//	Add Agenda Elements
+	
+	By agendaTab = By.xpath("//ul[@id='3rdlevelmenu']/li[6]");
+	
+	By addNewAgenda = By.xpath("//*[@id='ContentPlaceHolder1_btnAddNew']");
+	
+	By selectDateDropDown = By.xpath("//select[@id='slSessDate']");
+	
+	By selectTrackDropDown = By.xpath("//select[@id='slSessTrack']");
+	
+	By searchAgendaSession = By.xpath("//*[@id='txtSession']");
+	
+	By selectAllSessionCBox = By.xpath("//*[@id='sess_all_chk']");
+	
+	By selectAllSessionDoneBtn = By.xpath("//*[@value='Done']");
+	
+	By agendaAllowRemovalBtn = By.xpath("//*[@id='ContentPlaceHolder1_DNA']");
+	
+	By agendaAllUserMapBtn = By.xpath("//*[@id='ContentPlaceHolder1_rbtnaudience_0']");
+	
+	By agendaSelUserBtn = By.xpath("//*[@id='ContentPlaceHolder1_rbtnaudience_1']");
+	
+	By agendaSaveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
+	
 	
 	
 
 	public AddSessions(WebDriver driver) {
 		super(driver);
+		
+	}
+	
+//	Add Agenda Method
+	
+	public AddSessions addAgenda(String EmailId, String Password,String EventFullName,int NoOfDate,int NoOfTrack) throws InterruptedException{
+		
+//		Login to your Account 
+		
+		LoginToAccount lp = new LoginToAccount(driver);
+		
+		lp.loginToAccount(EmailId, Password);
+		
+		Thread.sleep(2000);
+		
+//		Searching for Event Name
+		
+		System.out.println("Searching for Event Name :"+EventFullName);
+		
+		waitForClickabilityOf(searchEvent);
+		
+		WebElement search = driver.findElement(searchEvent);
+		
+		search.sendKeys(EventFullName);
+		
+//		Pressing Enter Button 
+		
+		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+		
+		System.out.println("Clicking On Event : "+ActEventName);
+		
+		if (EventFullName.equals(ActEventName)) {
+			
+			System.out.println("This is Correct Event");
+			
+		} else {
+			
+			System.out.println("Failed to Search the Event Name so, searching again ");
+			
+			search.clear();
+			
+			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+//			Pressing Enter Button 
+			
+			search.sendKeys(Keys.ENTER);
+				
+		}
+		
+		Thread.sleep(2000);
+		
+//		Saving the Event Date
+		
+		System.out.println("Saving the Event Date");
+		
+		waitForClickabilityOf(eventStartDate);
+		
+		String EventDate = driver.findElement(eventStartDate).getText();	
+		
+		System.out.println(EventDate);
+		
+		Thread.sleep(2000);
+		
+//		Changing the String to Date
+		
+	    Date date = null;
+
+	    DateFormat df = new SimpleDateFormat("MMM dd,yyyy");
+	       
+	    try{
+	    	
+	        date = df.parse(EventDate);
+
+	    }
+	    catch ( Exception ex ){
+	        System.out.println(ex);
+	    }
+	    
+		Thread.sleep(2000);
+	    
+//	  Again changing the Date to String 
+	    
+	    String FEventDate = null;
+	    
+	    SimpleDateFormat sdfr = new SimpleDateFormat("dd/MM/yyyy");
+	    
+		Thread.sleep(2000);
+
+	    try{
+	    	
+	    	FEventDate = sdfr.format(date);
+	    	
+	    }catch (Exception ex ){
+	    	
+	 	System.out.println(ex);
+	 	
+	    }
+	    		
+		System.out.println(FEventDate);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+//		Clicking on The Event
+		
+		System.out.println("Clicking on The Event");
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		driver.findElement(clickOnEvent).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Agenda Setup
+		
+		System.out.println("Clicking on Agenda Setup");
+		
+		waitForClickabilityOf(clickOnAgendaSetUp);
+		
+		driver.findElement(clickOnAgendaSetUp).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Session
+		
+		System.out.println("Clicking on Session");
+		
+		waitForClickabilityOf(clickOnSession);
+		
+		driver.findElement(clickOnSession).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Add Agenda");
+		
+		waitForClickabilityOf(agendaTab);
+		
+		driver.findElement(agendaTab).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Add New Agenda");
+		
+		waitForClickabilityOf(addNewAgenda);
+		
+		driver.findElement(addNewAgenda).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Selecting Date from Drop Down");
+		
+		waitForClickabilityOf(selectDateDropDown);
+		
+//		Selecting Date From Drop Down
+		
+		Select DateDD = new Select(driver.findElement(selectDateDropDown));
+		
+		DateDD.selectByIndex(NoOfDate);
+		
+//		Selecting Track From Drop Down
+		
+		Select TrackDD = new Select(driver.findElement(selectTrackDropDown));
+		
+		TrackDD.selectByIndex(NoOfTrack);
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Session Search");
+		
+		waitForClickabilityOf(searchAgendaSession);
+		
+		driver.findElement(searchAgendaSession).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Select All Session Check Box");
+		
+		waitForClickabilityOf(selectAllSessionCBox);
+		
+		driver.findElement(selectAllSessionCBox).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Done Button");
+		
+		waitForClickabilityOf(selectAllSessionDoneBtn);
+		
+		driver.findElement(selectAllSessionDoneBtn).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Allow Removal Check Box");
+		
+		waitForClickabilityOf(agendaAllowRemovalBtn);
+		
+		driver.findElement(agendaAllowRemovalBtn).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on All User Map Button");
+		
+		waitForClickabilityOf(agendaAllUserMapBtn);
+		
+		driver.findElement(agendaAllUserMapBtn).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Save Button");
+		
+		waitForClickabilityOf(agendaSaveBtn);
+		
+		driver.findElement(agendaSaveBtn).click();
+
+		
+		
+		
+		
+		
+		return new AddSessions(driver);
 		
 	}
 	
