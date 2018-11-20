@@ -1964,9 +1964,24 @@ public class E2MTestCase extends BrowserSetUp {
 //		new Reports(driver).allReports(EmailId, Password, EventFullName);
 //		
 //	}
+//	
+//	@Test (priority = 116,alwaysRun = true)
+//	public void editLeaderBoardPointsTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Edit Leader Board Points Test");
+//		
+//		new LeaderBoard(driver).editActivityPoints(EmailId, Password, EventFullName, "40");
+//		
+//	}
 	
-	@Test (priority = 116,alwaysRun = true)
-	public void editLeaderBoardPointsTest() throws InterruptedException, InvalidFormatException, IOException{
+	@Test (priority = 117,alwaysRun = true)
+	public void editAdvanceLeaderBoardPointsSPersonTest() throws InterruptedException, InvalidFormatException, IOException{
 		
 		String EmailId = getCellData(1, 5);
 
@@ -1976,7 +1991,37 @@ public class E2MTestCase extends BrowserSetUp {
 		
 		System.out.println("Executing : Edit Leader Board Points Test");
 		
-		new LeaderBoard(driver).editActivityPoints(EmailId, Password, EventFullName, "40");
+		new LeaderBoard(driver).advanceLeaderBoard(EmailId, Password, EventFullName, "100", "200", "Specific Person");
+		
+	}
+	
+	@Test (priority = 118,alwaysRun = true)
+	public void editAdvanceLeaderBoardPointsGroupTest() throws InterruptedException, InvalidFormatException, IOException{
+		
+		String EmailId = getCellData(1, 5);
+
+		String Password = getCellData(1, 6);
+
+		String EventFullName = getCellData(1, 7);
+		
+		System.out.println("Executing : Edit Leader Board Points Test");
+		
+		new LeaderBoard(driver).advanceLeaderBoard(EmailId, Password, EventFullName, "100", "200", "Group");
+		
+	}
+	
+	@Test (priority = 118,alwaysRun = true)
+	public void leaderBoardViewTest() throws InterruptedException, InvalidFormatException, IOException{
+		
+		String EmailId = getCellData(1, 5);
+
+		String Password = getCellData(1, 6);
+
+		String EventFullName = getCellData(1, 7);
+		
+		System.out.println("Executing : Leader Board View Test");
+		
+		new LeaderBoard(driver).leaderBoardView(EmailId, Password, EventFullName);
 		
 	}
 
