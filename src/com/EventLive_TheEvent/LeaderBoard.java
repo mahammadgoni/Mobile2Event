@@ -46,7 +46,7 @@ public class LeaderBoard extends BaseSetUp{
 	
 //	View Leader Board Elements
 	
-	By clickOnLeaderBoardView = By.xpath("//*[@id='btnAdvScoreSave']");
+	By clickOnLeaderBoardView = By.xpath("//a[@id='leaderview']");
 	
 	By userDetails = By.xpath("//div[@id='UpdatePanel2']");
 	

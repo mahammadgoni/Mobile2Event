@@ -313,6 +313,22 @@ public class AddSessions extends BaseSetUp{
 	
 	By agendaSaveBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
 	
+//	Remove Agenda
+	
+	By select1stAgenda = By.xpath("//div[@id='ContentPlaceHolder1_dvRecordsFound']//div//tbody//tr[2]/td[1]/span");
+	
+	By removeFromAgenda = By.xpath("//*[@id='ContentPlaceHolder1_btnRemoveFromAgenda']");
+	
+	By searchForUser = By.xpath("//*[@id='ContentPlaceHolder1_txtGroupUser']");
+	
+//	Import Agenda
+	
+	By importAgenda = By.xpath("//input[@id='ContentPlaceHolder1_btnImportData']");
+	
+	By agendaUploadBtn = By.xpath("//input[@id='ContentPlaceHolder1_fileupload']");
+	
+	By importFileBtn = By.xpath("//input[@id='ContentPlaceHolder1_btnAddNew']");
+	
 	
 	
 
@@ -320,6 +336,197 @@ public class AddSessions extends BaseSetUp{
 		super(driver);
 		
 	}
+	
+	
+//	Import Agenda Method 
+	
+	public AddSessions importAgenda(String EmailId, String Password,String EventFullName,String AgendaPath) throws InterruptedException{
+		
+//		Login to your Account 
+		
+		LoginToAccount lp = new LoginToAccount(driver);
+		
+		lp.loginToAccount(EmailId, Password);
+		
+		Thread.sleep(2000);
+		
+//		Searching for Event Name
+		
+		System.out.println("Searching for Event Name :"+EventFullName);
+		
+		waitForClickabilityOf(searchEvent);
+		
+		WebElement search = driver.findElement(searchEvent);
+		
+		search.sendKeys(EventFullName);
+		
+//		Pressing Enter Button 
+		
+		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+		
+		System.out.println("Clicking On Event : "+ActEventName);
+		
+		if (EventFullName.equals(ActEventName)) {
+			
+			System.out.println("This is Correct Event");
+			
+		} else {
+			
+			System.out.println("Failed to Search the Event Name so, searching again ");
+			
+			search.clear();
+			
+			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+//			Pressing Enter Button 
+			
+			search.sendKeys(Keys.ENTER);
+				
+		}
+		
+		Thread.sleep(2000);
+		
+//		Saving the Event Date
+		
+		System.out.println("Saving the Event Date");
+		
+		waitForClickabilityOf(eventStartDate);
+		
+		String EventDate = driver.findElement(eventStartDate).getText();	
+		
+		System.out.println(EventDate);
+		
+		Thread.sleep(2000);
+		
+//		Changing the String to Date
+		
+	    Date date = null;
+
+	    DateFormat df = new SimpleDateFormat("MMM dd,yyyy");
+	       
+	    try{
+	    	
+	        date = df.parse(EventDate);
+
+	    }
+	    catch ( Exception ex ){
+	        System.out.println(ex);
+	    }
+	    
+		Thread.sleep(2000);
+	    
+//	  Again changing the Date to String 
+	    
+	    String FEventDate = null;
+	    
+	    SimpleDateFormat sdfr = new SimpleDateFormat("dd/MM/yyyy");
+	    
+		Thread.sleep(2000);
+
+	    try{
+	    	
+	    	FEventDate = sdfr.format(date);
+	    	
+	    }catch (Exception ex ){
+	    	
+	 	System.out.println(ex);
+	 	
+	    }
+	    		
+		System.out.println(FEventDate);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+//		Clicking on The Event
+		
+		System.out.println("Clicking on The Event");
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		driver.findElement(clickOnEvent).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Agenda Setup
+		
+		System.out.println("Clicking on Agenda Setup");
+		
+		waitForClickabilityOf(clickOnAgendaSetUp);
+		
+		driver.findElement(clickOnAgendaSetUp).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Session
+		
+		System.out.println("Clicking on Session");
+		
+		waitForClickabilityOf(clickOnSession);
+		
+		driver.findElement(clickOnSession).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Add Agenda");
+		
+		waitForClickabilityOf(agendaTab);
+		
+		driver.findElement(agendaTab).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Import Agenda");
+		
+		waitForClickabilityOf(importAgenda);
+		
+		driver.findElement(importAgenda).click();
+		
+		Thread.sleep(2000);
+				
+		System.out.println("Uploading Excel file for uploading ");
+		
+		waitForClickabilityOf(agendaUploadBtn);
+		
+		driver.findElement(agendaUploadBtn).sendKeys(AgendaPath);
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Import File");
+		
+		waitForClickabilityOf(importFileBtn);
+		
+		driver.findElement(importFileBtn).click();
+		
+		Thread.sleep(2000);
+		
+		
+		return new AddSessions(driver);
+	}
+	
 	
 //	Add Agenda Method
 	
@@ -553,6 +760,9 @@ public class AddSessions extends BaseSetUp{
 		waitForClickabilityOf(agendaSaveBtn);
 		
 		driver.findElement(agendaSaveBtn).click();
+		
+		
+		System.out.println("Succesfully Added Agenda");
 
 		
 		
@@ -562,6 +772,382 @@ public class AddSessions extends BaseSetUp{
 		return new AddSessions(driver);
 		
 	}
+	
+//	Remove Agenda
+	
+	public AddSessions removeAgenda(String EmailId, String Password,String EventFullName,String UserName) throws InterruptedException{
+		
+//		Login to your Account 
+		
+		LoginToAccount lp = new LoginToAccount(driver);
+		
+		lp.loginToAccount(EmailId, Password);
+		
+		Thread.sleep(2000);
+		
+//		Searching for Event Name
+		
+		System.out.println("Searching for Event Name :"+EventFullName);
+		
+		waitForClickabilityOf(searchEvent);
+		
+		WebElement search = driver.findElement(searchEvent);
+		
+		search.sendKeys(EventFullName);
+		
+//		Pressing Enter Button 
+		
+		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+		
+		System.out.println("Clicking On Event : "+ActEventName);
+		
+		if (EventFullName.equals(ActEventName)) {
+			
+			System.out.println("This is Correct Event");
+			
+		} else {
+			
+			System.out.println("Failed to Search the Event Name so, searching again ");
+			
+			search.clear();
+			
+			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+//			Pressing Enter Button 
+			
+			search.sendKeys(Keys.ENTER);
+				
+		}
+		
+		Thread.sleep(2000);
+		
+//		Saving the Event Date
+		
+		System.out.println("Saving the Event Date");
+		
+		waitForClickabilityOf(eventStartDate);
+		
+		String EventDate = driver.findElement(eventStartDate).getText();	
+		
+		System.out.println(EventDate);
+		
+		Thread.sleep(2000);
+		
+//		Changing the String to Date
+		
+	    Date date = null;
+
+	    DateFormat df = new SimpleDateFormat("MMM dd,yyyy");
+	       
+	    try{
+	    	
+	        date = df.parse(EventDate);
+
+	    }
+	    catch ( Exception ex ){
+	        System.out.println(ex);
+	    }
+	    
+		Thread.sleep(2000);
+	    
+//	  Again changing the Date to String 
+	    
+	    String FEventDate = null;
+	    
+	    SimpleDateFormat sdfr = new SimpleDateFormat("dd/MM/yyyy");
+	    
+		Thread.sleep(2000);
+
+	    try{
+	    	
+	    	FEventDate = sdfr.format(date);
+	    	
+	    }catch (Exception ex ){
+	    	
+	 	System.out.println(ex);
+	 	
+	    }
+	    		
+		System.out.println(FEventDate);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+//		Clicking on The Event
+		
+		System.out.println("Clicking on The Event");
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		driver.findElement(clickOnEvent).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Agenda Setup
+		
+		System.out.println("Clicking on Agenda Setup");
+		
+		waitForClickabilityOf(clickOnAgendaSetUp);
+		
+		driver.findElement(clickOnAgendaSetUp).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Session
+		
+		System.out.println("Clicking on Session");
+		
+		waitForClickabilityOf(clickOnSession);
+		
+		driver.findElement(clickOnSession).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Add Agenda");
+		
+		waitForClickabilityOf(agendaTab);
+		
+		driver.findElement(agendaTab).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Searching for User Name :"+UserName);
+		
+		waitForClickabilityOf(searchForUser);
+		
+		WebElement UserSearch = driver.findElement(searchForUser);
+		
+		UserSearch.sendKeys(UserName);
+		
+		Thread.sleep(2000);
+		
+//		Pressing Enter Button 
+		
+		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Selecting 1st Session");
+		
+		waitForClickabilityOf(select1stAgenda);
+		
+		driver.findElement(select1stAgenda).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Remove From Agenda");
+		
+		waitForClickabilityOf(removeFromAgenda);
+		
+		driver.findElement(removeFromAgenda).click();
+		
+		try {
+			
+			popUpHandeling();
+			
+		} catch (Exception e) {
+			
+		}
+		
+		System.out.println("Succefully Removed from Agenda");
+		
+		
+		
+		return new AddSessions(driver);
+	}
+	
+//	Edit Agenda
+	
+	public AddSessions editAgenda(String EmailId, String Password, String EventFullName) throws InterruptedException{
+		
+//		Login to your Account 
+		
+		LoginToAccount lp = new LoginToAccount(driver);
+		
+		lp.loginToAccount(EmailId, Password);
+		
+		Thread.sleep(2000);
+		
+//		Searching for Event Name
+		
+		System.out.println("Searching for Event Name :"+EventFullName);
+		
+		waitForClickabilityOf(searchEvent);
+		
+		WebElement search = driver.findElement(searchEvent);
+		
+		search.sendKeys(EventFullName);
+		
+//		Pressing Enter Button 
+		
+		search.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+		
+		System.out.println("Clicking On Event : "+ActEventName);
+		
+		if (EventFullName.equals(ActEventName)) {
+			
+			System.out.println("This is Correct Event");
+			
+		} else {
+			
+			System.out.println("Failed to Search the Event Name so, searching again ");
+			
+			search.clear();
+			
+			search.sendKeys(EventFullName);
+			
+			Thread.sleep(2000);
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+//			Pressing Enter Button 
+			
+			search.sendKeys(Keys.ENTER);
+				
+		}
+		
+		Thread.sleep(2000);
+		
+//		Saving the Event Date
+		
+		System.out.println("Saving the Event Date");
+		
+		waitForClickabilityOf(eventStartDate);
+		
+		String EventDate = driver.findElement(eventStartDate).getText();	
+		
+		System.out.println(EventDate);
+		
+		Thread.sleep(2000);
+		
+//		Changing the String to Date
+		
+	    Date date = null;
+
+	    DateFormat df = new SimpleDateFormat("MMM dd,yyyy");
+	       
+	    try{
+	    	
+	        date = df.parse(EventDate);
+
+	    }
+	    catch ( Exception ex ){
+	        System.out.println(ex);
+	    }
+	    
+		Thread.sleep(2000);
+	    
+//	  Again changing the Date to String 
+	    
+	    String FEventDate = null;
+	    
+	    SimpleDateFormat sdfr = new SimpleDateFormat("dd/MM/yyyy");
+	    
+		Thread.sleep(2000);
+
+	    try{
+	    	
+	    	FEventDate = sdfr.format(date);
+	    	
+	    }catch (Exception ex ){
+	    	
+	 	System.out.println(ex);
+	 	
+	    }
+	    		
+		System.out.println(FEventDate);
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+//		Clicking on The Event
+		
+		System.out.println("Clicking on The Event");
+		
+		waitForClickabilityOf(clickOnEvent);
+		
+		driver.findElement(clickOnEvent).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Agenda Setup
+		
+		System.out.println("Clicking on Agenda Setup");
+		
+		waitForClickabilityOf(clickOnAgendaSetUp);
+		
+		driver.findElement(clickOnAgendaSetUp).click();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Session
+		
+		System.out.println("Clicking on Session");
+		
+		waitForClickabilityOf(clickOnSession);
+		
+		driver.findElement(clickOnSession).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Add Agenda");
+		
+		waitForClickabilityOf(agendaTab);
+		
+		driver.findElement(agendaTab).click();
+		
+		Thread.sleep(2000);
+		
+		
+		
+		return new AddSessions(driver);
+	}
+	
+	
+	
+	
 	
 	public AddSessions addSessions(String EmailId, String Password, String EventFullName,String SessionTitle,String TrackName,String Location) throws ParseException, InterruptedException{
 		

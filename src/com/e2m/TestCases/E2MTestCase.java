@@ -1951,6 +1951,53 @@ public class E2MTestCase extends BrowserSetUp {
 //	}
 //	
 //	@Test (priority = 115,alwaysRun = true)
+//	public void removeAgendaTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Remove Agenda Test");
+//		
+//		new AddSessions(driver).removeAgenda(EmailId, Password, EventFullName, "Bruce Wills(brucewills@yopmail.com)");
+//		
+//	}
+//	
+//	@Test (priority = 116,alwaysRun = true)
+//	public void editAgendaTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Edit Agenda Test");
+//		
+//		new AddSessions(driver).editAgenda(EmailId, Password, EventFullName);
+//		
+//	}
+	
+	@Test (priority = 117,alwaysRun = true)
+	public void importAgendaTest() throws InterruptedException, InvalidFormatException, IOException{
+		
+		String EmailId = getCellData(1, 5);
+
+		String Password = getCellData(1, 6);
+
+		String EventFullName = getCellData(1, 7);
+		
+		String AgendaUpload = getCellData(1, 20);
+		
+		System.out.println("Executing : Import Agenda Test");
+		
+		new AddSessions(driver).importAgenda(EmailId, Password, EventFullName, home+AgendaUpload);
+		
+	}
+//	
+//	@Test (priority = 115,alwaysRun = true)
 //	public void downloadReportsTest() throws InterruptedException, InvalidFormatException, IOException{
 //		
 //		String EmailId = getCellData(1, 5);
@@ -1979,50 +2026,50 @@ public class E2MTestCase extends BrowserSetUp {
 //		new LeaderBoard(driver).editActivityPoints(EmailId, Password, EventFullName, "40");
 //		
 //	}
-	
-	@Test (priority = 117,alwaysRun = true)
-	public void editAdvanceLeaderBoardPointsSPersonTest() throws InterruptedException, InvalidFormatException, IOException{
-		
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-		
-		System.out.println("Executing : Edit Leader Board Points Test");
-		
-		new LeaderBoard(driver).advanceLeaderBoard(EmailId, Password, EventFullName, "100", "200", "Specific Person");
-		
-	}
-	
-	@Test (priority = 118,alwaysRun = true)
-	public void editAdvanceLeaderBoardPointsGroupTest() throws InterruptedException, InvalidFormatException, IOException{
-		
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-		
-		System.out.println("Executing : Edit Leader Board Points Test");
-		
-		new LeaderBoard(driver).advanceLeaderBoard(EmailId, Password, EventFullName, "100", "200", "Group");
-		
-	}
-	
-	@Test (priority = 118,alwaysRun = true)
-	public void leaderBoardViewTest() throws InterruptedException, InvalidFormatException, IOException{
-		
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-		
-		System.out.println("Executing : Leader Board View Test");
-		
-		new LeaderBoard(driver).leaderBoardView(EmailId, Password, EventFullName);
-		
-	}
+//	
+//	@Test (priority = 117,alwaysRun = true)
+//	public void editAdvanceLeaderBoardPointsSPersonTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Edit Leader Board Points Test");
+//		
+//		new LeaderBoard(driver).advanceLeaderBoard(EmailId, Password, EventFullName, "100", "200", "Specific Person");
+//		
+//	}
+//	
+//	@Test (priority = 118,alwaysRun = true)
+//	public void editAdvanceLeaderBoardPointsGroupTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Edit Leader Board Points Test");
+//		
+//		new LeaderBoard(driver).advanceLeaderBoard(EmailId, Password, EventFullName, "100", "200", "Group");
+//		
+//	}
+//	
+//	@Test (priority = 118,alwaysRun = true)
+//	public void leaderBoardViewTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Leader Board View Test");
+//		
+//		new LeaderBoard(driver).leaderBoardView(EmailId, Password, EventFullName);
+//		
+//	}
 
 }
