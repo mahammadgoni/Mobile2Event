@@ -1,10 +1,15 @@
-1541142490606	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/yb/t94yk5zd3yb580b2dc9b2w440000gs/T/rust_mozprofile.wQsDQDpuOUHl"
-1541142497113	Marionette	INFO	Listening on port 64324
-1541142497185	Marionette	WARN	TLS certificate errors will be ignored for this session
+1542367497711	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-foreground" "-no-remote" "-profile" "/var/folders/yb/t94yk5zd3yb580b2dc9b2w440000gs/T/rust_mozprofile.Nfjg4Ri2dKxf"
+1542367534523	Marionette	INFO	Listening on port 58718
+1542367534887	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: BroadcastService: 
+  receivedBroadcastMessage: handler for
+  remote-settings/monitor_changes
+  threw error:
+  Message: Error: Polling for changes failed: NetworkError when attempting to fetch resource..
+  Stack:
+    remoteSettingsFunction/remoteSettings.pollChanges@resource://services-settings/remote-settings.js:721:13
+
 JavaScript warning: https://cms.event2mobile.com/?AspxAutoDetectCookieSupport=1, line 1: unreachable code after return statement
 JavaScript warning: https://cms.event2mobile.com/overview.aspx, line 823: unreachable code after return statement
 JavaScript warning: https://cms.event2mobile.com/overview.aspx, line 823: unreachable code after return statement
-JavaScript warning: https://cms.event2mobile.com/overview.aspx, line 823: unreachable code after return statement
-JavaScript warning: https://cms.event2mobile.com/overview.aspx, line 823: unreachable code after return statement
-JavaScript warning: https://cms.event2mobile.com/overview.aspx, line 823: unreachable code after return statement
-JavaScript warning: https://cms.event2mobile.com/overview.aspx, line 823: unreachable code after return statement
+1542367670616	Marionette	INFO	Stopped listening on port 58718

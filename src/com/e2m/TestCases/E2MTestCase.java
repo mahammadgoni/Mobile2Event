@@ -9,6 +9,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import com.Analytics.Reports;
 import com.CommonActions.ForgotPassword;
 import com.CommonActions.LoginToAccount;
 import com.EventAgendaSetup.AddAttendees;
@@ -22,8 +24,10 @@ import com.EventGamification.Locations;
 import com.EventGamification.MakeAFriend;
 import com.EventGamification.QuizOrTrivia;
 import com.EventGamification.ScoringRules;
+import com.EventLive_TheEvent.LeaderBoard;
 import com.EventLive_TheEvent.PollOrVote;
 import com.EventLive_TheEvent.Rate;
+import com.EventLive_TheEvent.TheWall;
 import com.EventManagement.CloneEvent;
 import com.EventManagement.MapUserToEvent;
 import com.EventManagement.NewEvent;
@@ -1407,36 +1411,36 @@ public class E2MTestCase extends BrowserSetUp {
 //		new AddSponsors(driver).sponsorList(EmailId, Password, EventFullName);
 //
 //	}
-
-	@Test(priority = 80, alwaysRun = true)
-	public void mapSponsorWithUserTest()throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		System.out.println("Executing : Map Sponsor with User Test");
-
-		new AddSponsors(driver).mapSponsorWithUser(EmailId, Password, EventFullName);
-
-	}
-
-	@Test(priority = 81, alwaysRun = true)
-	public void mapSponsorWithUserGroupTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
-
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-
-		System.out.println("Executing : Map Sponsor with User Group Test");
-
-		new AddSponsors(driver).mapSponsorWithUserGroup(EmailId, Password, EventFullName);
-
-	}
+//
+//	@Test(priority = 80, alwaysRun = true)
+//	public void mapSponsorWithUserTest()throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Map Sponsor with User Test");
+//
+//		new AddSponsors(driver).mapSponsorWithUser(EmailId, Password, EventFullName);
+//
+//	}
+//
+//	@Test(priority = 81, alwaysRun = true)
+//	public void mapSponsorWithUserGroupTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
+//
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//
+//		System.out.println("Executing : Map Sponsor with User Group Test");
+//
+//		new AddSponsors(driver).mapSponsorWithUserGroup(EmailId, Password, EventFullName);
+//
+//	}
 
 //	@Test(priority = 82, alwaysRun = true)
 //	public void uploadE2MDataTest()	throws ParseException, InterruptedException, AWTException, InvalidFormatException, IOException {
@@ -1914,9 +1918,163 @@ public class E2MTestCase extends BrowserSetUp {
 //		new MapUserToEvent(driver).mapUserToEvent(EmailId, Password, EventFullName, "kevinms@yopmail.com");
 //
 //	}
+//	
+//	@Test (priority = 113, alwaysRun = true)
+//	public void appTutorialTest() throws InvalidFormatException, IOException, InterruptedException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : App Tutorial Test");
+//		
+//		new AboutEvent(driver).appTutorial(EmailId, Password, EventFullName);
+//		
+//		
+//		
+//	}
+//	
+//	@Test (priority = 114,alwaysRun = true)
+//	public void addAgendaTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Add Agenda Test");
+//		
+//		new AddSessions(driver).addAgenda(EmailId, Password, EventFullName, 2, 1);
+//		
+//	}
+//	
+//	@Test (priority = 115,alwaysRun = true)
+//	public void removeAgendaTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Remove Agenda Test");
+//		
+//		new AddSessions(driver).removeAgenda(EmailId, Password, EventFullName, "Bruce Wills(brucewills@yopmail.com)");
+//		
+//	}
+//	
+//	@Test (priority = 116,alwaysRun = true)
+//	public void editAgendaTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Edit Agenda Test");
+//		
+//		new AddSessions(driver).editAgenda(EmailId, Password, EventFullName);
+//		
+//	}
+//	
+//	@Test (priority = 117,alwaysRun = true)
+//	public void importAgendaTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String AgendaUpload = getCellData(1, 20);
+//		
+//		System.out.println("Executing : Import Agenda Test");
+//		
+//		new AddSessions(driver).importAgenda(EmailId, Password, EventFullName, home+AgendaUpload);
+//		
+//	}
+//	
+//	@Test (priority = 115,alwaysRun = true)
+//	public void downloadReportsTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Download Repots Test");
+//		
+//		new Reports(driver).allReports(EmailId, Password, EventFullName);
+//		
+//	}
+//	
+//	@Test (priority = 116,alwaysRun = true)
+//	public void editLeaderBoardPointsTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Edit Leader Board Points Test");
+//		
+//		new LeaderBoard(driver).editActivityPoints(EmailId, Password, EventFullName, "40");
+//		
+//	}
+//	
+//	@Test (priority = 117,alwaysRun = true)
+//	public void editAdvanceLeaderBoardPointsSPersonTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Edit Leader Board Points Test");
+//		
+//		new LeaderBoard(driver).advanceLeaderBoard(EmailId, Password, EventFullName, "100", "200", "Specific Person");
+//		
+//	}
+//	
+//	@Test (priority = 118,alwaysRun = true)
+//	public void editAdvanceLeaderBoardPointsGroupTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Edit Leader Board Points Test");
+//		
+//		new LeaderBoard(driver).advanceLeaderBoard(EmailId, Password, EventFullName, "100", "200", "Group");
+//		
+//	}
+//	
+//	@Test (priority = 118,alwaysRun = true)
+//	public void leaderBoardViewTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Leader Board View Test");
+//		
+//		new LeaderBoard(driver).leaderBoardView(EmailId, Password, EventFullName);
+//		
+//	}
 	
-	@Test (priority = 113, alwaysRun = true)
-	public void appTutorialTest() throws InvalidFormatException, IOException, InterruptedException{
+	@Test (priority = 119,alwaysRun = true)
+	public void updateSocialWallTest() throws InterruptedException, InvalidFormatException, IOException{
 		
 		String EmailId = getCellData(1, 5);
 
@@ -1924,11 +2082,24 @@ public class E2MTestCase extends BrowserSetUp {
 
 		String EventFullName = getCellData(1, 7);
 		
-		System.out.println("Executing : App Tutorial Test");
+		System.out.println("Executing : Update Social Wall Test");
 		
-		new AboutEvent(driver).appTutorial(EmailId, Password, EventFullName);
+		new TheWall(driver).updateSocialWall(EmailId, Password, EventFullName, "Social Wall topic addition");
 		
+	}
+	
+	@Test (priority = 120,alwaysRun = true)
+	public void updatePhotoWallTest() throws InterruptedException, InvalidFormatException, IOException{
 		
+		String EmailId = getCellData(1, 5);
+
+		String Password = getCellData(1, 6);
+
+		String EventFullName = getCellData(1, 7);
+		
+		System.out.println("Executing : Update Photo Wall Test");
+		
+		new TheWall(driver).updatePhotoWall(EmailId, Password, EventFullName, "Photo Wall topic addition");
 		
 	}
 
