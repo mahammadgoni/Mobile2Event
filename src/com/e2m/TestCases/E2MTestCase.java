@@ -27,6 +27,7 @@ import com.EventGamification.ScoringRules;
 import com.EventLive_TheEvent.LeaderBoard;
 import com.EventLive_TheEvent.PollOrVote;
 import com.EventLive_TheEvent.Rate;
+import com.EventLive_TheEvent.TheWall;
 import com.EventManagement.CloneEvent;
 import com.EventManagement.MapUserToEvent;
 import com.EventManagement.NewEvent;
@@ -1979,23 +1980,23 @@ public class E2MTestCase extends BrowserSetUp {
 //		new AddSessions(driver).editAgenda(EmailId, Password, EventFullName);
 //		
 //	}
-	
-	@Test (priority = 117,alwaysRun = true)
-	public void importAgendaTest() throws InterruptedException, InvalidFormatException, IOException{
-		
-		String EmailId = getCellData(1, 5);
-
-		String Password = getCellData(1, 6);
-
-		String EventFullName = getCellData(1, 7);
-		
-		String AgendaUpload = getCellData(1, 20);
-		
-		System.out.println("Executing : Import Agenda Test");
-		
-		new AddSessions(driver).importAgenda(EmailId, Password, EventFullName, home+AgendaUpload);
-		
-	}
+//	
+//	@Test (priority = 117,alwaysRun = true)
+//	public void importAgendaTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		String AgendaUpload = getCellData(1, 20);
+//		
+//		System.out.println("Executing : Import Agenda Test");
+//		
+//		new AddSessions(driver).importAgenda(EmailId, Password, EventFullName, home+AgendaUpload);
+//		
+//	}
 //	
 //	@Test (priority = 115,alwaysRun = true)
 //	public void downloadReportsTest() throws InterruptedException, InvalidFormatException, IOException{
@@ -2071,5 +2072,35 @@ public class E2MTestCase extends BrowserSetUp {
 //		new LeaderBoard(driver).leaderBoardView(EmailId, Password, EventFullName);
 //		
 //	}
+	
+	@Test (priority = 119,alwaysRun = true)
+	public void updateSocialWallTest() throws InterruptedException, InvalidFormatException, IOException{
+		
+		String EmailId = getCellData(1, 5);
+
+		String Password = getCellData(1, 6);
+
+		String EventFullName = getCellData(1, 7);
+		
+		System.out.println("Executing : Update Social Wall Test");
+		
+		new TheWall(driver).updateSocialWall(EmailId, Password, EventFullName, "Social Wall topic addition");
+		
+	}
+	
+	@Test (priority = 120,alwaysRun = true)
+	public void updatePhotoWallTest() throws InterruptedException, InvalidFormatException, IOException{
+		
+		String EmailId = getCellData(1, 5);
+
+		String Password = getCellData(1, 6);
+
+		String EventFullName = getCellData(1, 7);
+		
+		System.out.println("Executing : Update Photo Wall Test");
+		
+		new TheWall(driver).updatePhotoWall(EmailId, Password, EventFullName, "Photo Wall topic addition");
+		
+	}
 
 }
