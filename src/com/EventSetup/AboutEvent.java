@@ -103,6 +103,16 @@ public class AboutEvent extends BaseSetUp{
 	
 	By appTuto1 = By.xpath("Brand");
 	
+//	Settings Elements
+	
+	By settings = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='EventSetting.aspx'][contains(text(),'Settings')]");
+	
+	By dateTimeNoBtn = By.xpath("//*[@id='rbtnlIsShowDatetime_1']");
+	
+	By locationNoBtn = By.xpath("//*[@id='rbtnlIsShowLocation_1']");
+	
+	By saveSettingsBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
+	
 	
 	
 	
@@ -205,6 +215,134 @@ public class AboutEvent extends BaseSetUp{
 	}
 	
 //  Event Info Method
+	
+	public AboutEvent settings(String EmailId, String Password,String EventFullName) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+
+//		Clicking on About Event
+		
+		System.out.println("Clicking on Settings");
+		
+		waitForClickabilityOf(settings);
+		
+		driver.findElement(settings).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Checking for Date Time No Button");
+		
+		Thread.sleep(2000);
+		
+		waitForClickabilityOf(dateTimeNoBtn);
+		
+		Thread.sleep(2000);
+		
+		boolean DateNo = driver.findElement(dateTimeNoBtn).isSelected();
+		
+		if (DateNo==true) {
+			
+			System.out.println("Date Time No Button is Already Selected");
+			
+		} else {
+			
+			System.out.println("Selecting Date Time No Button");
+			
+			driver.findElement(dateTimeNoBtn).click();
+
+		}
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Checking for Location No Button");
+		
+		Thread.sleep(2000);
+		
+		waitForClickabilityOf(locationNoBtn);
+		
+		Thread.sleep(2000);
+		
+		boolean Locationbtn = driver.findElement(locationNoBtn).isSelected();
+		
+		if (Locationbtn==true) {
+			
+			System.out.println("Location No Button is Already Selected");
+			
+		} else {
+			
+			System.out.println("Selecting Location No Button");
+			
+			driver.findElement(locationNoBtn).click();
+
+		}
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Save Button");
+		
+		waitForClickabilityOf(saveSettingsBtn);
+		
+		driver.findElement(saveSettingsBtn).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Settings");
+		
+		waitForClickabilityOf(settings);
+		
+		driver.findElement(settings).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Checking for Date Time No Button");
+		
+		Thread.sleep(2000);
+		
+		waitForClickabilityOf(dateTimeNoBtn);
+		
+		Thread.sleep(2000);
+		
+		boolean DateNo1 = driver.findElement(dateTimeNoBtn).isSelected();
+		
+		if (DateNo1==true) {
+			
+			System.out.println("Successfully Selected Date Time No Button");
+			
+		} else {
+			
+			System.out.println("Failed to  Select Date Time No Button");
+			
+		}
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Checking for Location No Button");
+		
+		Thread.sleep(2000);
+		
+		waitForClickabilityOf(locationNoBtn);
+		
+		Thread.sleep(2000);
+		
+		boolean Locationbtn1 = driver.findElement(locationNoBtn).isSelected();
+		
+		if (Locationbtn1==true) {
+			
+			System.out.println("Successfully Selected Location No Button");
+			
+		} else {
+			
+			System.out.println("Selecting Location No Button");
+
+		}
+		
+		
+		
+		
+		return new AboutEvent(driver);
+	}
 	
 	
 //	Event Info Method
