@@ -2117,5 +2117,20 @@ public class E2MTestCase extends BrowserSetUp {
 		new AboutEvent(driver).settings(EmailId, Password, EventFullName);
 		
 	}
+	
+	@Test (priority = 122,alwaysRun = true)
+	public void floorMapOrderingTest() throws InterruptedException, InvalidFormatException, IOException{
+		
+		String EmailId = getCellData(1, 5);
+
+		String Password = getCellData(1, 6);
+
+		String EventFullName = getCellData(1, 7);
+		
+		System.out.println("Executing : Floor Map Ordering Test");
+		
+		new FloorMap(driver).floorMapReordering(EmailId, Password, EventFullName);
+		
+	}
 
 }

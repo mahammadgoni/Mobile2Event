@@ -652,6 +652,17 @@ public class AboutEvent extends BaseSetUp{
 		return new AboutEvent(driver);
 		
 	}
+	
+//	Usefull Info Reorering 
+	
+	public AboutEvent usefullInfoOrering(String EmailId, String Password,String EventFullName){
+		
+		
+		
+		
+		return new AboutEvent(driver);
+				
+	}
 		
 	
 //	Add Use full Info Method
