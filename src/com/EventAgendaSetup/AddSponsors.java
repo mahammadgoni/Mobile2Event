@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.BaseSetup.BaseSetUp;
@@ -95,11 +96,156 @@ public class AddSponsors extends BaseSetUp{
 
 	By successMessage = By.xpath("//*[@id='ContentPlaceHolder1_lblError']");
 	
+//	Sponsor Ordering
+	
+	By sponsorTypeOrdering = By.xpath("//a[@id='ContentPlaceHolder1_lnkSponsorTypeDisplayOrder']");
+	
+	By firstSponsor = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_ReorderListSponsorType__rli0___dih0']//img[@id='imgRowOrderChange']");
+	
+	By secondSponsor = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_ReorderListSponsorType__rli2___dih2']//img[@id='imgRowOrderChange']");
+	
+	By saveDisplayOrder = By.xpath("//input[@id='ContentPlaceHolder1_btnSave']");
+	
 
 
 	public AddSponsors(WebDriver driver) {
 		super(driver);
 
+	}
+	
+//	Sponsor Type Ordering 
+	
+	public AddSponsors sponsorOrdering(String EmailId, String Password, String EventFullName) throws InterruptedException{
+		
+		// Login to your Account
+
+		new LoginToAccount(driver).loginToAccount(EmailId, Password);
+
+		// Searching for Event Name
+
+		System.out.println("Searching for Event Name :" + EventFullName);
+
+		waitForClickabilityOf(searchEvent);
+
+		WebElement search = driver.findElement(searchEvent);
+
+		search.sendKeys(EventFullName);
+
+		// Pressing Enter Button
+
+		search.sendKeys(Keys.ENTER);
+
+		Thread.sleep(2000);
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		waitForClickabilityOf(clickOnEvent);
+
+		String ActEventName = driver.findElement(clickOnEvent).getText();
+
+		System.out.println("Clicking On Event : " + ActEventName);
+
+		if (EventFullName.equals(ActEventName)) {
+
+			System.out.println("This is Correct Event");
+
+		} else {
+
+			System.out.println("Failed to Search the Event Name so, searching again ");
+
+			search.clear();
+
+			search.sendKeys(EventFullName);
+
+			Thread.sleep(2000);
+
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			// Pressing Enter Button
+
+			search.sendKeys(Keys.ENTER);
+
+		}
+
+		// Clicking on The Event
+
+		System.out.println("Clicking on The Event");
+
+		waitForClickabilityOf(clickOnEvent);
+
+		driver.findElement(clickOnEvent).click();
+		
+		Thread.sleep(2000);
+
+		// Clicking on Agenda Setup
+
+		System.out.println("Clicking on Agenda Setup");
+
+		waitForClickabilityOf(clickOnAgendaSetUp);
+
+		driver.findElement(clickOnAgendaSetUp).click();
+		
+		Thread.sleep(2000);
+
+		// Clicking on Exhibitor
+
+		System.out.println("Clicking on Sponsor");
+
+		waitForClickabilityOf(clickOnSponsors);
+
+		driver.findElement(clickOnSponsors).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Sponsor Ordering");
+
+		waitForClickabilityOf(sponsorTypeOrdering);
+
+		driver.findElement(sponsorTypeOrdering).click();
+				
+		Thread.sleep(2000);
+		
+//		1st Floor Map
+		
+		WebElement source = driver.findElement(firstSponsor);
+				
+//		2nd Floor Map
+		
+		WebElement destination = driver.findElement(secondSponsor);
+	
+//		Will Drag and Drop the Elements
+		
+		Actions action  = new Actions(driver);
+		
+		System.out.println("Performing Drag and Drop Operation");
+		
+		action.dragAndDrop(source, destination).build().perform();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Save Display Order
+		
+		System.out.println("Clicking on Save Display Order");
+		
+		waitForClickabilityOf(saveDisplayOrder);
+		
+		driver.findElement(saveDisplayOrder).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Successfully Save the Display Order");
+		
+		
+		
+		return new AddSponsors(driver);
 	}
 	
 	public AddSponsors addSponsor(String EmailId, String Password, String EventFullName, String SponsorName,String SpnsrPath) throws InterruptedException{
