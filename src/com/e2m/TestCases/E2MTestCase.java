@@ -2147,5 +2147,20 @@ public class E2MTestCase extends BrowserSetUp {
 		new AboutEvent(driver).usefullInfoOrdering(EmailId, Password, EventFullName);
 		
 	}
+	
+	@Test (priority = 124,alwaysRun = true)
+	public void exhibitorTypeOrderingTest() throws InterruptedException, InvalidFormatException, IOException{
+		
+		String EmailId = getCellData(1, 5);
+
+		String Password = getCellData(1, 6);
+
+		String EventFullName = getCellData(1, 7);
+		
+		System.out.println("Executing : Exhibitor Type Ordering Test");
+		
+		new AddExhibitors(driver).exhibitorOrdering(EmailId, Password, EventFullName);
+		
+	}
 
 }
