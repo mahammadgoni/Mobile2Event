@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.BaseSetup.BaseSetUp;
 import com.CommonActions.LoginToAccount;
@@ -112,6 +113,18 @@ public class AboutEvent extends BaseSetUp{
 	By locationNoBtn = By.xpath("//*[@id='rbtnlIsShowLocation_1']");
 	
 	By saveSettingsBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
+	
+//	Usefull Info Ordering 
+	
+	By usefulInfoOrdering = By.xpath("//a[@id='ContentPlaceHolder1_lnkUsefulInfoDisplayOrder']");
+	
+	By firstUsefullInfo = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_reorderListUsefulInfo__rli0___dih0']//img[@id='imgRowOrderChange']");
+	
+	By seconfUsefullInfo = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_reorderListUsefulInfo__rli1___dih1']//img[@id='imgRowOrderChange']");
+	
+	By saveDisplayOrder = By.xpath("//input[@id='ContentPlaceHolder1_btnSave']");
+	
+	
 	
 	
 	
@@ -655,7 +668,63 @@ public class AboutEvent extends BaseSetUp{
 	
 //	Usefull Info Reorering 
 	
-	public AboutEvent usefullInfoOrering(String EmailId, String Password,String EventFullName){
+	public AboutEvent usefullInfoOrdering(String EmailId, String Password,String EventFullName) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Useful Info
+		
+		System.out.println("Clicking on Useful Info");
+		
+		waitForClickabilityOf(usefullInfo);
+		
+		driver.findElement(usefullInfo).click();
+		
+		Thread.sleep(2000);
+		
+		Thread.sleep(2000);
+
+//		Clicking on Add New Floor Map
+		
+		System.out.println("Clicking on Floor Map Reordering ");
+		
+		waitForClickabilityOf(usefulInfoOrdering);
+		
+		driver.findElement(usefulInfoOrdering).click();
+		
+		Thread.sleep(2000);
+		
+//		1st Floor Map
+		
+		WebElement source = driver.findElement(firstUsefullInfo);
+				
+//		2nd Floor Map
+		
+		WebElement destination = driver.findElement(seconfUsefullInfo);
+	
+//		Will Drag and Drop the Elements
+		
+		Actions action  = new Actions(driver);
+		
+		System.out.println("Performing Drag and Drop Operation");
+		
+		action.dragAndDrop(source, destination).build().perform();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Save Display Order
+		
+		System.out.println("Clicking on Save Display Order");
+		
+		waitForClickabilityOf(saveDisplayOrder);
+		
+		driver.findElement(saveDisplayOrder).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Successfully Save the Display Order");
 		
 		
 		
