@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.BaseSetup.BaseSetUp;
 import com.CommonActions.LoginToAccount;
@@ -102,6 +103,28 @@ public class AboutEvent extends BaseSetUp{
 	By appTuto = By.xpath("//*[@id='form1']/section[2]/div/ul/li[8]/a");
 	
 	By appTuto1 = By.xpath("Brand");
+	
+//	Settings Elements
+	
+	By settings = By.xpath("//ul[@class='menu-3rd-level clearfix']//li//a[@href='EventSetting.aspx'][contains(text(),'Settings')]");
+	
+	By dateTimeNoBtn = By.xpath("//*[@id='rbtnlIsShowDatetime_1']");
+	
+	By locationNoBtn = By.xpath("//*[@id='rbtnlIsShowLocation_1']");
+	
+	By saveSettingsBtn = By.xpath("//*[@id='ContentPlaceHolder1_btnSave']");
+	
+//	Usefull Info Ordering 
+	
+	By usefulInfoOrdering = By.xpath("//a[@id='ContentPlaceHolder1_lnkUsefulInfoDisplayOrder']");
+	
+	By firstUsefullInfo = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_reorderListUsefulInfo__rli0___dih0']//img[@id='imgRowOrderChange']");
+	
+	By seconfUsefullInfo = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_reorderListUsefulInfo__rli1___dih1']//img[@id='imgRowOrderChange']");
+	
+	By saveDisplayOrder = By.xpath("//input[@id='ContentPlaceHolder1_btnSave']");
+	
+	
 	
 	
 	
@@ -205,6 +228,134 @@ public class AboutEvent extends BaseSetUp{
 	}
 	
 //  Event Info Method
+	
+	public AboutEvent settings(String EmailId, String Password,String EventFullName) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+
+//		Clicking on About Event
+		
+		System.out.println("Clicking on Settings");
+		
+		waitForClickabilityOf(settings);
+		
+		driver.findElement(settings).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Checking for Date Time No Button");
+		
+		Thread.sleep(2000);
+		
+		waitForClickabilityOf(dateTimeNoBtn);
+		
+		Thread.sleep(2000);
+		
+		boolean DateNo = driver.findElement(dateTimeNoBtn).isSelected();
+		
+		if (DateNo==true) {
+			
+			System.out.println("Date Time No Button is Already Selected");
+			
+		} else {
+			
+			System.out.println("Selecting Date Time No Button");
+			
+			driver.findElement(dateTimeNoBtn).click();
+
+		}
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Checking for Location No Button");
+		
+		Thread.sleep(2000);
+		
+		waitForClickabilityOf(locationNoBtn);
+		
+		Thread.sleep(2000);
+		
+		boolean Locationbtn = driver.findElement(locationNoBtn).isSelected();
+		
+		if (Locationbtn==true) {
+			
+			System.out.println("Location No Button is Already Selected");
+			
+		} else {
+			
+			System.out.println("Selecting Location No Button");
+			
+			driver.findElement(locationNoBtn).click();
+
+		}
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Save Button");
+		
+		waitForClickabilityOf(saveSettingsBtn);
+		
+		driver.findElement(saveSettingsBtn).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Clicking on Settings");
+		
+		waitForClickabilityOf(settings);
+		
+		driver.findElement(settings).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Checking for Date Time No Button");
+		
+		Thread.sleep(2000);
+		
+		waitForClickabilityOf(dateTimeNoBtn);
+		
+		Thread.sleep(2000);
+		
+		boolean DateNo1 = driver.findElement(dateTimeNoBtn).isSelected();
+		
+		if (DateNo1==true) {
+			
+			System.out.println("Successfully Selected Date Time No Button");
+			
+		} else {
+			
+			System.out.println("Failed to  Select Date Time No Button");
+			
+		}
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Checking for Location No Button");
+		
+		Thread.sleep(2000);
+		
+		waitForClickabilityOf(locationNoBtn);
+		
+		Thread.sleep(2000);
+		
+		boolean Locationbtn1 = driver.findElement(locationNoBtn).isSelected();
+		
+		if (Locationbtn1==true) {
+			
+			System.out.println("Successfully Selected Location No Button");
+			
+		} else {
+			
+			System.out.println("Selecting Location No Button");
+
+		}
+		
+		
+		
+		
+		return new AboutEvent(driver);
+	}
 	
 	
 //	Event Info Method
@@ -513,6 +664,73 @@ public class AboutEvent extends BaseSetUp{
 		
 		return new AboutEvent(driver);
 		
+	}
+	
+//	Usefull Info Reorering 
+	
+	public AboutEvent usefullInfoOrdering(String EmailId, String Password,String EventFullName) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Useful Info
+		
+		System.out.println("Clicking on Useful Info");
+		
+		waitForClickabilityOf(usefullInfo);
+		
+		driver.findElement(usefullInfo).click();
+		
+		Thread.sleep(2000);
+		
+		Thread.sleep(2000);
+
+//		Clicking on Add New Floor Map
+		
+		System.out.println("Clicking on Floor Map Reordering ");
+		
+		waitForClickabilityOf(usefulInfoOrdering);
+		
+		driver.findElement(usefulInfoOrdering).click();
+		
+		Thread.sleep(2000);
+		
+//		1st Floor Map
+		
+		WebElement source = driver.findElement(firstUsefullInfo);
+				
+//		2nd Floor Map
+		
+		WebElement destination = driver.findElement(seconfUsefullInfo);
+	
+//		Will Drag and Drop the Elements
+		
+		Actions action  = new Actions(driver);
+		
+		System.out.println("Performing Drag and Drop Operation");
+		
+		action.dragAndDrop(source, destination).build().perform();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Save Display Order
+		
+		System.out.println("Clicking on Save Display Order");
+		
+		waitForClickabilityOf(saveDisplayOrder);
+		
+		driver.findElement(saveDisplayOrder).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Successfully Save the Display Order");
+		
+		
+		
+		
+		return new AboutEvent(driver);
+				
 	}
 		
 	

@@ -2072,9 +2072,39 @@ public class E2MTestCase extends BrowserSetUp {
 //		new LeaderBoard(driver).leaderBoardView(EmailId, Password, EventFullName);
 //		
 //	}
+//	
+//	@Test (priority = 119,alwaysRun = true)
+//	public void updateSocialWallTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Update Social Wall Test");
+//		
+//		new TheWall(driver).updateSocialWall(EmailId, Password, EventFullName, "Social Wall topic addition");
+//		
+//	}
+//	
+//	@Test (priority = 120,alwaysRun = true)
+//	public void updatePhotoWallTest() throws InterruptedException, InvalidFormatException, IOException{
+//		
+//		String EmailId = getCellData(1, 5);
+//
+//		String Password = getCellData(1, 6);
+//
+//		String EventFullName = getCellData(1, 7);
+//		
+//		System.out.println("Executing : Update Photo Wall Test");
+//		
+//		new TheWall(driver).updatePhotoWall(EmailId, Password, EventFullName, "Photo Wall topic addition");
+//		
+//	}
 	
-	@Test (priority = 119,alwaysRun = true)
-	public void updateSocialWallTest() throws InterruptedException, InvalidFormatException, IOException{
+	@Test (priority = 121,alwaysRun = true)
+	public void eventSettingsTest() throws InterruptedException, InvalidFormatException, IOException{
 		
 		String EmailId = getCellData(1, 5);
 
@@ -2082,14 +2112,14 @@ public class E2MTestCase extends BrowserSetUp {
 
 		String EventFullName = getCellData(1, 7);
 		
-		System.out.println("Executing : Update Social Wall Test");
+		System.out.println("Executing : Event Settings Test");
 		
-		new TheWall(driver).updateSocialWall(EmailId, Password, EventFullName, "Social Wall topic addition");
+		new AboutEvent(driver).settings(EmailId, Password, EventFullName);
 		
 	}
 	
-	@Test (priority = 120,alwaysRun = true)
-	public void updatePhotoWallTest() throws InterruptedException, InvalidFormatException, IOException{
+	@Test (priority = 122,alwaysRun = true)
+	public void floorMapOrderingTest() throws InterruptedException, InvalidFormatException, IOException{
 		
 		String EmailId = getCellData(1, 5);
 
@@ -2097,9 +2127,54 @@ public class E2MTestCase extends BrowserSetUp {
 
 		String EventFullName = getCellData(1, 7);
 		
-		System.out.println("Executing : Update Photo Wall Test");
+		System.out.println("Executing : Floor Map Ordering Test");
 		
-		new TheWall(driver).updatePhotoWall(EmailId, Password, EventFullName, "Photo Wall topic addition");
+		new FloorMap(driver).floorMapReordering(EmailId, Password, EventFullName);
+		
+	}
+	
+	@Test (priority = 123,alwaysRun = true)
+	public void usefullInfoOrderingTest() throws InterruptedException, InvalidFormatException, IOException{
+		
+		String EmailId = getCellData(1, 5);
+
+		String Password = getCellData(1, 6);
+
+		String EventFullName = getCellData(1, 7);
+		
+		System.out.println("Executing : Usefull Info Ordering Test");
+		
+		new AboutEvent(driver).usefullInfoOrdering(EmailId, Password, EventFullName);
+		
+	}
+	
+	@Test (priority = 124,alwaysRun = true)
+	public void exhibitorTypeOrderingTest() throws InterruptedException, InvalidFormatException, IOException{
+		
+		String EmailId = getCellData(1, 5);
+
+		String Password = getCellData(1, 6);
+
+		String EventFullName = getCellData(1, 7);
+		
+		System.out.println("Executing : Exhibitor Type Ordering Test");
+		
+		new AddExhibitors(driver).exhibitorOrdering(EmailId, Password, EventFullName);
+		
+	}
+	
+	@Test (priority = 125,alwaysRun = true)
+	public void sponsorTypeOrderingTest() throws InterruptedException, InvalidFormatException, IOException{
+		
+		String EmailId = getCellData(1, 5);
+
+		String Password = getCellData(1, 6);
+
+		String EventFullName = getCellData(1, 7);
+		
+		System.out.println("Executing : Sponsor Type Ordering Test");
+		
+		new AddSponsors(driver).sponsorOrdering(EmailId, Password, EventFullName);
 		
 	}
 

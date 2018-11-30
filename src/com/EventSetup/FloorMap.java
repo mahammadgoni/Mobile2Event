@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.BaseSetup.BaseSetUp;
 import com.CommonActions.LoginToAccount;
@@ -80,6 +81,16 @@ public class FloorMap extends BaseSetUp{
 	By exhbtr2 = By.xpath("//label[@for='ContentPlaceHolder1_chkblstExhibitors_1']");
 	
 	By savebtn = By.xpath("//input[@id='btnSave']");
+	
+//	Floor map Reordering 
+	
+	By floorMapOrdering = By.xpath("//input[@id='ContentPlaceHolder1_btndisplayOrderChange']");
+	
+	By firstFloorMap = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_ReorderListMenuCategory__rli1___dih1']//img[@id='imgRowOrderChange']");
+	
+	By secondFloorMap = By.xpath("//td[@id='ctl00_ContentPlaceHolder1_ReorderListMenuCategory__rli0___dih0']//img[@id='imgRowOrderChange']");
+	
+	By saveDisplayOrder = By.xpath("//input[@id='ContentPlaceHolder1_btnSave']");
 
 	
 
@@ -179,6 +190,61 @@ public class FloorMap extends BaseSetUp{
 		driver.findElement(clickOnFloorMap).click();
 		
 		
+	}
+	
+//	Floor Map Reordering 
+	
+	public FloorMap floorMapReordering(String EmailId, String Password,String EventFullName) throws InterruptedException{
+		
+		commonActivities(EmailId, Password, EventFullName);
+		
+		Thread.sleep(2000);
+
+//		Clicking on Add New Floor Map
+		
+		System.out.println("Clicking on Floor Map Reordering ");
+		
+		waitForClickabilityOf(floorMapOrdering);
+		
+		driver.findElement(floorMapOrdering).click();
+		
+		Thread.sleep(2000);
+		
+//		1st Floor Map
+		
+		WebElement source = driver.findElement(firstFloorMap);
+				
+//		2nd Floor Map
+		
+		WebElement destination = driver.findElement(secondFloorMap);
+	
+//		Will Drag and Drop the Elements
+		
+		Actions action  = new Actions(driver);
+		
+		System.out.println("Performing Drag and Drop Operation");
+		
+		action.dragAndDrop(source, destination).build().perform();
+		
+		Thread.sleep(2000);
+		
+//		Clicking on Save Display Order
+		
+		System.out.println("Clicking on Save Display Order");
+		
+		waitForClickabilityOf(saveDisplayOrder);
+		
+		driver.findElement(saveDisplayOrder).click();
+		
+		Thread.sleep(2000);
+		
+		System.out.println("Successfully Save the Display Order");
+		
+		
+		
+		
+		
+		return new FloorMap(driver);
 	}
 	
 //	Add Floor Map Method
